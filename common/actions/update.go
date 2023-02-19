@@ -27,18 +27,18 @@ func UpdateAction(control dto.Control) gin.HandlerFunc {
 		//更新操作
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失败")
+			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失敗")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失败")
+			response.Error(c, 500, err, "模型生成失敗")
 			return
 		}
 		object.SetUpdateBy(user.GetUserId(c))
 
-		//数据权限检查
+		//資料权限检查
 		p := GetPermissionFromContext(c)
 
 		db = db.WithContext(c).Scopes(
@@ -46,7 +46,7 @@ func UpdateAction(control dto.Control) gin.HandlerFunc {
 		).Where(req.GetId()).Updates(object)
 		if err = db.Error; err != nil {
 			log.Errorf("MsgID[%s] Update error: %s", msgID, err)
-			response.Error(c, 500, err, "更新失败")
+			response.Error(c, 500, err, "更新失敗")
 			return
 		}
 		if db.RowsAffected == 0 {

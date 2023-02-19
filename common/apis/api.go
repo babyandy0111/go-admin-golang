@@ -31,14 +31,14 @@ func (e *Api) AddError(err error) {
 	}
 }
 
-// MakeContext 设置http上下文
+// MakeContext 設定http上下文
 func (e *Api) MakeContext(c *gin.Context) *Api {
 	e.Context = c
 	e.Logger = api.GetRequestLogger(c)
 	return e
 }
 
-// GetLogger 获取上下文提供的日志
+// GetLogger 取得上下文提供的Log
 func (e Api) GetLogger() *logger.Helper {
 	return api.GetRequestLogger(e.Context)
 }
@@ -80,17 +80,17 @@ func (e *Api) Bind(d interface{}, bindings ...binding.Binding) *Api {
 	return e
 }
 
-// GetOrm 获取Orm DB
+// GetOrm 取得Orm DB
 func (e Api) GetOrm() (*gorm.DB, error) {
 	db, err := pkg.GetOrm(e.Context)
 	if err != nil {
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return nil, err
 	}
 	return db, nil
 }
 
-// MakeOrm 设置Orm DB
+// MakeOrm 設定Orm DB
 func (e *Api) MakeOrm() *Api {
 	var err error
 	if e.Logger == nil {
@@ -101,7 +101,7 @@ func (e *Api) MakeOrm() *Api {
 	}
 	db, err := pkg.GetOrm(e.Context)
 	if err != nil {
-		e.Logger.Error(500, err, "数据库连接获取失败")
+		e.Logger.Error(500, err, "資料库连接取得失敗")
 		e.AddError(err)
 	}
 	e.Orm = db
@@ -114,17 +114,17 @@ func (e *Api) MakeService(c *service.Service) *Api {
 	return e
 }
 
-// Error 通常错误数据处理
+// Error 通常错误資料处理
 func (e Api) Error(code int, err error, msg string) {
 	response.Error(e.Context, code, err, msg)
 }
 
-// OK 通常成功数据处理
+// OK 通常成功資料处理
 func (e Api) OK(data interface{}, msg string) {
 	response.OK(e.Context, data, msg)
 }
 
-// PageOK 分页数据处理
+// PageOK 分頁資料处理
 func (e Api) PageOK(result interface{}, count int, pageIndex int, pageSize int, msg string) {
 	response.PageOK(e.Context, result, count, pageIndex, pageSize, msg)
 }

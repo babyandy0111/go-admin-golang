@@ -30,7 +30,7 @@ func InitRouter() {
 		log.Fatalf("JWT Init Error, %s", err.Error())
 	}
 
-	// 注册业務路由
-	// TODO: 这里可存放业務路由，里边并无实际路由只有演示代碼
+	// 註冊业務路由
+	// TODO: 这里可存放业務路由，里边并無实际路由只有演示代碼
 	initRouter(r, authMiddleware)
 }

@@ -47,7 +47,7 @@ type ServerMonitor struct {
 	api.Api
 }
 
-// GetHourDiffer 获取相差時間
+// GetHourDiffer 取得相差時間
 func GetHourDiffer(startTime, endTime string) int64 {
 	var hour int64
 	t1, err := time.ParseInLocation("2006-01-02 15:04:05", startTime, time.Local)
@@ -61,10 +61,10 @@ func GetHourDiffer(startTime, endTime string) int64 {
 	}
 }
 
-// ServerInfo 获取系统訊息
-// @Summary 系统訊息
-// @Description 获取JSON
-// @Tags 系统訊息
+// ServerInfo 取得系統訊息
+// @Summary 系統訊息
+// @Description 取得JSON
+// @Tags 系統訊息
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/server-monitor [get]
 // @Security Bearer

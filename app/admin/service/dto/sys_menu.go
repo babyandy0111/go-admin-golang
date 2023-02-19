@@ -10,8 +10,8 @@ import (
 // SysMenuGetPageReq 列表或者搜索使用结构体
 type SysMenuGetPageReq struct {
 	dto.Pagination `search:"-"`
-	Title          string `form:"title" search:"type:contains;column:title;table:sys_menu" comment:"菜单名稱"`  // 菜单名稱
-	Visible        int    `form:"visible" search:"type:exact;column:visible;table:sys_menu" comment:"显示狀態"` // 显示狀態
+	Title          string `form:"title" search:"type:contains;column:title;table:sys_menu" comment:"選單名稱"`  // 選單名稱
+	Visible        int    `form:"visible" search:"type:exact;column:visible;table:sys_menu" comment:"顯示狀態"` // 顯示狀態
 }
 
 func (m *SysMenuGetPageReq) GetNeedSearch() interface{} {
@@ -20,22 +20,22 @@ func (m *SysMenuGetPageReq) GetNeedSearch() interface{} {
 
 type SysMenuInsertReq struct {
 	MenuId     int             `uri:"id" comment:"流水號"`           // 流水號
-	MenuName   string          `form:"menuName" comment:"菜单name"` //菜单name
-	Title      string          `form:"title" comment:"显示名稱"`      //显示名稱
+	MenuName   string          `form:"menuName" comment:"選單name"` //選單name
+	Title      string          `form:"title" comment:"顯示名稱"`      //顯示名稱
 	Icon       string          `form:"icon" comment:"图標"`         //图標
 	Path       string          `form:"path" comment:"路径"`         //路径
 	Paths      string          `form:"paths" comment:"id路径"`      //id路径
-	MenuType   string          `form:"menuType" comment:"菜单類型"`   //菜单類型
+	MenuType   string          `form:"menuType" comment:"選單類型"`   //選單類型
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"請求方式"`      //請求方式
 	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
-	ParentId   int             `form:"parentId" comment:"上级菜单"`    //上级菜单
+	ParentId   int             `form:"parentId" comment:"上级選單"`    //上级選單
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑
 	Component  string          `form:"component" comment:"组件"`     //组件
 	Sort       int             `form:"sort" comment:"排序"`          //排序
-	Visible    string          `form:"visible" comment:"是否显示"`     //是否显示
+	Visible    string          `form:"visible" comment:"是否顯示"`     //是否顯示
 	IsFrame    string          `form:"isFrame" comment:"是否frame"`  //是否frame
 	common.ControlBy
 }
@@ -74,22 +74,22 @@ func (s *SysMenuInsertReq) GetId() interface{} {
 
 type SysMenuUpdateReq struct {
 	MenuId     int             `uri:"id" comment:"流水號"`           // 流水號
-	MenuName   string          `form:"menuName" comment:"菜单name"` //菜单name
-	Title      string          `form:"title" comment:"显示名稱"`      //显示名稱
+	MenuName   string          `form:"menuName" comment:"選單name"` //選單name
+	Title      string          `form:"title" comment:"顯示名稱"`      //顯示名稱
 	Icon       string          `form:"icon" comment:"图標"`         //图標
 	Path       string          `form:"path" comment:"路径"`         //路径
 	Paths      string          `form:"paths" comment:"id路径"`      //id路径
-	MenuType   string          `form:"menuType" comment:"菜单類型"`   //菜单類型
+	MenuType   string          `form:"menuType" comment:"選單類型"`   //選單類型
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"請求方式"`      //請求方式
 	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
-	ParentId   int             `form:"parentId" comment:"上级菜单"`    //上级菜单
+	ParentId   int             `form:"parentId" comment:"上级選單"`    //上级選單
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑
 	Component  string          `form:"component" comment:"组件"`     //组件
 	Sort       int             `form:"sort" comment:"排序"`          //排序
-	Visible    string          `form:"visible" comment:"是否显示"`     //是否显示
+	Visible    string          `form:"visible" comment:"是否顯示"`     //是否顯示
 	IsFrame    string          `form:"isFrame" comment:"是否frame"`  //是否frame
 	common.ControlBy
 }

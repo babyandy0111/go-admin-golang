@@ -159,8 +159,8 @@ func (e *SysTables) Update(tx *gorm.DB) (update SysTables, err error) {
 	//	return
 	//}
 
-	//參數1:是要修改的数据
-	//參數2:是修改的数据
+	//參數1:是要更新的資料
+	//參數2:是更新的資料
 	e.UpdateBy = 0
 	if err = tx.Table("sys_tables").Where("table_id = ?", e.TableId).Updates(&e).Error; err != nil {
 		return

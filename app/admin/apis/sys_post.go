@@ -19,8 +19,8 @@ type SysPost struct {
 }
 
 // GetPage
-// @Summary 職稱列表数据
-// @Description 获取JSON
+// @Summary 職稱列表資料
+// @Description 取得JSON
 // @Tags 職稱
 // @Param postName query string false "postName"
 // @Param postCode query string false "postCode"
@@ -48,16 +48,16 @@ func (e SysPost) GetPage(c *gin.Context) {
 
 	err = s.GetPage(&req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
 
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
 // Get
-// @Summary 获取職稱訊息
-// @Description 获取JSON
+// @Summary 取得職稱訊息
+// @Description 取得JSON
 // @Tags 職稱
 // @Param id path int true "流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -80,16 +80,16 @@ func (e SysPost) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱訊息获取失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱訊息取得失敗！错误详情：%s", err.Error()))
 		return
 	}
 
-	e.OK(object, "查询成功")
+	e.OK(object, "查詢成功")
 }
 
 // Insert
-// @Summary 添加職稱
-// @Description 获取JSON
+// @Summary 新增職稱
+// @Description 取得JSON
 // @Tags 職稱
 // @Accept  application/json
 // @Product application/json
@@ -113,15 +113,15 @@ func (e SysPost) Insert(c *gin.Context) {
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("新建職稱失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("新建職稱失敗！错误详情：%s", err.Error()))
 		return
 	}
-	e.OK(req.GetId(), "创建成功")
+	e.OK(req.GetId(), "建立成功")
 }
 
 // Update
-// @Summary 修改職稱
-// @Description 获取JSON
+// @Summary 更新職稱
+// @Description 取得JSON
 // @Tags 職稱
 // @Accept  application/json
 // @Product application/json
@@ -147,7 +147,7 @@ func (e SysPost) Update(c *gin.Context) {
 
 	err = s.Update(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱更新失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱更新失敗！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
@@ -155,7 +155,7 @@ func (e SysPost) Update(c *gin.Context) {
 
 // Delete
 // @Summary 刪除職稱
-// @Description 刪除数据
+// @Description 刪除資料
 // @Tags 職稱
 // @Param id body dto.SysPostDeleteReq true "請求參數"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -177,7 +177,7 @@ func (e SysPost) Delete(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱刪除失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱刪除失敗！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "刪除成功")

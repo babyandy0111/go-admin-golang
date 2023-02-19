@@ -10,13 +10,13 @@ import (
 	"go-admin/app/other/models/tools"
 )
 
-// GetDBTableList 分页列表数据
-// @Summary 分页列表数据 / page list data
-// @Description 数据库表分页列表 / database table page list
+// GetDBTableList 分頁列表資料
+// @Summary 分頁列表資料 / page list data
+// @Description 資料库表分頁列表 / database table page list
 // @Tags 工具 / 生成工具
-// @Param tableName query string false "tableName / 数据表名稱"
+// @Param tableName query string false "tableName / 資料表名稱"
 // @Param pageSize query int false "pageSize / 页条数"
-// @Param pageIndex query int false "pageIndex / 页码"
+// @Param pageIndex query int false "pageIndex / 页碼"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/db/tables/page [get]
 func (e *Gen) GetDBTableList(c *gin.Context) {
@@ -45,7 +45,7 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -56,5 +56,5 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 		e.Error(500, err, "")
 		return
 	}
-	e.PageOK(result, count, pageIndex, pageSize, "查询成功")
+	e.PageOK(result, count, pageIndex, pageSize, "查詢成功")
 }

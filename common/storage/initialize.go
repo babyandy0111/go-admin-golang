@@ -17,16 +17,16 @@ import (
 
 // Setup 配置storage组件
 func Setup() {
-	//4. 设置缓存
+	//4. 設定缓存
 	cacheAdapter, err := config.CacheConfig.Setup()
 	if err != nil {
 		log.Fatalf("cache setup error, %s\n", err.Error())
 	}
 	sdk.Runtime.SetCacheAdapter(cacheAdapter)
-	//5. 设置验证码store
+	//5. 設定验证碼store
 	captcha.SetStore(captcha.NewCacheStore(cacheAdapter, 600))
 
-	//6. 设置队列
+	//6. 設定队列
 	if !config.QueueConfig.Empty() {
 		if q := sdk.Runtime.GetQueueAdapter(); q != nil {
 			q.Shutdown()
@@ -41,7 +41,7 @@ func Setup() {
 		}()
 	}
 
-	//7. 设置分布式锁
+	//7. 設定分布式锁
 	if !config.LockerConfig.Empty() {
 		lockerAdapter, err := config.LockerConfig.Setup()
 		if err != nil {

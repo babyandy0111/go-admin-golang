@@ -45,7 +45,7 @@ func (e *QiNiuKODO) getToken() string {
 func (e *QiNiuKODO) Setup(endpoint, accessKeyID, accessKeySecret, BucketName string, options ...ClientOption) error {
 
 	mac := qbox.NewMac(accessKeyID, accessKeySecret)
-	// 获取存储空间。
+	// 取得存储空间。
 	cfg := storage.Config{}
 	// 空间对应的机房
 	e.setZoneORDefault(cfg, options...)
@@ -61,7 +61,7 @@ func (e *QiNiuKODO) Setup(endpoint, accessKeyID, accessKeySecret, BucketName str
 	return nil
 }
 
-// setZoneORDefault 设置Zone或者默认华东
+// setZoneORDefault 設定Zone或者預設华东
 func (e *QiNiuKODO) setZoneORDefault(cfg storage.Config, options ...ClientOption) {
 	if len(options) > 0 && options[0]["Zone"] != nil {
 		if _, ok := options[0]["Zone"].(Zone); !ok {
@@ -87,7 +87,7 @@ func (e *QiNiuKODO) setZoneORDefault(cfg storage.Config, options ...ClientOption
 // UpLoad 文件上传
 func (e *QiNiuKODO) UpLoad(yourObjectName string, localFile interface{}) error {
 
-	// 构建表單上传的对象
+	// 建立表單上传的对象
 	formUploader := storage.NewFormUploader(&e.cfg)
 	ret := storage.PutRet{}
 	// 可选配置

@@ -26,7 +26,7 @@ func (m *SysApiGetPageReq) GetNeedSearch() interface{} {
 	return *m
 }
 
-// SysApiInsertReq 功能创建請求參數
+// SysApiInsertReq 功能建立請求參數
 type SysApiInsertReq struct {
 	Id     int    `json:"-" comment:"流水號"` // 流水號
 	Handle string `json:"handle" comment:"handle"`
@@ -75,7 +75,7 @@ func (s *SysApiUpdateReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysApiGetReq 功能获取請求參數
+// SysApiGetReq 功能取得請求參數
 type SysApiGetReq struct {
 	Id int `uri:"id"`
 }

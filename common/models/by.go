@@ -11,12 +11,12 @@ type ControlBy struct {
 	UpdateBy int `json:"updateBy" gorm:"index;comment:更新者"`
 }
 
-// SetCreateBy 设置创建人id
+// SetCreateBy 設定建立人id
 func (e *ControlBy) SetCreateBy(createBy int) {
 	e.CreateBy = createBy
 }
 
-// SetUpdateBy 设置修改人id
+// SetUpdateBy 設定更新人id
 func (e *ControlBy) SetUpdateBy(updateBy int) {
 	e.UpdateBy = updateBy
 }

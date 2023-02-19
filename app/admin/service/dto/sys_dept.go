@@ -49,7 +49,7 @@ func (s *SysDeptInsertReq) Generate(model *models.SysDept) {
 	model.Status = s.Status
 }
 
-// GetId 获取数据对应的ID
+// GetId 取得資料对应的ID
 func (s *SysDeptInsertReq) GetId() interface{} {
 	return s.DeptId
 }
@@ -67,7 +67,7 @@ type SysDeptUpdateReq struct {
 	common.ControlBy
 }
 
-// Generate 结构体数据转化 从 SysDeptControl 至 SysDept 对应的模型
+// Generate 结构体資料转化 从 SysDeptControl 至 SysDept 对应的模型
 func (s *SysDeptUpdateReq) Generate(model *models.SysDept) {
 	if s.DeptId != 0 {
 		model.DeptId = s.DeptId
@@ -82,7 +82,7 @@ func (s *SysDeptUpdateReq) Generate(model *models.SysDept) {
 	model.Status = s.Status
 }
 
-// GetId 获取数据对应的ID
+// GetId 取得資料对应的ID
 func (s *SysDeptUpdateReq) GetId() interface{} {
 	return s.DeptId
 }

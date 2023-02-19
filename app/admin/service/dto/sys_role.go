@@ -17,8 +17,8 @@ type SysRoleGetPageReq struct {
 	RoleSort  int    `form:"roleSort" search:"type:exact;column:role_sort;table:sys_role" comment:"角色排序"` // 角色排序
 	Flag      string `form:"flag" search:"type:exact;column:flag;table:sys_role" comment:"標记"`            // 標记
 	Remark    string `form:"remark" search:"type:exact;column:remark;table:sys_role" comment:"備註"`        // 備註
-	Admin     bool   `form:"admin" search:"type:exact;column:admin;table:sys_role" comment:"是否管理员"`
-	DataScope string `form:"dataScope" search:"type:exact;column:data_scope;table:sys_role" comment:"是否管理员"`
+	Admin     bool   `form:"admin" search:"type:exact;column:admin;table:sys_role" comment:"是否管理員"`
+	DataScope string `form:"dataScope" search:"type:exact;column:data_scope;table:sys_role" comment:"是否管理員"`
 }
 
 type SysRoleOrder struct {
@@ -41,7 +41,7 @@ type SysRoleInsertReq struct {
 	RoleSort  int              `form:"roleSort" comment:"角色排序"` // 角色排序
 	Flag      string           `form:"flag" comment:"標记"`       // 標记
 	Remark    string           `form:"remark" comment:"備註"`     // 備註
-	Admin     bool             `form:"admin" comment:"是否管理员"`
+	Admin     bool             `form:"admin" comment:"是否管理員"`
 	DataScope string           `form:"dataScope"`
 	SysMenu   []models.SysMenu `form:"sysMenu"`
 	MenuIds   []int            `form:"menuIds"`
@@ -78,7 +78,7 @@ type SysRoleUpdateReq struct {
 	RoleSort  int              `form:"roleSort" comment:"角色排序"` // 角色排序
 	Flag      string           `form:"flag" comment:"標记"`       // 標记
 	Remark    string           `form:"remark" comment:"備註"`     // 備註
-	Admin     bool             `form:"admin" comment:"是否管理员"`
+	Admin     bool             `form:"admin" comment:"是否管理員"`
 	DataScope string           `form:"dataScope"`
 	SysMenu   []models.SysMenu `form:"sysMenu"`
 	MenuIds   []int            `form:"menuIds"`
@@ -144,7 +144,7 @@ func (s *SysRoleDeleteReq) GetId() interface{} {
 	return s.Ids
 }
 
-// RoleDataScopeReq 角色数据权限修改
+// RoleDataScopeReq 角色資料权限更新
 type RoleDataScopeReq struct {
 	RoleId    int    `json:"roleId" binding:"required"`
 	DataScope string `json:"dataScope" binding:"required"`

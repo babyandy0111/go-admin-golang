@@ -47,7 +47,7 @@ func (s *SysPostInsertReq) Generate(model *models.SysPost) {
 	}
 }
 
-// GetId 获取数据对应的ID
+// GetId 取得資料对应的ID
 func (s *SysPostInsertReq) GetId() interface{} {
 	return s.PostId
 }
@@ -82,7 +82,7 @@ func (s *SysPostUpdateReq) GetId() interface{} {
 	return s.PostId
 }
 
-// SysPostGetReq 获取单个的结构体
+// SysPostGetReq 取得单个的结构体
 type SysPostGetReq struct {
 	Id int `uri:"id"`
 }

@@ -5,7 +5,7 @@ import (
 )
 
 func TestOSSUpload(t *testing.T) {
-	// 打括号内填写自己的测试訊息即可
+	// 打括号内填写自己的測試訊息即可
 	e := OXS{}
 	var oxs = e.Setup(AliYunOSS)
 	err := oxs.UpLoad("test.png", "./test.png")

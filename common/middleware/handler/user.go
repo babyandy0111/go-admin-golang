@@ -8,7 +8,7 @@ import (
 type SysUser struct {
 	UserId   int    `gorm:"primaryKey;autoIncrement;comment:流水號"  json:"userId"`
 	Username string `json:"username" gorm:"size:64;comment:使用者"`
-	Password string `json:"-" gorm:"size:128;comment:密码"`
+	Password string `json:"-" gorm:"size:128;comment:密碼"`
 	NickName string `json:"nickName" gorm:"size:128;comment:暱稱"`
 	Phone    string `json:"phone" gorm:"size:11;comment:手機號碼"`
 	RoleId   int    `json:"roleId" gorm:"size:20;comment:角色ID"`

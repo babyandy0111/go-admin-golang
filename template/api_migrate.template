@@ -142,7 +142,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         MUpdate := Menu{}
         MUpdate.MenuName = ""
-        MUpdate.Title = "修改{{.TableComment}}"
+        MUpdate.Title = "更新{{.TableComment}}"
         MUpdate.Icon = ""
         MUpdate.Path = "{{.TBName}}"
         MUpdate.MenuType = "F"
@@ -165,7 +165,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         MDelete := Menu{}
         MDelete.MenuName = ""
-        MDelete.Title = "删除{{.TableComment}}"
+        MDelete.Title = "刪除{{.TableComment}}"
         MDelete.Icon = ""
         MDelete.Path = "{{.TBName}}"
         MDelete.MenuType = "F"
@@ -277,7 +277,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         AUpdate := Menu{}
         AUpdate.MenuName = ""
-        AUpdate.Title = "修改{{.TableComment}}"
+        AUpdate.Title = "更新{{.TableComment}}"
         AUpdate.Icon = "bug"
         AUpdate.Path = "/api/v1/{{.ModuleName}}/:id"
         AUpdate.MenuType = "A"
@@ -299,7 +299,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         ADelete := Menu{}
         ADelete.MenuName = ""
-        ADelete.Title = "删除{{.TableComment}}"
+        ADelete.Title = "刪除{{.TableComment}}"
         ADelete.Icon = "bug"
         ADelete.Path = "/api/v1/{{.ModuleName}}"
         ADelete.MenuType = "A"

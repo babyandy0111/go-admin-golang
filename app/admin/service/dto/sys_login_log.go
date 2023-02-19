@@ -32,7 +32,7 @@ type SysLoginLogControl struct {
 	Ipaddr        string    `json:"ipaddr" comment:"ip地址"`
 	LoginLocation string    `json:"loginLocation" comment:"歸屬地"`
 	Browser       string    `json:"browser" comment:"瀏覽器"`
-	Os            string    `json:"os" comment:"系统"`
+	Os            string    `json:"os" comment:"系統"`
 	Platform      string    `json:"platform" comment:"平台"`
 	LoginTime     time.Time `json:"loginTime" comment:"登入時間"`
 	Remark        string    `json:"remark" comment:"備註"`

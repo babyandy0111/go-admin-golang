@@ -9,7 +9,7 @@ import (
 
 type SysUserGetPageReq struct {
 	dto.Pagination `search:"-"`
-	UserId         int    `form:"userId" search:"type:exact;column:user_id;table:sys_user" comment:"用户ID"`
+	UserId         int    `form:"userId" search:"type:exact;column:user_id;table:sys_user" comment:"UserID"`
 	Username       string `form:"username" search:"type:contains;column:username;table:sys_user" comment:"使用者"`
 	NickName       string `form:"nickName" search:"type:contains;column:nick_name;table:sys_user" comment:"暱稱"`
 	Phone          string `form:"phone" search:"type:contains;column:phone;table:sys_user" comment:"手機號碼"`
@@ -38,8 +38,8 @@ func (m *SysUserGetPageReq) GetNeedSearch() interface{} {
 }
 
 type ResetSysUserPwdReq struct {
-	UserId   int    `json:"userId" comment:"用户ID" vd:"$>0"` // 用户ID
-	Password string `json:"password" comment:"密码" vd:"len($)>0"`
+	UserId   int    `json:"userId" comment:"UserID" vd:"$>0"` // UserID
+	Password string `json:"password" comment:"密碼" vd:"len($)>0"`
 	common.ControlBy
 }
 
@@ -55,7 +55,7 @@ func (s *ResetSysUserPwdReq) Generate(model *models.SysUser) {
 }
 
 type UpdateSysUserAvatarReq struct {
-	UserId int    `json:"userId" comment:"用户ID" vd:"len($)>0"` // 用户ID
+	UserId int    `json:"userId" comment:"UserID" vd:"len($)>0"` // UserID
 	Avatar string `json:"avatar" comment:"頭貼" vd:"len($)>0"`
 	common.ControlBy
 }
@@ -72,7 +72,7 @@ func (s *UpdateSysUserAvatarReq) Generate(model *models.SysUser) {
 }
 
 type UpdateSysUserStatusReq struct {
-	UserId int    `json:"userId" comment:"用户ID" vd:"$>0"` // 用户ID
+	UserId int    `json:"userId" comment:"UserID" vd:"$>0"` // UserID
 	Status string `json:"status" comment:"狀態" vd:"len($)>0"`
 	common.ControlBy
 }
@@ -89,9 +89,9 @@ func (s *UpdateSysUserStatusReq) Generate(model *models.SysUser) {
 }
 
 type SysUserInsertReq struct {
-	UserId   int    `json:"userId" comment:"用户ID"` // 用户ID
+	UserId   int    `json:"userId" comment:"UserID"` // UserID
 	Username string `json:"username" comment:"使用者" vd:"len($)>0"`
-	Password string `json:"password" comment:"密码"`
+	Password string `json:"password" comment:"密碼"`
 	NickName string `json:"nickName" comment:"暱稱" vd:"len($)>0"`
 	Phone    string `json:"phone" comment:"手機號碼" vd:"len($)>0"`
 	RoleId   int    `json:"roleId" comment:"角色ID"`
@@ -129,7 +129,7 @@ func (s *SysUserInsertReq) GetId() interface{} {
 }
 
 type SysUserUpdateReq struct {
-	UserId   int    `json:"userId" comment:"用户ID"` // 用户ID
+	UserId   int    `json:"userId" comment:"UserID"` // UserID
 	Username string `json:"username" comment:"使用者" vd:"len($)>0"`
 	NickName string `json:"nickName" comment:"暱稱" vd:"len($)>0"`
 	Phone    string `json:"phone" comment:"手機號碼" vd:"len($)>0"`
@@ -182,7 +182,7 @@ func (s *SysUserById) GenerateM() (common.ActiveRecord, error) {
 	return &models.SysUser{}, nil
 }
 
-// PassWord 密码
+// PassWord 密碼
 type PassWord struct {
 	NewPassword string `json:"newPassword" vd:"len($)>0"`
 	OldPassword string `json:"oldPassword" vd:"len($)>0"`

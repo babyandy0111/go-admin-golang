@@ -3,7 +3,7 @@ package models
 type Response struct {
 	// 代碼
 	Code int `json:"code" example:"200"`
-	// 数据集
+	// 資料集
 	Data interface{} `json:"data"`
 	// 消息
 	Msg       string `json:"msg"`

@@ -27,7 +27,7 @@ type bindConstructor struct {
 func (e *bindConstructor) GetBindingForGin(d interface{}) []binding.Binding {
 	bs := e.getBinding(reflect.TypeOf(d).String())
 	if bs == nil {
-		//重新构建
+		//重新建立
 		bs = e.resolve(d)
 	}
 	gbs := make([]binding.Binding, len(bs))

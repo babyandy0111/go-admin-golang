@@ -22,6 +22,6 @@ type FileStoreType interface {
 	Setup(endpoint, accessKeyID, accessKeySecret, BucketName string, options ...ClientOption) error
 	// UpLoad 上传
 	UpLoad(yourObjectName string, localFile interface{}) error
-	// GetTempToken 获取临時Token
+	// GetTempToken 取得临時Token
 	GetTempToken() (string, error)
 }

@@ -61,7 +61,7 @@ func (e *DBColumns) GetList(tx *gorm.DB) ([]DBColumns, error) {
 
 		table = table.Where("TABLE_NAME = ?", e.TableName).Order("ORDINAL_POSITION asc")
 	} else {
-		pkg.Assert(true, "目前只支持mysql数据库", 500)
+		pkg.Assert(true, "目前只支持mysql資料库", 500)
 	}
 	if err := table.Find(&doc).Error; err != nil {
 		return doc, err

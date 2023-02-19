@@ -62,7 +62,7 @@
                                 size="mini"
                                 :disabled="single"
                                 @click="handleUpdate"
-                        >修改
+                        >更新
                         </el-button>
                     </el-col>
                     <el-col :span="1.5">
@@ -120,8 +120,8 @@
                         <template slot-scope="scope">
                          <el-popconfirm
                            class="delete-popconfirm"
-                           title="確認要修改吗?"
-                           confirm-button-text="修改"
+                           title="確認要更新吗?"
+                           confirm-button-text="更新"
                            @onConfirm="handleUpdate(scope.row)"
                          >
                            <el-button
@@ -130,7 +130,7 @@
                              size="mini"
                              type="text"
                              icon="el-icon-edit"
-                           >修改
+                           >更新
                            </el-button>
                          </el-popconfirm>
                          <el-popconfirm
@@ -160,7 +160,7 @@
                         @pagination="getList"
                 />
 
-                <!-- 新增或修改的popup -->
+                <!-- 新增或更新的popup -->
                 <el-dialog :title="title" :visible.sync="open" width="500px">
                     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
                         {{ range .Columns }}
@@ -419,7 +419,7 @@
                 this.single = selection.length !== 1
                 this.multiple = !selection.length
             },
-            /** 修改按鈕操作 */
+            /** 更新按鈕操作 */
             handleUpdate(row) {
                 this.reset()
                 const {{.PkJsonField}} =
@@ -427,7 +427,7 @@
                 get{{.ClassName}}({{.PkJsonField}}).then(response => {
                     this.form = response.data
                     this.open = true
-                    this.title = '修改{{.TableComment}}'
+                    this.title = '更新{{.TableComment}}'
                     this.isEdit = true
                 })
             },

@@ -13,7 +13,7 @@ var (
 // initRouter 路由示例
 func initRouter(r *gin.Engine, authMiddleware *jwt.GinJWTMiddleware) *gin.Engine {
 
-	// 无需认证的路由
+	// 無需认证的路由
 	noCheckRoleRouter(r)
 	// 需要认证的路由
 	checkRoleRouter(r, authMiddleware)
@@ -21,9 +21,9 @@ func initRouter(r *gin.Engine, authMiddleware *jwt.GinJWTMiddleware) *gin.Engine
 	return r
 }
 
-// noCheckRoleRouter 无需认证的路由示例
+// noCheckRoleRouter 無需认证的路由示例
 func noCheckRoleRouter(r *gin.Engine) {
-	// 可根据业務需求来设置接口版本
+	// 可根据业務需求来設定API版本
 	v1 := r.Group("/api/v1")
 
 	for _, f := range routerNoCheckRole {
@@ -33,7 +33,7 @@ func noCheckRoleRouter(r *gin.Engine) {
 
 // checkRoleRouter 需要认证的路由示例
 func checkRoleRouter(r *gin.Engine, authMiddleware *jwt.GinJWTMiddleware) {
-	// 可根据业務需求来设置接口版本
+	// 可根据业務需求来設定API版本
 	v1 := r.Group("/api/v1")
 
 	for _, f := range routerCheckRole {

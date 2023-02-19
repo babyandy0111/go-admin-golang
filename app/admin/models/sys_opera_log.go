@@ -50,7 +50,7 @@ func (e *SysOperaLog) GetId() interface{} {
 	return e.Id
 }
 
-// SaveOperaLog 从队列中获取操作日志
+// SaveOperaLog 从队列中取得操作Log
 func SaveOperaLog(message storage.Messager) (err error) {
 	//准备db
 	db := sdk.Runtime.GetDbByKey(message.GetPrefix())

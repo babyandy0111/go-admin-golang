@@ -28,19 +28,19 @@ func DeleteAction(control dto.Control) gin.HandlerFunc {
 		err = req.Bind(c)
 		if err != nil {
 			log.Errorf("MsgID[%s] Bind error: %s", msgID, err)
-			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失败")
+			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失敗")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失败")
+			response.Error(c, 500, err, "模型生成失敗")
 			return
 		}
 
 		object.SetUpdateBy(user.GetUserId(c))
 
-		//数据权限检查
+		//資料权限检查
 		p := GetPermissionFromContext(c)
 
 		db = db.WithContext(c).Scopes(
@@ -48,7 +48,7 @@ func DeleteAction(control dto.Control) gin.HandlerFunc {
 		).Where(req.GetId()).Delete(object)
 		if err = db.Error; err != nil {
 			log.Errorf("MsgID[%s] Delete error: %s", msgID, err)
-			response.Error(c, 500, err, "刪除失败")
+			response.Error(c, 500, err, "刪除失敗")
 			return
 		}
 		if db.RowsAffected == 0 {

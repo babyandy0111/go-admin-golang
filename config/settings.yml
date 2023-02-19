@@ -1,25 +1,25 @@
 settings:
   application:
-    # dev开发环境 test测试环境 prod线上环境
+    # dev开发环境 test測試环境 prod线上环境
     mode: dev
-    # 服务器ip，默认使用 0.0.0.0
+    # 服務器ip，預設使用 0.0.0.0
     host: 0.0.0.0
-    # 服务名称
+    # 服務名稱
     name: testApp
     # 端口号
-    port: 8000 # 服务端口号
+    port: 8000 # 服務端口号
     readtimeout: 1
     writertimeout: 2
-    # 数据权限功能开关
+    # 資料权限功能開關
     enabledp: true
   logger:
-    # 日志存放路径
+    # Log存放路径
     path: temp/logs
-    # 日志输出，file：文件，default：命令行，其他：命令行
-    stdout: '' #控制台日志，启用后，不输出到文件
-    # 日志等级, trace, debug, info, warn, error, fatal
+    # Log输出，file：文件，default：命令行，其他：命令行
+    stdout: '' #控制台Log，启用后，不输出到文件
+    # Log等级, trace, debug, info, warn, error, fatal
     level: trace
-    # 数据库日志开关
+    # 資料库Log開關
     enableddb: false
   jwt:
     secret: go-admin
@@ -30,15 +30,15 @@ settings:
 #  databases:
 #    'locaohost:8000':
 #      driver: mysql
-#        # 数据库连接字符串 mysql 缺省信息 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+#        # 資料库连接字符串 mysql 缺省信息 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #        source: user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #      registers:
 #        - sources:
 #            - user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
   gen:
-    # 代码生成读取的数据库名称
+    # 代碼生成读取的資料库名稱
     dbname: admin
-    # 代码生成是使用前端代码存放位置，需要指定到src文件夹，相对路径
+    # 代碼生成是使用前端代碼存放位置，需要指定到src文件夹，相对路径
     frontpath: ../go-admin-ui/src
   extend: # 扩展项使用说明
     demo:

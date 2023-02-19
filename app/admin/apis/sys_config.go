@@ -15,16 +15,16 @@ type SysConfig struct {
 	api.Api
 }
 
-// GetPage 获取配置管理列表
-// @Summary 获取配置管理列表
-// @Description 获取配置管理列表
+// GetPage 取得配置管理列表
+// @Summary 取得配置管理列表
+// @Description 取得配置管理列表
 // @Tags 配置管理
 // @Param configName query string false "名稱"
 // @Param configKey query string false "key"
 // @Param configType query string false "類型"
 // @Param isFrontend query int false "是否前端"
 // @Param pageSize query int false "页条数"
-// @Param pageIndex query int false "页码"
+// @Param pageIndex query int false "页碼"
 // @Success 200 {object} response.Response{data=response.Page{list=[]models.SysApi}} "{"code": 200, "data": [...]}"
 // @Router /api/v1/sys-config [get]
 // @Security Bearer
@@ -45,15 +45,15 @@ func (e SysConfig) GetPage(c *gin.Context) {
 	var count int64
 	err = s.GetPage(&req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 获取配置管理
-// @Summary 获取配置管理
-// @Description 获取配置管理
+// Get 取得配置管理
+// @Summary 取得配置管理
+// @Description 取得配置管理
 // @Tags 配置管理
 // @Param id path string false "id"
 // @Success 200 {object} response.Response{data=models.SysConfig} "{"code": 200, "data": [...]}"
@@ -80,17 +80,17 @@ func (e SysConfig) Get(c *gin.Context) {
 		return
 	}
 
-	e.OK(object, "查询成功")
+	e.OK(object, "查詢成功")
 }
 
-// Insert 创建配置管理
-// @Summary 创建配置管理
-// @Description 创建配置管理
+// Insert 建立配置管理
+// @Summary 建立配置管理
+// @Description 建立配置管理
 // @Tags 配置管理
 // @Accept application/json
 // @Product application/json
 // @Param data body dto.SysConfigControl true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "创建成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "建立成功"}"
 // @Router /api/v1/sys-config [post]
 // @Security Bearer
 func (e SysConfig) Insert(c *gin.Context) {
@@ -110,20 +110,20 @@ func (e SysConfig) Insert(c *gin.Context) {
 
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, "创建失败")
+		e.Error(500, err, "建立失敗")
 		return
 	}
-	e.OK(req.GetId(), "创建成功")
+	e.OK(req.GetId(), "建立成功")
 }
 
-// Update 修改配置管理
-// @Summary 修改配置管理
-// @Description 修改配置管理
+// Update 更新配置管理
+// @Summary 更新配置管理
+// @Description 更新配置管理
 // @Tags 配置管理
 // @Accept application/json
 // @Product application/json
 // @Param data body dto.SysConfigControl true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "修改成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "更新成功"}"
 // @Router /api/v1/sys-config/{id} [put]
 // @Security Bearer
 func (e SysConfig) Update(c *gin.Context) {
@@ -142,7 +142,7 @@ func (e SysConfig) Update(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Update(&req)
 	if err != nil {
-		e.Error(500, err, "更新失败")
+		e.Error(500, err, "更新失敗")
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
@@ -173,15 +173,15 @@ func (e SysConfig) Delete(c *gin.Context) {
 
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, "刪除失败")
+		e.Error(500, err, "刪除失敗")
 		return
 	}
 	e.OK(req.GetId(), "刪除成功")
 }
 
-// Get2SysApp 获取系统配置訊息
-// @Summary 获取系统前台配置訊息，主要注意这里不在验证权限
-// @Description 获取系统配置訊息，主要注意这里不在验证权限
+// Get2SysApp 取得系統配置訊息
+// @Summary 取得系統前台配置訊息，主要注意这里不在验证权限
+// @Description 取得系統配置訊息，主要注意这里不在验证权限
 // @Tags 配置管理
 // @Success 200 {object} response.Response{data=map[string]string} "{"code": 200, "data": [...]}"
 // @Router /api/v1/app-config [get]
@@ -197,12 +197,12 @@ func (e SysConfig) Get2SysApp(c *gin.Context) {
 		e.Logger.Error(err)
 		return
 	}
-	// 控制只读前台的数据
+	// 控制只读前台的資料
 	req.IsFrontend = "1"
 	list := make([]models.SysConfig, 0)
 	err = s.GetWithKeyList(&req, &list)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
 	mp := make(map[string]string)
@@ -212,16 +212,16 @@ func (e SysConfig) Get2SysApp(c *gin.Context) {
 			mp[key] = list[i].ConfigValue
 		}
 	}
-	e.OK(mp, "查询成功")
+	e.OK(mp, "查詢成功")
 }
 
-// Get2Set 获取配置
-// @Summary 获取配置
-// @Description 界面操作设置配置值的获取
+// Get2Set 取得配置
+// @Summary 取得配置
+// @Description 界面操作設定配置值的取得
 // @Tags 配置管理
 // @Accept application/json
 // @Product application/json
-// @Success 200 {object} response.Response{data=map[string]interface{}}	"{"code": 200, "message": "修改成功"}"
+// @Success 200 {object} response.Response{data=map[string]interface{}}	"{"code": 200, "message": "更新成功"}"
 // @Router /api/v1/set-config [get]
 // @Security Bearer
 func (e SysConfig) Get2Set(c *gin.Context) {
@@ -238,24 +238,24 @@ func (e SysConfig) Get2Set(c *gin.Context) {
 	}
 	err = s.GetForSet(&req)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
 	m := make(map[string]interface{}, 0)
 	for _, v := range req {
 		m[v.ConfigKey] = v.ConfigValue
 	}
-	e.OK(m, "查询成功")
+	e.OK(m, "查詢成功")
 }
 
-// Update2Set 设置配置
-// @Summary 设置配置
-// @Description 界面操作设置配置值
+// Update2Set 設定配置
+// @Summary 設定配置
+// @Description 界面操作設定配置值
 // @Tags 配置管理
 // @Accept application/json
 // @Product application/json
 // @Param data body []dto.GetSetSysConfigReq true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "修改成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "更新成功"}"
 // @Router /api/v1/set-config [put]
 // @Security Bearer
 func (e SysConfig) Update2Set(c *gin.Context) {
@@ -281,9 +281,9 @@ func (e SysConfig) Update2Set(c *gin.Context) {
 	e.OK("", "更新成功")
 }
 
-// GetSysConfigByKEYForService 根据Key获取SysConfig的Service
-// @Summary 根据Key获取SysConfig的Service
-// @Description 根据Key获取SysConfig的Service
+// GetSysConfigByKEYForService 根据Key取得SysConfig的Service
+// @Summary 根据Key取得SysConfig的Service
+// @Description 根据Key取得SysConfig的Service
 // @Tags 配置管理
 // @Param configKey path string false "configKey"
 // @Success 200 {object} response.Response{data=dto.SysConfigByKeyReq} "{"code": 200, "data": [...]}"

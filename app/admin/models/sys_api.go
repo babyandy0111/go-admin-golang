@@ -22,7 +22,7 @@ type SysApi struct {
 	Title  string `json:"title" gorm:"size:128;comment:標题"`
 	Path   string `json:"path" gorm:"size:128;comment:地址"`
 	Action string `json:"action" gorm:"size:16;comment:請求類型"`
-	Type   string `json:"type" gorm:"size:16;comment:接口類型"`
+	Type   string `json:"type" gorm:"size:16;comment:API類型"`
 	models.ModelTime
 	models.ControlBy
 }
@@ -63,8 +63,8 @@ func SaveSysApi(message storage.Messager) (err error) {
 				strings.Contains(v.RelativePath, "/form-generator/") ||
 				strings.Contains(v.RelativePath, "/sys/tables") {
 
-				// 根据接口方法注释里的@Summary填充接口名稱，适用于代碼生成器
-				// 可在此处增加配置路径前缀的if判断，只对代碼生成的自建应用进行定向的接口名稱填充
+				// 根据API方法注释里的@Summary填充API名稱，适用于代碼生成器
+				// 可在此处增加配置路径前缀的if判断，只对代碼生成的自建应用进行定向的API名稱填充
 				jsonFile, _ := ioutil.ReadFile("docs/swagger.json")
 				jsonData, _ := simplejson.NewFromReader(bytes.NewReader(jsonFile))
 				urlPath := v.RelativePath

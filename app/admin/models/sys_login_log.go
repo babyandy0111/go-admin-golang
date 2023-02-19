@@ -19,7 +19,7 @@ type SysLoginLog struct {
 	Ipaddr        string    `json:"ipaddr" gorm:"size:255;comment:ip地址"`
 	LoginLocation string    `json:"loginLocation" gorm:"size:255;comment:歸屬地"`
 	Browser       string    `json:"browser" gorm:"size:255;comment:瀏覽器"`
-	Os            string    `json:"os" gorm:"size:255;comment:系统"`
+	Os            string    `json:"os" gorm:"size:255;comment:系統"`
 	Platform      string    `json:"platform" gorm:"size:255;comment:平台"`
 	LoginTime     time.Time `json:"loginTime" gorm:"comment:登入時間"`
 	Remark        string    `json:"remark" gorm:"size:255;comment:備註"`
@@ -42,7 +42,7 @@ func (e *SysLoginLog) GetId() interface{} {
 	return e.Id
 }
 
-// SaveLoginLog 从队列中获取登入日志
+// SaveLoginLog 从队列中取得登入Log
 func SaveLoginLog(message storage.Messager) (err error) {
 	//准备db
 	db := sdk.Runtime.GetDbByKey(message.GetPrefix())

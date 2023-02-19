@@ -48,7 +48,7 @@ type SysConfigControl struct {
 	common.ControlBy
 }
 
-// Generate 结构体数据转化 从 SysConfigControl 至 system.SysConfig 对应的模型
+// Generate 结构体資料转化 从 SysConfigControl 至 system.SysConfig 对应的模型
 func (s *SysConfigControl) Generate(model *models.SysConfig) {
 	if s.Id == 0 {
 		model.Model = common.Model{Id: s.Id}
@@ -62,7 +62,7 @@ func (s *SysConfigControl) Generate(model *models.SysConfig) {
 
 }
 
-// GetId 获取数据对应的ID
+// GetId 取得資料对应的ID
 func (s *SysConfigControl) GetId() interface{} {
 	return s.Id
 }
@@ -73,14 +73,14 @@ type GetSetSysConfigReq struct {
 	ConfigValue string `json:"configValue" comment:""`
 }
 
-// Generate 结构体数据转化 从 SysConfigControl 至 system.SysConfig 对应的模型
+// Generate 结构体資料转化 从 SysConfigControl 至 system.SysConfig 对应的模型
 func (s *GetSetSysConfigReq) Generate(model *models.SysConfig) {
 	model.ConfigValue = s.ConfigValue
 }
 
 type UpdateSetSysConfigReq map[string]string
 
-// SysConfigByKeyReq 根据Key获取配置
+// SysConfigByKeyReq 根据Key取得配置
 type SysConfigByKeyReq struct {
 	ConfigKey string `uri:"configKey" search:"type:contains;column:config_key;table:sys_config"`
 }

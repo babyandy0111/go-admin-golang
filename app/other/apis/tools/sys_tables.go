@@ -16,13 +16,13 @@ type SysTable struct {
 	api.Api
 }
 
-// GetPage 分页列表数据
-// @Summary 分页列表数据
-// @Description 生成表分页列表
+// GetPage 分頁列表資料
+// @Summary 分頁列表資料
+// @Description 生成表分頁列表
 // @Tags 工具 / 生成工具
-// @Param tableName query string false "tableName / 数据表名稱"
+// @Param tableName query string false "tableName / 資料表名稱"
 // @Param pageSize query int false "pageSize / 页条数"
-// @Param pageIndex query int false "pageIndex / 页码"
+// @Param pageIndex query int false "pageIndex / 页碼"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/sys/tables/page [get]
 func (e SysTable) GetPage(c *gin.Context) {
@@ -44,7 +44,7 @@ func (e SysTable) GetPage(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -56,12 +56,12 @@ func (e SysTable) GetPage(c *gin.Context) {
 		e.Error(500, err, "")
 		return
 	}
-	e.PageOK(result, count, pageIndex, pageSize, "查询成功")
+	e.PageOK(result, count, pageIndex, pageSize, "查詢成功")
 }
 
 // Get
-// @Summary 获取配置
-// @Description 获取JSON
+// @Summary 取得配置
+// @Description 取得JSON
 // @Tags 工具 / 生成工具
 // @Param configKey path int true "configKey"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -73,7 +73,7 @@ func (e SysTable) Get(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -98,7 +98,7 @@ func (e SysTable) GetSysTablesInfo(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -127,7 +127,7 @@ func (e SysTable) GetSysTablesTree(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -143,14 +143,14 @@ func (e SysTable) GetSysTablesTree(c *gin.Context) {
 }
 
 // Insert
-// @Summary 添加表结构
-// @Description 添加表结构
+// @Summary 新增表结构
+// @Description 新增表结构
 // @Tags 工具 / 生成工具
 // @Accept  application/json
 // @Product application/json
-// @Param tables query string false "tableName / 数据表名稱"
-// @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
+// @Param tables query string false "tableName / 資料表名稱"
+// @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
 // @Router /api/v1/sys/tables/info [post]
 // @Security Bearer
 func (e SysTable) Insert(c *gin.Context) {
@@ -159,7 +159,7 @@ func (e SysTable) Insert(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -180,7 +180,7 @@ func (e SysTable) Insert(c *gin.Context) {
 			return
 		}
 	}
-	e.OK(nil, "添加成功")
+	e.OK(nil, "新增成功")
 
 }
 
@@ -217,7 +217,7 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 	data.PackageName = "admin"
 	data.TplCategory = "crud"
 	data.Crud = true
-	// 中横线表名稱，接口路径、前端文件夹名稱和js名稱使用
+	// 中横线表名稱，API路径、前端文件夹名稱和js名稱使用
 	data.ModuleName = strings.Replace(data.TBName, "_", "-", -1)
 	dbcolumn, err := dbColumn.GetList(tx)
 	data.CreateBy = 0
@@ -297,27 +297,27 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 }
 
 // Update
-// @Summary 修改表结构
-// @Description 修改表结构
+// @Summary 更新表结构
+// @Description 更新表结构
 // @Tags 工具 / 生成工具
 // @Accept  application/json
 // @Product application/json
 // @Param data body tools.SysTables true "body"
-// @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
+// @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
 // @Router /api/v1/sys/tables/info [put]
 // @Security Bearer
 func (e SysTable) Update(c *gin.Context) {
 	var data tools.SysTables
 	err := c.Bind(&data)
-	pkg.HasError(err, "数据解析失败", 500)
+	pkg.HasError(err, "資料解析失敗", 500)
 
 	e.Context = c
 	log := e.GetLogger()
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -328,7 +328,7 @@ func (e SysTable) Update(c *gin.Context) {
 		e.Error(500, err, "")
 		return
 	}
-	e.OK(result, "修改成功")
+	e.OK(result, "更新成功")
 }
 
 // Delete
@@ -337,7 +337,7 @@ func (e SysTable) Update(c *gin.Context) {
 // @Tags 工具 / 生成工具
 // @Param tableId path int true "tableId"
 // @Success 200 {string} string	"{"code": 200, "message": "刪除成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "刪除失败"}"
+// @Success 200 {string} string	"{"code": -1, "message": "刪除失敗"}"
 // @Router /api/v1/sys/tables/info/{tableId} [delete]
 func (e SysTable) Delete(c *gin.Context) {
 	e.Context = c
@@ -345,7 +345,7 @@ func (e SysTable) Delete(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "数据库连接获取失败")
+		e.Error(500, err, "資料库连接取得失敗")
 		return
 	}
 
@@ -354,7 +354,7 @@ func (e SysTable) Delete(c *gin.Context) {
 	_, err = data.BatchDelete(db, IDS)
 	if err != nil {
 		log.Errorf("BatchDelete error, %s", err.Error())
-		e.Error(500, err, "刪除失败")
+		e.Error(500, err, "刪除失敗")
 		return
 	}
 	e.OK(nil, "刪除成功")

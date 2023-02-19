@@ -48,7 +48,7 @@ func (e *ExecJob) Run() {
 	}
 	err := CallExec(obj.(JobsExec), e.Args)
 	if err != nil {
-		// 如果失败暂停一段時間重试
+		// 如果失敗暂停一段時間重试
 		fmt.Println(time.Now().Format(timeFormat), " [ERROR] mission failed! ", err)
 	}
 	// 结束時間
@@ -63,7 +63,7 @@ func (e *ExecJob) Run() {
 	return
 }
 
-// http 任務接口
+// http 任務API
 func (h *HttpJob) Run() {
 
 	startTime := time.Now()
@@ -76,7 +76,7 @@ LOOP:
 		/* 跳过迭代 */
 		str, err = pkg.Get(h.InvokeTarget)
 		if err != nil {
-			// 如果失败暂停一段時間重试
+			// 如果失敗暂停一段時間重试
 			fmt.Println(time.Now().Format(timeFormat), " [ERROR] mission failed! ", err)
 			fmt.Printf(time.Now().Format(timeFormat)+" [INFO] Retry after the task fails %d seconds! %s \n", (count+1)*5, str)
 			time.Sleep(time.Duration(count+1) * 5 * time.Second)
@@ -152,7 +152,7 @@ func setup(key string, db *gorm.DB) {
 	select {}
 }
 
-// 添加任務 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
+// 新增任務 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
 func AddJob(c *cron.Cron, job Job) (int, error) {
 	if job == nil {
 		fmt.Println("unknown")

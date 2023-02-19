@@ -49,3 +49,9 @@ deploy:
 
 dev:
 	go run main.go server -c config/settings.yml
+
+init:
+	go run main.go migrate -c config/settings.yml
+
+doc:
+	./ssh/swag.sh

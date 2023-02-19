@@ -21,7 +21,7 @@ import (
 	"go-admin/common/global"
 )
 
-// LoggerToFile 日志记录到文件
+// LoggerToFile Log记录到文件
 func LoggerToFile() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log := api.GetRequestLogger(c)
@@ -76,13 +76,13 @@ func LoggerToFile() gin.HandlerFunc {
 		reqMethod := c.Request.Method
 		// 請求路由
 		reqUri := c.Request.RequestURI
-		// 狀態码
+		// 狀態碼
 		statusCode := c.Writer.Status()
 		// 請求IP
 		clientIP := common.GetClientIP(c)
 		// 执行時間
 		latencyTime := endTime.Sub(startTime)
-		// 日志格式
+		// Log格式
 		logData := map[string]interface{}{
 			"statusCode":  statusCode,
 			"latencyTime": latencyTime,
@@ -98,7 +98,7 @@ func LoggerToFile() gin.HandlerFunc {
 	}
 }
 
-// SetDBOperLog 写入操作日志表 fixme 该方法後续即将弃用
+// SetDBOperLog 写入操作Log表 fixme 该方法後续即将弃用
 func SetDBOperLog(c *gin.Context, clientIP string, statusCode int, reqUri string, reqMethod string, latencyTime time.Duration, body string, result string, status int) {
 
 	log := api.GetRequestLogger(c)
@@ -126,7 +126,7 @@ func SetDBOperLog(c *gin.Context, clientIP string, statusCode int, reqUri string
 	message, err := sdk.Runtime.GetStreamMessage("", global.OperateLog, l)
 	if err != nil {
 		log.Errorf("GetStreamMessage error, %s", err.Error())
-		//日志报错错误，不中断請求
+		//Log报错错误，不中断請求
 	} else {
 		err = q.Append(message)
 		if err != nil {

@@ -17,15 +17,15 @@ type SysDictType struct {
 	api.Api
 }
 
-// GetPage 字典類型列表数据
-// @Summary 字典類型列表数据
-// @Description 获取JSON
+// GetPage 字典類型列表資料
+// @Summary 字典類型列表資料
+// @Description 取得JSON
 // @Tags 字典類型
 // @Param dictName query string false "dictName"
 // @Param dictId query string false "dictId"
 // @Param dictType query string false "dictType"
 // @Param pageSize query int false "页条数"
-// @Param pageIndex query int false "页码"
+// @Param pageIndex query int false "页碼"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict/type [get]
 // @Security Bearer
@@ -46,15 +46,15 @@ func (e SysDictType) GetPage(c *gin.Context) {
 	var count int64
 	err = s.GetPage(&req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 字典類型通过字典id获取
-// @Summary 字典類型通过字典id获取
-// @Description 获取JSON
+// Get 字典類型通过字典id取得
+// @Summary 字典類型通过字典id取得
+// @Description 取得JSON
 // @Tags 字典類型
 // @Param dictId path int true "字典類型流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -76,15 +76,15 @@ func (e SysDictType) Get(c *gin.Context) {
 	var object models.SysDictType
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, "查询失败")
+		e.Error(500, err, "查詢失敗")
 		return
 	}
-	e.OK(object, "查询成功")
+	e.OK(object, "查詢成功")
 }
 
-// Insert 字典類型创建
-// @Summary 添加字典類型
-// @Description 获取JSON
+// Insert 字典類型建立
+// @Summary 新增字典類型
+// @Description 取得JSON
 // @Tags 字典類型
 // @Accept  application/json
 // @Product application/json
@@ -109,15 +109,15 @@ func (e SysDictType) Insert(c *gin.Context) {
 	err = s.Insert(&req)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf(" 创建字典類型失败，详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf(" 建立字典類型失敗，详情：%s", err.Error()))
 		return
 	}
-	e.OK(req.GetId(), "创建成功")
+	e.OK(req.GetId(), "建立成功")
 }
 
 // Update
-// @Summary 修改字典類型
-// @Description 获取JSON
+// @Summary 更新字典類型
+// @Description 取得JSON
 // @Tags 字典類型
 // @Accept  application/json
 // @Product application/json
@@ -149,7 +149,7 @@ func (e SysDictType) Update(c *gin.Context) {
 
 // Delete
 // @Summary 刪除字典類型
-// @Description 刪除数据
+// @Description 刪除資料
 // @Tags 字典類型
 // @Param dictCode body dto.SysDictTypeDeleteReq true "body"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -178,8 +178,8 @@ func (e SysDictType) Delete(c *gin.Context) {
 }
 
 // GetAll
-// @Summary 字典類型全部数据 代碼生成使用接口
-// @Description 获取JSON
+// @Summary 字典類型全部資料 代碼生成使用API
+// @Description 取得JSON
 // @Tags 字典類型
 // @Param dictName query string false "dictName"
 // @Param dictId query string false "dictId"
@@ -206,5 +206,5 @@ func (e SysDictType) GetAll(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	e.OK(list, "查询成功")
+	e.OK(list, "查詢成功")
 }

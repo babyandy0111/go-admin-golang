@@ -52,7 +52,7 @@ func (e SysJob) StartJobForService(c *gin.Context) {
 	err = c.BindUri(&v)
 	if err != nil {
 		log.Warnf("參數验证错误, error: %s", err)
-		e.Error(http.StatusUnprocessableEntity, err, "參數验证失败")
+		e.Error(http.StatusUnprocessableEntity, err, "參數验证失敗")
 		return
 	}
 	s := service.SysJob{}

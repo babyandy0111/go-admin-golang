@@ -11,7 +11,7 @@ type SysLoginLog struct {
 	Ipaddr        string    `json:"ipaddr" gorm:"type:varchar(255);comment:ip地址"`
 	LoginLocation string    `json:"loginLocation" gorm:"type:varchar(255);comment:歸屬地"`
 	Browser       string    `json:"browser" gorm:"type:varchar(255);comment:瀏覽器"`
-	Os            string    `json:"os" gorm:"type:varchar(255);comment:系统"`
+	Os            string    `json:"os" gorm:"type:varchar(255);comment:系統"`
 	Platform      string    `json:"platform" gorm:"type:varchar(255);comment:平台"`
 	LoginTime     time.Time `json:"loginTime" gorm:"type:timestamp;comment:登入時間"`
 	Remark        string    `json:"remark" gorm:"type:varchar(255);comment:備註"`

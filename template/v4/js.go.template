@@ -27,7 +27,7 @@ export function add{{.ClassName}}(data) {
     })
 }
 
-// 修改{{.ClassName}}
+// 更新{{.ClassName}}
 export function update{{.ClassName}}(data) {
     return request({
         url: '/api/v1/{{.ModuleName}}/'+data.{{.PkJsonField}},
