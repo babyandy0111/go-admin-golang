@@ -22,7 +22,7 @@ func InitDb(db *gorm.DB) (err error) {
 func ExecSql(db *gorm.DB, filePath string) error {
 	sql, err := Ioutil(filePath)
 	if err != nil {
-		fmt.Println("資料库基础資料初始化脚本读取失敗！原因:", err.Error())
+		fmt.Println("資料庫基礎資料初始化脚本读取失敗！原因:", err.Error())
 		return err
 	}
 	sqlList := strings.Split(sql, ";")

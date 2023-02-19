@@ -7,7 +7,7 @@ import (
 	"go-admin/common/dto"
 )
 
-// SysPostPageReq 列表或者搜索使用结构体
+// SysPostPageReq 列表或者搜索使用結構体
 type SysPostPageReq struct {
 	dto.Pagination `search:"-"`
 	PostId         int    `form:"postId" search:"type:exact;column:post_id;table:sys_post" comment:"id"`         // id
@@ -22,7 +22,7 @@ func (m *SysPostPageReq) GetNeedSearch() interface{} {
 	return *m
 }
 
-// SysPostInsertReq 增使用的结构体
+// SysPostInsertReq 增使用的結構体
 type SysPostInsertReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
 	PostName string `form:"postName"  comment:"名稱"`
@@ -47,12 +47,12 @@ func (s *SysPostInsertReq) Generate(model *models.SysPost) {
 	}
 }
 
-// GetId 取得資料对应的ID
+// GetId 取得資料對應的ID
 func (s *SysPostInsertReq) GetId() interface{} {
 	return s.PostId
 }
 
-// SysPostUpdateReq 改使用的结构体
+// SysPostUpdateReq 改使用的結構体
 type SysPostUpdateReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
 	PostName string `form:"postName"  comment:"名稱"`
@@ -82,7 +82,7 @@ func (s *SysPostUpdateReq) GetId() interface{} {
 	return s.PostId
 }
 
-// SysPostGetReq 取得单个的结构体
+// SysPostGetReq 取得单个的結構体
 type SysPostGetReq struct {
 	Id int `uri:"id"`
 }
@@ -91,7 +91,7 @@ func (s *SysPostGetReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysPostDeleteReq 刪除的结构体
+// SysPostDeleteReq 刪除的結構体
 type SysPostDeleteReq struct {
 	Ids []int `json:"ids"`
 	common.ControlBy

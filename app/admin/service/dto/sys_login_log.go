@@ -26,7 +26,7 @@ func (m *SysLoginLogGetPageReq) GetNeedSearch() interface{} {
 }
 
 type SysLoginLogControl struct {
-	ID            int       `uri:"Id" comment:"主健"` // 主健
+	ID            int       `uri:"Id" comment:"主鍵"` // 主鍵
 	Username      string    `json:"username" comment:"使用者"`
 	Status        string    `json:"status" comment:"狀態"`
 	Ipaddr        string    `json:"ipaddr" comment:"ip地址"`

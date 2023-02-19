@@ -44,7 +44,7 @@ func (e SysTable) GetPage(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -73,7 +73,7 @@ func (e SysTable) Get(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -98,7 +98,7 @@ func (e SysTable) GetSysTablesInfo(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -127,7 +127,7 @@ func (e SysTable) GetSysTablesTree(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -143,8 +143,8 @@ func (e SysTable) GetSysTablesTree(c *gin.Context) {
 }
 
 // Insert
-// @Summary 新增表结构
-// @Description 新增表结构
+// @Summary 新增表結構
+// @Description 新增表結構
 // @Tags 工具 / 生成工具
 // @Accept  application/json
 // @Product application/json
@@ -159,7 +159,7 @@ func (e SysTable) Insert(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -202,9 +202,9 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 	for i := 0; i < len(tablenamelist); i++ {
 		strStart := string([]byte(tablenamelist[i])[:1])
 		strend := string([]byte(tablenamelist[i])[1:])
-		// 大驼峰表名 结构体使用
+		// 大驼峰表名 結構体使用
 		data.ClassName += strings.ToUpper(strStart) + strend
-		// 小驼峰表名 js函數名和权限標识使用
+		// 小驼峰表名 js函數名和權限標识使用
 		if i == 0 {
 			data.BusinessName += strings.ToLower(strStart) + strend
 		} else {
@@ -217,7 +217,7 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 	data.PackageName = "admin"
 	data.TplCategory = "crud"
 	data.Crud = true
-	// 中横线表名稱，API路径、前端文件夹名稱和js名稱使用
+	// 中横线表名稱，API路径、前端文件夾名稱和js名稱使用
 	data.ModuleName = strings.Replace(data.TBName, "_", "-", -1)
 	dbcolumn, err := dbColumn.GetList(tx)
 	data.CreateBy = 0
@@ -297,8 +297,8 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 }
 
 // Update
-// @Summary 更新表结构
-// @Description 更新表结构
+// @Summary 更新表結構
+// @Description 更新表結構
 // @Tags 工具 / 生成工具
 // @Accept  application/json
 // @Product application/json
@@ -317,7 +317,7 @@ func (e SysTable) Update(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 
@@ -332,8 +332,8 @@ func (e SysTable) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 刪除表结构
-// @Description 刪除表结构
+// @Summary 刪除表結構
+// @Description 刪除表結構
 // @Tags 工具 / 生成工具
 // @Param tableId path int true "tableId"
 // @Success 200 {string} string	"{"code": 200, "message": "刪除成功"}"
@@ -345,7 +345,7 @@ func (e SysTable) Delete(c *gin.Context) {
 	db, err := e.GetOrm()
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 

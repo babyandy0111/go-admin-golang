@@ -180,8 +180,8 @@ func (e SysConfig) Delete(c *gin.Context) {
 }
 
 // Get2SysApp 取得系統配置訊息
-// @Summary 取得系統前台配置訊息，主要注意这里不在验证权限
-// @Description 取得系統配置訊息，主要注意这里不在验证权限
+// @Summary 取得系統前台配置訊息，主要注意这里不在验证權限
+// @Description 取得系統配置訊息，主要注意这里不在验证權限
 // @Tags 配置管理
 // @Success 200 {object} response.Response{data=map[string]string} "{"code": 200, "data": [...]}"
 // @Router /api/v1/app-config [get]
@@ -281,9 +281,9 @@ func (e SysConfig) Update2Set(c *gin.Context) {
 	e.OK("", "更新成功")
 }
 
-// GetSysConfigByKEYForService 根据Key取得SysConfig的Service
-// @Summary 根据Key取得SysConfig的Service
-// @Description 根据Key取得SysConfig的Service
+// GetSysConfigByKEYForService 根據Key取得SysConfig的Service
+// @Summary 根據Key取得SysConfig的Service
+// @Description 根據Key取得SysConfig的Service
 // @Tags 配置管理
 // @Param configKey path string false "configKey"
 // @Success 200 {object} response.Response{data=dto.SysConfigByKeyReq} "{"code": 200, "data": [...]}"

@@ -7,7 +7,7 @@ import (
 	"go-admin/common/dto"
 )
 
-// SysMenuGetPageReq 列表或者搜索使用结构体
+// SysMenuGetPageReq 列表或者搜索使用結構体
 type SysMenuGetPageReq struct {
 	dto.Pagination `search:"-"`
 	Title          string `form:"title" search:"type:contains;column:title;table:sys_menu" comment:"選單名稱"`  // 選單名稱
@@ -29,7 +29,7 @@ type SysMenuInsertReq struct {
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"請求方式"`      //請求方式
-	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
+	Permission string          `form:"permission" comment:"權限流水號"` //權限流水號
 	ParentId   int             `form:"parentId" comment:"上级選單"`    //上级選單
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑
@@ -83,7 +83,7 @@ type SysMenuUpdateReq struct {
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"請求方式"`      //請求方式
-	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
+	Permission string          `form:"permission" comment:"權限流水號"` //權限流水號
 	ParentId   int             `form:"parentId" comment:"上级選單"`    //上级選單
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑

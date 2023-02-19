@@ -23,7 +23,7 @@ func Setup() {
 		log.Fatalf("cache setup error, %s\n", err.Error())
 	}
 	sdk.Runtime.SetCacheAdapter(cacheAdapter)
-	//5. 設定验证碼store
+	//5. 設定驗證碼store
 	captcha.SetStore(captcha.NewCacheStore(cacheAdapter, 600))
 
 	//6. 設定队列

@@ -10,7 +10,7 @@ import (
 
 // GetDBColumnList 分頁列表資料
 // @Summary 分頁列表資料 / page list data
-// @Description 資料库表列分頁列表 / database table column page list
+// @Description 資料庫表列分頁列表 / database table column page list
 // @Tags 工具 / 生成工具
 // @Param tableName query string false "tableName / 資料表名稱"
 // @Param pageSize query int false "pageSize / 页条数"
@@ -36,7 +36,7 @@ func (e *Gen) GetDBColumnList(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return
 	}
 

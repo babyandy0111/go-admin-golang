@@ -43,7 +43,7 @@ func (e SysUser) GetPage(c *gin.Context) {
 		return
 	}
 
-	//資料权限检查
+	//資料權限检查
 	p := actions.GetPermissionFromContext(c)
 
 	list := make([]models.SysUser, 0)
@@ -80,7 +80,7 @@ func (e SysUser) Get(c *gin.Context) {
 		return
 	}
 	var object models.SysUser
-	//資料权限检查
+	//資料權限检查
 	p := actions.GetPermissionFromContext(c)
 	err = s.Get(&req, p, &object)
 	if err != nil {
@@ -151,7 +151,7 @@ func (e SysUser) Update(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料权限检查
+	//資料權限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Update(&req, p)
@@ -187,7 +187,7 @@ func (e SysUser) Delete(c *gin.Context) {
 	// 設定編輯人
 	req.SetUpdateBy(user.GetUserId(c))
 
-	// 資料权限检查
+	// 資料權限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Remove(&req, p)
@@ -201,7 +201,7 @@ func (e SysUser) Delete(c *gin.Context) {
 // InsetAvatar
 // @Summary 更新頭貼
 // @Description 取得JSON
-// @Tags 个人中心
+// @Tags user資料
 // @Accept multipart/form-data
 // @Param file formData file true "file"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -219,7 +219,7 @@ func (e SysUser) InsetAvatar(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	// 資料权限检查
+	// 資料權限检查
 	p := actions.GetPermissionFromContext(c)
 	form, _ := c.MultipartForm()
 	files := form.File["upload[]"]
@@ -227,7 +227,7 @@ func (e SysUser) InsetAvatar(c *gin.Context) {
 	filPath := "static/uploadfile/" + guid + ".jpg"
 	for _, file := range files {
 		e.Logger.Debugf("upload avatar file: %s", file.Filename)
-		// 上传文件至指定目录
+		// 上傳文件至指定目录
 		err = c.SaveUploadedFile(file, filPath)
 		if err != nil {
 			e.Logger.Errorf("save file error, %s", err.Error())
@@ -272,7 +272,7 @@ func (e SysUser) UpdateStatus(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料权限检查
+	//資料權限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.UpdateStatus(&req, p)
@@ -309,7 +309,7 @@ func (e SysUser) ResetPwd(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料权限检查
+	//資料權限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.ResetPwd(&req, p)
@@ -344,7 +344,7 @@ func (e SysUser) UpdatePwd(c *gin.Context) {
 		return
 	}
 
-	// 資料权限检查
+	// 資料權限检查
 	p := actions.GetPermissionFromContext(c)
 	var hash []byte
 	if hash, err = bcrypt.GenerateFromPassword([]byte(req.NewPassword), bcrypt.DefaultCost); err != nil {
@@ -362,9 +362,9 @@ func (e SysUser) UpdatePwd(c *gin.Context) {
 }
 
 // GetProfile
-// @Summary 取得个人中心User
+// @Summary 取得user資料User
 // @Description 取得JSON
-// @Tags 个人中心
+// @Tags user資料
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/user/profile [get]
 // @Security Bearer
@@ -402,7 +402,7 @@ func (e SysUser) GetProfile(c *gin.Context) {
 // GetInfo
 // @Summary 取得个人訊息
 // @Description 取得JSON
-// @Tags 个人中心
+// @Tags user資料
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/getinfo [get]
 // @Security Bearer

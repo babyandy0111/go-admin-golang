@@ -6,7 +6,7 @@ import (
 	common "go-admin/common/models"
 )
 
-// SysConfigGetPageReq 列表或者搜索使用结构体
+// SysConfigGetPageReq 列表或者搜索使用結構体
 type SysConfigGetPageReq struct {
 	dto.Pagination `search:"-"`
 	ConfigName     string `form:"configName" search:"type:contains;column:config_name;table:sys_config"`
@@ -36,7 +36,7 @@ func (m *SysConfigGetToSysAppReq) GetNeedSearch() interface{} {
 	return *m
 }
 
-// SysConfigControl 增、改使用的结构体
+// SysConfigControl 增、改使用的結構体
 type SysConfigControl struct {
 	Id          int    `uri:"Id" comment:"流水號"` // 流水號
 	ConfigName  string `json:"configName" comment:""`
@@ -48,7 +48,7 @@ type SysConfigControl struct {
 	common.ControlBy
 }
 
-// Generate 结构体資料转化 从 SysConfigControl 至 system.SysConfig 对应的模型
+// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的模型
 func (s *SysConfigControl) Generate(model *models.SysConfig) {
 	if s.Id == 0 {
 		model.Model = common.Model{Id: s.Id}
@@ -62,25 +62,25 @@ func (s *SysConfigControl) Generate(model *models.SysConfig) {
 
 }
 
-// GetId 取得資料对应的ID
+// GetId 取得資料對應的ID
 func (s *SysConfigControl) GetId() interface{} {
 	return s.Id
 }
 
-// GetSetSysConfigReq 增、改使用的结构体
+// GetSetSysConfigReq 增、改使用的結構体
 type GetSetSysConfigReq struct {
 	ConfigKey   string `json:"configKey" comment:""`
 	ConfigValue string `json:"configValue" comment:""`
 }
 
-// Generate 结构体資料转化 从 SysConfigControl 至 system.SysConfig 对应的模型
+// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的模型
 func (s *GetSetSysConfigReq) Generate(model *models.SysConfig) {
 	model.ConfigValue = s.ConfigValue
 }
 
 type UpdateSetSysConfigReq map[string]string
 
-// SysConfigByKeyReq 根据Key取得配置
+// SysConfigByKeyReq 根據Key取得配置
 type SysConfigByKeyReq struct {
 	ConfigKey string `uri:"configKey" search:"type:contains;column:config_key;table:sys_config"`
 }

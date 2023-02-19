@@ -52,8 +52,8 @@ func (e SysDictType) GetPage(c *gin.Context) {
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 字典類型通过字典id取得
-// @Summary 字典類型通过字典id取得
+// Get 字典類型透過字典id取得
+// @Summary 字典類型透過字典id取得
 // @Description 取得JSON
 // @Tags 字典類型
 // @Param dictId path int true "字典類型流水號"

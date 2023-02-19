@@ -18,11 +18,11 @@ const docTemplateadmin = `{
     "paths": {
         "/api/v1/app-config": {
             "get": {
-                "description": "取得系統配置訊息，主要注意这里不在验证权限",
+                "description": "取得系統配置訊息，主要注意这里不在验证權限",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "取得系統前台配置訊息，主要注意这里不在验证权限",
+                "summary": "取得系統前台配置訊息，主要注意这里不在验证權限",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -268,11 +268,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "資料字典根据key取得",
+                "description": "資料字典根據key取得",
                 "tags": [
                     "字典資料"
                 ],
-                "summary": "資料字典根据key取得",
+                "summary": "資料字典根據key取得",
                 "parameters": [
                     {
                         "type": "integer",
@@ -437,7 +437,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "字典資料"
                 ],
-                "summary": "通过流水號取得字典資料",
+                "summary": "透過流水號取得字典資料",
                 "parameters": [
                     {
                         "type": "integer",
@@ -663,7 +663,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "字典類型"
                 ],
-                "summary": "字典類型通过字典id取得",
+                "summary": "字典類型透過字典id取得",
                 "parameters": [
                     {
                         "type": "integer",
@@ -726,7 +726,7 @@ const docTemplateadmin = `{
                 ],
                 "description": "取得JSON",
                 "tags": [
-                    "个人中心"
+                    "user資料"
                 ],
                 "summary": "取得个人訊息",
                 "responses": {
@@ -741,7 +741,7 @@ const docTemplateadmin = `{
         },
         "/api/v1/login": {
             "post": {
-                "description": "取得token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以传入0值",
+                "description": "取得token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以傳入0值",
                 "consumes": [
                     "application/json"
                 ],
@@ -981,7 +981,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "選單"
                 ],
-                "summary": "根据登入角色名稱取得選單列表資料（左選單使用）",
+                "summary": "根據登入角色名稱取得選單列表資料（左選單使用）",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -1305,7 +1305,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "更新角色資料权限",
+                "summary": "更新角色資料權限",
                 "parameters": [
                     {
                         "description": "body",
@@ -1821,11 +1821,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "根据Key取得SysConfig的Service",
+                "description": "根據Key取得SysConfig的Service",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "根据Key取得SysConfig的Service",
+                "summary": "根據Key取得SysConfig的Service",
                 "parameters": [
                     {
                         "type": "string",
@@ -1992,7 +1992,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "登入Log"
                 ],
-                "summary": "登入Log通过id取得",
+                "summary": "登入Log透過id取得",
                 "parameters": [
                     {
                         "type": "string",
@@ -2125,7 +2125,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "操作Log"
                 ],
-                "summary": "操作Log通过id取得",
+                "summary": "操作Log透過id取得",
                 "parameters": [
                     {
                         "type": "string",
@@ -2314,7 +2314,7 @@ const docTemplateadmin = `{
                     "multipart/form-data"
                 ],
                 "tags": [
-                    "个人中心"
+                    "user資料"
                 ],
                 "summary": "更新頭貼",
                 "parameters": [
@@ -2345,9 +2345,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "取得JSON",
                 "tags": [
-                    "个人中心"
+                    "user資料"
                 ],
-                "summary": "取得个人中心User",
+                "summary": "取得user資料User",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -3009,7 +3009,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "permission": {
-                    "description": "权限流水號",
+                    "description": "權限流水號",
                     "type": "string"
                 },
                 "sort": {
@@ -3096,7 +3096,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "permission": {
-                    "description": "权限流水號",
+                    "description": "權限流水號",
                     "type": "string"
                 },
                 "sort": {

@@ -181,7 +181,7 @@ func (e SysDept) Delete(c *gin.Context) {
 	e.OK(req.GetId(), "刪除成功")
 }
 
-// Get2Tree User管理 左侧部門树
+// Get2Tree User管理 左侧部門樹
 func (e SysDept) Get2Tree(c *gin.Context) {
 	s := service.SysDept{}
 	req := dto.SysDeptGetPageReq{}

@@ -36,7 +36,7 @@ func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.H
 			return
 		}
 
-		//資料权限检查
+		//資料權限检查
 		p := GetPermissionFromContext(c)
 
 		err = db.WithContext(c).Model(object).

@@ -246,8 +246,8 @@ func (e SysRole) Update2Status(c *gin.Context) {
 	e.OK(req.GetId(), fmt.Sprintf("更新角色 %v 狀態成功！", req.GetId()))
 }
 
-// Update2DataScope 更新角色資料权限
-// @Summary 更新角色資料权限
+// Update2DataScope 更新角色資料權限
+// @Summary 更新角色資料權限
 // @Description 取得JSON
 // @Tags 角色/Role
 // @Accept  application/json
@@ -277,7 +277,7 @@ func (e SysRole) Update2DataScope(c *gin.Context) {
 	data.UpdateBy = user.GetUserId(c)
 	err = s.UpdateDataScope(&req).Error
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("更新角色資料权限失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新角色資料權限失敗！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(nil, "操作成功")

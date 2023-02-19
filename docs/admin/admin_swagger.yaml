@@ -350,7 +350,7 @@ definitions:
         description: id路径
         type: string
       permission:
-        description: 权限流水號
+        description: 權限流水號
         type: string
       sort:
         description: 排序
@@ -413,7 +413,7 @@ definitions:
         description: id路径
         type: string
       permission:
-        description: 权限流水號
+        description: 權限流水號
         type: string
       sort:
         description: 排序
@@ -881,7 +881,7 @@ info:
 paths:
   /api/v1/app-config:
     get:
-      description: 取得系統配置訊息，主要注意这里不在验证权限
+      description: 取得系統配置訊息，主要注意这里不在验证權限
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -894,7 +894,7 @@ paths:
                     type: string
                   type: object
               type: object
-      summary: 取得系統前台配置訊息，主要注意这里不在验证权限
+      summary: 取得系統前台配置訊息，主要注意这里不在验证權限
       tags:
       - 配置管理
   /api/v1/captcha:
@@ -1029,7 +1029,7 @@ paths:
       - 部門
   /api/v1/dict-data/option-select:
     get:
-      description: 資料字典根据key取得
+      description: 資料字典根據key取得
       parameters:
       - description: dictType
         in: query
@@ -1050,7 +1050,7 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 資料字典根据key取得
+      summary: 資料字典根據key取得
       tags:
       - 字典資料
   /api/v1/dict/data:
@@ -1143,7 +1143,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 通过流水號取得字典資料
+      summary: 透過流水號取得字典資料
       tags:
       - 字典資料
     put:
@@ -1283,7 +1283,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 字典類型通过字典id取得
+      summary: 字典類型透過字典id取得
       tags:
       - 字典類型
     put:
@@ -1319,7 +1319,7 @@ paths:
       - Bearer: []
       summary: 取得个人訊息
       tags:
-      - 个人中心
+      - user資料
   /api/v1/login:
     post:
       consumes:
@@ -1330,7 +1330,7 @@ paths:
         Payload needs to be json in the form of {"username": "USERNAME", "password": "PASSWORD"}.
         Reply will be of the form {"token": "TOKEN"}.
         dev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password
-        注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以传入0值
+        注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以傳入0值
       parameters:
       - description: account
         in: body
@@ -1481,7 +1481,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 根据登入角色名稱取得選單列表資料（左選單使用）
+      summary: 根據登入角色名稱取得選單列表資料（左選單使用）
       tags:
       - 選單
   /api/v1/post:
@@ -1688,7 +1688,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 更新角色資料权限
+      summary: 更新角色資料權限
       tags:
       - 角色/Role
   /api/v1/role/{id}:
@@ -1980,7 +1980,7 @@ paths:
       - 配置管理
   /api/v1/sys-config/{id}:
     get:
-      description: 根据Key取得SysConfig的Service
+      description: 根據Key取得SysConfig的Service
       parameters:
       - description: configKey
         in: path
@@ -1998,7 +1998,7 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 根据Key取得SysConfig的Service
+      summary: 根據Key取得SysConfig的Service
       tags:
       - 配置管理
     put:
@@ -2094,7 +2094,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 登入Log通过id取得
+      summary: 登入Log透過id取得
       tags:
       - 登入Log
   /api/v1/sys-opera-log:
@@ -2177,7 +2177,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 操作Log通过id取得
+      summary: 操作Log透過id取得
       tags:
       - 操作Log
   /api/v1/sys-user:
@@ -2297,7 +2297,7 @@ paths:
       - Bearer: []
       summary: 更新頭貼
       tags:
-      - 个人中心
+      - user資料
   /api/v1/user/profile:
     get:
       description: 取得JSON
@@ -2308,9 +2308,9 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 取得个人中心User
+      summary: 取得user資料User
       tags:
-      - 个人中心
+      - user資料
   /api/v1/user/pwd/reset:
     put:
       consumes:

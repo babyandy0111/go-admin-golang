@@ -63,7 +63,7 @@ func migrateModel() error {
 	}
 	db := sdk.Runtime.GetDbByKey(host)
 	if config.DatabasesConfig[host].Driver == "mysql" {
-		//初始化資料库時候用
+		//初始化資料庫時候用
 		db.Set("gorm:table_options", "ENGINE=InnoDB CHARSET=utf8mb4")
 	}
 	err := db.Debug().AutoMigrate(&models.Migration{})
@@ -75,9 +75,9 @@ func migrateModel() error {
 	return err
 }
 func initDB() {
-	//3. 初始化資料库链接
+	//3. 初始化資料庫連接
 	database.Setup()
-	//4. 資料库迁移
+	//4. 資料庫迁移
 	fmt.Println("migrate start")
 	_ = migrateModel()
 	fmt.Println(`migrate init ok`)

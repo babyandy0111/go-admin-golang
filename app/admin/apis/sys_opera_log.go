@@ -55,8 +55,8 @@ func (e SysOperaLog) GetPage(c *gin.Context) {
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 操作Log通过id取得
-// @Summary 操作Log通过id取得
+// Get 操作Log透過id取得
+// @Summary 操作Log透過id取得
 // @Description 取得JSON
 // @Tags 操作Log
 // @Param id path string false "id"

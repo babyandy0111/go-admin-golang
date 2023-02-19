@@ -11,7 +11,7 @@ import (
 	"github.com/go-admin-team/go-admin-core/sdk/pkg/response"
 )
 
-// AuthCheckRole 权限检查中间件
+// AuthCheckRole 權限检查中间件
 func AuthCheckRole() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log := api.GetRequestLogger(c)
@@ -20,7 +20,7 @@ func AuthCheckRole() gin.HandlerFunc {
 		e := sdk.Runtime.GetCasbinKey(c.Request.Host)
 		var res, casbinExclude bool
 		var err error
-		//检查权限
+		//检查權限
 		if v["rolekey"] == "admin" {
 			res = true
 			c.Next()
@@ -48,10 +48,10 @@ func AuthCheckRole() gin.HandlerFunc {
 			log.Infof("isTrue: %v role: %s method: %s path: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path)
 			c.Next()
 		} else {
-			log.Warnf("isTrue: %v role: %s method: %s path: %s message: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path, "当前request無权限，請管理員确认！")
+			log.Warnf("isTrue: %v role: %s method: %s path: %s message: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path, "当前request無權限，請管理員确认！")
 			c.JSON(http.StatusOK, gin.H{
 				"code": 403,
-				"msg":  "对不起，您没有该API訪問权限，請联系管理員",
+				"msg":  "对不起，您没有该API訪問權限，請联系管理員",
 			})
 			c.Abort()
 			return

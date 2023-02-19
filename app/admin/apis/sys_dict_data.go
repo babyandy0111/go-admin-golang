@@ -54,7 +54,7 @@ func (e SysDictData) GetPage(c *gin.Context) {
 }
 
 // Get
-// @Summary 通过流水號取得字典資料
+// @Summary 透過流水號取得字典資料
 // @Description 取得JSON
 // @Tags 字典資料
 // @Param dictCode path int true "字典流水號"
@@ -182,9 +182,9 @@ func (e SysDictData) Delete(c *gin.Context) {
 	e.OK(req.GetId(), "刪除成功")
 }
 
-// GetAll 資料字典根据key取得 业務页面使用
-// @Summary 資料字典根据key取得
-// @Description 資料字典根据key取得
+// GetAll 資料字典根據key取得 业務页面使用
+// @Summary 資料字典根據key取得
+// @Description 資料字典根據key取得
 // @Tags 字典資料
 // @Param dictType query int true "dictType"
 // @Success 200 {object} response.Response{data=[]dto.SysDictDataGetAllResp}  "{"code": 200, "data": [...]}"

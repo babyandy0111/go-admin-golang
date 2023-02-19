@@ -79,7 +79,7 @@ func (e Gen) Preview(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("資料库链接取得失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("資料庫連接取得失敗！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -124,7 +124,7 @@ func (e Gen) GenCode(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("資料库链接取得失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("資料庫連接取得失敗！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -150,7 +150,7 @@ func (e Gen) GenApiToFile(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("資料库链接取得失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("資料庫連接取得失敗！错误详情：%s", err.Error()))
 		return
 	}
 

@@ -50,8 +50,8 @@ func (e SysLoginLog) GetPage(c *gin.Context) {
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 登入Log通过id取得
-// @Summary 登入Log通过id取得
+// Get 登入Log透過id取得
+// @Summary 登入Log透過id取得
 // @Description 取得JSON
 // @Tags 登入Log
 // @Param id path string false "id"

@@ -173,8 +173,8 @@ func (e SysMenu) Delete(c *gin.Context) {
 	e.OK(control.GetId(), "刪除成功")
 }
 
-// GetMenuRole 根据登入角色名稱取得選單列表資料（左選單使用）
-// @Summary 根据登入角色名稱取得選單列表資料（左選單使用）
+// GetMenuRole 根據登入角色名稱取得選單列表資料（左選單使用）
+// @Summary 根據登入角色名稱取得選單列表資料（左選單使用）
 // @Description 取得JSON
 // @Tags 選單
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -202,8 +202,8 @@ func (e SysMenu) GetMenuRole(c *gin.Context) {
 	e.OK(result, "")
 }
 
-//// GetMenuIDS 取得角色对应的選單id数组
-//// @Summary 取得角色对应的選單id数组，設定角色权限使用
+//// GetMenuIDS 取得角色對應的選單id資料
+//// @Summary 取得角色對應的選單id資料，設定角色權限使用
 //// @Description 取得JSON
 //// @Tags 選單
 //// @Param id path int true "id"
@@ -240,7 +240,7 @@ func (e SysMenu) GetMenuRole(c *gin.Context) {
 //	e.OK(result, "")
 //}
 
-// GetMenuTreeSelect 根据角色ID查詢選單下拉树结构
+// GetMenuTreeSelect 根據角色ID查詢選單下拉樹結構
 // @Summary 角色更新使用的選單列表
 // @Description 取得JSON
 // @Tags 選單

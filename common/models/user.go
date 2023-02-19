@@ -6,7 +6,7 @@ import (
 	"github.com/go-admin-team/go-admin-core/sdk/pkg"
 )
 
-// BaseUser 密碼登入基础User
+// BaseUser 密碼登入基礎User
 type BaseUser struct {
 	Username     string `json:"username" gorm:"type:varchar(100);comment:使用者"`
 	Salt         string `json:"-" gorm:"type:varchar(255);comment:slat;<-"`

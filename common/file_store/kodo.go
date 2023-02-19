@@ -47,11 +47,11 @@ func (e *QiNiuKODO) Setup(endpoint, accessKeyID, accessKeySecret, BucketName str
 	mac := qbox.NewMac(accessKeyID, accessKeySecret)
 	// 取得存储空间。
 	cfg := storage.Config{}
-	// 空间对应的机房
+	// 空间對應的机房
 	e.setZoneORDefault(cfg, options...)
 	// 是否使用https域名
 	cfg.UseHTTPS = true
-	// 上传是否使用CDN上传加速
+	// 上傳是否使用CDN上傳加速
 	cfg.UseCdnDomains = false
 
 	e.Client = mac
@@ -84,10 +84,10 @@ func (e *QiNiuKODO) setZoneORDefault(cfg storage.Config, options ...ClientOption
 	}
 }
 
-// UpLoad 文件上传
+// UpLoad 文件上傳
 func (e *QiNiuKODO) UpLoad(yourObjectName string, localFile interface{}) error {
 
-	// 建立表單上传的对象
+	// 建立表單上傳的对象
 	formUploader := storage.NewFormUploader(&e.cfg)
 	ret := storage.PutRet{}
 	// 可选配置

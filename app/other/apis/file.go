@@ -30,8 +30,8 @@ type File struct {
 	api.Api
 }
 
-// UploadFile 上传图片
-// @Summary 上传图片
+// UploadFile 上傳图片
+// @Summary 上傳图片
 // @Description 取得JSON
 // @Tags 公共API
 // @Accept multipart/form-data
@@ -54,22 +54,22 @@ func (e File) UploadFile(c *gin.Context) {
 		if done {
 			return
 		}
-		e.OK(fileResponse, "上传成功")
+		e.OK(fileResponse, "上傳成功")
 		return
 	case "2": // 多图
 		multipartFile := e.multipleFile(c, urlPrefix)
-		e.OK(multipartFile, "上传成功")
+		e.OK(multipartFile, "上傳成功")
 		return
 	case "3": // base64
 		fileResponse = e.baseImg(c, fileResponse, urlPrefix)
-		e.OK(fileResponse, "上传成功")
+		e.OK(fileResponse, "上傳成功")
 	default:
 		var done bool
 		fileResponse, done = e.singleFile(c, fileResponse, urlPrefix)
 		if done {
 			return
 		}
-		e.OK(fileResponse, "上传成功")
+		e.OK(fileResponse, "上傳成功")
 		return
 	}
 
@@ -98,7 +98,7 @@ func (e File) baseImg(c *gin.Context, fileResponse FileResponse, urlPerfix strin
 	source, _ := c.GetPostForm("source")
 	err = thirdUpload(source, fileName, base64File)
 	if err != nil {
-		e.Error(200, errors.New(""), "上传第三方失敗")
+		e.Error(200, errors.New(""), "上傳第三方失敗")
 		return fileResponse
 	}
 	if source != "1" {
@@ -126,7 +126,7 @@ func (e File) multipleFile(c *gin.Context, urlPerfix string) []FileResponse {
 		if err1 == nil {
 			err := thirdUpload(source, fileName, multipartFileName)
 			if err != nil {
-				e.Error(500, errors.New(""), "上传第三方失敗")
+				e.Error(500, errors.New(""), "上傳第三方失敗")
 			} else {
 				fileResponse := FileResponse{
 					Size:     pkg.GetFileSize(multipartFileName),
@@ -153,7 +153,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 		e.Error(200, errors.New(""), "图片不能为空")
 		return FileResponse{}, true
 	}
-	// 上传文件至指定目录
+	// 上傳文件至指定目录
 	guid := uuid.New().String()
 
 	fileName := guid + utils.GetExt(files.Filename)
@@ -175,7 +175,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 	//source, _ := c.GetPostForm("source")
 	//err = thirdUpload(source, fileName, singleFile)
 	//if err != nil {
-	//	e.Error(200, errors.New(""), "上传第三方失敗")
+	//	e.Error(200, errors.New(""), "上傳第三方失敗")
 	//	return FileResponse{}, true
 	//}
 	fileResponse.Path = "/static/uploadfile/" + fileName

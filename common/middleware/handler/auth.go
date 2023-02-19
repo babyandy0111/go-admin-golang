@@ -53,7 +53,7 @@ func IdentityHandler(c *gin.Context) interface{} {
 // @Description Payload needs to be json in the form of {"username": "USERNAME", "password": "PASSWORD"}.
 // @Description Reply will be of the form {"token": "TOKEN"}.
 // @Description dev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password
-// @Description 注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以传入0值
+// @Description 注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以傳入0值
 // @Tags 登入
 // @Accept  application/json
 // @Product application/json
@@ -65,7 +65,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db error, %s", err.Error())
-		response.Error(c, 500, err, "資料库连接取得失敗")
+		response.Error(c, 500, err, "資料庫连接取得失敗")
 		return nil, jwt.ErrFailedAuthentication
 	}
 
@@ -87,7 +87,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 	if config.ApplicationConfig.Mode != "dev" {
 		if !captcha.Verify(loginVals.UUID, loginVals.Code, true) {
 			username = loginVals.Username
-			msg = "验证碼错误"
+			msg = "驗證碼错误"
 			status = "1"
 
 			return nil, jwt.ErrInvalidVerificationode

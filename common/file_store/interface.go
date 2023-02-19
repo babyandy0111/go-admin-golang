@@ -20,7 +20,7 @@ type ClientOption map[string]interface{}
 type FileStoreType interface {
 	// Setup 装载 endpoint sss
 	Setup(endpoint, accessKeyID, accessKeySecret, BucketName string, options ...ClientOption) error
-	// UpLoad 上传
+	// UpLoad 上傳
 	UpLoad(yourObjectName string, localFile interface{}) error
 	// GetTempToken 取得临時Token
 	GetTempToken() (string, error)

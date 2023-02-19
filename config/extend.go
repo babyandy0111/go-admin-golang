@@ -10,7 +10,7 @@ var ExtConfig Extend
 //
 // 使用方法： config.ExtConfig......即可！！
 type Extend struct {
-	AMap AMap // 这里配置对应配置文件的结构即可
+	AMap AMap // 这里配置對應配置文件的結構即可
 }
 
 type AMap struct {

@@ -10,10 +10,10 @@ settings:
     port: 8000 # 服務端口号
     readtimeout: 1
     writertimeout: 2
-    # 資料权限功能開關
+    # 資料權限功能開關
     enabledp: false
   ssl:
-    # https对应的域名
+    # https對應的域名
     domain: localhost:8000
     # https開關
     enable: false
@@ -28,7 +28,7 @@ settings:
     stdout: '' #控制台Log，启用后，不输出到文件
     # Log等级, trace, debug, info, warn, error, fatal
     level: trace
-    # 資料库Log開關
+    # 資料庫Log開關
     enableddb: false
   jwt:
     # token 密钥，生产环境时及的更新
@@ -36,9 +36,9 @@ settings:
     # token 过期时间 单位：秒
     timeout: 3600
   database:
-    # 資料库類型 mysql，sqlite3， postgres
+    # 資料庫類型 mysql，sqlite3， postgres
     driver: mysql
-    # 資料库连接字符串 mysql 缺省信息 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+    # 資料庫连接字符串 mysql 缺省資訊 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
     source: user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
     # source: sqlite3.db
     # source: host=myhost port=myport user=gorm dbname=gorm password=mypassword
@@ -46,9 +46,9 @@ settings:
       - sources:
           - user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
   gen:
-    # 代碼生成读取的資料库名稱
+    # 代碼生成读取的資料庫名稱
     dbname: dbname
-    # 代碼生成是使用前端代碼存放位置，需要指定到src文件夹，相对路径
+    # 代碼生成是使用前端代碼存放位置，需要指定到src文件夾，相对路径
     frontpath: ../go-admin-ui/src
   queue:
     memory:

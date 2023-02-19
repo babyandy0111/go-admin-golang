@@ -24,7 +24,7 @@ func (e *ALiYunOSS) Setup(endpoint, accessKeyID, accessKeySecret, BucketName str
 	return nil
 }
 
-// UpLoad 文件上传
+// UpLoad 文件上傳
 func (e *ALiYunOSS) UpLoad(yourObjectName string, localFile interface{}) error {
 	// 取得存储空间。
 	bucket, err := e.Client.(*oss.Client).Bucket(e.BucketName)
@@ -32,8 +32,8 @@ func (e *ALiYunOSS) UpLoad(yourObjectName string, localFile interface{}) error {
 		log.Println("Error:", err)
 		return err
 	}
-	// 設定分片大小为100 KB，指定分片上传併發数为3，并开启断点续传上传。
-	// 其中<yourObjectName>与objectKey是同一概念，表示断点续传上传文件到OSS時需要指定包含文件後缀在内的完整路径，例如abc/efg/123.jpg。
+	// 設定分片大小为100 KB，指定分片上傳併發数为3，并开启断点续傳上傳。
+	// 其中<yourObjectName>与objectKey是同一概念，表示断点续傳上傳文件到OSS時需要指定包含文件後缀在内的完整路径，例如abc/efg/123.jpg。
 	// "LocalFile"为filePath，100*1024为partSize。
 	err = bucket.UploadFile(yourObjectName, localFile.(string), 100*1024, oss.Routines(3), oss.Checkpoint(true, ""))
 	if err != nil {

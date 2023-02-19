@@ -36,7 +36,7 @@ func (e *DBTables) GetPage(tx *gorm.DB, pageSize int, pageIndex int) ([]DBTables
 			return nil, 0, err
 		}
 	} else {
-		pkg.Assert(true, "目前只支持mysql資料库", 500)
+		pkg.Assert(true, "目前只支持mysql資料庫", 500)
 	}
 
 	//table.Count(&count)
@@ -56,7 +56,7 @@ func (e *DBTables) Get(tx *gorm.DB) (DBTables, error) {
 			return doc, err
 		}
 	} else {
-		pkg.Assert(true, "目前只支持mysql資料库", 500)
+		pkg.Assert(true, "目前只支持mysql資料庫", 500)
 	}
 	return doc, nil
 }

@@ -84,7 +84,7 @@ func (e *Api) Bind(d interface{}, bindings ...binding.Binding) *Api {
 func (e Api) GetOrm() (*gorm.DB, error) {
 	db, err := pkg.GetOrm(e.Context)
 	if err != nil {
-		e.Error(500, err, "資料库连接取得失敗")
+		e.Error(500, err, "資料庫连接取得失敗")
 		return nil, err
 	}
 	return db, nil
@@ -101,7 +101,7 @@ func (e *Api) MakeOrm() *Api {
 	}
 	db, err := pkg.GetOrm(e.Context)
 	if err != nil {
-		e.Logger.Error(500, err, "資料库连接取得失敗")
+		e.Logger.Error(500, err, "資料庫连接取得失敗")
 		e.AddError(err)
 	}
 	e.Orm = db

@@ -144,7 +144,7 @@ func (s *SysRoleDeleteReq) GetId() interface{} {
 	return s.Ids
 }
 
-// RoleDataScopeReq 角色資料权限更新
+// RoleDataScopeReq 角色資料權限更新
 type RoleDataScopeReq struct {
 	RoleId    int    `json:"roleId" binding:"required"`
 	DataScope string `json:"dataScope" binding:"required"`

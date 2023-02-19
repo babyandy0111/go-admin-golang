@@ -12,7 +12,7 @@ type HuaWeiOBS struct {
 }
 
 func (e *HuaWeiOBS) Setup(endpoint, accessKeyID, accessKeySecret, BucketName string, options ...ClientOption) error {
-	// 建立ObsClient结构体
+	// 建立ObsClient結構体
 	client, err := obs.New(accessKeyID, accessKeySecret, endpoint)
 	if err != nil {
 		log.Println("Error:", err)
@@ -23,8 +23,8 @@ func (e *HuaWeiOBS) Setup(endpoint, accessKeyID, accessKeySecret, BucketName str
 	return nil
 }
 
-// UpLoad 文件上传
-// yourObjectName 文件路径名稱，与objectKey是同一概念，表示断点续传上传文件到OSS時需要指定包含文件後缀在内的完整路径，例如abc/efg/123.jpg
+// UpLoad 文件上傳
+// yourObjectName 文件路径名稱，与objectKey是同一概念，表示断点续傳上傳文件到OSS時需要指定包含文件後缀在内的完整路径，例如abc/efg/123.jpg
 func (e *HuaWeiOBS) UpLoad(yourObjectName string, localFile interface{}) error {
 	// 取得存储空间。
 	input := &obs.PutFileInput{}
