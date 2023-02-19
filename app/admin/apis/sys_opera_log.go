@@ -16,7 +16,7 @@ type SysOperaLog struct {
 
 // GetPage 操作日志列表
 // @Summary 操作日志列表
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 操作日志
 // @Param title query string false "title"
 // @Param method query string false "method"
@@ -48,16 +48,16 @@ func (e SysOperaLog) GetPage(c *gin.Context) {
 
 	err = s.GetPage(req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 }
 
-// Get 操作日志通过id獲取
-// @Summary 操作日志通过id獲取
-// @Description 獲取JSON
+// Get 操作日志通过id获取
+// @Summary 操作日志通过id获取
+// @Description 获取JSON
 // @Tags 操作日志
 // @Param id path string false "id"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -79,16 +79,16 @@ func (e SysOperaLog) Get(c *gin.Context) {
 	var object models.SysOperaLog
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
-// Delete 操作日志删除
-// DeleteSysMenu 操作日志删除
-// @Summary 删除操作日志
-// @Description 删除數据
+// Delete 操作日志刪除
+// DeleteSysMenu 操作日志刪除
+// @Summary 刪除操作日志
+// @Description 刪除数据
 // @Tags 操作日志
 // @Param data body dto.SysOperaLogDeleteReq true "body"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -111,8 +111,8 @@ func (e SysOperaLog) Delete(c *gin.Context) {
 	err = s.Remove(&req)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("删除失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("刪除失败！错误详情：%s", err.Error()))
 		return
 	}
-	e.OK(req.GetId(), "删除成功")
+	e.OK(req.GetId(), "刪除成功")
 }

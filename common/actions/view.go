@@ -28,13 +28,13 @@ func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 		req := control.Generate()
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "参數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "参数验证失败")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失敗")
+			response.Error(c, 500, err, "模型生成失败")
 			return
 		}
 
@@ -45,7 +45,7 @@ func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 			rsp, _ = req.GenerateM()
 		}
 
-		//數据权限检查
+		//数据权限检查
 		p := GetPermissionFromContext(c)
 
 		err = db.Model(object).WithContext(c).Scopes(
@@ -53,15 +53,15 @@ func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 		).Where(req.GetId()).First(rsp).Error
 
 		if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-			response.Error(c, http.StatusNotFound, nil, "查看对象不存在或無权查看")
+			response.Error(c, http.StatusNotFound, nil, "查無資料或無權限")
 			return
 		}
 		if err != nil {
 			log.Errorf("MsgID[%s] View error: %s", msgID, err)
-			response.Error(c, 500, err, "查看失敗")
+			response.Error(c, 500, err, "查看失败")
 			return
 		}
-		response.OK(c, rsp, "查詢成功")
+		response.OK(c, rsp, "查询成功")
 		c.Next()
 	}
 }

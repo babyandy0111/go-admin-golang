@@ -18,7 +18,6 @@ type SysUser struct {
 	service.Service
 }
 
-// GetPage 獲取SysUser列表
 func (e *SysUser) GetPage(c *dto.SysUserGetPageReq, p *actions.DataPermission, list *[]models.SysUser, count *int64) error {
 	var err error
 	var data models.SysUser
@@ -38,7 +37,6 @@ func (e *SysUser) GetPage(c *dto.SysUserGetPageReq, p *actions.DataPermission, l
 	return nil
 }
 
-// Get 獲取SysUser对象
 func (e *SysUser) Get(d *dto.SysUserById, p *actions.DataPermission, model *models.SysUser) error {
 	var data models.SysUser
 
@@ -48,7 +46,7 @@ func (e *SysUser) Get(d *dto.SysUserById, p *actions.DataPermission, model *mode
 		).
 		First(model, d.GetId()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error: %s", err)
 		return err
 	}
@@ -59,7 +57,6 @@ func (e *SysUser) Get(d *dto.SysUserById, p *actions.DataPermission, model *mode
 	return nil
 }
 
-// Insert 創建SysUser对象
 func (e *SysUser) Insert(c *dto.SysUserInsertReq) error {
 	var err error
 	var data models.SysUser
@@ -70,7 +67,7 @@ func (e *SysUser) Insert(c *dto.SysUserInsertReq) error {
 		return err
 	}
 	if i > 0 {
-		err := errors.New("用户名已存在！")
+		err := errors.New("使用者已存在！")
 		e.Log.Errorf("db error: %s", err)
 		return err
 	}
@@ -83,7 +80,6 @@ func (e *SysUser) Insert(c *dto.SysUserInsertReq) error {
 	return nil
 }
 
-// Update 修改SysUser对象
 func (e *SysUser) Update(c *dto.SysUserUpdateReq, p *actions.DataPermission) error {
 	var err error
 	var model models.SysUser
@@ -95,7 +91,7 @@ func (e *SysUser) Update(c *dto.SysUserUpdateReq, p *actions.DataPermission) err
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	c.Generate(&model)
@@ -112,7 +108,6 @@ func (e *SysUser) Update(c *dto.SysUserUpdateReq, p *actions.DataPermission) err
 	return nil
 }
 
-// UpdateAvatar 更新用户头像
 func (e *SysUser) UpdateAvatar(c *dto.UpdateSysUserAvatarReq, p *actions.DataPermission) error {
 	var err error
 	var model models.SysUser
@@ -124,7 +119,7 @@ func (e *SysUser) UpdateAvatar(c *dto.UpdateSysUserAvatarReq, p *actions.DataPer
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	err = e.Orm.Table(model.TableName()).Where("user_id =? ", c.UserId).Updates(c).Error
@@ -135,7 +130,6 @@ func (e *SysUser) UpdateAvatar(c *dto.UpdateSysUserAvatarReq, p *actions.DataPer
 	return nil
 }
 
-// UpdateStatus 更新用户状态
 func (e *SysUser) UpdateStatus(c *dto.UpdateSysUserStatusReq, p *actions.DataPermission) error {
 	var err error
 	var model models.SysUser
@@ -147,7 +141,7 @@ func (e *SysUser) UpdateStatus(c *dto.UpdateSysUserStatusReq, p *actions.DataPer
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	err = e.Orm.Table(model.TableName()).Where("user_id =? ", c.UserId).Updates(c).Error
@@ -158,7 +152,6 @@ func (e *SysUser) UpdateStatus(c *dto.UpdateSysUserStatusReq, p *actions.DataPer
 	return nil
 }
 
-// ResetPwd 重置用户密碼
 func (e *SysUser) ResetPwd(c *dto.ResetSysUserPwdReq, p *actions.DataPermission) error {
 	var err error
 	var model models.SysUser
@@ -170,7 +163,7 @@ func (e *SysUser) ResetPwd(c *dto.ResetSysUserPwdReq, p *actions.DataPermission)
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 	c.Generate(&model)
 	err = e.Orm.Omit("username", "nick_name", "phone", "role_id", "avatar", "sex").Save(&model).Error
@@ -181,7 +174,6 @@ func (e *SysUser) ResetPwd(c *dto.ResetSysUserPwdReq, p *actions.DataPermission)
 	return nil
 }
 
-// Remove 删除SysUser
 func (e *SysUser) Remove(c *dto.SysUserById, p *actions.DataPermission) error {
 	var err error
 	var data models.SysUser
@@ -195,12 +187,11 @@ func (e *SysUser) Remove(c *dto.SysUserById, p *actions.DataPermission) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权删除该數据")
+		return errors.New("無權限刪除該資料")
 	}
 	return nil
 }
 
-// UpdatePwd 修改SysUser对象密碼
 func (e *SysUser) UpdatePwd(id int, oldPassword, newPassword string, p *actions.DataPermission) error {
 	var err error
 
@@ -216,7 +207,7 @@ func (e *SysUser) UpdatePwd(id int, oldPassword, newPassword string, p *actions.
 		First(c, id).Error
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return errors.New("無权更新该數据")
+			return errors.New("無權限更新該資料")
 		}
 		e.Log.Errorf("db error: %s", err)
 		return err

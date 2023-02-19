@@ -15,7 +15,6 @@ type SysConfig struct {
 	service.Service
 }
 
-// GetPage 獲取SysConfig列表
 func (e *SysConfig) GetPage(c *dto.SysConfigGetPageReq, list *[]models.SysConfig, count *int64) error {
 	err := e.Orm.
 		Scopes(
@@ -31,11 +30,10 @@ func (e *SysConfig) GetPage(c *dto.SysConfigGetPageReq, list *[]models.SysConfig
 	return nil
 }
 
-// Get 獲取SysConfig对象
 func (e *SysConfig) Get(d *dto.SysConfigGetReq, model *models.SysConfig) error {
 	err := e.Orm.First(model, d.GetId()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("Service GetSysConfigPage error:%s", err)
 		return err
 	}
@@ -46,7 +44,6 @@ func (e *SysConfig) Get(d *dto.SysConfigGetReq, model *models.SysConfig) error {
 	return nil
 }
 
-// Insert 創建SysConfig对象
 func (e *SysConfig) Insert(c *dto.SysConfigControl) error {
 	var err error
 	var data models.SysConfig
@@ -59,7 +56,6 @@ func (e *SysConfig) Insert(c *dto.SysConfigControl) error {
 	return nil
 }
 
-// Update 修改SysConfig对象
 func (e *SysConfig) Update(c *dto.SysConfigControl) error {
 	var err error
 	var model = models.SysConfig{}
@@ -72,13 +68,12 @@ func (e *SysConfig) Update(c *dto.SysConfigControl) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	return nil
 }
 
-// SetSysConfig 修改SysConfig对象
 func (e *SysConfig) SetSysConfig(c *[]dto.GetSetSysConfigReq) error {
 	var err error
 	for _, req := range *c {
@@ -93,7 +88,7 @@ func (e *SysConfig) SetSysConfig(c *[]dto.GetSetSysConfigReq) error {
 				return err
 			}
 			if db.RowsAffected == 0 {
-				return errors.New("無权更新该數据")
+				return errors.New("無權限更新該資料")
 			}
 		}
 	}
@@ -136,7 +131,6 @@ func (e *SysConfig) UpdateForSet(c *[]dto.GetSetSysConfigReq) error {
 	return nil
 }
 
-// Remove 删除SysConfig
 func (e *SysConfig) Remove(d *dto.SysConfigDeleteReq) error {
 	var err error
 	var data models.SysConfig
@@ -148,13 +142,12 @@ func (e *SysConfig) Remove(d *dto.SysConfigDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		return err
 	}
 	return nil
 }
 
-// GetWithKey 根据Key獲取SysConfig
 func (e *SysConfig) GetWithKey(c *dto.SysConfigByKeyReq, resp *dto.GetSysConfigByKEYForServiceResp) error {
 	var err error
 	var data models.SysConfig

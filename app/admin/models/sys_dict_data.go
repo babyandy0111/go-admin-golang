@@ -5,7 +5,7 @@ import (
 )
 
 type SysDictData struct {
-	DictCode  int    `json:"dictCode" gorm:"primaryKey;column:dict_code;autoIncrement;comment:主键编碼"`
+	DictCode  int    `json:"dictCode" gorm:"primaryKey;column:dict_code;autoIncrement;comment:主健流水號"`
 	DictSort  int    `json:"dictSort" gorm:"size:20;comment:DictSort"`
 	DictLabel string `json:"dictLabel" gorm:"size:128;comment:DictLabel"`
 	DictValue string `json:"dictValue" gorm:"size:255;comment:DictValue"`

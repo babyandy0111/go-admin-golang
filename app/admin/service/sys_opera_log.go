@@ -15,7 +15,6 @@ type SysOperaLog struct {
 	service.Service
 }
 
-// GetPage 獲取SysOperaLog列表
 func (e *SysOperaLog) GetPage(c *dto.SysOperaLogGetPageReq, list *[]models.SysOperaLog, count *int64) error {
 	var err error
 	var data models.SysOperaLog
@@ -34,14 +33,13 @@ func (e *SysOperaLog) GetPage(c *dto.SysOperaLogGetPageReq, list *[]models.SysOp
 	return nil
 }
 
-// Get 獲取SysOperaLog对象
 func (e *SysOperaLog) Get(d *dto.SysOperaLogGetReq, model *models.SysOperaLog) error {
 	var data models.SysOperaLog
 
 	err := e.Orm.Model(&data).
 		First(model, d.GetId()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("Service GetSysOperaLog error:%s", err.Error())
 		return err
 	}
@@ -52,7 +50,6 @@ func (e *SysOperaLog) Get(d *dto.SysOperaLogGetReq, model *models.SysOperaLog) e
 	return nil
 }
 
-// Insert 創建SysOperaLog对象
 func (e *SysOperaLog) Insert(model *models.SysOperaLog) error {
 	var err error
 	var data models.SysOperaLog
@@ -66,7 +63,6 @@ func (e *SysOperaLog) Insert(model *models.SysOperaLog) error {
 	return nil
 }
 
-// Remove 删除SysOperaLog
 func (e *SysOperaLog) Remove(d *dto.SysOperaLogDeleteReq) error {
 	var err error
 	var data models.SysOperaLog
@@ -77,7 +73,7 @@ func (e *SysOperaLog) Remove(d *dto.SysOperaLogDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权删除该數据")
+		return errors.New("無權限刪除該資料")
 	}
 	return nil
 }

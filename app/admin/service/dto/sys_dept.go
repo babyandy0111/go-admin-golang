@@ -15,7 +15,7 @@ type SysDeptGetPageReq struct {
 	Leader   string `form:"leader" search:"type:exact;column:leader;table:sys_dept" comment:"负责人"`       //负责人
 	Phone    string `form:"phone" search:"type:exact;column:phone;table:sys_dept" comment:"手机"`          //手机
 	Email    string `form:"email" search:"type:exact;column:email;table:sys_dept" comment:"邮箱"`          //邮箱
-	Status   string `form:"status" search:"type:exact;column:status;table:sys_dept" comment:"状态"`        //状态
+	Status   string `form:"status" search:"type:exact;column:status;table:sys_dept" comment:"狀態"`        //狀態
 }
 
 func (m *SysDeptGetPageReq) GetNeedSearch() interface{} {
@@ -23,7 +23,7 @@ func (m *SysDeptGetPageReq) GetNeedSearch() interface{} {
 }
 
 type SysDeptInsertReq struct {
-	DeptId   int    `uri:"id" comment:"编碼"`                                         // 编碼
+	DeptId   int    `uri:"id" comment:"流水號"`                                        // 流水號
 	ParentId int    `json:"parentId" comment:"上级部门" vd:"?"`                         //上级部门
 	DeptPath string `json:"deptPath" comment:""`                                    //路径
 	DeptName string `json:"deptName" comment:"部门名称" vd:"len($)>0"`                  //部门名称
@@ -31,7 +31,7 @@ type SysDeptInsertReq struct {
 	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能为空'"` //负责人
 	Phone    string `json:"phone" comment:"手机" vd:"?"`                              //手机
 	Email    string `json:"email" comment:"邮箱" vd:"?"`                              //邮箱
-	Status   int    `json:"status" comment:"状态" vd:"$>0"`                           //状态
+	Status   int    `json:"status" comment:"狀態" vd:"$>0"`                           //狀態
 	common.ControlBy
 }
 
@@ -49,13 +49,13 @@ func (s *SysDeptInsertReq) Generate(model *models.SysDept) {
 	model.Status = s.Status
 }
 
-// GetId 獲取數据对应的ID
+// GetId 获取数据对应的ID
 func (s *SysDeptInsertReq) GetId() interface{} {
 	return s.DeptId
 }
 
 type SysDeptUpdateReq struct {
-	DeptId   int    `uri:"id" comment:"编碼"`                                         // 编碼
+	DeptId   int    `uri:"id" comment:"流水號"`                                        // 流水號
 	ParentId int    `json:"parentId" comment:"上级部门" vd:"?"`                         //上级部门
 	DeptPath string `json:"deptPath" comment:""`                                    //路径
 	DeptName string `json:"deptName" comment:"部门名称" vd:"len($)>0"`                  //部门名称
@@ -63,11 +63,11 @@ type SysDeptUpdateReq struct {
 	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能为空'"` //负责人
 	Phone    string `json:"phone" comment:"手机" vd:"?"`                              //手机
 	Email    string `json:"email" comment:"邮箱" vd:"?"`                              //邮箱
-	Status   int    `json:"status" comment:"状态" vd:"$>0"`                           //状态
+	Status   int    `json:"status" comment:"狀態" vd:"$>0"`                           //狀態
 	common.ControlBy
 }
 
-// Generate 结构体數据转化 从 SysDeptControl 至 SysDept 对应的模型
+// Generate 结构体数据转化 从 SysDeptControl 至 SysDept 对应的模型
 func (s *SysDeptUpdateReq) Generate(model *models.SysDept) {
 	if s.DeptId != 0 {
 		model.DeptId = s.DeptId
@@ -82,7 +82,7 @@ func (s *SysDeptUpdateReq) Generate(model *models.SysDept) {
 	model.Status = s.Status
 }
 
-// GetId 獲取數据对应的ID
+// GetId 获取数据对应的ID
 func (s *SysDeptUpdateReq) GetId() interface{} {
 	return s.DeptId
 }

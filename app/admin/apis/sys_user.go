@@ -22,8 +22,8 @@ type SysUser struct {
 }
 
 // GetPage
-// @Summary 列表用户訊息數据
-// @Description 獲取JSON
+// @Summary 列表用户訊息数据
+// @Description 获取JSON
 // @Tags 用户
 // @Param username query string false "username"
 // @Success 200 {string} {object} response.Response "{"code": 200, "data": [...]}"
@@ -43,7 +43,7 @@ func (e SysUser) GetPage(c *gin.Context) {
 		return
 	}
 
-	//數据权限检查
+	//数据权限检查
 	p := actions.GetPermissionFromContext(c)
 
 	list := make([]models.SysUser, 0)
@@ -51,18 +51,18 @@ func (e SysUser) GetPage(c *gin.Context) {
 
 	err = s.GetPage(&req, p, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 }
 
 // Get
-// @Summary 獲取用户
-// @Description 獲取JSON
+// @Summary 获取用户
+// @Description 获取JSON
 // @Tags 用户
-// @Param userId path int true "用户编碼"
+// @Param userId path int true "用户流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/sys-user/{userId} [get]
 // @Security Bearer
@@ -80,23 +80,23 @@ func (e SysUser) Get(c *gin.Context) {
 		return
 	}
 	var object models.SysUser
-	//數据权限检查
+	//数据权限检查
 	p := actions.GetPermissionFromContext(c)
 	err = s.Get(&req, p, &object)
 	if err != nil {
-		e.Error(http.StatusUnprocessableEntity, err, "查詢失敗")
+		e.Error(http.StatusUnprocessableEntity, err, "查询失败")
 		return
 	}
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
 // Insert
-// @Summary 創建用户
-// @Description 獲取JSON
+// @Summary 创建用户
+// @Description 获取JSON
 // @Tags 用户
 // @Accept  application/json
 // @Product application/json
-// @Param data body dto.SysUserInsertReq true "用户數据"
+// @Param data body dto.SysUserInsertReq true "用户数据"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/sys-user [post]
 // @Security Bearer
@@ -113,7 +113,7 @@ func (e SysUser) Insert(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	// 设置創建人
+	// 设置创建人
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
@@ -122,12 +122,12 @@ func (e SysUser) Insert(c *gin.Context) {
 		return
 	}
 
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "创建成功")
 }
 
 // Update
-// @Summary 修改用户數据
-// @Description 獲取JSON
+// @Summary 修改用户数据
+// @Description 获取JSON
 // @Tags 用户
 // @Accept  application/json
 // @Product application/json
@@ -151,7 +151,7 @@ func (e SysUser) Update(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//數据权限检查
+	//数据权限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Update(&req, p)
@@ -163,8 +163,8 @@ func (e SysUser) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 删除用户數据
-// @Description 删除數据
+// @Summary 刪除用户数据
+// @Description 刪除数据
 // @Tags 用户
 // @Param userId path int true "userId"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -187,7 +187,7 @@ func (e SysUser) Delete(c *gin.Context) {
 	// 设置编辑人
 	req.SetUpdateBy(user.GetUserId(c))
 
-	// 數据权限检查
+	// 数据权限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Remove(&req, p)
@@ -195,13 +195,13 @@ func (e SysUser) Delete(c *gin.Context) {
 		e.Logger.Error(err)
 		return
 	}
-	e.OK(req.GetId(), "删除成功")
+	e.OK(req.GetId(), "刪除成功")
 }
 
 // InsetAvatar
 // @Summary 修改头像
-// @Description 獲取JSON
-// @Tags 個人中心
+// @Description 获取JSON
+// @Tags 个人中心
 // @Accept multipart/form-data
 // @Param file formData file true "file"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -219,7 +219,7 @@ func (e SysUser) InsetAvatar(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	// 數据权限检查
+	// 数据权限检查
 	p := actions.GetPermissionFromContext(c)
 	form, _ := c.MultipartForm()
 	files := form.File["upload[]"]
@@ -246,9 +246,9 @@ func (e SysUser) InsetAvatar(c *gin.Context) {
 	e.OK(filPath, "修改成功")
 }
 
-// UpdateStatus 修改用户状态
-// @Summary 修改用户状态
-// @Description 獲取JSON
+// UpdateStatus 修改用户狀態
+// @Summary 修改用户狀態
+// @Description 获取JSON
 // @Tags 用户
 // @Accept  application/json
 // @Product application/json
@@ -272,7 +272,7 @@ func (e SysUser) UpdateStatus(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//數据权限检查
+	//数据权限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.UpdateStatus(&req, p)
@@ -283,9 +283,9 @@ func (e SysUser) UpdateStatus(c *gin.Context) {
 	e.OK(req.GetId(), "更新成功")
 }
 
-// ResetPwd 重置用户密碼
-// @Summary 重置用户密碼
-// @Description 獲取JSON
+// ResetPwd 重置用户密码
+// @Summary 重置用户密码
+// @Description 获取JSON
 // @Tags 用户
 // @Accept  application/json
 // @Product application/json
@@ -309,7 +309,7 @@ func (e SysUser) ResetPwd(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//數据权限检查
+	//数据权限检查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.ResetPwd(&req, p)
@@ -321,8 +321,8 @@ func (e SysUser) ResetPwd(c *gin.Context) {
 }
 
 // UpdatePwd
-// @Summary 修改密碼
-// @Description 獲取JSON
+// @Summary 修改密码
+// @Description 获取JSON
 // @Tags 用户
 // @Accept  application/json
 // @Product application/json
@@ -344,7 +344,7 @@ func (e SysUser) UpdatePwd(c *gin.Context) {
 		return
 	}
 
-	// 數据权限检查
+	// 数据权限检查
 	p := actions.GetPermissionFromContext(c)
 	var hash []byte
 	if hash, err = bcrypt.GenerateFromPassword([]byte(req.NewPassword), bcrypt.DefaultCost); err != nil {
@@ -354,17 +354,17 @@ func (e SysUser) UpdatePwd(c *gin.Context) {
 	err = s.UpdatePwd(user.GetUserId(c), req.OldPassword, req.NewPassword, p)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(http.StatusForbidden, err, "密碼修改失敗")
+		e.Error(http.StatusForbidden, err, "密码修改失败")
 		return
 	}
 
-	e.OK(nil, "密碼修改成功")
+	e.OK(nil, "密码修改成功")
 }
 
 // GetProfile
-// @Summary 獲取個人中心用户
-// @Description 獲取JSON
-// @Tags 個人中心
+// @Summary 获取个人中心用户
+// @Description 获取JSON
+// @Tags 个人中心
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/user/profile [get]
 // @Security Bearer
@@ -389,20 +389,20 @@ func (e SysUser) GetProfile(c *gin.Context) {
 	err = s.GetProfile(&req, &sysUser, &roles, &posts)
 	if err != nil {
 		e.Logger.Errorf("get user profile error, %s", err.Error())
-		e.Error(500, err, "獲取用户訊息失敗")
+		e.Error(500, err, "获取用户訊息失败")
 		return
 	}
 	e.OK(gin.H{
 		"user":  sysUser,
 		"roles": roles,
 		"posts": posts,
-	}, "查詢成功")
+	}, "查询成功")
 }
 
 // GetInfo
-// @Summary 獲取個人訊息
-// @Description 獲取JSON
-// @Tags 個人中心
+// @Summary 获取个人訊息
+// @Description 获取JSON
+// @Tags 个人中心
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/getinfo [get]
 // @Security Bearer
@@ -442,7 +442,7 @@ func (e SysUser) GetInfo(c *gin.Context) {
 	req.Id = user.GetUserId(c)
 	err = s.Get(&req, p, &sysUser)
 	if err != nil {
-		e.Error(http.StatusUnauthorized, err, "登录失敗")
+		e.Error(http.StatusUnauthorized, err, "登入失败")
 		return
 	}
 	mp["introduction"] = " am a super administrator"

@@ -18,11 +18,11 @@ const docTemplateadmin = `{
     "paths": {
         "/api/v1/app-config": {
             "get": {
-                "description": "獲取系统配置訊息，主要注意这里不在验证权限",
+                "description": "获取系统配置訊息，主要注意这里不在验证权限",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "獲取系统前台配置訊息，主要注意这里不在验证权限",
+                "summary": "获取系统前台配置訊息，主要注意这里不在验证权限",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -50,11 +50,11 @@ const docTemplateadmin = `{
         },
         "/api/v1/captcha": {
             "get": {
-                "description": "獲取验证碼",
+                "description": "获取验证码",
                 "tags": [
                     "登陆"
                 ],
-                "summary": "獲取验证碼",
+                "summary": "获取验证码",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -90,11 +90,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "分頁列表",
+                "description": "分页列表",
                 "tags": [
                     "部门"
                 ],
-                "summary": "分頁部门列表數据",
+                "summary": "分页部门列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -130,14 +130,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "部门"
                 ],
-                "summary": "新增部门",
+                "summary": "添加部门",
                 "parameters": [
                     {
                         "description": "data",
@@ -151,7 +151,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": -1, \"message\": \"新增失敗\"}",
+                        "description": "{\"code\": -1, \"message\": \"添加失败\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -164,11 +164,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "部门"
                 ],
-                "summary": "删除部门",
+                "summary": "刪除部门",
                 "parameters": [
                     {
                         "description": "body",
@@ -182,7 +182,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": -1, \"message\": \"删除失敗\"}",
+                        "description": "{\"code\": -1, \"message\": \"刪除失败\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -197,11 +197,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "部门"
                 ],
-                "summary": "獲取部门數据",
+                "summary": "获取部门数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -225,7 +225,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -253,7 +253,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": -1, \"message\": \"新增失敗\"}",
+                        "description": "{\"code\": -1, \"message\": \"添加失败\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -268,11 +268,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "數据字典根据key獲取",
+                "description": "数据字典根据key获取",
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "數据字典根据key獲取",
+                "summary": "数据字典根据key获取",
                 "parameters": [
                     {
                         "type": "integer",
@@ -314,11 +314,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "字典數据列表",
+                "summary": "字典数据列表",
                 "parameters": [
                     {
                         "type": "string",
@@ -340,13 +340,13 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "integer",
-                        "description": "頁條數",
+                        "description": "页条数",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "頁碼",
+                        "description": "页码",
                         "name": "pageIndex",
                         "in": "query"
                     }
@@ -366,14 +366,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "新增字典數据",
+                "summary": "添加字典数据",
                 "parameters": [
                     {
                         "description": "data",
@@ -387,7 +387,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"新增成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"添加成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -400,11 +400,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "删除字典數据",
+                "summary": "刪除字典数据",
                 "parameters": [
                     {
                         "description": "body",
@@ -418,7 +418,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"删除成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"刪除成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -433,15 +433,15 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "通过编碼獲取字典數据",
+                "summary": "通过流水號获取字典数据",
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "字典编碼",
+                        "description": "字典流水號",
                         "name": "dictCode",
                         "in": "path",
                         "required": true
@@ -462,14 +462,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
-                    "字典數据"
+                    "字典数据"
                 ],
-                "summary": "修改字典數据",
+                "summary": "修改字典数据",
                 "parameters": [
                     {
                         "description": "body",
@@ -498,11 +498,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "字典类型"
                 ],
-                "summary": "字典类型列表數据",
+                "summary": "字典类型列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -524,13 +524,13 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "integer",
-                        "description": "頁條數",
+                        "description": "页条数",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "頁碼",
+                        "description": "页码",
                         "name": "pageIndex",
                         "in": "query"
                     }
@@ -550,14 +550,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "字典类型"
                 ],
-                "summary": "新增字典类型",
+                "summary": "添加字典类型",
                 "parameters": [
                     {
                         "description": "data",
@@ -584,11 +584,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "字典类型"
                 ],
-                "summary": "删除字典类型",
+                "summary": "刪除字典类型",
                 "parameters": [
                     {
                         "description": "body",
@@ -617,11 +617,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "字典类型"
                 ],
-                "summary": "字典类型全部數据 代碼生成使用接口",
+                "summary": "字典类型全部数据 代码生成使用接口",
                 "parameters": [
                     {
                         "type": "string",
@@ -659,15 +659,15 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "字典类型"
                 ],
-                "summary": "字典类型通过字典id獲取",
+                "summary": "字典类型通过字典id获取",
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "字典类型编碼",
+                        "description": "字典类型流水號",
                         "name": "dictId",
                         "in": "path",
                         "required": true
@@ -688,7 +688,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -724,11 +724,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "個人中心"
+                    "个人中心"
                 ],
-                "summary": "獲取個人訊息",
+                "summary": "获取个人訊息",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -741,7 +741,7 @@ const docTemplateadmin = `{
         },
         "/api/v1/login": {
             "post": {
-                "description": "獲取token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，账号密碼外可以传入0值",
+                "description": "获取token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，账号密码外可以传入0值",
                 "consumes": [
                     "application/json"
                 ],
@@ -777,11 +777,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "菜单"
                 ],
-                "summary": "Menu列表數据",
+                "summary": "Menu列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -805,14 +805,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "菜单"
                 ],
-                "summary": "創建菜单",
+                "summary": "创建菜单",
                 "parameters": [
                     {
                         "description": "data",
@@ -839,11 +839,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "菜单"
                 ],
-                "summary": "删除菜单",
+                "summary": "刪除菜单",
                 "parameters": [
                     {
                         "description": "body",
@@ -872,11 +872,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "菜单"
                 ],
-                "summary": "Menu详情數据",
+                "summary": "Menu详情数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -900,7 +900,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -943,7 +943,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -977,11 +977,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "菜单"
                 ],
-                "summary": "根据登录角色名称獲取菜单列表數据（左菜单使用）",
+                "summary": "根据登入角色名称获取菜单列表数据（左菜单使用）",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -999,11 +999,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "岗位"
                 ],
-                "summary": "岗位列表數据",
+                "summary": "岗位列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -1045,14 +1045,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "岗位"
                 ],
-                "summary": "新增岗位",
+                "summary": "添加岗位",
                 "parameters": [
                     {
                         "description": "data",
@@ -1079,14 +1079,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "岗位"
                 ],
-                "summary": "删除岗位",
+                "summary": "刪除岗位",
                 "parameters": [
                     {
-                        "description": "请求参數",
+                        "description": "请求参数",
                         "name": "id",
                         "in": "body",
                         "required": true,
@@ -1112,7 +1112,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1148,15 +1148,15 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "岗位"
                 ],
-                "summary": "獲取岗位訊息",
+                "summary": "获取岗位訊息",
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "编碼",
+                        "description": "流水號",
                         "name": "id",
                         "in": "path",
                         "required": true
@@ -1183,7 +1183,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "角色列表數据",
+                "summary": "角色列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -1205,13 +1205,13 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "integer",
-                        "description": "頁條數",
+                        "description": "页条数",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "頁碼",
+                        "description": "页码",
                         "name": "pageIndex",
                         "in": "query"
                     }
@@ -1231,14 +1231,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "創建角色",
+                "summary": "创建角色",
                 "parameters": [
                     {
                         "description": "data",
@@ -1265,11 +1265,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "删除用户角色",
+                "summary": "刪除用户角色",
                 "parameters": [
                     {
                         "description": "body",
@@ -1298,14 +1298,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "更新角色數据权限",
+                "summary": "更新角色数据权限",
                 "parameters": [
                     {
                         "description": "body",
@@ -1334,11 +1334,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "獲取Role數据",
+                "summary": "获取Role数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -1362,7 +1362,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1398,14 +1398,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "界面操作设置配置值的獲取",
+                "description": "界面操作设置配置值的获取",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "獲取配置",
+                "summary": "获取配置",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"message\": \"修改成功\"}",
@@ -1473,11 +1473,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取接口管理列表",
+                "description": "获取接口管理列表",
                 "tags": [
                     "接口管理"
                 ],
-                "summary": "獲取接口管理列表",
+                "summary": "获取接口管理列表",
                 "parameters": [
                     {
                         "type": "string",
@@ -1505,13 +1505,13 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "integer",
-                        "description": "頁條數",
+                        "description": "页条数",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "頁碼",
+                        "description": "页码",
                         "name": "pageIndex",
                         "in": "query"
                     }
@@ -1558,11 +1558,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除接口管理",
+                "description": "刪除接口管理",
                 "tags": [
                     "接口管理"
                 ],
-                "summary": "删除接口管理",
+                "summary": "刪除接口管理",
                 "parameters": [
                     {
                         "description": "body",
@@ -1576,7 +1576,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"删除成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"刪除成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -1591,11 +1591,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取接口管理",
+                "description": "获取接口管理",
                 "tags": [
                     "接口管理"
                 ],
-                "summary": "獲取接口管理",
+                "summary": "获取接口管理",
                 "parameters": [
                     {
                         "type": "string",
@@ -1667,11 +1667,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取配置管理列表",
+                "description": "获取配置管理列表",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "獲取配置管理列表",
+                "summary": "获取配置管理列表",
                 "parameters": [
                     {
                         "type": "string",
@@ -1699,13 +1699,13 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "integer",
-                        "description": "頁條數",
+                        "description": "页条数",
                         "name": "pageSize",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "頁碼",
+                        "description": "页码",
                         "name": "pageIndex",
                         "in": "query"
                     }
@@ -1752,14 +1752,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "創建配置管理",
+                "description": "创建配置管理",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "創建配置管理",
+                "summary": "创建配置管理",
                 "parameters": [
                     {
                         "description": "body",
@@ -1773,7 +1773,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"創建成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"创建成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -1786,11 +1786,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除配置管理",
+                "description": "刪除配置管理",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "删除配置管理",
+                "summary": "刪除配置管理",
                 "parameters": [
                     {
                         "description": "ids",
@@ -1806,7 +1806,7 @@ const docTemplateadmin = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"删除成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"刪除成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -1821,11 +1821,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "根据Key獲取SysConfig的Service",
+                "description": "根据Key获取SysConfig的Service",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "根据Key獲取SysConfig的Service",
+                "summary": "根据Key获取SysConfig的Service",
                 "parameters": [
                     {
                         "type": "string",
@@ -1897,15 +1897,15 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "登录日志"
+                    "登入日志"
                 ],
-                "summary": "登录日志列表",
+                "summary": "登入日志列表",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "用户名",
+                        "description": "使用者",
                         "name": "username",
                         "in": "query"
                     },
@@ -1917,25 +1917,25 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "string",
-                        "description": "归属地",
+                        "description": "歸屬地",
                         "name": "loginLocation",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "状态",
+                        "description": "狀態",
                         "name": "status",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "开始时间",
+                        "description": "开始時間",
                         "name": "beginTime",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "结束时间",
+                        "description": "结束時間",
                         "name": "endTime",
                         "in": "query"
                     }
@@ -1955,11 +1955,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "登录日志删除",
+                "description": "登入日志刪除",
                 "tags": [
-                    "登录日志"
+                    "登入日志"
                 ],
-                "summary": "登录日志删除",
+                "summary": "登入日志刪除",
                 "parameters": [
                     {
                         "description": "body",
@@ -1988,11 +1988,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "登录日志"
+                    "登入日志"
                 ],
-                "summary": "登录日志通过id獲取",
+                "summary": "登入日志通过id获取",
                 "parameters": [
                     {
                         "type": "string",
@@ -2018,7 +2018,7 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "操作日志"
                 ],
@@ -2088,11 +2088,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "操作日志"
                 ],
-                "summary": "删除操作日志",
+                "summary": "刪除操作日志",
                 "parameters": [
                     {
                         "description": "body",
@@ -2121,11 +2121,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "操作日志"
                 ],
-                "summary": "操作日志通过id獲取",
+                "summary": "操作日志通过id获取",
                 "parameters": [
                     {
                         "type": "string",
@@ -2151,11 +2151,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "用户"
                 ],
-                "summary": "列表用户訊息數据",
+                "summary": "列表用户訊息数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -2179,17 +2179,17 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "用户"
                 ],
-                "summary": "創建用户",
+                "summary": "创建用户",
                 "parameters": [
                     {
-                        "description": "用户數据",
+                        "description": "用户数据",
                         "name": "data",
                         "in": "body",
                         "required": true,
@@ -2215,15 +2215,15 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
                     "用户"
                 ],
-                "summary": "獲取用户",
+                "summary": "获取用户",
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "用户编碼",
+                        "description": "用户流水號",
                         "name": "userId",
                         "in": "path",
                         "required": true
@@ -2244,14 +2244,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "用户"
                 ],
-                "summary": "修改用户數据",
+                "summary": "修改用户数据",
                 "parameters": [
                     {
                         "description": "body",
@@ -2278,11 +2278,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "删除數据",
+                "description": "刪除数据",
                 "tags": [
                     "用户"
                 ],
-                "summary": "删除用户數据",
+                "summary": "刪除用户数据",
                 "parameters": [
                     {
                         "type": "integer",
@@ -2309,12 +2309,12 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "multipart/form-data"
                 ],
                 "tags": [
-                    "個人中心"
+                    "个人中心"
                 ],
                 "summary": "修改头像",
                 "parameters": [
@@ -2343,11 +2343,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "tags": [
-                    "個人中心"
+                    "个人中心"
                 ],
-                "summary": "獲取個人中心用户",
+                "summary": "获取个人中心用户",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -2365,14 +2365,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "用户"
                 ],
-                "summary": "重置用户密碼",
+                "summary": "重置用户密码",
                 "parameters": [
                     {
                         "description": "body",
@@ -2401,14 +2401,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "用户"
                 ],
-                "summary": "修改密碼",
+                "summary": "修改密码",
                 "parameters": [
                     {
                         "description": "body",
@@ -2437,14 +2437,14 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取JSON",
+                "description": "获取JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "用户"
                 ],
-                "summary": "修改用户状态",
+                "summary": "修改用户狀態",
                 "parameters": [
                     {
                         "description": "body",
@@ -2473,11 +2473,11 @@ const docTemplateadmin = `{
                         "Bearer": []
                     }
                 ],
-                "description": "獲取token",
+                "description": "获取token",
                 "consumes": [
                     "application/json"
                 ],
-                "summary": "退出登录",
+                "summary": "退出登入",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"msg\": \"成功退出系统\" }",
@@ -2575,7 +2575,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "id": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "path": {
@@ -2619,7 +2619,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "id": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "isFrontend": {
@@ -2651,7 +2651,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "deptId": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "deptName": {
@@ -2683,7 +2683,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "integer"
                 },
                 "updateBy": {
@@ -2698,7 +2698,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "deptId": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "deptName": {
@@ -2730,7 +2730,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "integer"
                 },
                 "updateBy": {
@@ -2981,7 +2981,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "menuId": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "menuName": {
@@ -3009,7 +3009,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "permission": {
-                    "description": "权限编碼",
+                    "description": "权限流水號",
                     "type": "string"
                 },
                 "sort": {
@@ -3068,7 +3068,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "menuId": {
-                    "description": "编碼",
+                    "description": "流水號",
                     "type": "integer"
                 },
                 "menuName": {
@@ -3096,7 +3096,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "permission": {
-                    "description": "权限编碼",
+                    "description": "权限流水號",
                     "type": "string"
                 },
                 "sort": {
@@ -3248,15 +3248,15 @@ const docTemplateadmin = `{
                     }
                 },
                 "remark": {
-                    "description": "备注",
+                    "description": "備註",
                     "type": "string"
                 },
                 "roleId": {
-                    "description": "角色编碼",
+                    "description": "角色流水號",
                     "type": "integer"
                 },
                 "roleKey": {
-                    "description": "角色代碼",
+                    "description": "角色代码",
                     "type": "string"
                 },
                 "roleName": {
@@ -3268,7 +3268,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "string"
                 },
                 "sysDept": {
@@ -3317,15 +3317,15 @@ const docTemplateadmin = `{
                     }
                 },
                 "remark": {
-                    "description": "备注",
+                    "description": "備註",
                     "type": "string"
                 },
                 "roleId": {
-                    "description": "角色编碼",
+                    "description": "角色流水號",
                     "type": "integer"
                 },
                 "roleKey": {
-                    "description": "角色代碼",
+                    "description": "角色代码",
                     "type": "string"
                 },
                 "roleName": {
@@ -3337,7 +3337,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "string"
                 },
                 "sysDept": {
@@ -3465,11 +3465,11 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "roleId": {
-                    "description": "角色编碼",
+                    "description": "角色流水號",
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "string"
                 },
                 "updateBy": {
@@ -3610,7 +3610,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "deptId": {
-                    "description": "部门编碼",
+                    "description": "部门流水號",
                     "type": "integer"
                 },
                 "deptName": {
@@ -3644,7 +3644,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "status": {
-                    "description": "状态",
+                    "description": "狀態",
                     "type": "integer"
                 },
                 "updateBy": {
@@ -3774,7 +3774,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "requestId": {
-                    "description": "數据集",
+                    "description": "数据集",
                     "type": "string"
                 },
                 "status": {

@@ -11,7 +11,7 @@ import (
 type SysMenuGetPageReq struct {
 	dto.Pagination `search:"-"`
 	Title          string `form:"title" search:"type:contains;column:title;table:sys_menu" comment:"菜单名称"`  // 菜单名称
-	Visible        int    `form:"visible" search:"type:exact;column:visible;table:sys_menu" comment:"显示状态"` // 显示状态
+	Visible        int    `form:"visible" search:"type:exact;column:visible;table:sys_menu" comment:"显示狀態"` // 显示狀態
 }
 
 func (m *SysMenuGetPageReq) GetNeedSearch() interface{} {
@@ -19,7 +19,7 @@ func (m *SysMenuGetPageReq) GetNeedSearch() interface{} {
 }
 
 type SysMenuInsertReq struct {
-	MenuId     int             `uri:"id" comment:"编碼"`            // 编碼
+	MenuId     int             `uri:"id" comment:"流水號"`           // 流水號
 	MenuName   string          `form:"menuName" comment:"菜单name"` //菜单name
 	Title      string          `form:"title" comment:"显示名称"`      //显示名称
 	Icon       string          `form:"icon" comment:"图标"`         //图标
@@ -29,7 +29,7 @@ type SysMenuInsertReq struct {
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"请求方式"`      //请求方式
-	Permission string          `form:"permission" comment:"权限编碼"`  //权限编碼
+	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
 	ParentId   int             `form:"parentId" comment:"上级菜单"`    //上级菜单
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑
@@ -73,7 +73,7 @@ func (s *SysMenuInsertReq) GetId() interface{} {
 }
 
 type SysMenuUpdateReq struct {
-	MenuId     int             `uri:"id" comment:"编碼"`            // 编碼
+	MenuId     int             `uri:"id" comment:"流水號"`           // 流水號
 	MenuName   string          `form:"menuName" comment:"菜单name"` //菜单name
 	Title      string          `form:"title" comment:"显示名称"`      //显示名称
 	Icon       string          `form:"icon" comment:"图标"`         //图标
@@ -83,7 +83,7 @@ type SysMenuUpdateReq struct {
 	SysApi     []models.SysApi `form:"sysApi"`
 	Apis       []int           `form:"apis"`
 	Action     string          `form:"action" comment:"请求方式"`      //请求方式
-	Permission string          `form:"permission" comment:"权限编碼"`  //权限编碼
+	Permission string          `form:"permission" comment:"权限流水號"` //权限流水號
 	ParentId   int             `form:"parentId" comment:"上级菜单"`    //上级菜单
 	NoCache    bool            `form:"noCache" comment:"是否缓存"`     //是否缓存
 	Breadcrumb string          `form:"breadcrumb" comment:"是否面包屑"` //是否面包屑

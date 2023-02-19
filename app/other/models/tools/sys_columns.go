@@ -89,8 +89,8 @@ func (e *SysColumns) Update(tx *gorm.DB) (update SysColumns, err error) {
 		return
 	}
 
-	//参數1:是要修改的數据
-	//参數2:是修改的數据
+	//参数1:是要修改的数据
+	//参数2:是修改的数据
 	e.UpdateBy = 0
 	if err = tx.Table("sys_columns").Model(&update).Updates(&e).Error; err != nil {
 		return

@@ -21,13 +21,13 @@ import (
 func InitSysRouter(r *gin.Engine, authMiddleware *jwt.GinJWTMiddleware) *gin.RouterGroup {
 	g := r.Group("")
 	sysBaseRouter(g)
-	// 静态文件
+	// 靜態檔案
 	sysStaticFileRouter(g)
-	// swagger；注意：生产环境可以注释掉
+	// swagger；注意：prod可以註解
 	if config.ApplicationConfig.Mode != "prod" {
 		sysSwaggerRouter(g)
 	}
-	// 需要认证
+	// 需要認證
 	sysCheckRoleRouterInit(g, authMiddleware)
 	return g
 }

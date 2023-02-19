@@ -6,6 +6,6 @@ const (
 	Directory string = "M"
 	// Menu 菜单
 	Menu string = "C"
-	// Button 按钮
+	// Button 按鈕
 	Button string = "F"
 )

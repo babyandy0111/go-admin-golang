@@ -15,7 +15,6 @@ type SysDictData struct {
 	service.Service
 }
 
-// GetPage 獲取列表
 func (e *SysDictData) GetPage(c *dto.SysDictDataGetPageReq, list *[]models.SysDictData, count *int64) error {
 	var err error
 	var data models.SysDictData
@@ -34,7 +33,6 @@ func (e *SysDictData) GetPage(c *dto.SysDictDataGetPageReq, list *[]models.SysDi
 	return nil
 }
 
-// Get 獲取对象
 func (e *SysDictData) Get(d *dto.SysDictDataGetReq, model *models.SysDictData) error {
 	var err error
 	var data models.SysDictData
@@ -43,7 +41,7 @@ func (e *SysDictData) Get(d *dto.SysDictDataGetReq, model *models.SysDictData) e
 		First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error: %s", err)
 		return err
 	}
@@ -54,7 +52,6 @@ func (e *SysDictData) Get(d *dto.SysDictDataGetReq, model *models.SysDictData) e
 	return nil
 }
 
-// Insert 創建对象
 func (e *SysDictData) Insert(c *dto.SysDictDataInsertReq) error {
 	var err error
 	var data = new(models.SysDictData)
@@ -67,7 +64,6 @@ func (e *SysDictData) Insert(c *dto.SysDictDataInsertReq) error {
 	return nil
 }
 
-// Update 修改对象
 func (e *SysDictData) Update(c *dto.SysDictDataUpdateReq) error {
 	var err error
 	var model = models.SysDictData{}
@@ -79,13 +75,12 @@ func (e *SysDictData) Update(c *dto.SysDictDataUpdateReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	return nil
 }
 
-// Remove 删除
 func (e *SysDictData) Remove(c *dto.SysDictDataDeleteReq) error {
 	var err error
 	var data models.SysDictData
@@ -97,13 +92,12 @@ func (e *SysDictData) Remove(c *dto.SysDictDataDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		return err
 	}
 	return nil
 }
 
-// GetAll 獲取所有
 func (e *SysDictData) GetAll(c *dto.SysDictDataGetPageReq, list *[]models.SysDictData) error {
 	var err error
 	var data models.SysDictData

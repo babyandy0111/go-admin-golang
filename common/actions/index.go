@@ -14,7 +14,7 @@ import (
 	"go-admin/common/models"
 )
 
-// IndexAction 通用查詢动作
+// IndexAction 通用查询动作
 func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, err := pkg.GetOrm(c)
@@ -29,14 +29,14 @@ func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.H
 		req := d.Generate()
 		var count int64
 
-		//查詢列表
+		//查询列表
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "参數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "参数验证失败")
 			return
 		}
 
-		//數据权限检查
+		//数据权限检查
 		p := GetPermissionFromContext(c)
 
 		err = db.WithContext(c).Model(object).
@@ -49,10 +49,10 @@ func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.H
 			Count(&count).Error
 		if err != nil && !errors.Is(err, gorm.ErrRecordNotFound) {
 			log.Errorf("MsgID[%s] Index error: %s", msgID, err)
-			response.Error(c, 500, err, "查詢失敗")
+			response.Error(c, 500, err, "查询失败")
 			return
 		}
-		response.PageOK(c, list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
+		response.PageOK(c, list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 		c.Next()
 	}
 }

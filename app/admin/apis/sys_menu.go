@@ -15,9 +15,9 @@ type SysMenu struct {
 	api.Api
 }
 
-// GetPage Menu列表數据
-// @Summary Menu列表數据
-// @Description 獲取JSON
+// GetPage Menu列表数据
+// @Summary Menu列表数据
+// @Description 获取JSON
 // @Tags 菜单
 // @Param menuName query string false "menuName"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -39,15 +39,15 @@ func (e SysMenu) GetPage(c *gin.Context) {
 	var list = make([]models.SysMenu, 0)
 	err = s.GetPage(&req, &list).Error
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
-	e.OK(list, "查詢成功")
+	e.OK(list, "查询成功")
 }
 
-// Get 獲取菜单详情
-// @Summary Menu详情數据
-// @Description 獲取JSON
+// Get 获取菜单详情
+// @Summary Menu详情数据
+// @Description 获取JSON
 // @Tags 菜单
 // @Param id path string false "id"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -70,15 +70,15 @@ func (e SysMenu) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object).Error
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
-// Insert 創建菜单
-// @Summary 創建菜单
-// @Description 獲取JSON
+// Insert 创建菜单
+// @Summary 创建菜单
+// @Description 获取JSON
 // @Tags 菜单
 // @Accept  application/json
 // @Product application/json
@@ -99,19 +99,19 @@ func (e SysMenu) Insert(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	// 设置創建人
+	// 设置创建人
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req).Error
 	if err != nil {
-		e.Error(500, err, "創建失敗")
+		e.Error(500, err, "创建失败")
 		return
 	}
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "创建成功")
 }
 
 // Update 修改菜单
 // @Summary 修改菜单
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 菜单
 // @Accept  application/json
 // @Product application/json
@@ -137,15 +137,15 @@ func (e SysMenu) Update(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Update(&req).Error
 	if err != nil {
-		e.Error(500, err, "更新失敗")
+		e.Error(500, err, "更新失败")
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
 }
 
-// Delete 删除菜单
-// @Summary 删除菜单
-// @Description 删除數据
+// Delete 刪除菜单
+// @Summary 刪除菜单
+// @Description 刪除数据
 // @Tags 菜单
 // @Param data body dto.SysMenuDeleteReq true "body"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -167,15 +167,15 @@ func (e SysMenu) Delete(c *gin.Context) {
 	err = s.Remove(control).Error
 	if err != nil {
 		e.Logger.Errorf("RemoveSysMenu error, %s", err)
-		e.Error(500, err, "删除失敗")
+		e.Error(500, err, "刪除失败")
 		return
 	}
-	e.OK(control.GetId(), "删除成功")
+	e.OK(control.GetId(), "刪除成功")
 }
 
-// GetMenuRole 根据登录角色名称獲取菜单列表數据（左菜单使用）
-// @Summary 根据登录角色名称獲取菜单列表數据（左菜单使用）
-// @Description 獲取JSON
+// GetMenuRole 根据登入角色名称获取菜单列表数据（左菜单使用）
+// @Summary 根据登入角色名称获取菜单列表数据（左菜单使用）
+// @Description 获取JSON
 // @Tags 菜单
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/menurole [get]
@@ -195,16 +195,16 @@ func (e SysMenu) GetMenuRole(c *gin.Context) {
 	result, err := s.SetMenuRole(user.GetRoleName(c))
 
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
 	e.OK(result, "")
 }
 
-//// GetMenuIDS 獲取角色对应的菜单id數组
-//// @Summary 獲取角色对应的菜单id數组，设置角色权限使用
-//// @Description 獲取JSON
+//// GetMenuIDS 获取角色对应的菜单id数组
+//// @Summary 获取角色对应的菜单id数组，设置角色权限使用
+//// @Description 获取JSON
 //// @Tags 菜单
 //// @Param id path int true "id"
 //// @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -234,15 +234,15 @@ func (e SysMenu) GetMenuRole(c *gin.Context) {
 //
 //	if err != nil {
 //		e.Logger.Errorf("GetIDS error, %s", err.Error())
-//		e.Error(500, err, "獲取失敗")
+//		e.Error(500, err, "获取失败")
 //		return
 //	}
 //	e.OK(result, "")
 //}
 
-// GetMenuTreeSelect 根据角色ID查詢菜单下拉树结构
+// GetMenuTreeSelect 根据角色ID查询菜单下拉树结构
 // @Summary 角色修改使用的菜单列表
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 菜单
 // @Accept  application/json
 // @Product application/json
@@ -268,7 +268,7 @@ func (e SysMenu) GetMenuTreeSelect(c *gin.Context) {
 
 	result, err := m.SetLabel()
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
@@ -283,5 +283,5 @@ func (e SysMenu) GetMenuTreeSelect(c *gin.Context) {
 	e.OK(gin.H{
 		"menus":       result,
 		"checkedKeys": menuIds,
-	}, "獲取成功")
+	}, "获取成功")
 }

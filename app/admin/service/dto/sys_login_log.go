@@ -8,12 +8,12 @@ import (
 
 type SysLoginLogGetPageReq struct {
 	dto.Pagination `search:"-"`
-	Username       string `form:"username" search:"type:exact;column:username;table:sys_login_log" comment:"用户名"`
-	Status         string `form:"status" search:"type:exact;column:status;table:sys_login_log" comment:"状态"`
+	Username       string `form:"username" search:"type:exact;column:username;table:sys_login_log" comment:"使用者"`
+	Status         string `form:"status" search:"type:exact;column:status;table:sys_login_log" comment:"狀態"`
 	Ipaddr         string `form:"ipaddr" search:"type:exact;column:ipaddr;table:sys_login_log" comment:"ip地址"`
-	LoginLocation  string `form:"loginLocation" search:"type:exact;column:login_location;table:sys_login_log" comment:"归属地"`
-	BeginTime      string `form:"beginTime" search:"type:gte;column:ctime;table:sys_login_log" comment:"創建时间"`
-	EndTime        string `form:"endTime" search:"type:lte;column:ctime;table:sys_login_log" comment:"創建时间"`
+	LoginLocation  string `form:"loginLocation" search:"type:exact;column:login_location;table:sys_login_log" comment:"歸屬地"`
+	BeginTime      string `form:"beginTime" search:"type:gte;column:ctime;table:sys_login_log" comment:"建立時間"`
+	EndTime        string `form:"endTime" search:"type:lte;column:ctime;table:sys_login_log" comment:"建立時間"`
 	SysLoginLogOrder
 }
 
@@ -26,16 +26,16 @@ func (m *SysLoginLogGetPageReq) GetNeedSearch() interface{} {
 }
 
 type SysLoginLogControl struct {
-	ID            int       `uri:"Id" comment:"主键"` // 主键
-	Username      string    `json:"username" comment:"用户名"`
-	Status        string    `json:"status" comment:"状态"`
+	ID            int       `uri:"Id" comment:"主健"` // 主健
+	Username      string    `json:"username" comment:"使用者"`
+	Status        string    `json:"status" comment:"狀態"`
 	Ipaddr        string    `json:"ipaddr" comment:"ip地址"`
-	LoginLocation string    `json:"loginLocation" comment:"归属地"`
-	Browser       string    `json:"browser" comment:"浏览器"`
+	LoginLocation string    `json:"loginLocation" comment:"歸屬地"`
+	Browser       string    `json:"browser" comment:"瀏覽器"`
 	Os            string    `json:"os" comment:"系统"`
-	Platform      string    `json:"platform" comment:"固件"`
-	LoginTime     time.Time `json:"loginTime" comment:"登录时间"`
-	Remark        string    `json:"remark" comment:"备注"`
+	Platform      string    `json:"platform" comment:"平台"`
+	LoginTime     time.Time `json:"loginTime" comment:"登入時間"`
+	Remark        string    `json:"remark" comment:"備註"`
 	Msg           string    `json:"msg" comment:"訊息"`
 }
 
@@ -47,7 +47,7 @@ func (s *SysLoginLogGetReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysLoginLogDeleteReq 功能删除请求参數
+// SysLoginLogDeleteReq 功能刪除请求参数
 type SysLoginLogDeleteReq struct {
 	Ids []int `json:"ids"`
 }

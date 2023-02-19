@@ -11,7 +11,7 @@ func init() {
 	routerCheckRole = append(routerCheckRole, registerSysMenuRouter)
 }
 
-// 需认证的路由代碼
+// 需要認證
 func registerSysMenuRouter(v1 *gin.RouterGroup, authMiddleware *jwt.GinJWTMiddleware) {
 	api := apis.SysMenu{}
 

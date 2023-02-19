@@ -46,14 +46,14 @@ func IdentityHandler(c *gin.Context) interface{} {
 	}
 }
 
-// Authenticator 獲取token
+// Authenticator 获取token
 // @Summary 登陆
-// @Description 獲取token
+// @Description 获取token
 // @Description LoginHandler can be used by clients to get a jwt token.
 // @Description Payload needs to be json in the form of {"username": "USERNAME", "password": "PASSWORD"}.
 // @Description Reply will be of the form {"token": "TOKEN"}.
 // @Description dev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password
-// @Description 注意：开发模式：需要注意全部字段不能为空，账号密碼外可以传入0值
+// @Description 注意：开发模式：需要注意全部字段不能为空，账号密码外可以传入0值
 // @Tags 登陆
 // @Accept  application/json
 // @Product application/json
@@ -65,13 +65,13 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db error, %s", err.Error())
-		response.Error(c, 500, err, "數据库连接獲取失敗")
+		response.Error(c, 500, err, "数据库连接获取失败")
 		return nil, jwt.ErrFailedAuthentication
 	}
 
 	var loginVals Login
 	var status = "2"
-	var msg = "登录成功"
+	var msg = "登入成功"
 	var username = ""
 	defer func() {
 		LoginLogToDB(c, status, msg, username)
@@ -79,7 +79,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 
 	if err = c.ShouldBind(&loginVals); err != nil {
 		username = loginVals.Username
-		msg = "數据解析失敗"
+		msg = "数据解析失败"
 		status = "1"
 
 		return nil, jwt.ErrMissingLoginValues
@@ -87,7 +87,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 	if config.ApplicationConfig.Mode != "dev" {
 		if !captcha.Verify(loginVals.UUID, loginVals.Code, true) {
 			username = loginVals.Username
-			msg = "验证碼错误"
+			msg = "验证码错误"
 			status = "1"
 
 			return nil, jwt.ErrInvalidVerificationode
@@ -99,7 +99,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 
 		return map[string]interface{}{"user": user, "role": role}, nil
 	} else {
-		msg = "登录失敗"
+		msg = "登入失败"
 		status = "1"
 		log.Warnf("%s login failed!", loginVals.Username)
 	}
@@ -141,8 +141,8 @@ func LoginLogToDB(c *gin.Context, status string, msg string, username string) {
 }
 
 // LogOut
-// @Summary 退出登录
-// @Description 獲取token
+// @Summary 退出登入
+// @Description 获取token
 // LoginHandler can be used by clients to get a jwt token.
 // Reply will be of the form {"token": "TOKEN"}.
 // @Accept  application/json

@@ -21,7 +21,6 @@ type SysMenu struct {
 	service.Service
 }
 
-// GetPage 獲取SysMenu列表
 func (e *SysMenu) GetPage(c *dto.SysMenuGetPageReq, menus *[]models.SysMenu) *SysMenu {
 	var menu = make([]models.SysMenu, 0)
 	err := e.getPage(c, &menu).Error
@@ -39,7 +38,6 @@ func (e *SysMenu) GetPage(c *dto.SysMenuGetPageReq, menus *[]models.SysMenu) *Sy
 	return e
 }
 
-// getPage 菜单分頁列表
 func (e *SysMenu) getPage(c *dto.SysMenuGetPageReq, list *[]models.SysMenu) *SysMenu {
 	var err error
 	var data models.SysMenu
@@ -58,7 +56,6 @@ func (e *SysMenu) getPage(c *dto.SysMenuGetPageReq, list *[]models.SysMenu) *Sys
 	return e
 }
 
-// Get 獲取SysMenu对象
 func (e *SysMenu) Get(d *dto.SysMenuGetReq, model *models.SysMenu) *SysMenu {
 	var err error
 	var data models.SysMenu
@@ -67,7 +64,7 @@ func (e *SysMenu) Get(d *dto.SysMenuGetReq, model *models.SysMenu) *SysMenu {
 		First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("GetSysMenu error:%s", err)
 		_ = e.AddError(err)
 		return e
@@ -85,7 +82,6 @@ func (e *SysMenu) Get(d *dto.SysMenuGetReq, model *models.SysMenu) *SysMenu {
 	return e
 }
 
-// Insert 創建SysMenu对象
 func (e *SysMenu) Insert(c *dto.SysMenuInsertReq) *SysMenu {
 	var err error
 	var data models.SysMenu
@@ -131,7 +127,7 @@ func (e *SysMenu) initPaths(tx *gorm.DB, menu *models.SysMenu) error {
 			return err
 		}
 		if parentMenu.Paths == "" {
-			err = errors.New("父级paths异常，请尝试对当前节点父级菜单进行更新操作！")
+			err = errors.New("paths異常，請嘗試對當前menu進行更新操作！")
 			return err
 		}
 		menu.Paths = parentMenu.Paths + "/" + pkg.IntToString(menu.MenuId)
@@ -142,7 +138,6 @@ func (e *SysMenu) initPaths(tx *gorm.DB, menu *models.SysMenu) error {
 	return err
 }
 
-// Update 修改SysMenu对象
 func (e *SysMenu) Update(c *dto.SysMenuUpdateReq) *SysMenu {
 	var err error
 	tx := e.Orm.Debug().Begin()
@@ -173,7 +168,7 @@ func (e *SysMenu) Update(c *dto.SysMenuUpdateReq) *SysMenu {
 		return e
 	}
 	if db.RowsAffected == 0 {
-		_ = e.AddError(errors.New("無权更新该數据"))
+		_ = e.AddError(errors.New("無權限更新該資料"))
 		return e
 	}
 	var menuList []models.SysMenu
@@ -185,7 +180,6 @@ func (e *SysMenu) Update(c *dto.SysMenuUpdateReq) *SysMenu {
 	return e
 }
 
-// Remove 删除SysMenu
 func (e *SysMenu) Remove(d *dto.SysMenuDeleteReq) *SysMenu {
 	var err error
 	var data models.SysMenu
@@ -197,13 +191,12 @@ func (e *SysMenu) Remove(d *dto.SysMenuDeleteReq) *SysMenu {
 		_ = e.AddError(err)
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		_ = e.AddError(err)
 	}
 	return e
 }
 
-// GetList 獲取菜单數据
 func (e *SysMenu) GetList(c *dto.SysMenuGetPageReq, list *[]models.SysMenu) error {
 	var err error
 	var data models.SysMenu
@@ -220,7 +213,6 @@ func (e *SysMenu) GetList(c *dto.SysMenuGetPageReq, list *[]models.SysMenu) erro
 	return nil
 }
 
-// SetLabel 修改角色中 设置菜单基础數据
 func (e *SysMenu) SetLabel() (m []dto.MenuLabel, err error) {
 	var list []models.SysMenu
 	err = e.GetList(&dto.SysMenuGetPageReq{}, &list)
@@ -240,7 +232,6 @@ func (e *SysMenu) SetLabel() (m []dto.MenuLabel, err error) {
 	return
 }
 
-// GetSysMenuByRoleName 左侧菜单
 func (e *SysMenu) GetSysMenuByRoleName(roleName ...string) ([]models.SysMenu, error) {
 	var MenuList []models.SysMenu
 	var role models.SysRole
@@ -273,7 +264,6 @@ func (e *SysMenu) GetSysMenuByRoleName(roleName ...string) ([]models.SysMenu, er
 	return MenuList, err
 }
 
-// menuLabelCall 递归构造组织數据
 func menuLabelCall(eList *[]models.SysMenu, dept dto.MenuLabel) dto.MenuLabel {
 	list := *eList
 
@@ -302,7 +292,6 @@ func menuLabelCall(eList *[]models.SysMenu, dept dto.MenuLabel) dto.MenuLabel {
 	return dept
 }
 
-// menuCall 构建菜单树
 func menuCall(menuList *[]models.SysMenu, menu models.SysMenu) models.SysMenu {
 	list := *menuList
 
@@ -376,7 +365,6 @@ func recursiveSetMenu(orm *gorm.DB, mIds []int, menus *[]models.SysMenu) error {
 	return recursiveSetMenu(orm, subIds, menus)
 }
 
-// SetMenuRole 獲取左侧菜单树使用
 func (e *SysMenu) SetMenuRole(roleName string) (m []models.SysMenu, err error) {
 	menus, err := e.getByRoleName(roleName)
 	m = make([]models.SysMenu, 0)

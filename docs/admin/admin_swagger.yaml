@@ -55,7 +55,7 @@ definitions:
       handle:
         type: string
       id:
-        description: 编碼
+        description: 编码
         type: integer
       path:
         type: string
@@ -84,7 +84,7 @@ definitions:
       createBy:
         type: integer
       id:
-        description: 编碼
+        description: 编码
         type: integer
       isFrontend:
         type: string
@@ -105,7 +105,7 @@ definitions:
       createBy:
         type: integer
       deptId:
-        description: 编碼
+        description: 编码
         type: integer
       deptName:
         description: 部门名称
@@ -139,7 +139,7 @@ definitions:
       createBy:
         type: integer
       deptId:
-        description: 编碼
+        description: 编码
         type: integer
       deptName:
         description: 部门名称
@@ -329,7 +329,7 @@ definitions:
         description: 是否frame
         type: string
       menuId:
-        description: 编碼
+        description: 编码
         type: integer
       menuName:
         description: 菜单name
@@ -350,7 +350,7 @@ definitions:
         description: id路径
         type: string
       permission:
-        description: 权限编碼
+        description: 权限编码
         type: string
       sort:
         description: 排序
@@ -392,7 +392,7 @@ definitions:
         description: 是否frame
         type: string
       menuId:
-        description: 编碼
+        description: 编码
         type: integer
       menuName:
         description: 菜单name
@@ -413,7 +413,7 @@ definitions:
         description: id路径
         type: string
       permission:
-        description: 权限编碼
+        description: 权限编码
         type: string
       sort:
         description: 排序
@@ -517,10 +517,10 @@ definitions:
         description: 备注
         type: string
       roleId:
-        description: 角色编碼
+        description: 角色编码
         type: integer
       roleKey:
-        description: 角色代碼
+        description: 角色代码
         type: string
       roleName:
         description: 角色名称
@@ -565,10 +565,10 @@ definitions:
         description: 备注
         type: string
       roleId:
-        description: 角色编碼
+        description: 角色编码
         type: integer
       roleKey:
-        description: 角色代碼
+        description: 角色代码
         type: string
       roleName:
         description: 角色名称
@@ -663,7 +663,7 @@ definitions:
       createBy:
         type: integer
       roleId:
-        description: 角色编碼
+        description: 角色编码
         type: integer
       status:
         description: 状态
@@ -760,7 +760,7 @@ definitions:
       dataScope:
         type: string
       deptId:
-        description: 部门编碼
+        description: 部门编码
         type: integer
       deptName:
         description: 部门名称
@@ -871,7 +871,7 @@ definitions:
       msg:
         type: string
       requestId:
-        description: 數据集
+        description: 数据集
         type: string
       status:
         type: string
@@ -881,7 +881,7 @@ info:
 paths:
   /api/v1/app-config:
     get:
-      description: 獲取系统配置訊息，主要注意这里不在验证权限
+      description: 获取系统配置信息，主要注意这里不在验证权限
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -894,12 +894,12 @@ paths:
                     type: string
                   type: object
               type: object
-      summary: 獲取系统前台配置訊息，主要注意这里不在验证权限
+      summary: 获取系统前台配置信息，主要注意这里不在验证权限
       tags:
       - 配置管理
   /api/v1/captcha:
     get:
-      description: 獲取验证碼
+      description: 获取验证码
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -914,12 +914,12 @@ paths:
                 msg:
                   type: string
               type: object
-      summary: 獲取验证碼
+      summary: 获取验证码
       tags:
       - 登陆
   /api/v1/dept:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -929,7 +929,7 @@ paths:
           $ref: '#/definitions/dto.SysDeptDeleteReq'
       responses:
         "200":
-          description: '{"code": -1, "message": "删除失敗"}'
+          description: '{"code": -1, "message": "删除失败"}'
           schema:
             type: string
       security:
@@ -938,7 +938,7 @@ paths:
       tags:
       - 部门
     get:
-      description: 分頁列表
+      description: 分页列表
       parameters:
       - description: deptName
         in: query
@@ -959,13 +959,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 分頁部门列表數据
+      summary: 分页部门列表数据
       tags:
       - 部门
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -975,17 +975,17 @@ paths:
           $ref: '#/definitions/dto.SysDeptInsertReq'
       responses:
         "200":
-          description: '{"code": -1, "message": "新增失敗"}'
+          description: '{"code": -1, "message": "添加失败"}'
           schema:
             type: string
       security:
       - Bearer: []
-      summary: 新增部门
+      summary: 添加部门
       tags:
       - 部门
   /api/v1/dept/{deptId}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: deptId
         in: path
@@ -998,13 +998,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取部门數据
+      summary: 获取部门数据
       tags:
       - 部门
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: id
         in: path
@@ -1019,7 +1019,7 @@ paths:
           $ref: '#/definitions/dto.SysDeptUpdateReq'
       responses:
         "200":
-          description: '{"code": -1, "message": "新增失敗"}'
+          description: '{"code": -1, "message": "添加失败"}'
           schema:
             type: string
       security:
@@ -1029,7 +1029,7 @@ paths:
       - 部门
   /api/v1/dict-data/option-select:
     get:
-      description: 數据字典根据key獲取
+      description: 数据字典根据key获取
       parameters:
       - description: dictType
         in: query
@@ -1050,12 +1050,12 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 數据字典根据key獲取
+      summary: 数据字典根据key获取
       tags:
-      - 字典數据
+      - 字典数据
   /api/v1/dict/data:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -1070,11 +1070,11 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 删除字典數据
+      summary: 删除字典数据
       tags:
-      - 字典數据
+      - 字典数据
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: status
         in: query
@@ -1088,11 +1088,11 @@ paths:
         in: query
         name: dictType
         type: string
-      - description: 頁條數
+      - description: 页条数
         in: query
         name: pageSize
         type: integer
-      - description: 頁碼
+      - description: 页码
         in: query
         name: pageIndex
         type: integer
@@ -1103,13 +1103,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 字典數据列表
+      summary: 字典数据列表
       tags:
-      - 字典數据
+      - 字典数据
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -1119,19 +1119,19 @@ paths:
           $ref: '#/definitions/dto.SysDictDataInsertReq'
       responses:
         "200":
-          description: '{"code": 200, "message": "新增成功"}'
+          description: '{"code": 200, "message": "添加成功"}'
           schema:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 新增字典數据
+      summary: 添加字典数据
       tags:
-      - 字典數据
+      - 字典数据
   /api/v1/dict/data/{dictCode}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
-      - description: 字典编碼
+      - description: 字典编码
         in: path
         name: dictCode
         required: true
@@ -1143,13 +1143,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 通过编碼獲取字典數据
+      summary: 通过编码获取字典数据
       tags:
-      - 字典數据
+      - 字典数据
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -1164,12 +1164,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 修改字典數据
+      summary: 修改字典数据
       tags:
-      - 字典數据
+      - 字典数据
   /api/v1/dict/type:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -1188,7 +1188,7 @@ paths:
       tags:
       - 字典类型
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: dictName
         in: query
@@ -1202,11 +1202,11 @@ paths:
         in: query
         name: dictType
         type: string
-      - description: 頁條數
+      - description: 页条数
         in: query
         name: pageSize
         type: integer
-      - description: 頁碼
+      - description: 页码
         in: query
         name: pageIndex
         type: integer
@@ -1217,13 +1217,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 字典类型列表數据
+      summary: 字典类型列表数据
       tags:
       - 字典类型
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -1238,12 +1238,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 新增字典类型
+      summary: 添加字典类型
       tags:
       - 字典类型
   /api/v1/dict/type-option-select:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: dictName
         in: query
@@ -1264,14 +1264,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 字典类型全部數据 代碼生成使用接口
+      summary: 字典类型全部数据 代码生成使用接口
       tags:
       - 字典类型
   /api/v1/dict/type/{dictId}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
-      - description: 字典类型编碼
+      - description: 字典类型编码
         in: path
         name: dictId
         required: true
@@ -1283,13 +1283,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 字典类型通过字典id獲取
+      summary: 字典类型通过字典id获取
       tags:
       - 字典类型
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -1309,7 +1309,7 @@ paths:
       - 字典类型
   /api/v1/getinfo:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -1317,20 +1317,20 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取個人訊息
+      summary: 获取个人信息
       tags:
-      - 個人中心
+      - 个人中心
   /api/v1/login:
     post:
       consumes:
       - application/json
       description: |-
-        獲取token
+        获取token
         LoginHandler can be used by clients to get a jwt token.
         Payload needs to be json in the form of {"username": "USERNAME", "password": "PASSWORD"}.
         Reply will be of the form {"token": "TOKEN"}.
         dev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password
-        注意：开发模式：需要注意全部字段不能为空，账号密碼外可以传入0值
+        注意：开发模式：需要注意全部字段不能为空，账号密码外可以传入0值
       parameters:
       - description: account
         in: body
@@ -1350,7 +1350,7 @@ paths:
       - 登陆
   /api/v1/menu:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -1369,7 +1369,7 @@ paths:
       tags:
       - 菜单
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: menuName
         in: query
@@ -1382,13 +1382,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: Menu列表數据
+      summary: Menu列表数据
       tags:
       - 菜单
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -1403,12 +1403,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 創建菜单
+      summary: 创建菜单
       tags:
       - 菜单
   /api/v1/menu/{id}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: id
         in: path
@@ -1421,13 +1421,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: Menu详情數据
+      summary: Menu详情数据
       tags:
       - 菜单
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: id
         in: path
@@ -1454,7 +1454,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: roleId
         in: path
@@ -1473,7 +1473,7 @@ paths:
       - 菜单
   /api/v1/menurole:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -1481,14 +1481,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 根据登录角色名称獲取菜单列表數据（左菜单使用）
+      summary: 根据登录角色名称获取菜单列表数据（左菜单使用）
       tags:
       - 菜单
   /api/v1/post:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
-      - description: 请求参數
+      - description: 请求参数
         in: body
         name: id
         required: true
@@ -1505,7 +1505,7 @@ paths:
       tags:
       - 岗位
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: postName
         in: query
@@ -1530,13 +1530,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 岗位列表數据
+      summary: 岗位列表数据
       tags:
       - 岗位
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -1551,14 +1551,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 新增岗位
+      summary: 添加岗位
       tags:
       - 岗位
   /api/v1/post/{id}:
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -1578,9 +1578,9 @@ paths:
       - 岗位
   /api/v1/post/{postId}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
-      - description: 编碼
+      - description: 编码
         in: path
         name: id
         required: true
@@ -1592,12 +1592,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取岗位訊息
+      summary: 获取岗位信息
       tags:
       - 岗位
   /api/v1/role:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -1630,11 +1630,11 @@ paths:
         in: query
         name: roleKey
         type: string
-      - description: 頁條數
+      - description: 页条数
         in: query
         name: pageSize
         type: integer
-      - description: 頁碼
+      - description: 页码
         in: query
         name: pageIndex
         type: integer
@@ -1645,13 +1645,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 角色列表數据
+      summary: 角色列表数据
       tags:
       - 角色/Role
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: data
         in: body
@@ -1666,14 +1666,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 創建角色
+      summary: 创建角色
       tags:
       - 角色/Role
   /api/v1/role-status/{id}:
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -1688,12 +1688,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 更新角色數据权限
+      summary: 更新角色数据权限
       tags:
       - 角色/Role
   /api/v1/role/{id}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: roleId
         in: path
@@ -1706,13 +1706,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取Role數据
+      summary: 获取Role数据
       tags:
       - 角色/Role
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -1734,7 +1734,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: 界面操作设置配置值的獲取
+      description: 界面操作设置配置值的获取
       responses:
         "200":
           description: '{"code": 200, "message": "修改成功"}'
@@ -1748,7 +1748,7 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 獲取配置
+      summary: 获取配置
       tags:
       - 配置管理
     put:
@@ -1795,7 +1795,7 @@ paths:
       tags:
       - 接口管理
     get:
-      description: 獲取接口管理列表
+      description: 获取接口管理列表
       parameters:
       - description: 名称
         in: query
@@ -1813,11 +1813,11 @@ paths:
         in: query
         name: action
         type: string
-      - description: 頁條數
+      - description: 页条数
         in: query
         name: pageSize
         type: integer
-      - description: 頁碼
+      - description: 页码
         in: query
         name: pageIndex
         type: integer
@@ -1840,12 +1840,12 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 獲取接口管理列表
+      summary: 获取接口管理列表
       tags:
       - 接口管理
   /api/v1/sys-api/{id}:
     get:
-      description: 獲取接口管理
+      description: 获取接口管理
       parameters:
       - description: id
         in: path
@@ -1863,7 +1863,7 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 獲取接口管理
+      summary: 获取接口管理
       tags:
       - 接口管理
     put:
@@ -1909,7 +1909,7 @@ paths:
       tags:
       - 配置管理
     get:
-      description: 獲取配置管理列表
+      description: 获取配置管理列表
       parameters:
       - description: 名称
         in: query
@@ -1927,11 +1927,11 @@ paths:
         in: query
         name: isFrontend
         type: integer
-      - description: 頁條數
+      - description: 页条数
         in: query
         name: pageSize
         type: integer
-      - description: 頁碼
+      - description: 页码
         in: query
         name: pageIndex
         type: integer
@@ -1954,13 +1954,13 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 獲取配置管理列表
+      summary: 获取配置管理列表
       tags:
       - 配置管理
     post:
       consumes:
       - application/json
-      description: 創建配置管理
+      description: 创建配置管理
       parameters:
       - description: body
         in: body
@@ -1970,17 +1970,17 @@ paths:
           $ref: '#/definitions/dto.SysConfigControl'
       responses:
         "200":
-          description: '{"code": 200, "message": "創建成功"}'
+          description: '{"code": 200, "message": "创建成功"}'
           schema:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 創建配置管理
+      summary: 创建配置管理
       tags:
       - 配置管理
   /api/v1/sys-config/{id}:
     get:
-      description: 根据Key獲取SysConfig的Service
+      description: 根据Key获取SysConfig的Service
       parameters:
       - description: configKey
         in: path
@@ -1998,7 +1998,7 @@ paths:
               type: object
       security:
       - Bearer: []
-      summary: 根据Key獲取SysConfig的Service
+      summary: 根据Key获取SysConfig的Service
       tags:
       - 配置管理
     put:
@@ -2043,7 +2043,7 @@ paths:
       tags:
       - 登录日志
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: 用户名
         in: query
@@ -2081,7 +2081,7 @@ paths:
       - 登录日志
   /api/v1/sys-login-log/{id}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: id
         in: path
@@ -2094,12 +2094,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 登录日志通过id獲取
+      summary: 登录日志通过id获取
       tags:
       - 登录日志
   /api/v1/sys-opera-log:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: body
         in: body
@@ -2118,7 +2118,7 @@ paths:
       tags:
       - 操作日志
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: title
         in: query
@@ -2164,7 +2164,7 @@ paths:
       - 操作日志
   /api/v1/sys-opera-log/{id}:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: id
         in: path
@@ -2177,12 +2177,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 操作日志通过id獲取
+      summary: 操作日志通过id获取
       tags:
       - 操作日志
   /api/v1/sys-user:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: username
         in: query
@@ -2195,15 +2195,15 @@ paths:
             type: string
       security:
       - Bearer: []
-      summary: 列表用户訊息數据
+      summary: 列表用户信息数据
       tags:
       - 用户
     post:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
-      - description: 用户數据
+      - description: 用户数据
         in: body
         name: data
         required: true
@@ -2216,12 +2216,12 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 創建用户
+      summary: 创建用户
       tags:
       - 用户
   /api/v1/sys-user/{userId}:
     delete:
-      description: 删除數据
+      description: 删除数据
       parameters:
       - description: userId
         in: path
@@ -2235,13 +2235,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 删除用户數据
+      summary: 删除用户数据
       tags:
       - 用户
     get:
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
-      - description: 用户编碼
+      - description: 用户编码
         in: path
         name: userId
         required: true
@@ -2253,13 +2253,13 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取用户
+      summary: 获取用户
       tags:
       - 用户
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -2274,14 +2274,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 修改用户數据
+      summary: 修改用户数据
       tags:
       - 用户
   /api/v1/user/avatar:
     post:
       consumes:
       - multipart/form-data
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: file
         in: formData
@@ -2297,10 +2297,10 @@ paths:
       - Bearer: []
       summary: 修改头像
       tags:
-      - 個人中心
+      - 个人中心
   /api/v1/user/profile:
     get:
-      description: 獲取JSON
+      description: 获取JSON
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -2308,14 +2308,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 獲取個人中心用户
+      summary: 获取个人中心用户
       tags:
-      - 個人中心
+      - 个人中心
   /api/v1/user/pwd/reset:
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -2330,14 +2330,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 重置用户密碼
+      summary: 重置用户密码
       tags:
       - 用户
   /api/v1/user/pwd/set:
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -2352,14 +2352,14 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: 修改密碼
+      summary: 修改密码
       tags:
       - 用户
   /api/v1/user/status:
     put:
       consumes:
       - application/json
-      description: 獲取JSON
+      description: 获取JSON
       parameters:
       - description: body
         in: body
@@ -2381,7 +2381,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: 獲取token
+      description: 获取token
       responses:
         "200":
           description: '{"code": 200, "msg": "成功退出系统" }'

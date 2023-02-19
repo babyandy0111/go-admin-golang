@@ -35,10 +35,8 @@ var rootCmd = &cobra.Command{
 }
 
 func tip() {
-	usageStr := `欢迎使用 ` + pkg.Green(`go-admin `+global.Version) + ` 可以使用 ` + pkg.Red(`-h`) + ` 查看命令`
-	usageStr1 := `也可以参考 https://doc.go-admin.dev/guide/ksks 的相关内容`
+	usageStr := pkg.Green(`go-admin `+global.Version) + ` 可以使用 ` + pkg.Red(`-h`) + ` 查看命令`
 	fmt.Printf("%s\n", usageStr)
-	fmt.Printf("%s\n", usageStr1)
 }
 
 func init() {
@@ -49,7 +47,7 @@ func init() {
 	rootCmd.AddCommand(app.StartCmd)
 }
 
-//Execute : apply commands
+// Execute : apply commands
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(-1)

@@ -14,18 +14,18 @@ import (
 
 type SysLoginLog struct {
 	models.Model
-	Username      string    `json:"username" gorm:"size:128;comment:用户名"`
-	Status        string    `json:"status" gorm:"size:4;comment:状态"`
+	Username      string    `json:"username" gorm:"size:128;comment:使用者"`
+	Status        string    `json:"status" gorm:"size:4;comment:狀態"`
 	Ipaddr        string    `json:"ipaddr" gorm:"size:255;comment:ip地址"`
-	LoginLocation string    `json:"loginLocation" gorm:"size:255;comment:归属地"`
-	Browser       string    `json:"browser" gorm:"size:255;comment:浏览器"`
+	LoginLocation string    `json:"loginLocation" gorm:"size:255;comment:歸屬地"`
+	Browser       string    `json:"browser" gorm:"size:255;comment:瀏覽器"`
 	Os            string    `json:"os" gorm:"size:255;comment:系统"`
-	Platform      string    `json:"platform" gorm:"size:255;comment:固件"`
-	LoginTime     time.Time `json:"loginTime" gorm:"comment:登录时间"`
-	Remark        string    `json:"remark" gorm:"size:255;comment:备注"`
+	Platform      string    `json:"platform" gorm:"size:255;comment:平台"`
+	LoginTime     time.Time `json:"loginTime" gorm:"comment:登入時間"`
+	Remark        string    `json:"remark" gorm:"size:255;comment:備註"`
 	Msg           string    `json:"msg" gorm:"size:255;comment:訊息"`
-	CreatedAt     time.Time `json:"createdAt" gorm:"comment:創建时间"`
-	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最后更新时间"`
+	CreatedAt     time.Time `json:"createdAt" gorm:"comment:建立時間"`
+	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最后更新時間"`
 	models.ControlBy
 }
 
@@ -42,7 +42,7 @@ func (e *SysLoginLog) GetId() interface{} {
 	return e.Id
 }
 
-// SaveLoginLog 从队列中獲取登录日志
+// SaveLoginLog 从队列中获取登入日志
 func SaveLoginLog(message storage.Messager) (err error) {
 	//准备db
 	db := sdk.Runtime.GetDbByKey(message.GetPrefix())

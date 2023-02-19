@@ -22,16 +22,16 @@ settings:
     # 过期时间单位：秒
     timeout: 3600
   database:
-    # 數据库名称
+    # 数据库名称
     name: dbname 
-    # 數据库类型
+    # 数据库类型
     dbtype: mysql    
-    # 數据库地址
+    # 数据库地址
     host: 127.0.0.1  
-    # 數据库密碼
+    # 数据库密码
     password: password  
-    # 數据库端口
+    # 数据库端口
     port: 3306       
-    # 數据库用户名
+    # 数据库用户名
     username: root   
 ```

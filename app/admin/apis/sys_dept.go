@@ -18,8 +18,8 @@ type SysDept struct {
 }
 
 // GetPage
-// @Summary 分頁部门列表數据
-// @Description 分頁列表
+// @Summary 分页部门列表数据
+// @Description 分页列表
 // @Tags 部门
 // @Param deptName query string false "deptName"
 // @Param deptId query string false "deptId"
@@ -43,15 +43,15 @@ func (e SysDept) GetPage(c *gin.Context) {
 	list := make([]models.SysDept, 0)
 	list, err = s.SetDeptPage(&req)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
-	e.OK(list, "查詢成功")
+	e.OK(list, "查询成功")
 }
 
 // Get
-// @Summary 獲取部门數据
-// @Description 獲取JSON
+// @Summary 获取部门数据
+// @Description 获取JSON
 // @Tags 部门
 // @Param deptId path string false "deptId"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -74,22 +74,22 @@ func (e SysDept) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
-// Insert 新增部门
-// @Summary 新增部门
-// @Description 獲取JSON
+// Insert 添加部门
+// @Summary 添加部门
+// @Description 获取JSON
 // @Tags 部门
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDeptInsertReq true "data"
-// @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
+// @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
 // @Router /api/v1/dept [post]
 // @Security Bearer
 func (e SysDept) Insert(c *gin.Context) {
@@ -106,26 +106,26 @@ func (e SysDept) Insert(c *gin.Context) {
 		return
 	}
 
-	// 设置創建人
+	// 设置创建人
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, "創建失敗")
+		e.Error(500, err, "创建失败")
 		return
 	}
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "创建成功")
 }
 
 // Update
 // @Summary 修改部门
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 部门
 // @Accept  application/json
 // @Product application/json
 // @Param id path int true "id"
 // @Param data body dto.SysDeptUpdateReq true "body"
-// @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
+// @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
 // @Router /api/v1/dept/{deptId} [put]
 // @Security Bearer
 func (e SysDept) Update(c *gin.Context) {
@@ -151,12 +151,12 @@ func (e SysDept) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 删除部门
-// @Description 删除數据
+// @Summary 刪除部门
+// @Description 刪除数据
 // @Tags 部门
 // @Param data body dto.SysDeptDeleteReq true "body"
-// @Success 200 {string} string	"{"code": 200, "message": "删除成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "删除失敗"}"
+// @Success 200 {string} string	"{"code": 200, "message": "刪除成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "刪除失败"}"
 // @Router /api/v1/dept [delete]
 // @Security Bearer
 func (e SysDept) Delete(c *gin.Context) {
@@ -175,10 +175,10 @@ func (e SysDept) Delete(c *gin.Context) {
 
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, "删除失敗")
+		e.Error(500, err, "刪除失败")
 		return
 	}
-	e.OK(req.GetId(), "删除成功")
+	e.OK(req.GetId(), "刪除成功")
 }
 
 // Get2Tree 用户管理 左侧部门树
@@ -198,7 +198,7 @@ func (e SysDept) Get2Tree(c *gin.Context) {
 	list := make([]dto.DeptLabel, 0)
 	list, err = s.SetDeptTree(&req)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 	e.OK(list, "")

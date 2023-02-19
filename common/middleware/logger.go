@@ -25,7 +25,7 @@ import (
 func LoggerToFile() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log := api.GetRequestLogger(c)
-		// 开始时间
+		// 开始時間
 		startTime := time.Now()
 		// 处理请求
 		var body string
@@ -49,7 +49,7 @@ func LoggerToFile() gin.HandlerFunc {
 			strings.Index(url, "login") > -1 {
 			return
 		}
-		// 结束时间
+		// 结束時間
 		endTime := time.Now()
 		if c.Request.Method == http.MethodOptions {
 			return
@@ -76,11 +76,11 @@ func LoggerToFile() gin.HandlerFunc {
 		reqMethod := c.Request.Method
 		// 请求路由
 		reqUri := c.Request.RequestURI
-		// 状态碼
+		// 狀態码
 		statusCode := c.Writer.Status()
 		// 请求IP
 		clientIP := common.GetClientIP(c)
-		// 执行时间
+		// 执行時間
 		latencyTime := endTime.Sub(startTime)
 		// 日志格式
 		logData := map[string]interface{}{

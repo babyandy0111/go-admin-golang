@@ -13,7 +13,7 @@ func init()  {
 	routerNoCheckRole = append(routerNoCheckRole, register{{.ClassName}}Router)
 }
 
-// 無需认证的路由代碼
+// 不需要認證
 func register{{.ClassName}}Router(v1 *gin.RouterGroup) {
     r := v1.Group("/{{.ModuleName}}")
         {

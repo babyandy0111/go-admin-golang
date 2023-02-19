@@ -13,7 +13,7 @@ import (
 	"go-admin/common/models"
 )
 
-// DeleteAction 通用删除动作
+// DeleteAction 通用刪除动作
 func DeleteAction(control dto.Control) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, err := pkg.GetOrm(c)
@@ -23,24 +23,24 @@ func DeleteAction(control dto.Control) gin.HandlerFunc {
 		}
 
 		msgID := pkg.GenerateMsgIDFromContext(c)
-		//删除操作
+		//刪除操作
 		req := control.Generate()
 		err = req.Bind(c)
 		if err != nil {
 			log.Errorf("MsgID[%s] Bind error: %s", msgID, err)
-			response.Error(c, http.StatusUnprocessableEntity, err, "参數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "参数验证失败")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失敗")
+			response.Error(c, 500, err, "模型生成失败")
 			return
 		}
 
 		object.SetUpdateBy(user.GetUserId(c))
 
-		//數据权限检查
+		//数据权限检查
 		p := GetPermissionFromContext(c)
 
 		db = db.WithContext(c).Scopes(
@@ -48,14 +48,14 @@ func DeleteAction(control dto.Control) gin.HandlerFunc {
 		).Where(req.GetId()).Delete(object)
 		if err = db.Error; err != nil {
 			log.Errorf("MsgID[%s] Delete error: %s", msgID, err)
-			response.Error(c, 500, err, "删除失敗")
+			response.Error(c, 500, err, "刪除失败")
 			return
 		}
 		if db.RowsAffected == 0 {
-			response.Error(c, http.StatusForbidden, nil, "無权删除该數据")
+			response.Error(c, http.StatusForbidden, nil, "無權限刪除該資料")
 			return
 		}
-		response.OK(c, object.GetId(), "删除成功")
+		response.OK(c, object.GetId(), "刪除成功")
 		c.Next()
 	}
 }

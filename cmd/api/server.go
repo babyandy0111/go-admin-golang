@@ -65,7 +65,7 @@ func setup() {
 		database.Setup,
 		storage.Setup,
 	)
-	//注册监听函數
+	//注册监听函数
 	queue := sdk.Runtime.GetMemoryQueue("")
 	queue.Register(global.LoginLog, models.SaveLoginLog)
 	queue.Register(global.OperateLog, models.SaveOperaLog)
@@ -135,7 +135,7 @@ func run() error {
 	fmt.Printf("-  Local:   http://localhost:%d/swagger/admin/index.html \r\n", config.ApplicationConfig.Port)
 	fmt.Printf("-  Network: http://%s:%d/swagger/admin/index.html \r\n", pkg.GetLocaHonst(), config.ApplicationConfig.Port)
 	fmt.Printf("%s Enter Control + C Shutdown Server \r\n", pkg.GetCurrentTimeStr())
-	// 等待中断信号以优雅地关闭服务器（设置 5 秒的超时时间）
+	// 等待中断信号以优雅地关闭服务器（设置 5 秒的超时時間）
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
@@ -155,7 +155,7 @@ func run() error {
 var Router runtime.Router
 
 func tip() {
-	usageStr := `欢迎使用 ` + pkg.Green(`go-admin `+global.Version) + ` 可以使用 ` + pkg.Red(`-h`) + ` 查看命令`
+	usageStr := pkg.Green(`go-admin `+global.Version) + ` 可以使用 ` + pkg.Red(`-h`) + ` 查看命令`
 	fmt.Printf("%s \n\n", usageStr)
 }
 

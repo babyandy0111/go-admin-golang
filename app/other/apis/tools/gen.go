@@ -29,57 +29,57 @@ func (e Gen) Preview(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId接收失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId接收失败！错误详情：%s", err.Error()))
 		return
 	}
 	table.TableId = id
 	t1, err := template.ParseFiles("template/v4/model.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("model模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("model模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t2, err := template.ParseFiles("template/v4/no_actions/apis.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("api模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("api模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t3, err := template.ParseFiles("template/v4/js.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("js模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("js模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t4, err := template.ParseFiles("template/v4/vue.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("vue模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("vue模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t5, err := template.ParseFiles("template/v4/no_actions/router_check_role.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("路由模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("路由模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t6, err := template.ParseFiles("template/v4/dto.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("dto模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("dto模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t7, err := template.ParseFiles("template/v4/no_actions/service.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("service模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("service模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("數据库链接獲取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("数据库链接获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -117,14 +117,14 @@ func (e Gen) GenCode(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参數接收失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId参数接收失败！错误详情：%s", err.Error()))
 		return
 	}
 
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("數据库链接獲取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("数据库链接获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -143,14 +143,14 @@ func (e Gen) GenApiToFile(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参數獲取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId参数获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, fmt.Sprintf("數据库链接獲取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("数据库链接获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -176,43 +176,43 @@ func (e Gen) NOActionsGen(c *gin.Context, tab tools.SysTables) {
 	t1, err := template.ParseFiles(basePath + "model.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("model模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("model模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t2, err := template.ParseFiles(basePath + "no_actions/apis.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("api模版读取失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("api模版读取失败！错误详情：%s", err.Error()))
 		return
 	}
 	t3, err := template.ParseFiles(routerFile)
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("路由模版失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("路由模版失败！错误详情：%s", err.Error()))
 		return
 	}
 	t4, err := template.ParseFiles(basePath + "js.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("js模版解析失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("js模版解析失败！错误详情：%s", err.Error()))
 		return
 	}
 	t5, err := template.ParseFiles(basePath + "vue.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("vue模版解析失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("vue模版解析失败！错误详情：%s", err.Error()))
 		return
 	}
 	t6, err := template.ParseFiles(basePath + "dto.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("dto模版解析失敗失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("dto模版解析失败失败！错误详情：%s", err.Error()))
 		return
 	}
 	t7, err := template.ParseFiles(basePath + "no_actions/service.go.template")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("service模版失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("service模版失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -224,7 +224,7 @@ func (e Gen) NOActionsGen(c *gin.Context, tab tools.SysTables) {
 	err = pkg.PathCreate(config.GenConfig.FrontPath + "/views/" + tab.PackageName + "/" + tab.MLTBName + "/")
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("views目录創建失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("views目录创建失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -267,7 +267,7 @@ func (e Gen) genApiToFile(c *gin.Context, tab tools.SysTables) {
 	t1, err := template.ParseFiles(basePath + "api_migrate.template")
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("數据迁移模版解析失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("数据迁移模版解析失败！错误详情：%s", err.Error()))
 		return
 	}
 	i := strconv.FormatInt(time.Now().UnixNano()/1e6, 10)
@@ -297,7 +297,7 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参數解析失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId参数解析失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -310,7 +310,7 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	Mmenu.Icon = "pass"
 	Mmenu.Path = "/" + tab.MLTBName
 	Mmenu.MenuType = "M"
-	Mmenu.Action = "無"
+	Mmenu.Action = "无"
 	Mmenu.ParentId = 0
 	Mmenu.NoCache = false
 	Mmenu.Component = "Layout"
@@ -326,7 +326,7 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	Cmenu.Icon = "pass"
 	Cmenu.Path = "/" + tab.PackageName + "/" + tab.MLTBName
 	Cmenu.MenuType = "C"
-	Cmenu.Action = "無"
+	Cmenu.Action = "无"
 	Cmenu.Permission = tab.PackageName + ":" + tab.BusinessName + ":list"
 	Cmenu.ParentId = Mmenu.MenuId
 	Cmenu.NoCache = false
@@ -340,11 +340,11 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 
 	MList := dto.SysMenuInsertReq{}
 	MList.MenuName = ""
-	MList.Title = "分頁獲取" + tab.TableComment
+	MList.Title = "分页获取" + tab.TableComment
 	MList.Icon = ""
 	MList.Path = tab.TBName
 	MList.MenuType = "F"
-	MList.Action = "無"
+	MList.Action = "无"
 	MList.Permission = tab.PackageName + ":" + tab.BusinessName + ":query"
 	MList.ParentId = Cmenu.MenuId
 	MList.NoCache = false
@@ -357,11 +357,11 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 
 	MCreate := dto.SysMenuInsertReq{}
 	MCreate.MenuName = ""
-	MCreate.Title = "創建" + tab.TableComment
+	MCreate.Title = "创建" + tab.TableComment
 	MCreate.Icon = ""
 	MCreate.Path = tab.TBName
 	MCreate.MenuType = "F"
-	MCreate.Action = "無"
+	MCreate.Action = "无"
 	MCreate.Permission = tab.PackageName + ":" + tab.BusinessName + ":add"
 	MCreate.ParentId = Cmenu.MenuId
 	MCreate.NoCache = false
@@ -378,7 +378,7 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	MUpdate.Icon = ""
 	MUpdate.Path = tab.TBName
 	MUpdate.MenuType = "F"
-	MUpdate.Action = "無"
+	MUpdate.Action = "无"
 	MUpdate.Permission = tab.PackageName + ":" + tab.BusinessName + ":edit"
 	MUpdate.ParentId = Cmenu.MenuId
 	MUpdate.NoCache = false
@@ -391,11 +391,11 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 
 	MDelete := dto.SysMenuInsertReq{}
 	MDelete.MenuName = ""
-	MDelete.Title = "删除" + tab.TableComment
+	MDelete.Title = "刪除" + tab.TableComment
 	MDelete.Icon = ""
 	MDelete.Path = tab.TBName
 	MDelete.MenuType = "F"
-	MDelete.Action = "無"
+	MDelete.Action = "无"
 	MDelete.Permission = tab.PackageName + ":" + tab.BusinessName + ":remove"
 	MDelete.ParentId = Cmenu.MenuId
 	MDelete.NoCache = false
@@ -406,5 +406,5 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	MDelete.UpdateBy = 1
 	s.Insert(&MDelete)
 
-	e.OK("", "數据生成成功！")
+	e.OK("", "数据生成成功！")
 }

@@ -48,13 +48,13 @@ func (e *ExecJob) Run() {
 	}
 	err := CallExec(obj.(JobsExec), e.Args)
 	if err != nil {
-		// 如果失敗暂停一段时间重试
+		// 如果失败暂停一段時間重试
 		fmt.Println(time.Now().Format(timeFormat), " [ERROR] mission failed! ", err)
 	}
-	// 结束时间
+	// 结束時間
 	endTime := time.Now()
 
-	// 执行时间
+	// 执行時間
 	latencyTime := endTime.Sub(startTime)
 	//TODO: 待完善部分
 	//str := time.Now().Format(timeFormat) + " [INFO] JobCore " + string(e.EntryId) + "exec success , spend :" + latencyTime.String()
@@ -63,7 +63,7 @@ func (e *ExecJob) Run() {
 	return
 }
 
-//http 任务接口
+// http 任务接口
 func (h *HttpJob) Run() {
 
 	startTime := time.Now()
@@ -76,7 +76,7 @@ LOOP:
 		/* 跳过迭代 */
 		str, err = pkg.Get(h.InvokeTarget)
 		if err != nil {
-			// 如果失敗暂停一段时间重试
+			// 如果失败暂停一段時間重试
 			fmt.Println(time.Now().Format(timeFormat), " [ERROR] mission failed! ", err)
 			fmt.Printf(time.Now().Format(timeFormat)+" [INFO] Retry after the task fails %d seconds! %s \n", (count+1)*5, str)
 			time.Sleep(time.Duration(count+1) * 5 * time.Second)
@@ -84,10 +84,10 @@ LOOP:
 			goto LOOP
 		}
 	}
-	// 结束时间
+	// 结束時間
 	endTime := time.Now()
 
-	// 执行时间
+	// 执行時間
 	latencyTime := endTime.Sub(startTime)
 	//TODO: 待完善部分
 
@@ -152,7 +152,7 @@ func setup(key string, db *gorm.DB) {
 	select {}
 }
 
-// 新增任务 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
+// 添加任务 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
 func AddJob(c *cron.Cron, job Job) (int, error) {
 	if job == nil {
 		fmt.Println("unknown")

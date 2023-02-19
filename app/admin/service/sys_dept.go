@@ -19,24 +19,6 @@ type SysDept struct {
 	service.Service
 }
 
-// GetPage 獲取SysDept列表
-//func (e *SysDept) GetPage(c *dto.SysDeptGetPageReq, list *[]models.SysDept) error {
-//	var err error
-//	var data models.SysDept
-//
-//	err = e.Orm.Model(&data).
-//		Scopes(
-//			cDto.MakeCondition(c.GetNeedSearch()),
-//		).
-//		Find(list).Error
-//	if err != nil {
-//		e.Log.Errorf("db error:%s", err)
-//		return err
-//	}
-//	return nil
-//}
-
-// Get 獲取SysDept对象
 func (e *SysDept) Get(d *dto.SysDeptGetReq, model *models.SysDept) error {
 	var err error
 	var data models.SysDept
@@ -45,7 +27,7 @@ func (e *SysDept) Get(d *dto.SysDeptGetReq, model *models.SysDept) error {
 		First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -56,7 +38,6 @@ func (e *SysDept) Get(d *dto.SysDeptGetReq, model *models.SysDept) error {
 	return nil
 }
 
-// Insert 創建SysDept对象
 func (e *SysDept) Insert(c *dto.SysDeptInsertReq) error {
 	var err error
 	var data models.SysDept
@@ -91,7 +72,6 @@ func (e *SysDept) Insert(c *dto.SysDeptInsertReq) error {
 	return nil
 }
 
-// Update 修改SysDept对象
 func (e *SysDept) Update(c *dto.SysDeptUpdateReq) error {
 	var err error
 	var model = models.SysDept{}
@@ -121,12 +101,11 @@ func (e *SysDept) Update(c *dto.SysDeptUpdateReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 	return nil
 }
 
-// Remove 删除SysDept
 func (e *SysDept) Remove(d *dto.SysDeptDeleteReq) error {
 	var err error
 	var data models.SysDept
@@ -138,13 +117,12 @@ func (e *SysDept) Remove(d *dto.SysDeptDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		return err
 	}
 	return nil
 }
 
-// GetSysDeptList 獲取组织數据
 func (e *SysDept) getList(c *dto.SysDeptGetPageReq, list *[]models.SysDept) error {
 	var err error
 	var data models.SysDept
@@ -161,7 +139,6 @@ func (e *SysDept) getList(c *dto.SysDeptGetPageReq, list *[]models.SysDept) erro
 	return nil
 }
 
-// SetDeptTree 设置组织數据
 func (e *SysDept) SetDeptTree(c *dto.SysDeptGetPageReq) (m []dto.DeptLabel, err error) {
 	var list []models.SysDept
 	err = e.getList(c, &list)
@@ -181,7 +158,6 @@ func (e *SysDept) SetDeptTree(c *dto.SysDeptGetPageReq) (m []dto.DeptLabel, err 
 	return
 }
 
-// Call 递归构造组织數据
 func deptTreeCall(deptList *[]models.SysDept, dept dto.DeptLabel) dto.DeptLabel {
 	list := *deptList
 	min := make([]dto.DeptLabel, 0)
@@ -197,7 +173,6 @@ func deptTreeCall(deptList *[]models.SysDept, dept dto.DeptLabel) dto.DeptLabel 
 	return dept
 }
 
-// SetDeptPage 设置dept頁面數据
 func (e *SysDept) SetDeptPage(c *dto.SysDeptGetPageReq) (m []models.SysDept, err error) {
 	var list []models.SysDept
 	err = e.getList(c, &list)
@@ -237,7 +212,6 @@ func (e *SysDept) deptPageCall(deptlist *[]models.SysDept, menu models.SysDept) 
 	return menu
 }
 
-// GetRoleDeptId 獲取角色的部门ID集合
 func (e *SysDept) GetWithRoleId(roleId int) ([]int, error) {
 	deptIds := make([]int, 0)
 	deptList := make([]dto.DeptIdList, 0)
@@ -277,7 +251,6 @@ func (e *SysDept) SetDeptLabel() (m []dto.DeptLabel, err error) {
 	return
 }
 
-// deptLabelCall
 func deptLabelCall(deptList *[]models.SysDept, dept dto.DeptLabel) dto.DeptLabel {
 	list := *deptList
 	var mi dto.DeptLabel

@@ -15,7 +15,6 @@ type SysLoginLog struct {
 	service.Service
 }
 
-// GetPage 獲取SysLoginLog列表
 func (e *SysLoginLog) GetPage(c *dto.SysLoginLogGetPageReq, list *[]models.SysLoginLog, count *int64) error {
 	var err error
 	var data models.SysLoginLog
@@ -34,13 +33,12 @@ func (e *SysLoginLog) GetPage(c *dto.SysLoginLogGetPageReq, list *[]models.SysLo
 	return nil
 }
 
-// Get 獲取SysLoginLog对象
 func (e *SysLoginLog) Get(d *dto.SysLoginLogGetReq, model *models.SysLoginLog) error {
 	var err error
 	db := e.Orm.First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -51,7 +49,6 @@ func (e *SysLoginLog) Get(d *dto.SysLoginLogGetReq, model *models.SysLoginLog) e
 	return nil
 }
 
-// Remove 删除SysLoginLog
 func (e *SysLoginLog) Remove(c *dto.SysLoginLogDeleteReq) error {
 	var err error
 	var data models.SysLoginLog
@@ -63,7 +60,7 @@ func (e *SysLoginLog) Remove(c *dto.SysLoginLogDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		return err
 	}
 	return nil

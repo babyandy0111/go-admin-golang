@@ -10,7 +10,7 @@
                             <el-form-item label="{{.ColumnComment}}" prop="{{.JsonField}}">
                                 {{- if ne .FkTableName "" -}}
                                 <el-select v-model="queryParams.{{.JsonField}}"
-                                           placeholder="请选择" clearable size="small" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
+                                           placeholder="請選擇" clearable size="small" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
                                     <el-option
                                             v-for="dict in {{.JsonField}}Options"
                                             :key="dict.key"
@@ -20,7 +20,7 @@
                                 </el-select>
                                 {{- else -}}
                                 {{if eq .DictType "" -}}
-                                    <el-input v-model="queryParams.{{.JsonField}}" placeholder="请输入{{.ColumnComment}}" clearable
+                                    <el-input v-model="queryParams.{{.JsonField}}" placeholder="請輸入{{.ColumnComment}}" clearable
                                               size="small" @keyup.enter.native="handleQuery"/>
                                 {{- else -}}
                                     <el-select v-model="queryParams.{{.JsonField}}"
@@ -38,7 +38,7 @@
                         {{end}}
                     {{- end }}
                     <el-form-item>
-                        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+                        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">查詢</el-button>
                         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
                     </el-form-item>
                 </el-form>
@@ -73,7 +73,7 @@
                                 size="mini"
                                 :disabled="multiple"
                                 @click="handleDelete"
-                        >删除
+                        >刪除
                         </el-button>
                     </el-col>
                 </el-row>
@@ -120,7 +120,7 @@
                         <template slot-scope="scope">
                          <el-popconfirm
                            class="delete-popconfirm"
-                           title="确认要修改吗?"
+                           title="確認要修改吗?"
                            confirm-button-text="修改"
                            @onConfirm="handleUpdate(scope.row)"
                          >
@@ -135,8 +135,8 @@
                          </el-popconfirm>
                          <el-popconfirm
                             class="delete-popconfirm"
-                            title="确认要删除吗?"
-                            confirm-button-text="删除"
+                            title="確定刪除?"
+                            confirm-button-text="刪除"
                             @onConfirm="handleDelete(scope.row)"
                          >
                             <el-button
@@ -145,7 +145,7 @@
                               size="mini"
                               type="text"
                               icon="el-icon-delete"
-                            >删除
+                            >刪除
                             </el-button>
                          </el-popconfirm>
                         </template>
@@ -160,7 +160,7 @@
                         @pagination="getList"
                 />
 
-                <!-- 新增或修改对话框 -->
+                <!-- 新增或修改的popup -->
                 <el-dialog :title="title" :visible.sync="open" width="500px">
                     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
                         {{ range .Columns }}
@@ -180,7 +180,7 @@
                                         {{- else if eq "select" .HtmlType -}}
                                             {{- if ne .FkTableName "" -}}
                                             <el-select v-model="form.{{.JsonField}}"
-                                                       placeholder="请选择" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
+                                                       placeholder="請選擇" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
                                                 <el-option
                                                         v-for="dict in {{.JsonField}}Options"
                                                         :key="dict.key"
@@ -190,7 +190,7 @@
                                             </el-select>
                                             {{- else -}}
                                             <el-select v-model="form.{{.JsonField}}"
-                                                       placeholder="请选择" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
+                                                       placeholder="請選擇" {{if eq .IsEdit "false" -}} :disabled="isEdit" {{- end }}>
                                                 <el-option
                                                         v-for="dict in {{.JsonField}}Options"
                                                         :key="dict.value"
@@ -210,21 +210,21 @@
                                         {{- else if eq "file" .HtmlType -}}
                                             <el-input
                                                 v-model="form.{{.JsonField}}"
-                                                placeholder="图片"
+                                                placeholder="圖片"
                                             />
-                                            <el-button type="primary" @click="fileShow{{.GoField}}">选择文件</el-button>
+                                            <el-button type="primary" @click="fileShow{{.GoField}}">選擇文件</el-button>
                                         {{- else if eq "datetime" .HtmlType -}}
                                             <el-date-picker
                                                     v-model="form.{{.JsonField}}"
                                                     type="datetime"
-                                                    placeholder="选择日期">
+                                                    placeholder="選擇日期">
                                             </el-date-picker>
                                         {{- else if eq "textarea" .HtmlType -}}
                                             <el-input
                                                     v-model="form.{{.JsonField}}"
                                                     type="textarea"
                                                     :rows="2"
-                                                    placeholder="请输入内容">
+                                                    placeholder="請輸入内容">
                                             </el-input>
                                         {{- end }}
                                     </el-form-item>
@@ -233,7 +233,7 @@
                         {{- end }}
                     </el-form>
                     <div slot="footer" class="dialog-footer">
-                        <el-button type="primary" @click="submitForm">确 定</el-button>
+                        <el-button type="primary" @click="submitForm">確 定</el-button>
                         <el-button @click="cancel">取 消</el-button>
                     </div>
                 </el-dialog>
@@ -257,22 +257,22 @@
         },
         data() {
             return {
-                // 遮罩层
+                // 遮罩
                 loading: true,
-                // 选中數组
+                // 選中資料
                 ids: [],
-                // 非单个禁用
+                // 非單個禁用
                 single: true,
-                // 非多个禁用
+                // 非多個禁用
                 multiple: true,
-                // 总條數
+                // 總筆數
                 total: 0,
-                // 弹出层标题
+                // popup標題
                 title: '',
-                // 是否显示弹出层
+                // 是否顯示popup
                 open: false,
                 isEdit: false,
-                // 类型數据字典
+                // 類型資料字典
                 typeOptions: [],
                 {{.BusinessName}}List: [],
                 {{range .Columns}}
@@ -280,13 +280,13 @@
                 {{.JsonField}}Options: [],
                 {{- end -}}
                 {{- end }}
-                // 关系表类型
+                // 關係表類型
                 {{range .Columns}}
                 {{- if ne .FkTableName "" -}}
                 {{.JsonField}}Options :[],
                 {{ end -}}
                 {{- end }}
-                // 查詢参數
+                // 查詢參數
                 queryParams: {
                     pageIndex: 1,
                     pageSize: 10,
@@ -296,15 +296,15 @@
                     {{ end -}}
                     {{- end }}
                 },
-                // 表单参數
+                // 表單參數
                 form: {
                 },
-                // 表单校验
+                // 表單驗證
                 rules: {
                 {{- range .Columns -}}
                 {{- $x := .IsQuery -}}
                 {{- if (eq $x "1") -}}
-                {{.JsonField}}:  [ {required: true, message: '{{.ColumnComment}}不能为空', trigger: 'blur'} ],
+                {{.JsonField}}:  [ {required: true, message: '{{.ColumnComment}}不能為空', trigger: 'blur'} ],
                 {{ end }}
                 {{- end -}}
             }
@@ -324,7 +324,7 @@
             {{- end -}}
         },
         methods: {
-            /** 查詢参數列表 */
+            /** 查詢參數列表 */
             getList() {
                 this.loading = true
                 list{{.ClassName}}(this.addDateRange(this.queryParams, this.dateRange)).then(response => {
@@ -334,12 +334,12 @@
                     }
                 )
             },
-            // 取消按钮
+            // 取消按鈕
             cancel() {
                 this.open = false
                 this.reset()
             },
-            // 表单重置
+            // 表單重置
             reset() {
                 this.form = {
                 {{ range .Columns}}
@@ -376,7 +376,7 @@
             },
             {{ end -}}
             {{- end -}}
-            // 关系
+            // 關係
             {{range .Columns}}
             {{- if ne .FkTableName "" -}}
             get{{.FkTableNameClass}}Items() {
@@ -395,31 +395,31 @@
             },
             {{ end -}}
             {{- end -}}
-            /** 搜索按钮操作 */
+            /** 查詢按鈕操作 */
             handleQuery() {
                 this.queryParams.pageIndex = 1
                 this.getList()
             },
-            /** 重置按钮操作 */
+            /** 重置按鈕操作 */
             resetQuery() {
                 this.dateRange = []
                 this.resetForm('queryForm')
                 this.handleQuery()
             },
-            /** 新增按钮操作 */
+            /** 新增按鈕操作 */
             handleAdd() {
                 this.reset()
                 this.open = true
-                this.title = '新增{{.TableComment}}'
+                this.title = '添加{{.TableComment}}'
                 this.isEdit = false
             },
-            // 多选框选中數据
+            // 多選選中資料
             handleSelectionChange(selection) {
                 this.ids = selection.map(item => item.{{.PkJsonField}})
                 this.single = selection.length !== 1
                 this.multiple = !selection.length
             },
-            /** 修改按钮操作 */
+            /** 修改按鈕操作 */
             handleUpdate(row) {
                 this.reset()
                 const {{.PkJsonField}} =
@@ -431,7 +431,7 @@
                     this.isEdit = true
                 })
             },
-            /** 提交按钮 */
+            /** 送出按鈕 */
             submitForm: function () {
                 this.$refs['form'].validate(valid => {
                     if (valid) {
@@ -459,12 +459,12 @@
                     }
                 })
             },
-            /** 删除按钮操作 */
+            /** 刪除按鈕操作 */
             handleDelete(row) {
                 var Ids = (row.{{.PkJsonField}} && [row.{{.PkJsonField}}]) || this.ids
 
-                this.$confirm('是否确认删除编号为"' + Ids + '"的數据项?', '警告', {
-                    confirmButtonText: '确定',
+                this.$confirm('是否確認刪除流水號為"' + Ids + '"的資料?', '警告', {
+                    confirmButtonText: '確定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(function () {

@@ -15,7 +15,6 @@ type SysPost struct {
 	service.Service
 }
 
-// GetPage 獲取SysPost列表
 func (e *SysPost) GetPage(c *dto.SysPostPageReq, list *[]models.SysPost, count *int64) error {
 	var err error
 	var data models.SysPost
@@ -34,7 +33,6 @@ func (e *SysPost) GetPage(c *dto.SysPostPageReq, list *[]models.SysPost, count *
 	return nil
 }
 
-// Get 獲取SysPost对象
 func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 	var err error
 	var data models.SysPost
@@ -43,7 +41,7 @@ func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 		First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -54,7 +52,6 @@ func (e *SysPost) Get(d *dto.SysPostGetReq, model *models.SysPost) error {
 	return nil
 }
 
-// Insert 創建SysPost对象
 func (e *SysPost) Insert(c *dto.SysPostInsertReq) error {
 	var err error
 	var data models.SysPost
@@ -67,7 +64,6 @@ func (e *SysPost) Insert(c *dto.SysPostInsertReq) error {
 	return nil
 }
 
-// Update 修改SysPost对象
 func (e *SysPost) Update(c *dto.SysPostUpdateReq) error {
 	var err error
 	var model = models.SysPost{}
@@ -80,13 +76,12 @@ func (e *SysPost) Update(c *dto.SysPostUpdateReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 
 	}
 	return nil
 }
 
-// Remove 删除SysPost
 func (e *SysPost) Remove(d *dto.SysPostDeleteReq) error {
 	var err error
 	var data models.SysPost
@@ -98,7 +93,7 @@ func (e *SysPost) Remove(d *dto.SysPostDeleteReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		err = errors.New("無权删除该數据")
+		err = errors.New("無權限刪除該資料")
 		return err
 	}
 	return nil

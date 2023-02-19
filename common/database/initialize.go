@@ -17,7 +17,7 @@ import (
 	"go-admin/common/global"
 )
 
-// Setup 配置數据库
+// Setup 配置数据库
 func Setup() {
 	for k := range toolsConfig.DatabasesConfig {
 		setupSimpleDatabase(k, toolsConfig.DatabasesConfig[k])

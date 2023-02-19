@@ -11,7 +11,7 @@ func init() {
 	routerCheckRole = append(routerCheckRole, registerSysOperaLogRouter)
 }
 
-// 需认证的路由代碼
+// 需要認證
 func registerSysOperaLogRouter(v1 *gin.RouterGroup, authMiddleware *jwt.GinJWTMiddleware) {
 	api := apis.SysOperaLog{}
 	r := v1.Group("/sys-opera-log").Use(authMiddleware.MiddlewareFunc()).Use(middleware.AuthCheckRole())

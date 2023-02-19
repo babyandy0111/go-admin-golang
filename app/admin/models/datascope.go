@@ -19,7 +19,7 @@ type DataPermission struct {
 func (e *DataPermission) GetDataScope(tableName string, db *gorm.DB) (*gorm.DB, error) {
 
 	if !config.ApplicationConfig.EnableDP {
-		usageStr := `數据权限已经为您` + pkg.Green(`关闭`) + `，如需开启请参考配置文件字段说明`
+		usageStr := `数据权限已经为您` + pkg.Green(`关闭`) + `，如需开启请参考配置文件字段说明`
 		log.Debug("%s\n", usageStr)
 		return db, nil
 	}
@@ -27,11 +27,11 @@ func (e *DataPermission) GetDataScope(tableName string, db *gorm.DB) (*gorm.DB, 
 	role := new(SysRole)
 	err := db.Find(user, e.UserId).Error
 	if err != nil {
-		return nil, errors.New("獲取用户數据出错 msg:" + err.Error())
+		return nil, errors.New("获取用户数据出错 msg:" + err.Error())
 	}
 	err = db.Find(role, user.RoleId).Error
 	if err != nil {
-		return nil, errors.New("獲取用户數据出错 msg:" + err.Error())
+		return nil, errors.New("获取用户数据出错 msg:" + err.Error())
 	}
 	if role.DataScope == "2" {
 		db = db.Where(tableName+".create_by in (select sys_user.user_id from sys_role_dept left join sys_user on sys_user.dept_id=sys_role_dept.dept_id where sys_role_dept.role_id = ?)", user.RoleId)
@@ -56,12 +56,12 @@ func (e *DataPermission) GetDataScope(tableName string, db *gorm.DB) (*gorm.DB, 
 //		user.UserId = userId
 //		err := db.Find(user, userId).Error
 //		if err != nil {
-//			db.Error = errors.New("獲取用户數据出错 msg:" + err.Error())
+//			db.Error = errors.New("获取用户数据出错 msg:" + err.Error())
 //			return db
 //		}
 //		err = db.Find(role, user.RoleId).Error
 //		if err != nil {
-//			db.Error = errors.New("獲取用户數据出错 msg:" + err.Error())
+//			db.Error = errors.New("获取用户数据出错 msg:" + err.Error())
 //			return db
 //		}
 //		if role.DataScope == "2" {

@@ -53,7 +53,7 @@ func newDataPermission(tx *gorm.DB, userId interface{}) (*DataPermission, error)
 		Where("sys_user.user_id = ?", userId).
 		Scan(p).Error
 	if err != nil {
-		err = errors.New("獲取用户數据出错 msg:" + err.Error())
+		err = errors.New("获取用户数据出错 msg:" + err.Error())
 		return nil, err
 	}
 	return p, nil
@@ -90,7 +90,7 @@ func getPermissionFromContext(c *gin.Context) *DataPermission {
 	return p
 }
 
-// GetPermissionFromContext 提供非action写法數据范围约束
+// GetPermissionFromContext 提供非action写法数据范围约束
 func GetPermissionFromContext(c *gin.Context) *DataPermission {
 	return getPermissionFromContext(c)
 }

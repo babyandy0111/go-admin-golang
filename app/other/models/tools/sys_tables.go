@@ -10,10 +10,10 @@ import (
 )
 
 type SysTables struct {
-	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表编碼
+	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表流水號
 	TBName              string `gorm:"column:table_name;size:255;" json:"tableName"`   //表名称
 	MLTBName            string `gorm:"-" json:"-"`                                     //表名称
-	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表备注
+	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表備註
 	ClassName           string `gorm:"size:255;" json:"className"`                     //类名
 	TplCategory         string `gorm:"size:255;" json:"tplCategory"`                   //
 	PackageName         string `gorm:"size:255;" json:"packageName"`                   //包名
@@ -159,8 +159,8 @@ func (e *SysTables) Update(tx *gorm.DB) (update SysTables, err error) {
 	//	return
 	//}
 
-	//参數1:是要修改的數据
-	//参數2:是修改的數据
+	//参数1:是要修改的数据
+	//参数2:是修改的数据
 	e.UpdateBy = 0
 	if err = tx.Table("sys_tables").Where("table_id = ?", e.TableId).Updates(&e).Error; err != nil {
 		return

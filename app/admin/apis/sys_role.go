@@ -23,14 +23,14 @@ type SysRole struct {
 }
 
 // GetPage
-// @Summary 角色列表數据
+// @Summary 角色列表数据
 // @Description Get JSON
 // @Tags 角色/Role
 // @Param roleName query string false "roleName"
 // @Param status query string false "status"
 // @Param roleKey query string false "roleKey"
-// @Param pageSize query int false "頁條數"
-// @Param pageIndex query int false "頁碼"
+// @Param pageSize query int false "页条数"
+// @Param pageIndex query int false "页码"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/role [get]
 // @Security Bearer
@@ -53,16 +53,16 @@ func (e SysRole) GetPage(c *gin.Context) {
 
 	err = s.GetPage(&req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 }
 
 // Get
-// @Summary 獲取Role數据
-// @Description 獲取JSON
+// @Summary 获取Role数据
+// @Description 获取JSON
 // @Tags 角色/Role
 // @Param roleId path string false "roleId"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -86,16 +86,16 @@ func (e SysRole) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(http.StatusUnprocessableEntity, err, "查詢失敗")
+		e.Error(http.StatusUnprocessableEntity, err, "查询失败")
 		return
 	}
 
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
 // Insert
-// @Summary 創建角色
-// @Description 獲取JSON
+// @Summary 创建角色
+// @Description 获取JSON
 // @Tags 角色/Role
 // @Accept  application/json
 // @Product application/json
@@ -117,7 +117,7 @@ func (e SysRole) Insert(c *gin.Context) {
 		return
 	}
 
-	// 设置創建人
+	// 设置创建人
 	req.CreateBy = user.GetUserId(c)
 	if req.Status == "" {
 		req.Status = "2"
@@ -126,21 +126,21 @@ func (e SysRole) Insert(c *gin.Context) {
 	err = s.Insert(&req, cb)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, "創建失敗,"+err.Error())
+		e.Error(500, err, "创建失败,"+err.Error())
 		return
 	}
 	_, err = global.LoadPolicy(c)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, "創建失敗,"+err.Error())
+		e.Error(500, err, "创建失败,"+err.Error())
 		return
 	}
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "创建成功")
 }
 
 // Update 修改用户角色
 // @Summary 修改用户角色
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 角色/Role
 // @Accept  application/json
 // @Product application/json
@@ -174,7 +174,7 @@ func (e SysRole) Update(c *gin.Context) {
 	_, err = global.LoadPolicy(c)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, "更新失敗,"+err.Error())
+		e.Error(500, err, "更新失败,"+err.Error())
 		return
 	}
 
@@ -182,8 +182,8 @@ func (e SysRole) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 删除用户角色
-// @Description 删除數据
+// @Summary 刪除用户角色
+// @Description 刪除数据
 // @Tags 角色/Role
 // @Param data body dto.SysRoleDeleteReq true "body"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -199,7 +199,7 @@ func (e SysRole) Delete(c *gin.Context) {
 		Errors
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("删除角色 %v 失敗，\r\n失敗訊息 %s", req.Ids, err.Error()))
+		e.Error(500, err, fmt.Sprintf("刪除角色 %v 失败，\r\n失败訊息 %s", req.Ids, err.Error()))
 		return
 	}
 
@@ -211,12 +211,12 @@ func (e SysRole) Delete(c *gin.Context) {
 		return
 	}
 
-	e.OK(req.GetId(), fmt.Sprintf("删除角色角色 %v 状态成功！", req.GetId()))
+	e.OK(req.GetId(), fmt.Sprintf("刪除角色角色 %v 狀態成功！", req.GetId()))
 }
 
-// Update2Status 修改用户角色状态
+// Update2Status 修改用户角色狀態
 // @Summary 修改用户角色
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 角色/Role
 // @Accept  application/json
 // @Product application/json
@@ -234,21 +234,21 @@ func (e SysRole) Update2Status(c *gin.Context) {
 		Errors
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("更新角色状态失敗，失敗原因：%s ", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新角色狀態失败，失败原因：%s ", err.Error()))
 		return
 	}
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.UpdateStatus(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("更新角色状态失敗，失敗原因：%s ", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新角色狀態失败，失败原因：%s ", err.Error()))
 		return
 	}
-	e.OK(req.GetId(), fmt.Sprintf("更新角色 %v 状态成功！", req.GetId()))
+	e.OK(req.GetId(), fmt.Sprintf("更新角色 %v 狀態成功！", req.GetId()))
 }
 
-// Update2DataScope 更新角色數据权限
-// @Summary 更新角色數据权限
-// @Description 獲取JSON
+// Update2DataScope 更新角色数据权限
+// @Summary 更新角色数据权限
+// @Description 获取JSON
 // @Tags 角色/Role
 // @Accept  application/json
 // @Product application/json
@@ -277,7 +277,7 @@ func (e SysRole) Update2DataScope(c *gin.Context) {
 	data.UpdateBy = user.GetUserId(c)
 	err = s.UpdateDataScope(&req).Error
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("更新角色數据权限失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新角色数据权限失败！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(nil, "操作成功")

@@ -10,12 +10,12 @@ import (
 // SysPostPageReq 列表或者搜索使用结构体
 type SysPostPageReq struct {
 	dto.Pagination `search:"-"`
-	PostId         int    `form:"postId" search:"type:exact;column:post_id;table:sys_post" comment:"id"`        // id
-	PostName       string `form:"postName" search:"type:contains;column:post_name;table:sys_post" comment:"名称"` // 名称
-	PostCode       string `form:"postCode" search:"type:contains;column:post_code;table:sys_post" comment:"编碼"` // 编碼
-	Sort           int    `form:"sort" search:"type:exact;column:sort;table:sys_post" comment:"排序"`             // 排序
-	Status         int    `form:"status" search:"type:exact;column:status;table:sys_post" comment:"状态"`         // 状态
-	Remark         string `form:"remark" search:"type:exact;column:remark;table:sys_post" comment:"备注"`         // 备注
+	PostId         int    `form:"postId" search:"type:exact;column:post_id;table:sys_post" comment:"id"`         // id
+	PostName       string `form:"postName" search:"type:contains;column:post_name;table:sys_post" comment:"名称"`  // 名称
+	PostCode       string `form:"postCode" search:"type:contains;column:post_code;table:sys_post" comment:"流水號"` // 流水號
+	Sort           int    `form:"sort" search:"type:exact;column:sort;table:sys_post" comment:"排序"`              // 排序
+	Status         int    `form:"status" search:"type:exact;column:status;table:sys_post" comment:"狀態"`          // 狀態
+	Remark         string `form:"remark" search:"type:exact;column:remark;table:sys_post" comment:"備註"`          // 備註
 }
 
 func (m *SysPostPageReq) GetNeedSearch() interface{} {
@@ -26,10 +26,10 @@ func (m *SysPostPageReq) GetNeedSearch() interface{} {
 type SysPostInsertReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
 	PostName string `form:"postName"  comment:"名称"`
-	PostCode string `form:"postCode" comment:"编碼"`
+	PostCode string `form:"postCode" comment:"流水號"`
 	Sort     int    `form:"sort" comment:"排序"`
-	Status   int    `form:"status"   comment:"状态"`
-	Remark   string `form:"remark"   comment:"备注"`
+	Status   int    `form:"status"   comment:"狀態"`
+	Remark   string `form:"remark"   comment:"備註"`
 	common.ControlBy
 }
 
@@ -47,7 +47,7 @@ func (s *SysPostInsertReq) Generate(model *models.SysPost) {
 	}
 }
 
-// GetId 獲取數据对应的ID
+// GetId 获取数据对应的ID
 func (s *SysPostInsertReq) GetId() interface{} {
 	return s.PostId
 }
@@ -56,10 +56,10 @@ func (s *SysPostInsertReq) GetId() interface{} {
 type SysPostUpdateReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
 	PostName string `form:"postName"  comment:"名称"`
-	PostCode string `form:"postCode" comment:"编碼"`
+	PostCode string `form:"postCode" comment:"流水號"`
 	Sort     int    `form:"sort" comment:"排序"`
-	Status   int    `form:"status"   comment:"状态"`
-	Remark   string `form:"remark"   comment:"备注"`
+	Status   int    `form:"status"   comment:"狀態"`
+	Remark   string `form:"remark"   comment:"備註"`
 	common.ControlBy
 }
 
@@ -82,7 +82,7 @@ func (s *SysPostUpdateReq) GetId() interface{} {
 	return s.PostId
 }
 
-// SysPostGetReq 獲取单个的结构体
+// SysPostGetReq 获取单个的结构体
 type SysPostGetReq struct {
 	Id int `uri:"id"`
 }
@@ -91,7 +91,7 @@ func (s *SysPostGetReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysPostDeleteReq 删除的结构体
+// SysPostDeleteReq 刪除的结构体
 type SysPostDeleteReq struct {
 	Ids []int `json:"ids"`
 	common.ControlBy

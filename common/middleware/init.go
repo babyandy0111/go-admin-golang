@@ -15,7 +15,7 @@ const (
 
 func InitMiddleware(r *gin.Engine) {
 	r.Use(DemoEvn())
-	// 數据库链接
+	// 数据库链接
 	r.Use(WithContextDb)
 	// 日志处理
 	r.Use(LoggerToFile())

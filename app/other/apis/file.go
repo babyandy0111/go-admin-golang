@@ -32,13 +32,13 @@ type File struct {
 
 // UploadFile 上传图片
 // @Summary 上传图片
-// @Description 獲取JSON
+// @Description 获取JSON
 // @Tags 公共接口
 // @Accept multipart/form-data
 // @Param type query string true "type" (1：单图，2：多图, 3：base64图片)
 // @Param file formData file true "file"
-// @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
-// @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
+// @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
+// @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
 // @Router /api/v1/public/uploadFile [post]
 // @Security Bearer
 func (e File) UploadFile(c *gin.Context) {
@@ -83,7 +83,7 @@ func (e File) baseImg(c *gin.Context, fileResponse FileResponse, urlPerfix strin
 	fileName := guid + ".jpg"
 	err := utils.IsNotExistMkDir(path)
 	if err != nil {
-		e.Error(500, errors.New(""), "初始化文件路径失敗")
+		e.Error(500, errors.New(""), "初始化文件路径失败")
 	}
 	base64File := path + fileName
 	_ = ioutil.WriteFile(base64File, ddd, 0666)
@@ -98,7 +98,7 @@ func (e File) baseImg(c *gin.Context, fileResponse FileResponse, urlPerfix strin
 	source, _ := c.GetPostForm("source")
 	err = thirdUpload(source, fileName, base64File)
 	if err != nil {
-		e.Error(200, errors.New(""), "上传第三方失敗")
+		e.Error(200, errors.New(""), "上传第三方失败")
 		return fileResponse
 	}
 	if source != "1" {
@@ -118,7 +118,7 @@ func (e File) multipleFile(c *gin.Context, urlPerfix string) []FileResponse {
 
 		err := utils.IsNotExistMkDir(path)
 		if err != nil {
-			e.Error(500, errors.New(""), "初始化文件路径失敗")
+			e.Error(500, errors.New(""), "初始化文件路径失败")
 		}
 		multipartFileName := path + fileName
 		err1 := c.SaveUploadedFile(f, multipartFileName)
@@ -126,7 +126,7 @@ func (e File) multipleFile(c *gin.Context, urlPerfix string) []FileResponse {
 		if err1 == nil {
 			err := thirdUpload(source, fileName, multipartFileName)
 			if err != nil {
-				e.Error(500, errors.New(""), "上传第三方失敗")
+				e.Error(500, errors.New(""), "上传第三方失败")
 			} else {
 				fileResponse := FileResponse{
 					Size:     pkg.GetFileSize(multipartFileName),
@@ -160,7 +160,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 
 	err = utils.IsNotExistMkDir(path)
 	if err != nil {
-		e.Error(500, errors.New(""), "初始化文件路径失敗")
+		e.Error(500, errors.New(""), "初始化文件路径失败")
 	}
 	singleFile := path + fileName
 	_ = c.SaveUploadedFile(files, singleFile)
@@ -175,7 +175,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 	//source, _ := c.GetPostForm("source")
 	//err = thirdUpload(source, fileName, singleFile)
 	//if err != nil {
-	//	e.Error(200, errors.New(""), "上传第三方失敗")
+	//	e.Error(200, errors.New(""), "上传第三方失败")
 	//	return FileResponse{}, true
 	//}
 	fileResponse.Path = "/static/uploadfile/" + fileName

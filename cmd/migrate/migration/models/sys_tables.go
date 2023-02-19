@@ -1,9 +1,9 @@
 package models
 
 type SysTables struct {
-	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表编碼
+	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表流水號
 	TBName              string `gorm:"column:table_name;size:255;" json:"tableName"`   //表名称
-	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表备注
+	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表備註
 	ClassName           string `gorm:"size:255;" json:"className"`                     //类名
 	TplCategory         string `gorm:"size:255;" json:"tplCategory"`                   //
 	PackageName         string `gorm:"size:255;" json:"packageName"`                   //包名

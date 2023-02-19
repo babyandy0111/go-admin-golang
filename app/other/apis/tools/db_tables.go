@@ -10,13 +10,13 @@ import (
 	"go-admin/app/other/models/tools"
 )
 
-// GetDBTableList 分頁列表數据
-// @Summary 分頁列表數据 / page list data
-// @Description 數据库表分頁列表 / database table page list
+// GetDBTableList 分页列表数据
+// @Summary 分页列表数据 / page list data
+// @Description 数据库表分页列表 / database table page list
 // @Tags 工具 / 生成工具
-// @Param tableName query string false "tableName / 數据表名称"
-// @Param pageSize query int false "pageSize / 頁條數"
-// @Param pageIndex query int false "pageIndex / 頁碼"
+// @Param tableName query string false "tableName / 数据表名称"
+// @Param pageSize query int false "pageSize / 页条数"
+// @Param pageIndex query int false "pageIndex / 页码"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/db/tables/page [get]
 func (e *Gen) GetDBTableList(c *gin.Context) {
@@ -28,7 +28,7 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 	e.Context = c
 	log := e.GetLogger()
 	if config.DatabaseConfig.Driver == "sqlite3" || config.DatabaseConfig.Driver == "postgres" {
-		err = errors.New("对不起，sqlite3 或 postgres 不支持代碼生成！")
+		err = errors.New("对不起，sqlite3 或 postgres 不支持代码生成！")
 		log.Warn(err)
 		e.Error(403, err, "")
 		return
@@ -45,7 +45,7 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "數据库连接獲取失敗")
+		e.Error(500, err, "数据库连接获取失败")
 		return
 	}
 
@@ -56,5 +56,5 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 		e.Error(500, err, "")
 		return
 	}
-	e.PageOK(result, count, pageIndex, pageSize, "查詢成功")
+	e.PageOK(result, count, pageIndex, pageSize, "查询成功")
 }

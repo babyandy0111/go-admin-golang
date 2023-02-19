@@ -5,7 +5,7 @@ import (
 )
 
 type SysDictType struct {
-	ID       int    `json:"id" gorm:"primaryKey;column:dict_id;autoIncrement;comment:主键编碼"`
+	ID       int    `json:"id" gorm:"primaryKey;column:dict_id;autoIncrement;comment:主健流水號"`
 	DictName string `json:"dictName" gorm:"size:128;comment:DictName"`
 	DictType string `json:"dictType" gorm:"size:128;comment:DictType"`
 	Status   int    `json:"status" gorm:"size:4;comment:Status"`

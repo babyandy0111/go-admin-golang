@@ -28,7 +28,7 @@ func (g GeneralDelDto) GetIds() []int {
 		}
 	}
 	if len(ids) <= 0 {
-		//方式全部删除
+		//方式全部刪除
 		ids = append(ids, 0)
 	}
 	return ids

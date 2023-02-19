@@ -17,7 +17,7 @@ type SysOperaLog struct {
 	Title         string    `json:"title" gorm:"size:255;comment:操作模块"`
 	BusinessType  string    `json:"businessType" gorm:"size:128;comment:操作类型"`
 	BusinessTypes string    `json:"businessTypes" gorm:"size:128;comment:BusinessTypes"`
-	Method        string    `json:"method" gorm:"size:128;comment:函數"`
+	Method        string    `json:"method" gorm:"size:128;comment:函数"`
 	RequestMethod string    `json:"requestMethod" gorm:"size:128;comment:请求方式 GET POST PUT DELETE"`
 	OperatorType  string    `json:"operatorType" gorm:"size:128;comment:操作类型"`
 	OperName      string    `json:"operName" gorm:"size:128;comment:操作者"`
@@ -25,15 +25,15 @@ type SysOperaLog struct {
 	OperUrl       string    `json:"operUrl" gorm:"size:255;comment:访问地址"`
 	OperIp        string    `json:"operIp" gorm:"size:128;comment:客户端ip"`
 	OperLocation  string    `json:"operLocation" gorm:"size:128;comment:访问位置"`
-	OperParam     string    `json:"operParam" gorm:"text;comment:请求参數"`
-	Status        string    `json:"status" gorm:"size:4;comment:操作状态 1:正常 2:关闭"`
-	OperTime      time.Time `json:"operTime" gorm:"comment:操作时间"`
-	JsonResult    string    `json:"jsonResult" gorm:"size:255;comment:返回數据"`
-	Remark        string    `json:"remark" gorm:"size:255;comment:备注"`
+	OperParam     string    `json:"operParam" gorm:"text;comment:请求参数"`
+	Status        string    `json:"status" gorm:"size:4;comment:操作狀態 1:正常 2:关闭"`
+	OperTime      time.Time `json:"operTime" gorm:"comment:操作時間"`
+	JsonResult    string    `json:"jsonResult" gorm:"size:255;comment:返回数据"`
+	Remark        string    `json:"remark" gorm:"size:255;comment:備註"`
 	LatencyTime   string    `json:"latencyTime" gorm:"size:128;comment:耗时"`
 	UserAgent     string    `json:"userAgent" gorm:"size:255;comment:ua"`
-	CreatedAt     time.Time `json:"createdAt" gorm:"comment:創建时间"`
-	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最后更新时间"`
+	CreatedAt     time.Time `json:"createdAt" gorm:"comment:建立時間"`
+	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最后更新時間"`
 	models.ControlBy
 }
 
@@ -50,7 +50,7 @@ func (e *SysOperaLog) GetId() interface{} {
 	return e.Id
 }
 
-// SaveOperaLog 从队列中獲取操作日志
+// SaveOperaLog 从队列中获取操作日志
 func SaveOperaLog(message storage.Messager) (err error) {
 	//准备db
 	db := sdk.Runtime.GetDbByKey(message.GetPrefix())

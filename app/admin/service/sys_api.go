@@ -18,7 +18,6 @@ type SysApi struct {
 	service.Service
 }
 
-// GetPage 獲取SysApi列表
 func (e *SysApi) GetPage(c *dto.SysApiGetPageReq, p *actions.DataPermission, list *[]models.SysApi, count *int64) error {
 	var err error
 	var data models.SysApi
@@ -38,7 +37,6 @@ func (e *SysApi) GetPage(c *dto.SysApiGetPageReq, p *actions.DataPermission, lis
 	return nil
 }
 
-// Get 獲取SysApi对象with id
 func (e *SysApi) Get(d *dto.SysApiGetReq, p *actions.DataPermission, model *models.SysApi) *SysApi {
 	var data models.SysApi
 	err := e.Orm.Model(&data).
@@ -47,7 +45,7 @@ func (e *SysApi) Get(d *dto.SysApiGetReq, p *actions.DataPermission, model *mode
 		).
 		First(model, d.GetId()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("Service GetSysApi error:%s", err)
 		_ = e.AddError(err)
 		return e
@@ -60,12 +58,11 @@ func (e *SysApi) Get(d *dto.SysApiGetReq, p *actions.DataPermission, model *mode
 	return e
 }
 
-// Update 修改SysApi对象
 func (e *SysApi) Update(c *dto.SysApiUpdateReq, p *actions.DataPermission) error {
 	var model = models.SysApi{}
 	db := e.Orm.Debug().First(&model, c.GetId())
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 	c.Generate(&model)
 	db = e.Orm.Save(&model)
@@ -77,7 +74,6 @@ func (e *SysApi) Update(c *dto.SysApiUpdateReq, p *actions.DataPermission) error
 	return nil
 }
 
-// Remove 删除SysApi
 func (e *SysApi) Remove(d *dto.SysApiDeleteReq, p *actions.DataPermission) error {
 	var data models.SysApi
 
@@ -90,12 +86,11 @@ func (e *SysApi) Remove(d *dto.SysApiDeleteReq, p *actions.DataPermission) error
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权删除该數据")
+		return errors.New("無權限刪除該資料")
 	}
 	return nil
 }
 
-// CheckStorageSysApi 創建SysApi对象
 func (e *SysApi) CheckStorageSysApi(c *[]runtime.Router) error {
 	for _, v := range *c {
 		err := e.Orm.Debug().Where(models.SysApi{Path: v.RelativePath, Action: v.HttpMethod}).

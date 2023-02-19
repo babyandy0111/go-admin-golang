@@ -9,7 +9,7 @@ export function list{{.ClassName}}(query) {
     })
 }
 
-// 查詢{{.ClassName}}详细
+// 查詢{{.ClassName}}詳細
 export function get{{.ClassName}} ({{.PkJsonField}}) {
     return request({
         url: '/api/v1/{{.ModuleName}}/' + {{.PkJsonField}},
@@ -36,7 +36,7 @@ export function update{{.ClassName}}(data) {
     })
 }
 
-// 删除{{.ClassName}}
+// 刪除{{.ClassName}}
 export function del{{.ClassName}}(data) {
     return request({
         url: '/api/v1/{{.ModuleName}}',

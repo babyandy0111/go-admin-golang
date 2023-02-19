@@ -119,7 +119,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         MCreate := Menu{}
         MCreate.MenuName = ""
-        MCreate.Title = "創建{{.TableComment}}"
+        MCreate.Title = "新增{{.TableComment}}"
         MCreate.Icon = ""
         MCreate.Path = "{{.TBName}}"
         MCreate.MenuType = "F"
@@ -233,7 +233,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         AGet := Menu{}
         AGet.MenuName = ""
-        AGet.Title = "根据id獲取{{.TableComment}}"
+        AGet.Title = "透過Id獲取{{.TableComment}}"
         AGet.Icon = "bug"
         AGet.Path = "/api/v1/{{.ModuleName}}/:id"
         AGet.MenuType = "A"
@@ -255,7 +255,7 @@ func _{{.GenerateTime}}Test(db *gorm.DB, version string) error {
 
         ACreate := Menu{}
         ACreate.MenuName = ""
-        ACreate.Title = "創建{{.TableComment}}"
+        ACreate.Title = "新增{{.TableComment}}"
         ACreate.Icon = "bug"
         ACreate.Path = "/api/v1/{{.ModuleName}}"
         ACreate.MenuType = "A"

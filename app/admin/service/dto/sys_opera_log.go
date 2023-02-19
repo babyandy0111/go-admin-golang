@@ -9,20 +9,20 @@ import (
 )
 
 const (
-	OperaStatusEnabel  = "1" // 状态-正常
-	OperaStatusDisable = "2" // 状态-关闭
+	OperaStatusEnabel  = "1" // 狀態-正常
+	OperaStatusDisable = "2" // 狀態-关闭
 )
 
 type SysOperaLogGetPageReq struct {
 	dto.Pagination `search:"-"`
 	Title          string `form:"title" search:"type:contains;column:title;table:sys_opera_log" comment:"操作模块"`
-	Method         string `form:"method" search:"type:contains;column:method;table:sys_opera_log" comment:"函數"`
+	Method         string `form:"method" search:"type:contains;column:method;table:sys_opera_log" comment:"函数"`
 	RequestMethod  string `form:"requestMethod" search:"type:contains;column:request_method;table:sys_opera_log" comment:"请求方式: GET POST PUT DELETE"`
 	OperUrl        string `form:"operUrl" search:"type:contains;column:oper_url;table:sys_opera_log" comment:"访问地址"`
 	OperIp         string `form:"operIp" search:"type:exact;column:oper_ip;table:sys_opera_log" comment:"客户端ip"`
-	Status         int    `form:"status" search:"type:exact;column:status;table:sys_opera_log" comment:"状态 1:正常 2:关闭"`
-	BeginTime      string `form:"beginTime" search:"type:gte;column:created_at;table:sys_opera_log" comment:"創建时间"`
-	EndTime        string `form:"endTime" search:"type:lte;column:created_at;table:sys_opera_log" comment:"更新时间"`
+	Status         int    `form:"status" search:"type:exact;column:status;table:sys_opera_log" comment:"狀態 1:正常 2:关闭"`
+	BeginTime      string `form:"beginTime" search:"type:gte;column:created_at;table:sys_opera_log" comment:"建立時間"`
+	EndTime        string `form:"endTime" search:"type:lte;column:created_at;table:sys_opera_log" comment:"更新時間"`
 	SysOperaLogOrder
 }
 
@@ -35,11 +35,11 @@ func (m *SysOperaLogGetPageReq) GetNeedSearch() interface{} {
 }
 
 type SysOperaLogControl struct {
-	ID            int       `uri:"Id" comment:"编碼"` // 编碼
+	ID            int       `uri:"Id" comment:"流水號"` // 流水號
 	Title         string    `json:"title" comment:"操作模块"`
 	BusinessType  string    `json:"businessType" comment:"操作类型"`
 	BusinessTypes string    `json:"businessTypes" comment:""`
-	Method        string    `json:"method" comment:"函數"`
+	Method        string    `json:"method" comment:"函数"`
 	RequestMethod string    `json:"requestMethod" comment:"请求方式"`
 	OperatorType  string    `json:"operatorType" comment:"操作类型"`
 	OperName      string    `json:"operName" comment:"操作者"`
@@ -47,11 +47,11 @@ type SysOperaLogControl struct {
 	OperUrl       string    `json:"operUrl" comment:"访问地址"`
 	OperIp        string    `json:"operIp" comment:"客户端ip"`
 	OperLocation  string    `json:"operLocation" comment:"访问位置"`
-	OperParam     string    `json:"operParam" comment:"请求参數"`
-	Status        string    `json:"status" comment:"操作状态"`
-	OperTime      time.Time `json:"operTime" comment:"操作时间"`
-	JsonResult    string    `json:"jsonResult" comment:"返回數据"`
-	Remark        string    `json:"remark" comment:"备注"`
+	OperParam     string    `json:"operParam" comment:"请求参数"`
+	Status        string    `json:"status" comment:"操作狀態"`
+	OperTime      time.Time `json:"operTime" comment:"操作時間"`
+	JsonResult    string    `json:"jsonResult" comment:"返回数据"`
+	Remark        string    `json:"remark" comment:"備註"`
 	LatencyTime   string    `json:"latencyTime" comment:"耗时"`
 	UserAgent     string    `json:"userAgent" comment:"ua"`
 }
@@ -92,7 +92,7 @@ func (s *SysOperaLogGetReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysOperaLogDeleteReq 功能删除请求参數
+// SysOperaLogDeleteReq 功能刪除请求参数
 type SysOperaLogDeleteReq struct {
 	Ids []int `json:"ids"`
 }

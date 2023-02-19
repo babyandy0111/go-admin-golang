@@ -20,7 +20,6 @@ type SysRole struct {
 	service.Service
 }
 
-// GetPage 獲取SysRole列表
 func (e *SysRole) GetPage(c *dto.SysRoleGetPageReq, list *[]models.SysRole, count *int64) error {
 	var err error
 	var data models.SysRole
@@ -39,13 +38,12 @@ func (e *SysRole) GetPage(c *dto.SysRoleGetPageReq, list *[]models.SysRole, coun
 	return nil
 }
 
-// Get 獲取SysRole对象
 func (e *SysRole) Get(d *dto.SysRoleGetReq, model *models.SysRole) error {
 	var err error
 	db := e.Orm.First(model, d.GetId())
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -61,7 +59,6 @@ func (e *SysRole) Get(d *dto.SysRoleGetReq, model *models.SysRole) error {
 	return nil
 }
 
-// Insert 創建SysRole对象
 func (e *SysRole) Insert(c *dto.SysRoleInsertReq, cb *casbin.SyncedEnforcer) error {
 	var err error
 	var data models.SysRole
@@ -92,7 +89,7 @@ func (e *SysRole) Insert(c *dto.SysRoleInsertReq, cb *casbin.SyncedEnforcer) err
 	}
 
 	if count > 0 {
-		err = errors.New("roleKey已存在，需更换在提交！")
+		err = errors.New("roleKey已存在，需更換roleKey再送出！")
 		e.Log.Errorf("db error:%s", err)
 		return err
 	}
@@ -126,7 +123,6 @@ func (e *SysRole) Insert(c *dto.SysRoleInsertReq, cb *casbin.SyncedEnforcer) err
 	return nil
 }
 
-// Update 修改SysRole对象
 func (e *SysRole) Update(c *dto.SysRoleUpdateReq, cb *casbin.SyncedEnforcer) error {
 	var err error
 	tx := e.Orm
@@ -158,7 +154,7 @@ func (e *SysRole) Update(c *dto.SysRoleUpdateReq, cb *casbin.SyncedEnforcer) err
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 
 	_, err = cb.RemoveFilteredPolicy(0, model.RoleKey)
@@ -187,7 +183,6 @@ func (e *SysRole) Update(c *dto.SysRoleUpdateReq, cb *casbin.SyncedEnforcer) err
 	return nil
 }
 
-// Remove 删除SysRole
 func (e *SysRole) Remove(c *dto.SysRoleDeleteReq, cb *casbin.SyncedEnforcer) error {
 	var err error
 	tx := e.Orm
@@ -210,7 +205,7 @@ func (e *SysRole) Remove(c *dto.SysRoleDeleteReq, cb *casbin.SyncedEnforcer) err
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 
 	_, _ = cb.RemoveFilteredPolicy(0, model.RoleKey)
@@ -218,7 +213,6 @@ func (e *SysRole) Remove(c *dto.SysRoleDeleteReq, cb *casbin.SyncedEnforcer) err
 	return nil
 }
 
-// GetRoleMenuId 獲取角色对应的菜单ids
 func (e *SysRole) GetRoleMenuId(roleId int) ([]int, error) {
 	menuIds := make([]int, 0)
 	model := models.SysRole{}
@@ -265,13 +259,12 @@ func (e *SysRole) UpdateDataScope(c *dto.RoleDataScopeReq) *SysRole {
 		return e
 	}
 	if db.RowsAffected == 0 {
-		_ = e.AddError(errors.New("無权更新该數据"))
+		_ = e.AddError(errors.New("無權限更新該資料"))
 		return e
 	}
 	return e
 }
 
-// UpdateStatus 修改SysRole对象status
 func (e *SysRole) UpdateStatus(c *dto.UpdateStatusReq) error {
 	var err error
 	tx := e.Orm
@@ -294,18 +287,17 @@ func (e *SysRole) UpdateStatus(c *dto.UpdateStatusReq) error {
 		return err
 	}
 	if db.RowsAffected == 0 {
-		return errors.New("無权更新该數据")
+		return errors.New("無權限更新該資料")
 	}
 	return nil
 }
 
-// GetWithName 獲取SysRole对象
 func (e *SysRole) GetWithName(d *dto.SysRoleByName, model *models.SysRole) *SysRole {
 	var err error
 	db := e.Orm.Where("role_name = ?", d.RoleName).First(model)
 	err = db.Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或無权查看")
+		err = errors.New("查無資料或無權限")
 		e.Log.Errorf("db error:%s", err)
 		_ = e.AddError(err)
 		return e
@@ -324,7 +316,6 @@ func (e *SysRole) GetWithName(d *dto.SysRoleByName, model *models.SysRole) *SysR
 	return e
 }
 
-// GetById 獲取SysRole对象
 func (e *SysRole) GetById(roleId int) ([]string, error) {
 	permissions := make([]string, 0)
 	model := models.SysRole{}

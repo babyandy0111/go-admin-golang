@@ -18,9 +18,9 @@ type {{.ClassName}} struct {
 	api.Api
 }
 
-// GetPage 獲取{{.TableComment}}列表
-// @Summary 獲取{{.TableComment}}列表
-// @Description 獲取{{.TableComment}}列表
+// GetPage 查詢{{.TableComment}}列表
+// @Summary 查詢{{.TableComment}}列表
+// @Description 查詢{{.TableComment}}列表
 // @Tags {{.TableComment}}
 {{- $tablename := .TBName -}}
 {{- range .Columns -}}
@@ -29,8 +29,8 @@ type {{.ClassName}} struct {
 // @Param {{.JsonField}} query {{.GoType}} false "{{.ColumnComment}}"
 {{- end -}}
 {{- end }}
-// @Param pageSize query int false "頁條數"
-// @Param pageIndex query int false "頁碼"
+// @Param pageSize query int false "每頁幾筆"
+// @Param pageIndex query int false "頁數"
 // @Success 200 {object} response.Response{data=response.Page{list=[]models.{{.ClassName}}}} "{"code": 200, "data": [...]}"
 // @Router /api/v1/{{.ModuleName}} [get]
 // @Security Bearer
@@ -54,16 +54,16 @@ func (e {{.ClassName}}) GetPage(c *gin.Context) {
 
 	err = s.GetPage(&req, p, &list, &count)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("獲取{{.TableComment}}失敗，\r\n失敗訊息 %s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("查詢{{.TableComment}}失敗，\r\n err: %s", err.Error()))
         return
 	}
 
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-// Get 獲取{{.TableComment}}
-// @Summary 獲取{{.TableComment}}
-// @Description 獲取{{.TableComment}}
+// Get 查詢{{.TableComment}}單筆
+// @Summary 查詢{{.TableComment}}
+// @Description 查詢{{.TableComment}}
 // @Tags {{.TableComment}}
 // @Param id path int false "id"
 // @Success 200 {object} response.Response{data=models.{{.ClassName}}} "{"code": 200, "data": [...]}"
@@ -87,21 +87,21 @@ func (e {{.ClassName}}) Get(c *gin.Context) {
 	p := actions.GetPermissionFromContext(c)
 	err = s.Get(&req, p, &object)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("獲取{{.TableComment}}失敗，\r\n失敗訊息 %s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("查詢{{.TableComment}}失敗，\r\n err: %s", err.Error()))
         return
 	}
 
 	e.OK( object, "查詢成功")
 }
 
-// Insert 創建{{.TableComment}}
-// @Summary 創建{{.TableComment}}
-// @Description 創建{{.TableComment}}
+// Insert 建立{{.TableComment}}
+// @Summary 建立{{.TableComment}}
+// @Description 建立{{.TableComment}}
 // @Tags {{.TableComment}}
 // @Accept application/json
 // @Product application/json
 // @Param data body dto.{{.ClassName}}InsertReq true "data"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "新增成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "建立成功"}"
 // @Router /api/v1/{{.ModuleName}} [post]
 // @Security Bearer
 func (e {{.ClassName}}) Insert(c *gin.Context) {
@@ -117,27 +117,27 @@ func (e {{.ClassName}}) Insert(c *gin.Context) {
         e.Error(500, err, err.Error())
         return
     }
-	// 设置創建人
+	// 設定建立者
 	req.SetCreateBy(user.GetUserId(c))
 
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("創建{{.TableComment}}失敗，\r\n失敗訊息 %s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("建立{{.TableComment}}失敗，\r\n err: %s", err.Error()))
         return
 	}
 
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "建立成功")
 }
 
-// Update 修改{{.TableComment}}
-// @Summary 修改{{.TableComment}}
-// @Description 修改{{.TableComment}}
+// Update 更新{{.TableComment}}
+// @Summary 更新{{.TableComment}}
+// @Description 更新{{.TableComment}}
 // @Tags {{.TableComment}}
 // @Accept application/json
 // @Product application/json
 // @Param id path int true "id"
 // @Param data body dto.{{.ClassName}}UpdateReq true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "修改成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "更新成功"}"
 // @Router /api/v1/{{.ModuleName}}/{id} [put]
 // @Security Bearer
 func (e {{.ClassName}}) Update(c *gin.Context) {
@@ -158,18 +158,18 @@ func (e {{.ClassName}}) Update(c *gin.Context) {
 
 	err = s.Update(&req, p)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("修改{{.TableComment}}失敗，\r\n失敗訊息 %s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新{{.TableComment}}失敗，\r\n err: %s", err.Error()))
         return
 	}
-	e.OK( req.GetId(), "修改成功")
+	e.OK( req.GetId(), "更新成功")
 }
 
-// Delete 删除{{.TableComment}}
-// @Summary 删除{{.TableComment}}
-// @Description 删除{{.TableComment}}
+// Delete 刪除{{.TableComment}}
+// @Summary 刪除{{.TableComment}}
+// @Description 刪除{{.TableComment}}
 // @Tags {{.TableComment}}
 // @Param data body dto.{{.ClassName}}DeleteReq true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "删除成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "刪除成功"}"
 // @Router /api/v1/{{.ModuleName}} [delete]
 // @Security Bearer
 func (e {{.ClassName}}) Delete(c *gin.Context) {
@@ -191,8 +191,8 @@ func (e {{.ClassName}}) Delete(c *gin.Context) {
 
 	err = s.Remove(&req, p)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("删除{{.TableComment}}失敗，\r\n失敗訊息 %s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("刪除{{.TableComment}}失敗，\r\n err: %s", err.Error()))
         return
 	}
-	e.OK( req.GetId(), "删除成功")
+	e.OK( req.GetId(), "刪除成功")
 }

@@ -14,7 +14,7 @@ func init()  {
 	routerCheckRole = append(routerCheckRole, register{{.ClassName}}Router)
 }
 
-// 需认证的路由代碼
+// 需認證
 func register{{.ClassName}}Router(v1 *gin.RouterGroup, authMiddleware *jwt.GinJWTMiddleware) {
     r := v1.Group("/{{.ModuleName}}").Use(authMiddleware.MiddlewareFunc()).Use(middleware.AuthCheckRole())
     {

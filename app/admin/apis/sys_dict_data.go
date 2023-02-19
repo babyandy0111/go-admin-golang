@@ -17,14 +17,14 @@ type SysDictData struct {
 }
 
 // GetPage
-// @Summary 字典數据列表
-// @Description 獲取JSON
-// @Tags 字典數据
+// @Summary 字典数据列表
+// @Description 获取JSON
+// @Tags 字典数据
 // @Param status query string false "status"
 // @Param dictCode query string false "dictCode"
 // @Param dictType query string false "dictType"
-// @Param pageSize query int false "頁條數"
-// @Param pageIndex query int false "頁碼"
+// @Param pageSize query int false "页条数"
+// @Param pageIndex query int false "页码"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict/data [get]
 // @Security Bearer
@@ -46,18 +46,18 @@ func (e SysDictData) GetPage(c *gin.Context) {
 	var count int64
 	err = s.GetPage(&req, &list, &count)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
+	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 }
 
 // Get
-// @Summary 通过编碼獲取字典數据
-// @Description 獲取JSON
-// @Tags 字典數据
-// @Param dictCode path int true "字典编碼"
+// @Summary 通过流水號获取字典数据
+// @Description 获取JSON
+// @Tags 字典数据
+// @Param dictCode path int true "字典流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict/data/{dictCode} [get]
 // @Security Bearer
@@ -80,21 +80,21 @@ func (e SysDictData) Get(c *gin.Context) {
 	err = s.Get(&req, &object)
 	if err != nil {
 		e.Logger.Warnf("Get error: %s", err.Error())
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 
-	e.OK(object, "查詢成功")
+	e.OK(object, "查询成功")
 }
 
 // Insert
-// @Summary 新增字典數据
-// @Description 獲取JSON
-// @Tags 字典數据
+// @Summary 添加字典数据
+// @Description 获取JSON
+// @Tags 字典数据
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDictDataInsertReq true "data"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "新增成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "添加成功"}"
 // @Router /api/v1/dict/data [post]
 // @Security Bearer
 func (e SysDictData) Insert(c *gin.Context) {
@@ -113,17 +113,17 @@ func (e SysDictData) Insert(c *gin.Context) {
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, "創建失敗")
+		e.Error(500, err, "创建失败")
 		return
 	}
 
-	e.OK(req.GetId(), "創建成功")
+	e.OK(req.GetId(), "创建成功")
 }
 
 // Update
-// @Summary 修改字典數据
-// @Description 獲取JSON
-// @Tags 字典數据
+// @Summary 修改字典数据
+// @Description 获取JSON
+// @Tags 字典数据
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDictDataUpdateReq true "body"
@@ -146,18 +146,18 @@ func (e SysDictData) Update(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Update(&req)
 	if err != nil {
-		e.Error(500, err, "更新失敗")
+		e.Error(500, err, "更新失败")
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
 }
 
 // Delete
-// @Summary 删除字典數据
-// @Description 删除數据
-// @Tags 字典數据
+// @Summary 刪除字典数据
+// @Description 刪除数据
+// @Tags 字典数据
 // @Param dictCode body dto.SysDictDataDeleteReq true "body"
-// @Success 200 {object} response.Response	"{"code": 200, "message": "删除成功"}"
+// @Success 200 {object} response.Response	"{"code": 200, "message": "刪除成功"}"
 // @Router /api/v1/dict/data [delete]
 // @Security Bearer
 func (e SysDictData) Delete(c *gin.Context) {
@@ -176,16 +176,16 @@ func (e SysDictData) Delete(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, "删除失敗")
+		e.Error(500, err, "刪除失败")
 		return
 	}
-	e.OK(req.GetId(), "删除成功")
+	e.OK(req.GetId(), "刪除成功")
 }
 
-// GetAll 數据字典根据key獲取 业务頁面使用
-// @Summary 數据字典根据key獲取
-// @Description 數据字典根据key獲取
-// @Tags 字典數据
+// GetAll 数据字典根据key获取 业务页面使用
+// @Summary 数据字典根据key获取
+// @Description 数据字典根据key获取
+// @Tags 字典数据
 // @Param dictType query int true "dictType"
 // @Success 200 {object} response.Response{data=[]dto.SysDictDataGetAllResp}  "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict-data/option-select [get]
@@ -206,7 +206,7 @@ func (e SysDictData) GetAll(c *gin.Context) {
 	list := make([]models.SysDictData, 0)
 	err = s.GetAll(&req, &list)
 	if err != nil {
-		e.Error(500, err, "查詢失敗")
+		e.Error(500, err, "查询失败")
 		return
 	}
 	l := make([]dto.SysDictDataGetAllResp, 0)
@@ -216,5 +216,5 @@ func (e SysDictData) GetAll(c *gin.Context) {
 		l = append(l, d)
 	}
 
-	e.OK(l, "查詢成功")
+	e.OK(l, "查询成功")
 }
