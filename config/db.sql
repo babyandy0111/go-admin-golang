@@ -179,8 +179,8 @@ INSERT INTO sys_dict_type VALUES (9, '操作類型', 'sys_oper_type', '2', '操�
 INSERT INTO sys_dict_type VALUES (10, '通知狀態', 'sys_notice_status', '2', '通知狀態列表', 1, 1, '2021-05-13 19:56:37.914', '2021-05-13 19:56:37.914', NULL);
 INSERT INTO sys_dict_type VALUES (11, '内容狀態', 'sys_content_status', '2', '', 1, 1, '2021-05-13 19:56:40.813', '2021-05-13 19:56:40.813', NULL);
 
-INSERT INTO sys_job VALUES (1, 'API測試', 'DEFAULT', 1, '0/5 * * * * ', 'http://localhost:8000', '', 1, 1, 1, 0, '2021-05-13 19:56:37.914', '2021-06-14 20:59:55.417', NULL, 1, 1);
-INSERT INTO sys_job VALUES (2, '函數測試', 'DEFAULT', 2, '0/5 * * * * ', 'ExamplesOne', '參數', 1, 1, 1, 0, '2021-05-13 19:56:37.914', '2021-05-31 23:55:37.221', NULL, 1, 1);
+-- INSERT INTO sys_job VALUES (1, 'API測試', 'DEFAULT', 1, '0/5 * * * * ', 'http://localhost:8000', '', 1, 1, 1, 0, '2021-05-13 19:56:37.914', '2021-06-14 20:59:55.417', NULL, 1, 1);
+-- INSERT INTO sys_job VALUES (2, '函數測試', 'DEFAULT', 2, '0/5 * * * * ', 'ExamplesOne', '參數', 1, 1, 1, 0, '2021-05-13 19:56:37.914', '2021-05-31 23:55:37.221', NULL, 1, 1);
 
 INSERT INTO sys_menu VALUES (2, 'Admin', '系統管理', 'api-server', '/admin', '/0/2', 'M', '無', '', 0, 1, '', 'Layout', 10, '0', '1', 0, 1, '2021-05-20 21:58:45.679', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu VALUES (3, 'SysUserManage', 'User管理', 'user', '/admin/sys-user', '/0/2/3', 'C', '無', 'admin:sysUser:list', 2, 0, '', '/admin/sys-user/index', 10, '0', '1', 0, 1, '2021-05-20 22:08:44.526', '2021-06-17 20:31:14.305', NULL);
@@ -235,19 +235,19 @@ INSERT INTO sys_menu VALUES (251, '', '刪除操作Log', 'app-group-fill', '', '
 INSERT INTO sys_menu VALUES (261, 'Gen', '代碼生成', 'code', '/dev-tools/gen', '/0/60/261', 'C', '', '', 60, 0, '', '/dev-tools/gen/index', 2, '0', '1', 1, 1, '2020-04-11 15:52:48.000', '2021-06-16 21:26:12.446', NULL);
 INSERT INTO sys_menu VALUES (262, 'EditTable', '代碼生成更新', 'build', '/dev-tools/editTable', '/0/60/262', 'C', '', '', 60, 0, '', '/dev-tools/gen/editTable', 100, '1', '1', 1, 1, '2020-04-11 15:52:48.000', '2021-06-16 21:26:12.446', NULL);
 INSERT INTO sys_menu VALUES (264, 'Build', '表單建立', 'build', '/dev-tools/build', '/0/60/264', 'C', '', '', 60, 0, '', '/dev-tools/build/index', 1, '0', '1', 1, 1, '2020-04-11 15:52:48.000', '2021-06-16 21:26:12.446', NULL);
-INSERT INTO sys_menu VALUES (269, 'ServerMonitor', '服務監控', 'druid', '/sys-tools/monitor', '/0/60/269', 'C', '', 'sysTools:serverMonitor:list', 537, 0, '', '/sys-tools/monitor', 0, '0', '1', 1, 1, '2020-04-14 00:28:19.000', '2021-06-16 21:26:12.446', NULL);
-INSERT INTO sys_menu VALUES (459, 'Schedule', 'job', 'time-range', '/schedule', '/0/459', 'M', '無', '', 0, 0, '', 'Layout', 20, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (460, 'ScheduleManage', 'Schedule', 'job', '/schedule/manage', '/0/459/460', 'C', '無', 'job:sysJob:list', 459, 0, '', '/schedule/index', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (461, 'sys_job', '分頁取得job', 'app-group-fill', '', '/0/459/460/461', 'F', '無', 'job:sysJob:query', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (462, 'sys_job', '建立job', 'app-group-fill', '', '/0/459/460/462', 'F', '無', 'job:sysJob:add', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (463, 'sys_job', '更新job', 'app-group-fill', '', '/0/459/460/463', 'F', '無', 'job:sysJob:edit', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (464, 'sys_job', '刪除job', 'app-group-fill', '', '/0/459/460/464', 'F', '無', 'job:sysJob:remove', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
-INSERT INTO sys_menu VALUES (471, 'JobLog', 'Log', 'bug', '/schedule/log', '/0/459/471', 'C', '', '', 459, 0, '', '/schedule/log', 0, '1', '1', 1, 1, '2020-08-05 21:24:46.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (269, 'ServerMonitor', '服務監控', 'druid', '/sys-tools/monitor', '/0/60/269', 'C', '', 'sysTools:serverMonitor:list', 537, 0, '', '/sys-tools/monitor', 0, '0', '1', 1, 1, '2020-04-14 00:28:19.000', '2021-06-16 21:26:12.446', NULL);
+-- INSERT INTO sys_menu VALUES (459, 'Schedule', 'job', 'time-range', '/schedule', '/0/459', 'M', '無', '', 0, 0, '', 'Layout', 20, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (460, 'ScheduleManage', 'Schedule', 'job', '/schedule/manage', '/0/459/460', 'C', '無', 'job:sysJob:list', 459, 0, '', '/schedule/index', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (461, 'sys_job', '分頁取得job', 'app-group-fill', '', '/0/459/460/461', 'F', '無', 'job:sysJob:query', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (462, 'sys_job', '建立job', 'app-group-fill', '', '/0/459/460/462', 'F', '無', 'job:sysJob:add', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (463, 'sys_job', '更新job', 'app-group-fill', '', '/0/459/460/463', 'F', '無', 'job:sysJob:edit', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (464, 'sys_job', '刪除job', 'app-group-fill', '', '/0/459/460/464', 'F', '無', 'job:sysJob:remove', 460, 0, '', '', 0, '0', '1', 1, 1, '2020-08-03 09:17:37.000', '2021-06-05 22:15:03.465', NULL);
+-- INSERT INTO sys_menu VALUES (471, 'JobLog', 'Log', 'bug', '/schedule/log', '/0/459/471', 'C', '', '', 459, 0, '', '/schedule/log', 0, '1', '1', 1, 1, '2020-08-05 21:24:46.000', '2021-06-05 22:15:03.465', NULL);
 INSERT INTO sys_menu VALUES (528, 'SysApiManage', 'API管理', 'api-doc', '/admin/sys-api', '/0/527/528', 'C', '無', 'admin:sysApi:list', 2, 0, '', '/admin/sys-api/index', 0, '0', '0', 0, 1, '2021-05-20 22:08:44.526', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu VALUES (529, '', '查詢API', 'app-group-fill', '', '/0/527/528/529', 'F', '無', 'admin:sysApi:query', 528, 0, '', '', 40, '0', '0', 0, 1, '2021-05-20 22:08:44.526', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu VALUES (531, '', '更新API', 'app-group-fill', '', '/0/527/528/531', 'F', '無', 'admin:sysApi:edit', 528, 0, '', '', 30, '0', '0', 0, 1, '2021-05-20 22:08:44.526', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu VALUES (537, 'SysTools', '系統工具', 'system-tools', '/sys-tools', '', 'M', '', '', 0, 0, '', 'Layout', 30, '0', '1', 1, 1, '2021-05-21 11:13:32.166', '2021-06-16 21:26:12.446', NULL);
-INSERT INTO sys_menu VALUES (540, 'SysConfigSet', '參數設定', 'system-tools', '/admin/sys-config/set', '', 'C', '', 'admin:sysConfigSet:list', 2, 0, '', '/admin/sys-config/set', 0, '0', '1', 1, 1, '2021-05-25 16:06:52.560', '2021-06-17 11:48:40.703', NULL);
+INSERT INTO sys_menu VALUES (540, 'SysConfigSet', '系統設定', 'system-tools', '/admin/sys-config/set', '', 'C', '', 'admin:sysConfigSet:list', 2, 0, '', '/admin/sys-config/set', 0, '0', '1', 1, 1, '2021-05-25 16:06:52.560', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu VALUES (542, '', '更新', 'upload', '', '', 'F', '', 'admin:sysConfigSet:update', 540, 0, '', '', 0, '0', '1', 1, 1, '2021-06-13 11:45:48.670', '2021-06-17 11:48:40.703', NULL);
 INSERT INTO sys_menu_api_rule VALUES (216, 6);
 INSERT INTO sys_menu_api_rule VALUES (250, 6);

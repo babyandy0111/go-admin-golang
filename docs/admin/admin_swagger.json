@@ -6,11 +6,11 @@
     "paths": {
         "/api/v1/app-config": {
             "get": {
-                "description": "获取系統配置訊息，主要注意这里不在验证权限",
+                "description": "取得系統配置訊息，主要注意这里不在验证权限",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "获取系統前台配置訊息，主要注意这里不在验证权限",
+                "summary": "取得系統前台配置訊息，主要注意这里不在验证权限",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -40,7 +40,7 @@
             "get": {
                 "description": "取得驗證碼",
                 "tags": [
-                    "登陆"
+                    "登入"
                 ],
                 "summary": "取得驗證碼",
                 "responses": {
@@ -78,11 +78,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "分页列表",
+                "description": "分頁列表",
                 "tags": [
                     "部門"
                 ],
-                "summary": "分页部門列表資料",
+                "summary": "分頁部門列表資料",
                 "parameters": [
                     {
                         "type": "string",
@@ -118,14 +118,14 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "部門"
                 ],
-                "summary": "添加部門",
+                "summary": "新增部門",
                 "parameters": [
                     {
                         "description": "data",
@@ -139,7 +139,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": -1, \"message\": \"添加失敗\"}",
+                        "description": "{\"code\": -1, \"message\": \"新增失敗\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -185,11 +185,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "部門"
                 ],
-                "summary": "获取部門資料",
+                "summary": "取得部門資料",
                 "parameters": [
                     {
                         "type": "string",
@@ -213,7 +213,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -241,7 +241,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": -1, \"message\": \"添加失敗\"}",
+                        "description": "{\"code\": -1, \"message\": \"新增失敗\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -256,11 +256,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "資料字典根据key获取",
+                "description": "資料字典根据key取得",
                 "tags": [
                     "字典資料"
                 ],
-                "summary": "資料字典根据key获取",
+                "summary": "資料字典根据key取得",
                 "parameters": [
                     {
                         "type": "integer",
@@ -302,7 +302,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "字典資料"
                 ],
@@ -354,14 +354,14 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "字典資料"
                 ],
-                "summary": "添加字典資料",
+                "summary": "新增字典資料",
                 "parameters": [
                     {
                         "description": "data",
@@ -375,7 +375,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "{\"code\": 200, \"message\": \"添加成功\"}",
+                        "description": "{\"code\": 200, \"message\": \"新增成功\"}",
                         "schema": {
                             "$ref": "#/definitions/response.Response"
                         }
@@ -421,11 +421,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "字典資料"
                 ],
-                "summary": "通过流水號获取字典資料",
+                "summary": "通过流水號取得字典資料",
                 "parameters": [
                     {
                         "type": "integer",
@@ -450,7 +450,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -486,7 +486,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "字典類型"
                 ],
@@ -538,14 +538,14 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "字典類型"
                 ],
-                "summary": "添加字典類型",
+                "summary": "新增字典類型",
                 "parameters": [
                     {
                         "description": "data",
@@ -605,7 +605,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "字典類型"
                 ],
@@ -647,11 +647,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "字典類型"
                 ],
-                "summary": "字典類型通过字典id获取",
+                "summary": "字典類型通过字典id取得",
                 "parameters": [
                     {
                         "type": "integer",
@@ -676,7 +676,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -712,11 +712,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "个人中心"
                 ],
-                "summary": "获取个人訊息",
+                "summary": "取得个人訊息",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -729,14 +729,14 @@
         },
         "/api/v1/login": {
             "post": {
-                "description": "获取token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以传入0值",
+                "description": "取得token\nLoginHandler can be used by clients to get a jwt token.\nPayload needs to be json in the form of {\"username\": \"USERNAME\", \"password\": \"PASSWORD\"}.\nReply will be of the form {\"token\": \"TOKEN\"}.\ndev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password\n注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以传入0值",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
-                    "登陆"
+                    "登入"
                 ],
-                "summary": "登陆",
+                "summary": "登入",
                 "parameters": [
                     {
                         "description": "account",
@@ -765,7 +765,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "選單"
                 ],
@@ -793,7 +793,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -860,7 +860,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "選單"
                 ],
@@ -888,7 +888,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -931,7 +931,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -965,11 +965,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "選單"
                 ],
-                "summary": "根据登入角色名稱获取選單列表資料（左選單使用）",
+                "summary": "根据登入角色名稱取得選單列表資料（左選單使用）",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -987,7 +987,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "職稱"
                 ],
@@ -1033,14 +1033,14 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "職稱"
                 ],
-                "summary": "添加職稱",
+                "summary": "新增職稱",
                 "parameters": [
                     {
                         "description": "data",
@@ -1100,7 +1100,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1136,11 +1136,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "職稱"
                 ],
-                "summary": "获取職稱訊息",
+                "summary": "取得職稱訊息",
                 "parameters": [
                     {
                         "type": "integer",
@@ -1219,7 +1219,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1286,7 +1286,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1322,11 +1322,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "角色/Role"
                 ],
-                "summary": "获取Role資料",
+                "summary": "取得Role資料",
                 "parameters": [
                     {
                         "type": "string",
@@ -1350,7 +1350,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -1386,14 +1386,14 @@
                         "Bearer": []
                     }
                 ],
-                "description": "界面操作設定配置值的获取",
+                "description": "界面操作設定配置值的取得",
                 "consumes": [
                     "application/json"
                 ],
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "获取配置",
+                "summary": "取得配置",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"message\": \"更新成功\"}",
@@ -1461,11 +1461,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取API管理列表",
+                "description": "取得API管理列表",
                 "tags": [
                     "API管理"
                 ],
-                "summary": "获取API管理列表",
+                "summary": "取得API管理列表",
                 "parameters": [
                     {
                         "type": "string",
@@ -1579,11 +1579,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取API管理",
+                "description": "取得API管理",
                 "tags": [
                     "API管理"
                 ],
-                "summary": "获取API管理",
+                "summary": "取得API管理",
                 "parameters": [
                     {
                         "type": "string",
@@ -1655,11 +1655,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取配置管理列表",
+                "description": "取得配置管理列表",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "获取配置管理列表",
+                "summary": "取得配置管理列表",
                 "parameters": [
                     {
                         "type": "string",
@@ -1809,11 +1809,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "根据Key获取SysConfig的Service",
+                "description": "根据Key取得SysConfig的Service",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "根据Key获取SysConfig的Service",
+                "summary": "根据Key取得SysConfig的Service",
                 "parameters": [
                     {
                         "type": "string",
@@ -1885,7 +1885,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "登入Log"
                 ],
@@ -1976,11 +1976,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "登入Log"
                 ],
-                "summary": "登入Log通过id获取",
+                "summary": "登入Log通过id取得",
                 "parameters": [
                     {
                         "type": "string",
@@ -2006,7 +2006,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "操作Log"
                 ],
@@ -2109,11 +2109,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "操作Log"
                 ],
-                "summary": "操作Log通过id获取",
+                "summary": "操作Log通过id取得",
                 "parameters": [
                     {
                         "type": "string",
@@ -2139,7 +2139,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "User"
                 ],
@@ -2167,7 +2167,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -2203,11 +2203,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "User"
                 ],
-                "summary": "获取User",
+                "summary": "取得User",
                 "parameters": [
                     {
                         "type": "integer",
@@ -2232,7 +2232,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -2297,7 +2297,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "multipart/form-data"
                 ],
@@ -2331,11 +2331,11 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "tags": [
                     "个人中心"
                 ],
-                "summary": "获取个人中心User",
+                "summary": "取得个人中心User",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -2353,7 +2353,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -2389,7 +2389,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -2425,7 +2425,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取JSON",
+                "description": "取得JSON",
                 "consumes": [
                     "application/json"
                 ],
@@ -2461,7 +2461,7 @@
                         "Bearer": []
                     }
                 ],
-                "description": "获取token",
+                "description": "取得token",
                 "consumes": [
                     "application/json"
                 ],
@@ -3762,7 +3762,7 @@
                     "type": "string"
                 },
                 "requestId": {
-                    "description": "資料集",
+                    "description": "数据集",
                     "type": "string"
                 },
                 "status": {

@@ -3774,7 +3774,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "requestId": {
-                    "description": "資料集",
+                    "description": "数据集",
                     "type": "string"
                 },
                 "status": {
