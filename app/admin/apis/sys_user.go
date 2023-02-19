@@ -199,7 +199,7 @@ func (e SysUser) Delete(c *gin.Context) {
 }
 
 // InsetAvatar
-// @Summary 修改头像
+// @Summary 修改頭貼
 // @Description 获取JSON
 // @Tags 个人中心
 // @Accept multipart/form-data

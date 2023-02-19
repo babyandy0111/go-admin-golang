@@ -8,16 +8,16 @@ import (
 type SysUser struct {
 	UserId   int    `gorm:"primaryKey;autoIncrement;comment:流水號"  json:"userId"`
 	Username string `json:"username" gorm:"type:varchar(64);comment:使用者"`
-	Password string `json:"-" gorm:"type:varchar(128);comment:密码"`
-	NickName string `json:"nickName" gorm:"type:varchar(128);comment:昵称"`
-	Phone    string `json:"phone" gorm:"type:varchar(11);comment:手机号"`
+	Password string `json:"-" gorm:"type:varchar(128);comment:密碼"`
+	NickName string `json:"nickName" gorm:"type:varchar(128);comment:暱稱"`
+	Phone    string `json:"phone" gorm:"type:varchar(11);comment:手機號碼"`
 	RoleId   int    `json:"roleId" gorm:"type:bigint;comment:角色ID"`
-	Salt     string `json:"-" gorm:"type:varchar(255);comment:加盐"`
-	Avatar   string `json:"avatar" gorm:"type:varchar(255);comment:头像"`
+	Salt     string `json:"-" gorm:"type:varchar(255);comment:slat"`
+	Avatar   string `json:"avatar" gorm:"type:varchar(255);comment:頭貼"`
 	Sex      string `json:"sex" gorm:"type:varchar(255);comment:性别"`
-	Email    string `json:"email" gorm:"type:varchar(128);comment:邮箱"`
-	DeptId   int    `json:"deptId" gorm:"type:bigint;comment:部门"`
-	PostId   int    `json:"postId" gorm:"type:bigint;comment:岗位"`
+	Email    string `json:"email" gorm:"type:varchar(128);comment:信箱"`
+	DeptId   int    `json:"deptId" gorm:"type:bigint;comment:部門"`
+	PostId   int    `json:"postId" gorm:"type:bigint;comment:職稱"`
 	Remark   string `json:"remark" gorm:"type:varchar(255);comment:備註"`
 	Status   string `json:"status" gorm:"type:varchar(4);comment:狀態"`
 	ControlBy

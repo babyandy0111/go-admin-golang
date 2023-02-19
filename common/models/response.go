@@ -1,7 +1,7 @@
 package models
 
 type Response struct {
-	// 代码
+	// 代碼
 	Code int `json:"code" example:"200"`
 	// 数据集
 	Data interface{} `json:"data"`

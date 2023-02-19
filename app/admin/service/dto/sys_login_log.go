@@ -47,7 +47,7 @@ func (s *SysLoginLogGetReq) GetId() interface{} {
 	return s.Id
 }
 
-// SysLoginLogDeleteReq 功能刪除请求参数
+// SysLoginLogDeleteReq 功能刪除請求參數
 type SysLoginLogDeleteReq struct {
 	Ids []int `json:"ids"`
 }

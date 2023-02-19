@@ -102,7 +102,7 @@ func (e ServerMonitor) ServerInfo(c *gin.Context) {
 	cpuDic["percent"] = pkg.Round(percent[0], 2)
 	cpuDic["cpuNum"], _ = cpu.Counts(false)
 
-	//服务器磁盘訊息
+	//服務器磁盘訊息
 	disklist := make([]disk.UsageStat, 0)
 	//所有分区
 	var diskTotal, diskUsed, diskUsedPercent float64

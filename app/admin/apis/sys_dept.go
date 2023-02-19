@@ -18,9 +18,9 @@ type SysDept struct {
 }
 
 // GetPage
-// @Summary 分页部门列表数据
+// @Summary 分页部門列表数据
 // @Description 分页列表
-// @Tags 部门
+// @Tags 部門
 // @Param deptName query string false "deptName"
 // @Param deptId query string false "deptId"
 // @Param position query string false "position"
@@ -50,9 +50,9 @@ func (e SysDept) GetPage(c *gin.Context) {
 }
 
 // Get
-// @Summary 获取部门数据
+// @Summary 获取部門数据
 // @Description 获取JSON
-// @Tags 部门
+// @Tags 部門
 // @Param deptId path string false "deptId"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dept/{deptId} [get]
@@ -81,10 +81,10 @@ func (e SysDept) Get(c *gin.Context) {
 	e.OK(object, "查询成功")
 }
 
-// Insert 添加部门
-// @Summary 添加部门
+// Insert 添加部門
+// @Summary 添加部門
 // @Description 获取JSON
-// @Tags 部门
+// @Tags 部門
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDeptInsertReq true "data"
@@ -117,9 +117,9 @@ func (e SysDept) Insert(c *gin.Context) {
 }
 
 // Update
-// @Summary 修改部门
+// @Summary 修改部門
 // @Description 获取JSON
-// @Tags 部门
+// @Tags 部門
 // @Accept  application/json
 // @Product application/json
 // @Param id path int true "id"
@@ -151,9 +151,9 @@ func (e SysDept) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 刪除部门
+// @Summary 刪除部門
 // @Description 刪除数据
-// @Tags 部门
+// @Tags 部門
 // @Param data body dto.SysDeptDeleteReq true "body"
 // @Success 200 {string} string	"{"code": 200, "message": "刪除成功"}"
 // @Success 200 {string} string	"{"code": -1, "message": "刪除失败"}"
@@ -181,7 +181,7 @@ func (e SysDept) Delete(c *gin.Context) {
 	e.OK(req.GetId(), "刪除成功")
 }
 
-// Get2Tree 用户管理 左侧部门树
+// Get2Tree 用户管理 左侧部門树
 func (e SysDept) Get2Tree(c *gin.Context) {
 	s := service.SysDept{}
 	req := dto.SysDeptGetPageReq{}
@@ -204,7 +204,7 @@ func (e SysDept) Get2Tree(c *gin.Context) {
 	e.OK(list, "")
 }
 
-// GetDeptTreeRoleSelect TODO: 此接口需要调整不应该将list和选中放在一起
+// GetDeptTreeRoleSelect TODO: 此接口需要調整不应该将list和选中放在一起
 func (e SysDept) GetDeptTreeRoleSelect(c *gin.Context) {
 	s := service.SysDept{}
 	err := e.MakeContext(c).

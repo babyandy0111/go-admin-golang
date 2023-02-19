@@ -17,10 +17,10 @@ type SysDictType struct {
 	api.Api
 }
 
-// GetPage 字典类型列表数据
-// @Summary 字典类型列表数据
+// GetPage 字典類型列表数据
+// @Summary 字典類型列表数据
 // @Description 获取JSON
-// @Tags 字典类型
+// @Tags 字典類型
 // @Param dictName query string false "dictName"
 // @Param dictId query string false "dictId"
 // @Param dictType query string false "dictType"
@@ -52,11 +52,11 @@ func (e SysDictType) GetPage(c *gin.Context) {
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查询成功")
 }
 
-// Get 字典类型通过字典id获取
-// @Summary 字典类型通过字典id获取
+// Get 字典類型通过字典id获取
+// @Summary 字典類型通过字典id获取
 // @Description 获取JSON
-// @Tags 字典类型
-// @Param dictId path int true "字典类型流水號"
+// @Tags 字典類型
+// @Param dictId path int true "字典類型流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict/type/{dictId} [get]
 // @Security Bearer
@@ -82,10 +82,10 @@ func (e SysDictType) Get(c *gin.Context) {
 	e.OK(object, "查询成功")
 }
 
-// Insert 字典类型创建
-// @Summary 添加字典类型
+// Insert 字典類型创建
+// @Summary 添加字典類型
 // @Description 获取JSON
-// @Tags 字典类型
+// @Tags 字典類型
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDictTypeInsertReq true "data"
@@ -109,16 +109,16 @@ func (e SysDictType) Insert(c *gin.Context) {
 	err = s.Insert(&req)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf(" 创建字典类型失败，详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf(" 创建字典類型失败，详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "创建成功")
 }
 
 // Update
-// @Summary 修改字典类型
+// @Summary 修改字典類型
 // @Description 获取JSON
-// @Tags 字典类型
+// @Tags 字典類型
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysDictTypeUpdateReq true "body"
@@ -148,9 +148,9 @@ func (e SysDictType) Update(c *gin.Context) {
 }
 
 // Delete
-// @Summary 刪除字典类型
+// @Summary 刪除字典類型
 // @Description 刪除数据
-// @Tags 字典类型
+// @Tags 字典類型
 // @Param dictCode body dto.SysDictTypeDeleteReq true "body"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/dict/type [delete]
@@ -178,9 +178,9 @@ func (e SysDictType) Delete(c *gin.Context) {
 }
 
 // GetAll
-// @Summary 字典类型全部数据 代码生成使用接口
+// @Summary 字典類型全部数据 代碼生成使用接口
 // @Description 获取JSON
-// @Tags 字典类型
+// @Tags 字典類型
 // @Param dictName query string false "dictName"
 // @Param dictId query string false "dictId"
 // @Param dictType query string false "dictType"

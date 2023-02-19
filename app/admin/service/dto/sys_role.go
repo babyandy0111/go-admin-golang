@@ -11,11 +11,11 @@ type SysRoleGetPageReq struct {
 	dto.Pagination `search:"-"`
 
 	RoleId    int    `form:"roleId" search:"type:exact;column:role_id;table:sys_role" comment:"角色流水號"`    // 角色流水號
-	RoleName  string `form:"roleName" search:"type:exact;column:role_name;table:sys_role" comment:"角色名称"` // 角色名称
+	RoleName  string `form:"roleName" search:"type:exact;column:role_name;table:sys_role" comment:"角色名稱"` // 角色名稱
 	Status    string `form:"status" search:"type:exact;column:status;table:sys_role" comment:"狀態"`        // 狀態
-	RoleKey   string `form:"roleKey" search:"type:exact;column:role_key;table:sys_role" comment:"角色代码"`   // 角色代码
+	RoleKey   string `form:"roleKey" search:"type:exact;column:role_key;table:sys_role" comment:"角色代碼"`   // 角色代碼
 	RoleSort  int    `form:"roleSort" search:"type:exact;column:role_sort;table:sys_role" comment:"角色排序"` // 角色排序
-	Flag      string `form:"flag" search:"type:exact;column:flag;table:sys_role" comment:"标记"`            // 标记
+	Flag      string `form:"flag" search:"type:exact;column:flag;table:sys_role" comment:"標记"`            // 標记
 	Remark    string `form:"remark" search:"type:exact;column:remark;table:sys_role" comment:"備註"`        // 備註
 	Admin     bool   `form:"admin" search:"type:exact;column:admin;table:sys_role" comment:"是否管理员"`
 	DataScope string `form:"dataScope" search:"type:exact;column:data_scope;table:sys_role" comment:"是否管理员"`
@@ -35,11 +35,11 @@ func (m *SysRoleGetPageReq) GetNeedSearch() interface{} {
 
 type SysRoleInsertReq struct {
 	RoleId    int              `uri:"id" comment:"角色流水號"`       // 角色流水號
-	RoleName  string           `form:"roleName" comment:"角色名称"` // 角色名称
+	RoleName  string           `form:"roleName" comment:"角色名稱"` // 角色名稱
 	Status    string           `form:"status" comment:"狀態"`     // 狀態
-	RoleKey   string           `form:"roleKey" comment:"角色代码"`  // 角色代码
+	RoleKey   string           `form:"roleKey" comment:"角色代碼"`  // 角色代碼
 	RoleSort  int              `form:"roleSort" comment:"角色排序"` // 角色排序
-	Flag      string           `form:"flag" comment:"标记"`       // 标记
+	Flag      string           `form:"flag" comment:"標记"`       // 標记
 	Remark    string           `form:"remark" comment:"備註"`     // 備註
 	Admin     bool             `form:"admin" comment:"是否管理员"`
 	DataScope string           `form:"dataScope"`
@@ -72,11 +72,11 @@ func (s *SysRoleInsertReq) GetId() interface{} {
 
 type SysRoleUpdateReq struct {
 	RoleId    int              `uri:"id" comment:"角色流水號"`       // 角色流水號
-	RoleName  string           `form:"roleName" comment:"角色名称"` // 角色名称
+	RoleName  string           `form:"roleName" comment:"角色名稱"` // 角色名稱
 	Status    string           `form:"status" comment:"狀態"`     // 狀態
-	RoleKey   string           `form:"roleKey" comment:"角色代码"`  // 角色代码
+	RoleKey   string           `form:"roleKey" comment:"角色代碼"`  // 角色代碼
 	RoleSort  int              `form:"roleSort" comment:"角色排序"` // 角色排序
-	Flag      string           `form:"flag" comment:"标记"`       // 标记
+	Flag      string           `form:"flag" comment:"標记"`       // 標记
 	Remark    string           `form:"remark" comment:"備註"`     // 備註
 	Admin     bool             `form:"admin" comment:"是否管理员"`
 	DataScope string           `form:"dataScope"`

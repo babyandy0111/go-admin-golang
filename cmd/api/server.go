@@ -52,20 +52,19 @@ func init() {
 	StartCmd.PersistentFlags().StringVarP(&configYml, "config", "c", "config/settings.yml", "Start server with provided configuration file")
 	StartCmd.PersistentFlags().BoolVarP(&apiCheck, "api", "a", false, "Start server with check api data")
 
-	//注册路由 fixme 其他应用的路由，在本目录新建文件放在init方法
 	AppRouters = append(AppRouters, router.InitRouter)
 }
 
 func setup() {
-	// 注入配置扩展项
+	// 注入擴展
 	config.ExtendConfig = &ext.ExtConfig
-	//1. 读取配置
+	//1. 讀取配置
 	config.Setup(
 		file.NewSource(file.WithPath(configYml)),
 		database.Setup,
 		storage.Setup,
 	)
-	//注册监听函数
+	//註冊與監聽
 	queue := sdk.Runtime.GetMemoryQueue("")
 	queue.Register(global.LoginLog, models.SaveLoginLog)
 	queue.Register(global.OperateLog, models.SaveOperaLog)
@@ -105,7 +104,6 @@ func run() error {
 		message, err := sdk.Runtime.GetStreamMessage("", global.ApiCheck, mp)
 		if err != nil {
 			log.Printf("GetStreamMessage error, %s \n", err.Error())
-			//日志报错错误，不中断请求
 		} else {
 			err = q.Append(message)
 			if err != nil {
@@ -115,7 +113,6 @@ func run() error {
 	}
 
 	go func() {
-		// 服务连接
 		if config.SslConfig.Enable {
 			if err := srv.ListenAndServeTLS(config.SslConfig.Pem, config.SslConfig.KeyStr); err != nil && err != http.ErrServerClosed {
 				log.Fatal("listen: ", err)
@@ -126,7 +123,7 @@ func run() error {
 			}
 		}
 	}()
-	fmt.Println(pkg.Red(string(global.LogoContent)))
+	// fmt.Println(pkg.Red(string(global.LogoContent)))
 	tip()
 	fmt.Println(pkg.Green("Server run at:"))
 	fmt.Printf("-  Local:   http://localhost:%d/ \r\n", config.ApplicationConfig.Port)
@@ -135,7 +132,7 @@ func run() error {
 	fmt.Printf("-  Local:   http://localhost:%d/swagger/admin/index.html \r\n", config.ApplicationConfig.Port)
 	fmt.Printf("-  Network: http://%s:%d/swagger/admin/index.html \r\n", pkg.GetLocaHonst(), config.ApplicationConfig.Port)
 	fmt.Printf("%s Enter Control + C Shutdown Server \r\n", pkg.GetCurrentTimeStr())
-	// 等待中断信号以优雅地关闭服务器（设置 5 秒的超时時間）
+
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit

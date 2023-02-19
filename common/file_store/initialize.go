@@ -3,13 +3,13 @@ package file_store
 import "fmt"
 
 type OXS struct {
-	// Endpoint 访问域名
+	// Endpoint 訪問域名
 	Endpoint string
 	// AccessKeyID AK
 	AccessKeyID string
 	// AccessKeySecret AKS
 	AccessKeySecret string
-	// BucketName 桶名称
+	// BucketName 桶名稱
 	BucketName string
 }
 

@@ -39,16 +39,16 @@ func (m *SysJobSearch) Generate() dto.Index {
 
 type SysJobControl struct {
 	JobId          int    `json:"jobId"`
-	JobName        string `json:"jobName" validate:"required"` // 名称
-	JobGroup       string `json:"jobGroup"`                    // 任务分组
-	JobType        int    `json:"jobType"`                     // 任务类型
-	CronExpression string `json:"cronExpression"`              // cron表达式
-	InvokeTarget   string `json:"invokeTarget"`                // 调用目标
-	Args           string `json:"args"`                        // 目标参数
+	JobName        string `json:"jobName" validate:"required"` // 名稱
+	JobGroup       string `json:"jobGroup"`                    // 任務分组
+	JobType        int    `json:"jobType"`                     // 任務類型
+	CronExpression string `json:"cronExpression"`              // cron表達式
+	InvokeTarget   string `json:"invokeTarget"`                // 調用目標
+	Args           string `json:"args"`                        // 目標參數
 	MisfirePolicy  int    `json:"misfirePolicy"`               // 执行策略
-	Concurrent     int    `json:"concurrent"`                  // 是否并发
+	Concurrent     int    `json:"concurrent"`                  // 是否併發
 	Status         int    `json:"status"`                      // 狀態
-	EntryId        int    `json:"entryId"`                     // job启动时返回的id
+	EntryId        int    `json:"entryId"`                     // job啟動時返回的id
 }
 
 func (s *SysJobControl) Bind(ctx *gin.Context) error {
@@ -95,14 +95,14 @@ func (s *SysJobById) GenerateM() (common.ActiveRecord, error) {
 
 type SysJobItem struct {
 	JobId          int    `json:"jobId"`
-	JobName        string `json:"jobName" validate:"required"` // 名称
-	JobGroup       string `json:"jobGroup"`                    // 任务分组
-	JobType        int    `json:"jobType"`                     // 任务类型
-	CronExpression string `json:"cronExpression"`              // cron表达式
-	InvokeTarget   string `json:"invokeTarget"`                // 调用目标
-	Args           string `json:"args"`                        // 目标参数
+	JobName        string `json:"jobName" validate:"required"` // 名稱
+	JobGroup       string `json:"jobGroup"`                    // 任務分组
+	JobType        int    `json:"jobType"`                     // 任務類型
+	CronExpression string `json:"cronExpression"`              // cron表達式
+	InvokeTarget   string `json:"invokeTarget"`                // 調用目標
+	Args           string `json:"args"`                        // 目標參數
 	MisfirePolicy  int    `json:"misfirePolicy"`               // 执行策略
-	Concurrent     int    `json:"concurrent"`                  // 是否并发
+	Concurrent     int    `json:"concurrent"`                  // 是否併發
 	Status         int    `json:"status"`                      // 狀態
-	EntryId        int    `json:"entryId"`                     // job启动时返回的id
+	EntryId        int    `json:"entryId"`                     // job啟動時返回的id
 }

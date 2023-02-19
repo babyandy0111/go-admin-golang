@@ -117,7 +117,7 @@ func (e Gen) GenCode(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参数接收失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId參數接收失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -143,7 +143,7 @@ func (e Gen) GenApiToFile(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		log.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参数获取失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId參數获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -297,7 +297,7 @@ func (e Gen) GenMenuAndApi(c *gin.Context) {
 	id, err := pkg.StringToInt(c.Param("tableId"))
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("tableId参数解析失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("tableId參數解析失败！错误详情：%s", err.Error()))
 		return
 	}
 

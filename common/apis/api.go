@@ -129,7 +129,7 @@ func (e Api) PageOK(result interface{}, count int, pageIndex int, pageSize int, 
 	response.PageOK(e.Context, result, count, pageIndex, pageSize, msg)
 }
 
-// Custom 兼容函数
+// Custom 兼容函數
 func (e Api) Custom(data gin.H) {
 	response.Custum(e.Context, data)
 }

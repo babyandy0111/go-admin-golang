@@ -38,13 +38,13 @@ func (e *SysJob) RemoveJob(c *dto.GeneralDelDto) error {
 			return err
 		}
 	case <-time.After(time.Second * 1):
-		e.Msg = "操作超时！"
+		e.Msg = "操作超時！"
 		return nil
 	}
 	return nil
 }
 
-// StartJob 启动任务
+// StartJob 啟動任務
 func (e *SysJob) StartJob(c *dto.GeneralGetDto) error {
 	var data models.SysJob
 	var err error
@@ -55,7 +55,7 @@ func (e *SysJob) StartJob(c *dto.GeneralGetDto) error {
 	}
 
 	if data.Status == 1 {
-		err = errors.New("当前Job是关闭狀態不能被启动，请先启用。")
+		err = errors.New("当前Job是關閉狀態不能被啟動，請先启用。")
 		return err
 	}
 

@@ -11,7 +11,7 @@ import (
 type SysPostPageReq struct {
 	dto.Pagination `search:"-"`
 	PostId         int    `form:"postId" search:"type:exact;column:post_id;table:sys_post" comment:"id"`         // id
-	PostName       string `form:"postName" search:"type:contains;column:post_name;table:sys_post" comment:"名称"`  // 名称
+	PostName       string `form:"postName" search:"type:contains;column:post_name;table:sys_post" comment:"名稱"`  // 名稱
 	PostCode       string `form:"postCode" search:"type:contains;column:post_code;table:sys_post" comment:"流水號"` // 流水號
 	Sort           int    `form:"sort" search:"type:exact;column:sort;table:sys_post" comment:"排序"`              // 排序
 	Status         int    `form:"status" search:"type:exact;column:status;table:sys_post" comment:"狀態"`          // 狀態
@@ -25,7 +25,7 @@ func (m *SysPostPageReq) GetNeedSearch() interface{} {
 // SysPostInsertReq 增使用的结构体
 type SysPostInsertReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
-	PostName string `form:"postName"  comment:"名称"`
+	PostName string `form:"postName"  comment:"名稱"`
 	PostCode string `form:"postCode" comment:"流水號"`
 	Sort     int    `form:"sort" comment:"排序"`
 	Status   int    `form:"status"   comment:"狀態"`
@@ -55,7 +55,7 @@ func (s *SysPostInsertReq) GetId() interface{} {
 // SysPostUpdateReq 改使用的结构体
 type SysPostUpdateReq struct {
 	PostId   int    `uri:"id"  comment:"id"`
-	PostName string `form:"postName"  comment:"名称"`
+	PostName string `form:"postName"  comment:"名稱"`
 	PostCode string `form:"postCode" comment:"流水號"`
 	Sort     int    `form:"sort" comment:"排序"`
 	Status   int    `form:"status"   comment:"狀態"`

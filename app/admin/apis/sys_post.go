@@ -19,9 +19,9 @@ type SysPost struct {
 }
 
 // GetPage
-// @Summary 岗位列表数据
+// @Summary 職稱列表数据
 // @Description 获取JSON
-// @Tags 岗位
+// @Tags 職稱
 // @Param postName query string false "postName"
 // @Param postCode query string false "postCode"
 // @Param postId query string false "postId"
@@ -56,9 +56,9 @@ func (e SysPost) GetPage(c *gin.Context) {
 }
 
 // Get
-// @Summary 获取岗位訊息
+// @Summary 获取職稱訊息
 // @Description 获取JSON
-// @Tags 岗位
+// @Tags 職稱
 // @Param id path int true "流水號"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/post/{postId} [get]
@@ -80,7 +80,7 @@ func (e SysPost) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("岗位訊息获取失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱訊息获取失败！错误详情：%s", err.Error()))
 		return
 	}
 
@@ -88,9 +88,9 @@ func (e SysPost) Get(c *gin.Context) {
 }
 
 // Insert
-// @Summary 添加岗位
+// @Summary 添加職稱
 // @Description 获取JSON
-// @Tags 岗位
+// @Tags 職稱
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysPostInsertReq true "data"
@@ -113,16 +113,16 @@ func (e SysPost) Insert(c *gin.Context) {
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("新建岗位失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("新建職稱失败！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "创建成功")
 }
 
 // Update
-// @Summary 修改岗位
+// @Summary 修改職稱
 // @Description 获取JSON
-// @Tags 岗位
+// @Tags 職稱
 // @Accept  application/json
 // @Product application/json
 // @Param data body dto.SysPostUpdateReq true "body"
@@ -147,17 +147,17 @@ func (e SysPost) Update(c *gin.Context) {
 
 	err = s.Update(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("岗位更新失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱更新失败！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
 }
 
 // Delete
-// @Summary 刪除岗位
+// @Summary 刪除職稱
 // @Description 刪除数据
-// @Tags 岗位
-// @Param id body dto.SysPostDeleteReq true "请求参数"
+// @Tags 職稱
+// @Param id body dto.SysPostDeleteReq true "請求參數"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
 // @Router /api/v1/post [delete]
 // @Security Bearer
@@ -177,7 +177,7 @@ func (e SysPost) Delete(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("岗位刪除失败！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱刪除失败！错误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "刪除成功")

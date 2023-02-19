@@ -14,7 +14,7 @@ import (
 // @Summary 分页列表数据 / page list data
 // @Description 数据库表分页列表 / database table page list
 // @Tags 工具 / 生成工具
-// @Param tableName query string false "tableName / 数据表名称"
+// @Param tableName query string false "tableName / 数据表名稱"
 // @Param pageSize query int false "pageSize / 页条数"
 // @Param pageIndex query int false "pageIndex / 页码"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -28,7 +28,7 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 	e.Context = c
 	log := e.GetLogger()
 	if config.DatabaseConfig.Driver == "sqlite3" || config.DatabaseConfig.Driver == "postgres" {
-		err = errors.New("对不起，sqlite3 或 postgres 不支持代码生成！")
+		err = errors.New("对不起，sqlite3 或 postgres 不支持代碼生成！")
 		log.Warn(err)
 		e.Error(403, err, "")
 		return

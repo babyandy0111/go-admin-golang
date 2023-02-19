@@ -46,3 +46,6 @@ deploy:
 	#@git pull origin master
 	make build-linux
 	make run
+
+dev:
+	go run main.go server -c config/settings.yml

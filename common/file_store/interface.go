@@ -1,6 +1,6 @@
 package file_store
 
-// DriverType 驱动类型
+// DriverType 驱动類型
 type DriverType string
 
 const (
@@ -14,7 +14,7 @@ const (
 
 type ClientOption map[string]interface{}
 
-// TODO: FileStoreType名称待定
+// TODO: FileStoreType名稱待定
 
 // FileStoreType OXS
 type FileStoreType interface {
@@ -22,6 +22,6 @@ type FileStoreType interface {
 	Setup(endpoint, accessKeyID, accessKeySecret, BucketName string, options ...ClientOption) error
 	// UpLoad 上传
 	UpLoad(yourObjectName string, localFile interface{}) error
-	// GetTempToken 获取临时Token
+	// GetTempToken 获取临時Token
 	GetTempToken() (string, error)
 }

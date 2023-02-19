@@ -11,12 +11,12 @@ type SysUserGetPageReq struct {
 	dto.Pagination `search:"-"`
 	UserId         int    `form:"userId" search:"type:exact;column:user_id;table:sys_user" comment:"用户ID"`
 	Username       string `form:"username" search:"type:contains;column:username;table:sys_user" comment:"使用者"`
-	NickName       string `form:"nickName" search:"type:contains;column:nick_name;table:sys_user" comment:"昵称"`
-	Phone          string `form:"phone" search:"type:contains;column:phone;table:sys_user" comment:"手机号"`
+	NickName       string `form:"nickName" search:"type:contains;column:nick_name;table:sys_user" comment:"暱稱"`
+	Phone          string `form:"phone" search:"type:contains;column:phone;table:sys_user" comment:"手機號碼"`
 	RoleId         string `form:"roleId" search:"type:exact;column:role_id;table:sys_user" comment:"角色ID"`
 	Sex            string `form:"sex" search:"type:exact;column:sex;table:sys_user" comment:"性别"`
-	Email          string `form:"email" search:"type:contains;column:email;table:sys_user" comment:"邮箱"`
-	PostId         string `form:"postId" search:"type:exact;column:post_id;table:sys_user" comment:"岗位"`
+	Email          string `form:"email" search:"type:contains;column:email;table:sys_user" comment:"信箱"`
+	PostId         string `form:"postId" search:"type:exact;column:post_id;table:sys_user" comment:"職稱"`
 	Status         string `form:"status" search:"type:exact;column:status;table:sys_user" comment:"狀態"`
 	DeptJoin       `search:"type:left;on:dept_id:dept_id;table:sys_user;join:sys_dept"`
 	SysUserOrder
@@ -56,7 +56,7 @@ func (s *ResetSysUserPwdReq) Generate(model *models.SysUser) {
 
 type UpdateSysUserAvatarReq struct {
 	UserId int    `json:"userId" comment:"用户ID" vd:"len($)>0"` // 用户ID
-	Avatar string `json:"avatar" comment:"头像" vd:"len($)>0"`
+	Avatar string `json:"avatar" comment:"頭貼" vd:"len($)>0"`
 	common.ControlBy
 }
 
@@ -92,14 +92,14 @@ type SysUserInsertReq struct {
 	UserId   int    `json:"userId" comment:"用户ID"` // 用户ID
 	Username string `json:"username" comment:"使用者" vd:"len($)>0"`
 	Password string `json:"password" comment:"密码"`
-	NickName string `json:"nickName" comment:"昵称" vd:"len($)>0"`
-	Phone    string `json:"phone" comment:"手机号" vd:"len($)>0"`
+	NickName string `json:"nickName" comment:"暱稱" vd:"len($)>0"`
+	Phone    string `json:"phone" comment:"手機號碼" vd:"len($)>0"`
 	RoleId   int    `json:"roleId" comment:"角色ID"`
-	Avatar   string `json:"avatar" comment:"头像"`
+	Avatar   string `json:"avatar" comment:"頭貼"`
 	Sex      string `json:"sex" comment:"性别"`
-	Email    string `json:"email" comment:"邮箱" vd:"len($)>0,email"`
-	DeptId   int    `json:"deptId" comment:"部门" vd:"$>0"`
-	PostId   int    `json:"postId" comment:"岗位"`
+	Email    string `json:"email" comment:"信箱" vd:"len($)>0,email"`
+	DeptId   int    `json:"deptId" comment:"部門" vd:"$>0"`
+	PostId   int    `json:"postId" comment:"職稱"`
 	Remark   string `json:"remark" comment:"備註"`
 	Status   string `json:"status" comment:"狀態" vd:"len($)>0" default:"1"`
 	common.ControlBy
@@ -131,14 +131,14 @@ func (s *SysUserInsertReq) GetId() interface{} {
 type SysUserUpdateReq struct {
 	UserId   int    `json:"userId" comment:"用户ID"` // 用户ID
 	Username string `json:"username" comment:"使用者" vd:"len($)>0"`
-	NickName string `json:"nickName" comment:"昵称" vd:"len($)>0"`
-	Phone    string `json:"phone" comment:"手机号" vd:"len($)>0"`
+	NickName string `json:"nickName" comment:"暱稱" vd:"len($)>0"`
+	Phone    string `json:"phone" comment:"手機號碼" vd:"len($)>0"`
 	RoleId   int    `json:"roleId" comment:"角色ID"`
-	Avatar   string `json:"avatar" comment:"头像"`
+	Avatar   string `json:"avatar" comment:"頭貼"`
 	Sex      string `json:"sex" comment:"性别"`
-	Email    string `json:"email" comment:"邮箱" vd:"len($)>0,email"`
-	DeptId   int    `json:"deptId" comment:"部门" vd:"$>0"`
-	PostId   int    `json:"postId" comment:"岗位"`
+	Email    string `json:"email" comment:"信箱" vd:"len($)>0,email"`
+	DeptId   int    `json:"deptId" comment:"部門" vd:"$>0"`
+	PostId   int    `json:"postId" comment:"職稱"`
 	Remark   string `json:"remark" comment:"備註"`
 	Status   string `json:"status" comment:"狀態" default:"1"`
 	common.ControlBy

@@ -3,10 +3,10 @@ package models
 import "go-admin/common/models"
 
 type SysPost struct {
-	PostId   int    `gorm:"primaryKey;autoIncrement" json:"postId"` //岗位编号
-	PostName string `gorm:"size:128;" json:"postName"`              //岗位名称
-	PostCode string `gorm:"size:128;" json:"postCode"`              //岗位代码
-	Sort     int    `gorm:"size:4;" json:"sort"`                    //岗位排序
+	PostId   int    `gorm:"primaryKey;autoIncrement" json:"postId"` //職稱编号
+	PostName string `gorm:"size:128;" json:"postName"`              //職稱名稱
+	PostCode string `gorm:"size:128;" json:"postCode"`              //職稱代碼
+	Sort     int    `gorm:"size:4;" json:"sort"`                    //職稱排序
 	Status   int    `gorm:"size:4;" json:"status"`                  //狀態
 	Remark   string `gorm:"size:255;" json:"remark"`                //描述
 	models.ControlBy

@@ -1,14 +1,14 @@
 package models
 
 type SysDept struct {
-	DeptId   int    `json:"deptId" gorm:"primaryKey;autoIncrement;"` //部门流水號
-	ParentId int    `json:"parentId" gorm:""`                        //上级部门
+	DeptId   int    `json:"deptId" gorm:"primaryKey;autoIncrement;"` //部門流水號
+	ParentId int    `json:"parentId" gorm:""`                        //上级部門
 	DeptPath string `json:"deptPath" gorm:"size:255;"`               //
-	DeptName string `json:"deptName"  gorm:"size:128;"`              //部门名称
+	DeptName string `json:"deptName"  gorm:"size:128;"`              //部門名稱
 	Sort     int    `json:"sort" gorm:"size:4;"`                     //排序
 	Leader   string `json:"leader" gorm:"size:128;"`                 //负责人
 	Phone    string `json:"phone" gorm:"size:11;"`                   //手机
-	Email    string `json:"email" gorm:"size:64;"`                   //邮箱
+	Email    string `json:"email" gorm:"size:64;"`                   //信箱
 	Status   int    `json:"status" gorm:"size:4;"`                   //狀態
 	ControlBy
 	ModelTime

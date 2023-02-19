@@ -1,17 +1,17 @@
 package models
 
 type SysTables struct {
-	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表流水號
-	TBName              string `gorm:"column:table_name;size:255;" json:"tableName"`   //表名称
-	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表備註
-	ClassName           string `gorm:"size:255;" json:"className"`                     //类名
-	TplCategory         string `gorm:"size:255;" json:"tplCategory"`                   //
-	PackageName         string `gorm:"size:255;" json:"packageName"`                   //包名
-	ModuleName          string `gorm:"size:255;" json:"moduleName"`                    //go文件名
-	ModuleFrontName     string `gorm:"size:255;comment:前端文件名;" json:"moduleFrontName"` //前端文件名
-	BusinessName        string `gorm:"size:255;" json:"businessName"`                  //
-	FunctionName        string `gorm:"size:255;" json:"functionName"`                  //功能名称
-	FunctionAuthor      string `gorm:"size:255;" json:"functionAuthor"`                //功能作者
+	TableId             int    `gorm:"primaryKey;autoIncrement;comment:表流水號" json:"tableId"`
+	TBName              string `gorm:"column:table_name;size:255;comment:表名稱" json:"tableName"`
+	TableComment        string `gorm:"size:255;comment:表備註" json:"tableComment"`
+	ClassName           string `gorm:"size:255;comment:類名" json:"className"`
+	TplCategory         string `gorm:"size:255;comment:包名" json:"tplCategory"`
+	PackageName         string `gorm:"size:255;comment:" json:"packageName"`
+	ModuleName          string `gorm:"size:255;comment:go文件名" json:"moduleName"`
+	ModuleFrontName     string `gorm:"size:255;comment:前端文件名;" json:"moduleFrontName"`
+	BusinessName        string `gorm:"size:255;comment:業務邏輯名稱" json:"businessName"`
+	FunctionName        string `gorm:"size:255;comment:功能名稱" json:"functionName"`
+	FunctionAuthor      string `gorm:"size:255;comment:功能作者" json:"functionAuthor"`
 	PkColumn            string `gorm:"size:255;" json:"pkColumn"`
 	PkGoField           string `gorm:"size:255;" json:"pkGoField"`
 	PkJsonField         string `gorm:"size:255;" json:"pkJsonField"`

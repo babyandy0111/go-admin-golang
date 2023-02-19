@@ -173,8 +173,8 @@ func (e SysMenu) Delete(c *gin.Context) {
 	e.OK(control.GetId(), "刪除成功")
 }
 
-// GetMenuRole 根据登入角色名称获取菜单列表数据（左菜单使用）
-// @Summary 根据登入角色名称获取菜单列表数据（左菜单使用）
+// GetMenuRole 根据登入角色名稱获取菜单列表数据（左菜单使用）
+// @Summary 根据登入角色名稱获取菜单列表数据（左菜单使用）
 // @Description 获取JSON
 // @Tags 菜单
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"

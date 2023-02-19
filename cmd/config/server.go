@@ -29,32 +29,32 @@ func init() {
 func run() {
 	config.Setup(file.NewSource(file.WithPath(configYml)))
 
-	application, errs := json.MarshalIndent(config.ApplicationConfig, "", "   ") //转换成JSON返回的是byte[]
+	application, errs := json.MarshalIndent(config.ApplicationConfig, "", "   ") //轉換成JSON返回的是byte[]
 	if errs != nil {
 		fmt.Println(errs.Error())
 	}
 	fmt.Println("application:", string(application))
 
-	jwt, errs := json.MarshalIndent(config.JwtConfig, "", "   ") //转换成JSON返回的是byte[]
+	jwt, errs := json.MarshalIndent(config.JwtConfig, "", "   ") //轉換成JSON返回的是byte[]
 	if errs != nil {
 		fmt.Println(errs.Error())
 	}
 	fmt.Println("jwt:", string(jwt))
 
 	// todo 需要兼容
-	database, errs := json.MarshalIndent(config.DatabasesConfig, "", "   ") //转换成JSON返回的是byte[]
+	database, errs := json.MarshalIndent(config.DatabasesConfig, "", "   ") //轉換成JSON返回的是byte[]
 	if errs != nil {
 		fmt.Println(errs.Error())
 	}
 	fmt.Println("database:", string(database))
 
-	gen, errs := json.MarshalIndent(config.GenConfig, "", "   ") //转换成JSON返回的是byte[]
+	gen, errs := json.MarshalIndent(config.GenConfig, "", "   ") //轉換成JSON返回的是byte[]
 	if errs != nil {
 		fmt.Println(errs.Error())
 	}
 	fmt.Println("gen:", string(gen))
 
-	loggerConfig, errs := json.MarshalIndent(config.LoggerConfig, "", "   ") //转换成JSON返回的是byte[]
+	loggerConfig, errs := json.MarshalIndent(config.LoggerConfig, "", "   ") //轉換成JSON返回的是byte[]
 	if errs != nil {
 		fmt.Println(errs.Error())
 	}

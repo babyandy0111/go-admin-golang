@@ -11,8 +11,8 @@ import (
 
 type SysTables struct {
 	TableId             int    `gorm:"primaryKey;autoIncrement" json:"tableId"`        //表流水號
-	TBName              string `gorm:"column:table_name;size:255;" json:"tableName"`   //表名称
-	MLTBName            string `gorm:"-" json:"-"`                                     //表名称
+	TBName              string `gorm:"column:table_name;size:255;" json:"tableName"`   //表名稱
+	MLTBName            string `gorm:"-" json:"-"`                                     //表名稱
 	TableComment        string `gorm:"size:255;" json:"tableComment"`                  //表備註
 	ClassName           string `gorm:"size:255;" json:"className"`                     //类名
 	TplCategory         string `gorm:"size:255;" json:"tplCategory"`                   //
@@ -20,7 +20,7 @@ type SysTables struct {
 	ModuleName          string `gorm:"size:255;" json:"moduleName"`                    //go文件名
 	ModuleFrontName     string `gorm:"size:255;comment:前端文件名;" json:"moduleFrontName"` //前端文件名
 	BusinessName        string `gorm:"size:255;" json:"businessName"`                  //
-	FunctionName        string `gorm:"size:255;" json:"functionName"`                  //功能名称
+	FunctionName        string `gorm:"size:255;" json:"functionName"`                  //功能名稱
 	FunctionAuthor      string `gorm:"size:255;" json:"functionAuthor"`                //功能作者
 	PkColumn            string `gorm:"size:255;" json:"pkColumn"`
 	PkGoField           string `gorm:"size:255;" json:"pkGoField"`
@@ -125,7 +125,7 @@ func (e *SysTables) GetTree(tx *gorm.DB) ([]SysTables, error) {
 	}
 	for i := 0; i < len(doc); i++ {
 		var col SysColumns
-		//col.FkCol = append(col.FkCol, SysColumns{ColumnId: 0, ColumnName: "请选择"})
+		//col.FkCol = append(col.FkCol, SysColumns{ColumnId: 0, ColumnName: "請选择"})
 		col.TableId = doc[i].TableId
 		if doc[i].Columns, err = col.GetList(tx, false); err != nil {
 			return doc, err
@@ -159,8 +159,8 @@ func (e *SysTables) Update(tx *gorm.DB) (update SysTables, err error) {
 	//	return
 	//}
 
-	//参数1:是要修改的数据
-	//参数2:是修改的数据
+	//參數1:是要修改的数据
+	//參數2:是修改的数据
 	e.UpdateBy = 0
 	if err = tx.Table("sys_tables").Where("table_id = ?", e.TableId).Updates(&e).Error; err != nil {
 		return

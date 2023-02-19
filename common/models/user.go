@@ -9,7 +9,7 @@ import (
 // BaseUser 密码登入基础用户
 type BaseUser struct {
 	Username     string `json:"username" gorm:"type:varchar(100);comment:使用者"`
-	Salt         string `json:"-" gorm:"type:varchar(255);comment:加盐;<-"`
+	Salt         string `json:"-" gorm:"type:varchar(255);comment:slat;<-"`
 	PasswordHash string `json:"-" gorm:"type:varchar(128);comment:密码hash;<-"`
 	Password     string `json:"password" gorm:"-"`
 }
@@ -30,7 +30,7 @@ func (u *BaseUser) GetPasswordHash() string {
 	return passwordHash
 }
 
-// generateSalt 生成加盐值
+// generateSalt 生成slat值
 func (u *BaseUser) generateSalt() {
 	u.Salt = pkg.GenerateRandomKey16()
 }

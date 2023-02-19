@@ -17,7 +17,7 @@ type SysLoginLog struct {
 	Remark        string    `json:"remark" gorm:"type:varchar(255);comment:備註"`
 	Msg           string    `json:"msg" gorm:"type:varchar(255);comment:訊息"`
 	CreatedAt     time.Time `json:"createdAt" gorm:"comment:建立時間"`
-	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最后更新時間"`
+	UpdatedAt     time.Time `json:"updatedAt" gorm:"comment:最後更新時間"`
 	ControlBy
 }
 

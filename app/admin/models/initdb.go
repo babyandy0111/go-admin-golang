@@ -45,7 +45,7 @@ func ExecSql(db *gorm.DB, filePath string) error {
 
 func Ioutil(filePath string) (string, error) {
 	if contents, err := ioutil.ReadFile(filePath); err == nil {
-		//因为contents是[]byte类型，直接转换成string类型后会多一行空格,需要使用strings.Replace替换换行符
+		//因为contents是[]byte類型，直接轉換成string類型後會多一行空格,需要使用strings.Replace替換換行符
 		result := strings.Replace(string(contents), "\n", "", 1)
 		fmt.Println("Use ioutil.ReadFile to read a file:", result)
 		return result, nil

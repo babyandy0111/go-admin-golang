@@ -19,9 +19,9 @@ type SysConfig struct {
 // @Summary 获取配置管理列表
 // @Description 获取配置管理列表
 // @Tags 配置管理
-// @Param configName query string false "名称"
+// @Param configName query string false "名稱"
 // @Param configKey query string false "key"
-// @Param configType query string false "类型"
+// @Param configType query string false "類型"
 // @Param isFrontend query int false "是否前端"
 // @Param pageSize query int false "页条数"
 // @Param pageIndex query int false "页码"

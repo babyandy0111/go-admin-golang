@@ -24,7 +24,7 @@ func (e *HuaWeiOBS) Setup(endpoint, accessKeyID, accessKeySecret, BucketName str
 }
 
 // UpLoad 文件上传
-// yourObjectName 文件路径名称，与objectKey是同一概念，表示断点续传上传文件到OSS时需要指定包含文件后缀在内的完整路径，例如abc/efg/123.jpg
+// yourObjectName 文件路径名稱，与objectKey是同一概念，表示断点续传上传文件到OSS時需要指定包含文件後缀在内的完整路径，例如abc/efg/123.jpg
 func (e *HuaWeiOBS) UpLoad(yourObjectName string, localFile interface{}) error {
 	// 获取存储空间。
 	input := &obs.PutFileInput{}

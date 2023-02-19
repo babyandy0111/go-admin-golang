@@ -12,7 +12,7 @@ func init() {
 	routerNoCheckRole = append(routerNoCheckRole, registerMonitorRouter)
 }
 
-// 需认证的路由代码
+// 需认证的路由代碼
 func registerMonitorRouter(v1 *gin.RouterGroup) {
 	v1.GET("/metrics", transfer.Handler(promhttp.Handler()))
 	//健康检查

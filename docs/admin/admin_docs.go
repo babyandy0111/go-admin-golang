@@ -92,9 +92,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "分页列表",
                 "tags": [
-                    "部门"
+                    "部門"
                 ],
-                "summary": "分页部门列表数据",
+                "summary": "分页部門列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -135,9 +135,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "部门"
+                    "部門"
                 ],
-                "summary": "添加部门",
+                "summary": "添加部門",
                 "parameters": [
                     {
                         "description": "data",
@@ -166,9 +166,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "刪除数据",
                 "tags": [
-                    "部门"
+                    "部門"
                 ],
-                "summary": "刪除部门",
+                "summary": "刪除部門",
                 "parameters": [
                     {
                         "description": "body",
@@ -199,9 +199,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "部门"
+                    "部門"
                 ],
-                "summary": "获取部门数据",
+                "summary": "获取部門数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -230,9 +230,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "部门"
+                    "部門"
                 ],
-                "summary": "修改部门",
+                "summary": "修改部門",
                 "parameters": [
                     {
                         "type": "integer",
@@ -500,9 +500,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "字典类型列表数据",
+                "summary": "字典類型列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -555,9 +555,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "添加字典类型",
+                "summary": "添加字典類型",
                 "parameters": [
                     {
                         "description": "data",
@@ -586,9 +586,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "刪除数据",
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "刪除字典类型",
+                "summary": "刪除字典類型",
                 "parameters": [
                     {
                         "description": "body",
@@ -619,9 +619,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "字典类型全部数据 代码生成使用接口",
+                "summary": "字典類型全部数据 代碼生成使用接口",
                 "parameters": [
                     {
                         "type": "string",
@@ -661,13 +661,13 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "字典类型通过字典id获取",
+                "summary": "字典類型通过字典id获取",
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "字典类型流水號",
+                        "description": "字典類型流水號",
                         "name": "dictId",
                         "in": "path",
                         "required": true
@@ -693,9 +693,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "字典类型"
+                    "字典類型"
                 ],
-                "summary": "修改字典类型",
+                "summary": "修改字典類型",
                 "parameters": [
                     {
                         "description": "body",
@@ -981,7 +981,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "菜单"
                 ],
-                "summary": "根据登入角色名称获取菜单列表数据（左菜单使用）",
+                "summary": "根据登入角色名稱获取菜单列表数据（左菜单使用）",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",
@@ -1001,9 +1001,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "岗位"
+                    "職稱"
                 ],
-                "summary": "岗位列表数据",
+                "summary": "職稱列表数据",
                 "parameters": [
                     {
                         "type": "string",
@@ -1050,9 +1050,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "岗位"
+                    "職稱"
                 ],
-                "summary": "添加岗位",
+                "summary": "添加職稱",
                 "parameters": [
                     {
                         "description": "data",
@@ -1081,12 +1081,12 @@ const docTemplateadmin = `{
                 ],
                 "description": "刪除数据",
                 "tags": [
-                    "岗位"
+                    "職稱"
                 ],
-                "summary": "刪除岗位",
+                "summary": "刪除職稱",
                 "parameters": [
                     {
-                        "description": "请求参数",
+                        "description": "請求參數",
                         "name": "id",
                         "in": "body",
                         "required": true,
@@ -1117,9 +1117,9 @@ const docTemplateadmin = `{
                     "application/json"
                 ],
                 "tags": [
-                    "岗位"
+                    "職稱"
                 ],
-                "summary": "修改岗位",
+                "summary": "修改職稱",
                 "parameters": [
                     {
                         "description": "body",
@@ -1150,9 +1150,9 @@ const docTemplateadmin = `{
                 ],
                 "description": "获取JSON",
                 "tags": [
-                    "岗位"
+                    "職稱"
                 ],
-                "summary": "获取岗位訊息",
+                "summary": "获取職稱訊息",
                 "parameters": [
                     {
                         "type": "integer",
@@ -1481,13 +1481,13 @@ const docTemplateadmin = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "名称",
+                        "description": "名稱",
                         "name": "name",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "标题",
+                        "description": "標题",
                         "name": "title",
                         "in": "query"
                     },
@@ -1499,7 +1499,7 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "string",
-                        "description": "类型",
+                        "description": "類型",
                         "name": "action",
                         "in": "query"
                     },
@@ -1675,7 +1675,7 @@ const docTemplateadmin = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "名称",
+                        "description": "名稱",
                         "name": "configName",
                         "in": "query"
                     },
@@ -1687,7 +1687,7 @@ const docTemplateadmin = `{
                     },
                     {
                         "type": "string",
-                        "description": "类型",
+                        "description": "類型",
                         "name": "configType",
                         "in": "query"
                     },
@@ -2316,7 +2316,7 @@ const docTemplateadmin = `{
                 "tags": [
                     "个人中心"
                 ],
-                "summary": "修改头像",
+                "summary": "修改頭貼",
                 "parameters": [
                     {
                         "type": "file",
@@ -2655,7 +2655,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "deptName": {
-                    "description": "部门名称",
+                    "description": "部門名稱",
                     "type": "string"
                 },
                 "deptPath": {
@@ -2663,7 +2663,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "email": {
-                    "description": "邮箱",
+                    "description": "信箱",
                     "type": "string"
                 },
                 "leader": {
@@ -2671,7 +2671,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "parentId": {
-                    "description": "上级部门",
+                    "description": "上级部門",
                     "type": "integer"
                 },
                 "phone": {
@@ -2702,7 +2702,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "deptName": {
-                    "description": "部门名称",
+                    "description": "部門名稱",
                     "type": "string"
                 },
                 "deptPath": {
@@ -2710,7 +2710,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "email": {
-                    "description": "邮箱",
+                    "description": "信箱",
                     "type": "string"
                 },
                 "leader": {
@@ -2718,7 +2718,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "parentId": {
-                    "description": "上级部门",
+                    "description": "上级部門",
                     "type": "integer"
                 },
                 "phone": {
@@ -2952,7 +2952,7 @@ const docTemplateadmin = `{
             "type": "object",
             "properties": {
                 "action": {
-                    "description": "请求方式",
+                    "description": "請求方式",
                     "type": "string"
                 },
                 "apis": {
@@ -2973,7 +2973,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "icon": {
-                    "description": "图标",
+                    "description": "图標",
                     "type": "string"
                 },
                 "isFrame": {
@@ -2989,7 +2989,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "menuType": {
-                    "description": "菜单类型",
+                    "description": "菜单類型",
                     "type": "string"
                 },
                 "noCache": {
@@ -3023,7 +3023,7 @@ const docTemplateadmin = `{
                     }
                 },
                 "title": {
-                    "description": "显示名称",
+                    "description": "显示名稱",
                     "type": "string"
                 },
                 "updateBy": {
@@ -3039,7 +3039,7 @@ const docTemplateadmin = `{
             "type": "object",
             "properties": {
                 "action": {
-                    "description": "请求方式",
+                    "description": "請求方式",
                     "type": "string"
                 },
                 "apis": {
@@ -3060,7 +3060,7 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "icon": {
-                    "description": "图标",
+                    "description": "图標",
                     "type": "string"
                 },
                 "isFrame": {
@@ -3076,7 +3076,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "menuType": {
-                    "description": "菜单类型",
+                    "description": "菜单類型",
                     "type": "string"
                 },
                 "noCache": {
@@ -3110,7 +3110,7 @@ const docTemplateadmin = `{
                     }
                 },
                 "title": {
-                    "description": "显示名称",
+                    "description": "显示名稱",
                     "type": "string"
                 },
                 "updateBy": {
@@ -3238,7 +3238,7 @@ const docTemplateadmin = `{
                     }
                 },
                 "flag": {
-                    "description": "标记",
+                    "description": "標记",
                     "type": "string"
                 },
                 "menuIds": {
@@ -3256,11 +3256,11 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "roleKey": {
-                    "description": "角色代码",
+                    "description": "角色代碼",
                     "type": "string"
                 },
                 "roleName": {
-                    "description": "角色名称",
+                    "description": "角色名稱",
                     "type": "string"
                 },
                 "roleSort": {
@@ -3307,7 +3307,7 @@ const docTemplateadmin = `{
                     }
                 },
                 "flag": {
-                    "description": "标记",
+                    "description": "標记",
                     "type": "string"
                 },
                 "menuIds": {
@@ -3325,11 +3325,11 @@ const docTemplateadmin = `{
                     "type": "integer"
                 },
                 "roleKey": {
-                    "description": "角色代码",
+                    "description": "角色代碼",
                     "type": "string"
                 },
                 "roleName": {
-                    "description": "角色名称",
+                    "description": "角色名稱",
                     "type": "string"
                 },
                 "roleSort": {
@@ -3610,18 +3610,18 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "deptId": {
-                    "description": "部门流水號",
+                    "description": "部門流水號",
                     "type": "integer"
                 },
                 "deptName": {
-                    "description": "部门名称",
+                    "description": "部門名稱",
                     "type": "string"
                 },
                 "deptPath": {
                     "type": "string"
                 },
                 "email": {
-                    "description": "邮箱",
+                    "description": "信箱",
                     "type": "string"
                 },
                 "leader": {
@@ -3632,7 +3632,7 @@ const docTemplateadmin = `{
                     "type": "string"
                 },
                 "parentId": {
-                    "description": "上级部门",
+                    "description": "上级部門",
                     "type": "integer"
                 },
                 "phone": {

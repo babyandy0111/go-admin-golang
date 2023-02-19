@@ -1,17 +1,17 @@
 package models
 
 type DictData struct {
-	DictCode  int    `gorm:"primaryKey;autoIncrement;" json:"dictCode" example:"1"` //字典流水號
-	DictSort  int    `gorm:"" json:"dictSort"`                                      //显示顺序
-	DictLabel string `gorm:"size:128;" json:"dictLabel"`                            //数据标签
-	DictValue string `gorm:"size:255;" json:"dictValue"`                            //数据键值
-	DictType  string `gorm:"size:64;" json:"dictType"`                              //字典类型
-	CssClass  string `gorm:"size:128;" json:"cssClass"`                             //
-	ListClass string `gorm:"size:128;" json:"listClass"`                            //
-	IsDefault string `gorm:"size:8;" json:"isDefault"`                              //
-	Status    int    `gorm:"size:4;" json:"status"`                                 //狀態
-	Default   string `gorm:"size:8;" json:"default"`                                //
-	Remark    string `gorm:"size:255;" json:"remark"`                               //備註
+	DictCode  int    `gorm:"primaryKey;autoIncrement;comment:流水號" json:"dictCode" example:"1"`
+	DictSort  int    `gorm:"comment:顯示順序" json:"dictSort"`
+	DictLabel string `gorm:"size:128;comment:label" json:"dictLabel"`
+	DictValue string `gorm:"size:255;comment:key" json:"dictValue"`
+	DictType  string `gorm:"size:64;comment:type" json:"dictType"`
+	CssClass  string `gorm:"size:128;" json:"cssClass"`
+	ListClass string `gorm:"size:128;" json:"listClass"`
+	IsDefault string `gorm:"size:8;" json:"isDefault"`
+	Status    int    `gorm:"size:4;comment:狀態" json:"status"`
+	Default   string `gorm:"size:8;comment:預設" json:"default"`
+	Remark    string `gorm:"size:255;comment:備註" json:"remark"`
 	ControlBy
 	ModelTime
 }

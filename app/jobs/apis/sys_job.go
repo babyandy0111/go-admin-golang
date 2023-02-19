@@ -15,7 +15,7 @@ type SysJob struct {
 	api.Api
 }
 
-// RemoveJobForService 调用service实现
+// RemoveJobForService 調用service实现
 func (e SysJob) RemoveJobForService(c *gin.Context) {
 	v := dto.GeneralDelDto{}
 	s := service.SysJob{}
@@ -39,7 +39,7 @@ func (e SysJob) RemoveJobForService(c *gin.Context) {
 	e.OK(nil, s.Msg)
 }
 
-// StartJobForService 启动job service实现
+// StartJobForService 啟動job service实现
 func (e SysJob) StartJobForService(c *gin.Context) {
 	e.MakeContext(c)
 	log := e.GetLogger()
@@ -51,8 +51,8 @@ func (e SysJob) StartJobForService(c *gin.Context) {
 	var v dto.GeneralGetDto
 	err = c.BindUri(&v)
 	if err != nil {
-		log.Warnf("参数验证错误, error: %s", err)
-		e.Error(http.StatusUnprocessableEntity, err, "参数验证失败")
+		log.Warnf("參數验证错误, error: %s", err)
+		e.Error(http.StatusUnprocessableEntity, err, "參數验证失败")
 		return
 	}
 	s := service.SysJob{}

@@ -14,7 +14,7 @@ func init() {
 	routerCheckRole = append(routerCheckRole, registerSysJobRouter)
 }
 
-// 需认证的路由代码
+// 需认证的路由代碼
 func registerSysJobRouter(v1 *gin.RouterGroup, authMiddleware *jwt.GinJWTMiddleware) {
 
 	r := v1.Group("/sysjob").Use(authMiddleware.MiddlewareFunc()).Use(middleware.AuthCheckRole())

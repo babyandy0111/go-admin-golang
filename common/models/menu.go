@@ -1,6 +1,6 @@
 package models
 
-// Menu 菜单中的类型枚举值
+// Menu 菜单中的類型枚举值
 const (
 	// Directory 目录
 	Directory string = "M"

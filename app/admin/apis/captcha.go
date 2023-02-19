@@ -19,7 +19,7 @@ type System struct {
 func (e System) GenerateCaptchaHandler(c *gin.Context) {
 	err := e.MakeContext(c).Errors
 	if err != nil {
-		e.Error(500, err, "服务初始化失败！")
+		e.Error(500, err, "服務初始化失败！")
 		return
 	}
 	id, b64s, err := captcha.DriverDigitFunc()

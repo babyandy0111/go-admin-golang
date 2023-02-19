@@ -182,7 +182,7 @@ func (e SysDictData) Delete(c *gin.Context) {
 	e.OK(req.GetId(), "刪除成功")
 }
 
-// GetAll 数据字典根据key获取 业务页面使用
+// GetAll 数据字典根据key获取 业務页面使用
 // @Summary 数据字典根据key获取
 // @Description 数据字典根据key获取
 // @Tags 字典数据

@@ -31,6 +31,6 @@ func InitRouter() {
 		log.Fatalf("JWT Init Error, %s", err.Error())
 	}
 
-	// 注册业务路由
+	// 注册业務路由
 	initRouter(r, authMiddleware)
 }

@@ -10,15 +10,15 @@ type SysUser struct {
 	UserId   int      `gorm:"primaryKey;autoIncrement;comment:流水號"  json:"userId"`
 	Username string   `json:"username" gorm:"size:64;comment:使用者"`
 	Password string   `json:"-" gorm:"size:128;comment:密码"`
-	NickName string   `json:"nickName" gorm:"size:128;comment:昵称"`
-	Phone    string   `json:"phone" gorm:"size:11;comment:手机号"`
+	NickName string   `json:"nickName" gorm:"size:128;comment:暱稱"`
+	Phone    string   `json:"phone" gorm:"size:11;comment:手機號碼"`
 	RoleId   int      `json:"roleId" gorm:"size:20;comment:角色ID"`
-	Salt     string   `json:"-" gorm:"size:255;comment:加盐"`
-	Avatar   string   `json:"avatar" gorm:"size:255;comment:头像"`
+	Salt     string   `json:"-" gorm:"size:255;comment:slat"`
+	Avatar   string   `json:"avatar" gorm:"size:255;comment:頭貼"`
 	Sex      string   `json:"sex" gorm:"size:255;comment:性别"`
-	Email    string   `json:"email" gorm:"size:128;comment:邮箱"`
-	DeptId   int      `json:"deptId" gorm:"size:20;comment:部门"`
-	PostId   int      `json:"postId" gorm:"size:20;comment:岗位"`
+	Email    string   `json:"email" gorm:"size:128;comment:信箱"`
+	DeptId   int      `json:"deptId" gorm:"size:20;comment:部門"`
+	PostId   int      `json:"postId" gorm:"size:20;comment:職稱"`
 	Remark   string   `json:"remark" gorm:"size:255;comment:備註"`
 	Status   string   `json:"status" gorm:"size:4;comment:狀態"`
 	DeptIds  []int    `json:"deptIds" gorm:"-"`

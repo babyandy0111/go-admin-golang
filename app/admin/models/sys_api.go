@@ -17,12 +17,12 @@ import (
 )
 
 type SysApi struct {
-	Id     int    `json:"id" gorm:"primaryKey;autoIncrement;comment:主健流水號"`
+	Id     int    `json:"id" gorm:"primaryKey;autoIncrement;comment:流水號"`
 	Handle string `json:"handle" gorm:"size:128;comment:handle"`
-	Title  string `json:"title" gorm:"size:128;comment:标题"`
+	Title  string `json:"title" gorm:"size:128;comment:標题"`
 	Path   string `json:"path" gorm:"size:128;comment:地址"`
-	Action string `json:"action" gorm:"size:16;comment:请求类型"`
-	Type   string `json:"type" gorm:"size:16;comment:接口类型"`
+	Action string `json:"action" gorm:"size:16;comment:請求類型"`
+	Type   string `json:"type" gorm:"size:16;comment:接口類型"`
 	models.ModelTime
 	models.ControlBy
 }
@@ -63,15 +63,15 @@ func SaveSysApi(message storage.Messager) (err error) {
 				strings.Contains(v.RelativePath, "/form-generator/") ||
 				strings.Contains(v.RelativePath, "/sys/tables") {
 
-				// 根据接口方法注释里的@Summary填充接口名称，适用于代码生成器
-				// 可在此处增加配置路径前缀的if判断，只对代码生成的自建应用进行定向的接口名称填充
+				// 根据接口方法注释里的@Summary填充接口名稱，适用于代碼生成器
+				// 可在此处增加配置路径前缀的if判断，只对代碼生成的自建应用进行定向的接口名稱填充
 				jsonFile, _ := ioutil.ReadFile("docs/swagger.json")
 				jsonData, _ := simplejson.NewFromReader(bytes.NewReader(jsonFile))
 				urlPath := v.RelativePath
-				idPatten := "(.*)/:(\\w+)" // 正则替换，把:id换成{id}
+				idPatten := "(.*)/:(\\w+)" // 正则替換，把:id換成{id}
 				reg, _ := regexp.Compile(idPatten)
 				if reg.MatchString(urlPath) {
-					urlPath = reg.ReplaceAllString(v.RelativePath, "${1}/{${2}}") // 把:id换成{id}
+					urlPath = reg.ReplaceAllString(v.RelativePath, "${1}/{${2}}") // 把:id換成{id}
 				}
 				apiTitle, _ := jsonData.Get("paths").Get(urlPath).Get(strings.ToLower(v.HttpMethod)).Get("summary").String()
 

@@ -20,7 +20,7 @@ type SysTable struct {
 // @Summary 分页列表数据
 // @Description 生成表分页列表
 // @Tags 工具 / 生成工具
-// @Param tableName query string false "tableName / 数据表名称"
+// @Param tableName query string false "tableName / 数据表名稱"
 // @Param pageSize query int false "pageSize / 页条数"
 // @Param pageIndex query int false "pageIndex / 页码"
 // @Success 200 {object} response.Response "{"code": 200, "data": [...]}"
@@ -148,7 +148,7 @@ func (e SysTable) GetSysTablesTree(c *gin.Context) {
 // @Tags 工具 / 生成工具
 // @Accept  application/json
 // @Product application/json
-// @Param tables query string false "tableName / 数据表名称"
+// @Param tables query string false "tableName / 数据表名稱"
 // @Success 200 {string} string	"{"code": 200, "message": "添加成功"}"
 // @Success 200 {string} string	"{"code": -1, "message": "添加失败"}"
 // @Router /api/v1/sys/tables/info [post]
@@ -204,7 +204,7 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 		strend := string([]byte(tablenamelist[i])[1:])
 		// 大驼峰表名 结构体使用
 		data.ClassName += strings.ToUpper(strStart) + strend
-		// 小驼峰表名 js函数名和权限标识使用
+		// 小驼峰表名 js函數名和权限標识使用
 		if i == 0 {
 			data.BusinessName += strings.ToLower(strStart) + strend
 		} else {
@@ -217,7 +217,7 @@ func genTableInit(tx *gorm.DB, tablesList []string, i int, c *gin.Context) (tool
 	data.PackageName = "admin"
 	data.TplCategory = "crud"
 	data.Crud = true
-	// 中横线表名称，接口路径、前端文件夹名称和js名称使用
+	// 中横线表名稱，接口路径、前端文件夹名稱和js名稱使用
 	data.ModuleName = strings.Replace(data.TBName, "_", "-", -1)
 	dbcolumn, err := dbColumn.GetList(tx)
 	data.CreateBy = 0

@@ -39,7 +39,7 @@ func InitDb(db *gorm.DB) (err error) {
 func ExecSql(db *gorm.DB, filePath string) error {
 	sql, err := Ioutil(filePath)
 	if err != nil {
-		fmt.Println("数据库基础数据初始化脚本读取失败！原因:", err.Error())
+		fmt.Println("資料庫初始化失敗！原因:", err.Error())
 		return err
 	}
 	sqlList := strings.Split(sql, ";")
@@ -62,7 +62,7 @@ func ExecSql(db *gorm.DB, filePath string) error {
 
 func Ioutil(filePath string) (string, error) {
 	if contents, err := ioutil.ReadFile(filePath); err == nil {
-		//因为contents是[]byte类型，直接转换成string类型后会多一行空格,需要使用strings.Replace替换换行符
+		//contents是[]byte類型，直接轉換成string類型後會多一行空格,需要使用strings.Replace替換換行符
 		result := strings.Replace(string(contents), "\n", "", 1)
 		fmt.Println("Use ioutil.ReadFile to read a file:", result)
 		return result, nil

@@ -30,7 +30,7 @@ type JobCore struct {
 	Args           string
 }
 
-// 任务类型 http
+// 任務類型 http
 type HttpJob struct {
 	JobCore
 }
@@ -63,7 +63,7 @@ func (e *ExecJob) Run() {
 	return
 }
 
-// http 任务接口
+// http 任務接口
 func (h *HttpJob) Run() {
 
 	startTime := time.Now()
@@ -144,15 +144,15 @@ func setup(key string, db *gorm.DB) {
 		err = sysJob.Update(db, jobList[i].JobId)
 	}
 
-	// 其中任务
+	// 其中任務
 	crontab.Start()
 	fmt.Println(time.Now().Format(timeFormat), " [INFO] JobCore start success.")
-	// 关闭任务
+	// 關閉任務
 	defer crontab.Stop()
 	select {}
 }
 
-// 添加任务 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
+// 添加任務 AddJob(invokeTarget string, jobId int, jobName string, cronExpression string)
 func AddJob(c *cron.Cron, job Job) (int, error) {
 	if job == nil {
 		fmt.Println("unknown")
@@ -181,7 +181,7 @@ func (h *ExecJob) addJob(c *cron.Cron) (int, error) {
 	return EntryId, nil
 }
 
-// 移除任务
+// 移除任務
 func Remove(c *cron.Cron, entryID int) chan bool {
 	ch := make(chan bool)
 	go func() {
@@ -192,7 +192,7 @@ func Remove(c *cron.Cron, entryID int) chan bool {
 	return ch
 }
 
-// 任务停止
+// 任務停止
 //func Stop() chan bool {
 //	ch := make(chan bool)
 //	go func() {
