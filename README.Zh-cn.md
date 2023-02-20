@@ -9,7 +9,7 @@
 
 [English](https://github.com/go-admin-team/go-admin/blob/master/README.md) | 简体中文
 
-基于Gin + Vue + Element UI OR Arco Design OR Ant Design的前后端分离權限管理系統,系統初始化极度简单，只需要配置文件中，更新資料庫连接，系統支持多指令操作，迁移指令可以让初始化資料庫資訊变得更简单，服務指令可以很简单的啟動api服務
+基于Gin + Vue + Element UI OR Arco Design OR Ant Design的前后端分离權限管理系統,系統初始化极度简单，只需要配置文件中，更新資料庫連接，系統支持多指令操作，迁移指令可以让初始化資料庫資訊变得更简单，服務指令可以很简单的啟動api服務
 
 [在线文档](https://www.go-admin.pro)
 
@@ -62,7 +62,7 @@ antd体验：[https://antd.go-admin.pro](https://antd.go-admin.pro/)
 3. 職位管理：配置系統User所属担任职務。
 4. 選單管理：配置系統選單，操作權限，按钮權限标识，API權限等。
 5. 角色管理：角色選單權限分配、設定角色按机构进行資料范围權限划分。
-6. 字典管理：对系統中经常使用的一些较为固定的資料进行维护。
+6. 字典管理：对系統中經常使用的一些较為固定的資料进行维护。
 7. 參數管理：对系統动态配置常用參數。
 8. 操作Log：系統正常操作Log记录和查詢；系統异常資訊Log记录和查詢。
 9. 登入Log：系統登入Log记录查詢包含登入异常。
@@ -95,13 +95,13 @@ antd体验：[https://antd.go-admin.pro](https://antd.go-admin.pro/)
 
 [多命令啟動方式讲解以及IDE配置](https://www.bilibili.com/video/BV1Fg4y1q7ph)
 
-[go-admin選單的配置说明](https://www.bilibili.com/video/BV1Wp4y1D715) [必看]
+[go-admin選單的配置說明](https://www.bilibili.com/video/BV1Wp4y1D715) [必看]
 
 [如何配置選單資訊以及API資訊](https://www.bilibili.com/video/BV1zv411B7nG) [必看]
 
-[go-admin權限配置使用说明](https://www.bilibili.com/video/BV1rt4y197d3) [必看]
+[go-admin權限配置使用說明](https://www.bilibili.com/video/BV1rt4y197d3) [必看]
 
-[go-admin資料權限使用说明](https://www.bilibili.com/video/BV1LK4y1s71e) [必看]
+[go-admin資料權限使用說明](https://www.bilibili.com/video/BV1LK4y1s71e) [必看]
 
 **如有问题请先看上述使用文档和文章，若不能满足，欢迎 issue 和 pr ，视频教程和文档持续更新中**
 
@@ -137,9 +137,9 @@ git clone https://github.com/go-admin-team/go-admin-ui.git
 
 ```
 
-### 啟動说明
+### 啟動說明
 
-#### 服務端啟動说明
+#### 服務端啟動說明
 
 ```bash
 # 进入 go-admin 后端項目
@@ -235,7 +235,7 @@ env GOOS=windows GOARCH=amd64 go build main.go
 env GOOS=linux GOARCH=amd64 go build main.go
 ```
 
-### UI交互端啟動说明
+### UI交互端啟動說明
 
 ```bash
 # 安装依赖

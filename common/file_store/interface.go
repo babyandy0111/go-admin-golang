@@ -4,7 +4,7 @@ package file_store
 type DriverType string
 
 const (
-	// HuaweiOBS 华为云OBS
+	// HuaweiOBS 华為云OBS
 	HuaweiOBS DriverType = "HuaweiOBS"
 	// AliYunOSS 阿里云OSS
 	AliYunOSS DriverType = "AliYunOSS"

@@ -30,7 +30,7 @@ settings:
 #  databases:
 #    'locaohost:8000':
 #      driver: mysql
-#        # 資料庫连接字符串 mysql 缺省資訊 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+#        # 資料庫連接字符串 mysql 缺省資訊 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #        source: user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #      registers:
 #        - sources:
@@ -39,7 +39,7 @@ settings:
     # 代碼生成读取的資料庫名稱
     dbname: admin
     frontpath: ../go-admin-ui/src
-  extend: # 扩展项使用说明
+  extend: # 扩展项使用說明
     demo:
       name: data
   cache:

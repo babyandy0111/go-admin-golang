@@ -33,7 +33,7 @@ func PermissionAction() gin.HandlerFunc {
 			p, err = newDataPermission(db, userId)
 			if err != nil {
 				log.Errorf("MsgID[%s] PermissionAction error: %s", msgID, err)
-				response.Error(c, 500, err, "權限范围鉴定错误")
+				response.Error(c, 500, err, "權限范围鉴定錯误")
 				c.Abort()
 				return
 			}
@@ -53,7 +53,7 @@ func newDataPermission(tx *gorm.DB, userId interface{}) (*DataPermission, error)
 		Where("sys_user.user_id = ?", userId).
 		Scan(p).Error
 	if err != nil {
-		err = errors.New("取得User資料出错 msg:" + err.Error())
+		err = errors.New("取得User資料出錯 msg:" + err.Error())
 		return nil, err
 	}
 	return p, nil

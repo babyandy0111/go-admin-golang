@@ -45,7 +45,7 @@ func (e *Gen) GetDBTableList(c *gin.Context) {
 	db, err := pkg.GetOrm(c)
 	if err != nil {
 		log.Errorf("get db connection error, %s", err.Error())
-		e.Error(500, err, "資料庫连接取得失敗")
+		e.Error(500, err, "資料庫連接取得失敗")
 		return
 	}
 

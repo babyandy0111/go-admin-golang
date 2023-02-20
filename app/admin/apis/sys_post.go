@@ -80,7 +80,7 @@ func (e SysPost) Get(c *gin.Context) {
 
 	err = s.Get(&req, &object)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱訊息取得失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱訊息取得失敗！錯误详情：%s", err.Error()))
 		return
 	}
 
@@ -113,7 +113,7 @@ func (e SysPost) Insert(c *gin.Context) {
 	req.SetCreateBy(user.GetUserId(c))
 	err = s.Insert(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("新建職稱失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("新建職稱失敗！錯误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "建立成功")
@@ -147,7 +147,7 @@ func (e SysPost) Update(c *gin.Context) {
 
 	err = s.Update(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱更新失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱更新失敗！錯误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "更新成功")
@@ -177,7 +177,7 @@ func (e SysPost) Delete(c *gin.Context) {
 	req.SetUpdateBy(user.GetUserId(c))
 	err = s.Remove(&req)
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("職稱刪除失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("職稱刪除失敗！錯误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "刪除成功")

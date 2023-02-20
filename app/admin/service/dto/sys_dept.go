@@ -28,7 +28,7 @@ type SysDeptInsertReq struct {
 	DeptPath string `json:"deptPath" comment:""`                                    //路径
 	DeptName string `json:"deptName" comment:"部門名稱" vd:"len($)>0"`                  //部門名稱
 	Sort     int    `json:"sort" comment:"排序" vd:"?"`                               //排序
-	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能为空'"` //负责人
+	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能為空'"` //负责人
 	Phone    string `json:"phone" comment:"手机" vd:"?"`                              //手机
 	Email    string `json:"email" comment:"信箱" vd:"?"`                              //信箱
 	Status   int    `json:"status" comment:"狀態" vd:"$>0"`                           //狀態
@@ -60,7 +60,7 @@ type SysDeptUpdateReq struct {
 	DeptPath string `json:"deptPath" comment:""`                                    //路径
 	DeptName string `json:"deptName" comment:"部門名稱" vd:"len($)>0"`                  //部門名稱
 	Sort     int    `json:"sort" comment:"排序" vd:"?"`                               //排序
-	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能为空'"` //负责人
+	Leader   string `json:"leader" comment:"负责人" vd:"@:len($)>0; msg:'leader不能為空'"` //负责人
 	Phone    string `json:"phone" comment:"手机" vd:"?"`                              //手机
 	Email    string `json:"email" comment:"信箱" vd:"?"`                              //信箱
 	Status   int    `json:"status" comment:"狀態" vd:"$>0"`                           //狀態

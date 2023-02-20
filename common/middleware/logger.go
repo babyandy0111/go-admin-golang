@@ -126,7 +126,7 @@ func SetDBOperLog(c *gin.Context, clientIP string, statusCode int, reqUri string
 	message, err := sdk.Runtime.GetStreamMessage("", global.OperateLog, l)
 	if err != nil {
 		log.Errorf("GetStreamMessage error, %s", err.Error())
-		//Log报错错误，不中断請求
+		//Log报錯錯误，不中断請求
 	} else {
 		err = q.Append(message)
 		if err != nil {

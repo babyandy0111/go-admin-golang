@@ -111,7 +111,7 @@ func (e SysOperaLog) Delete(c *gin.Context) {
 	err = s.Remove(&req)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf("刪除失敗！错误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("刪除失敗！錯误详情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "刪除成功")

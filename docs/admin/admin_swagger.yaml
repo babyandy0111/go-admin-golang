@@ -1330,7 +1330,7 @@ paths:
         Payload needs to be json in the form of {"username": "USERNAME", "password": "PASSWORD"}.
         Reply will be of the form {"token": "TOKEN"}.
         dev mode：It should be noted that all fields cannot be empty, and a value of 0 can be passed in addition to the account password
-        注意：开发模式：需要注意全部字段不能为空，帳號密碼外可以傳入0值
+        注意：开发模式：需要注意全部字段不能為空，帳號密碼外可以傳入0值
       parameters:
       - description: account
         in: body

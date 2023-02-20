@@ -150,7 +150,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 	files, err := c.FormFile("file")
 
 	if err != nil {
-		e.Error(200, errors.New(""), "图片不能为空")
+		e.Error(200, errors.New(""), "图片不能為空")
 		return FileResponse{}, true
 	}
 	// 上傳文件至指定目录
