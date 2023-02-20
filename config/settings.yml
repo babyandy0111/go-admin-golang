@@ -38,7 +38,6 @@ settings:
   gen:
     # 代碼生成读取的資料庫名稱
     dbname: admin
-    # 代碼生成是使用前端代碼存放位置，需要指定到src文件夾，相对路径
     frontpath: ../go-admin-ui/src
   extend: # 扩展项使用说明
     demo:

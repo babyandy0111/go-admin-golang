@@ -10,7 +10,6 @@ import (
 	common "go-admin/common/middleware"
 )
 
-// InitRouter 路由初始化，不要怀疑，这里用到了
 func InitRouter() {
 	var r *gin.Engine
 	h := sdk.Runtime.GetEngine()
@@ -31,6 +30,5 @@ func InitRouter() {
 		log.Fatalf("JWT Init Error, %s", err.Error())
 	}
 
-	// 註冊业務路由
 	initRouter(r, authMiddleware)
 }

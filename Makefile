@@ -48,7 +48,7 @@ deploy:
 	make run
 
 dev:
-	go run main.go server -c config/settings.yml
+	go run main.go server -c config/settings.yml -a false
 
 init:
 	go run main.go migrate -c config/settings.yml
