@@ -13,7 +13,7 @@ import (
 	"go-admin/common/models"
 )
 
-// CreateAction 通用新增动作
+// CreateAction 通用新增動作
 func CreateAction(control dto.Control) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log := api.GetRequestLogger(c)
@@ -33,7 +33,7 @@ func CreateAction(control dto.Control) gin.HandlerFunc {
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失敗")
+			response.Error(c, 500, err, "model生成失敗")
 			return
 		}
 		object.SetCreateBy(user.GetUserId(c))

@@ -11,7 +11,7 @@ import (
 	"github.com/go-admin-team/go-admin-core/sdk/pkg/response"
 )
 
-// AuthCheckRole 權限检查中间件
+// AuthCheckRole 權限檢查中间件
 func AuthCheckRole() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		log := api.GetRequestLogger(c)
@@ -20,7 +20,7 @@ func AuthCheckRole() gin.HandlerFunc {
 		e := sdk.Runtime.GetCasbinKey(c.Request.Host)
 		var res, casbinExclude bool
 		var err error
-		//检查權限
+		//檢查權限
 		if v["rolekey"] == "admin" {
 			res = true
 			c.Next()

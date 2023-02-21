@@ -1,25 +1,16 @@
 settings:
   application:
-    # dev开发环境 test測試环境 prod线上环境
-    mode: dev
-    # 服務器ip，預設使用 0.0.0.0
+    mode: dev # dev test prod
     host: 0.0.0.0
-    # 服務名稱
-    name: testApp
-    # 端口号
-    port: 8000 # 服務端口号
+    name: gaiaApp
+    port: 8000
     readtimeout: 1
     writertimeout: 2
-    # 資料權限功能開關
-    enabledp: true
+    enabledp: true # 資料權限功能開關
   logger:
-    # Log存放路径
     path: temp/logs
-    # Log输出，file：文件，default：命令行，其他：命令行
-    stdout: '' #控制台Log，启用后，不输出到文件
-    # Log等级, trace, debug, info, warn, error, fatal
-    level: trace
-    # 資料庫Log開關
+    stdout: '' # file 為文件
+    level: trace # trace, debug, info, warn, error, fatal
     enableddb: false
   jwt:
     secret: go-admin
@@ -27,42 +18,16 @@ settings:
   database:
     driver: mysql
     source: root:123456@tcp(127.0.0.1:3306)/admin?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
-#  databases:
-#    'locaohost:8000':
-#      driver: mysql
-#        # 資料庫連接字符串 mysql 缺省資訊 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
-#        source: user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
-#      registers:
-#        - sources:
-#            - user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
   gen:
-    # 代碼生成读取的資料庫名稱
     dbname: admin
     frontpath: ../go-admin-ui/src
-  extend: # 扩展项使用說明
+  extend:
     demo:
       name: data
   cache:
-#    redis:
-#      addr: 127.0.0.1:6379
-#      password: xxxxxx
-#      db: 2
-    # key存在即可
     memory: '' 
   queue:
     memory:
       poolSize: 100
-#    redis:
-#      addr: 127.0.0.1:6379
-#      password: xxxxxx
-#      producer:
-#        streamMaxLength: 100
-#        approximateMaxLength: true
-#      consumer:
-#        visibilityTimeout: 60
-#        bufferSize: 100
-#        concurrency: 10
-#        blockingTimeout: 5
-#        reclaimInterval: 1
   locker:
     redis:

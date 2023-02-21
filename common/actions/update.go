@@ -13,7 +13,7 @@ import (
 	"go-admin/common/models"
 )
 
-// UpdateAction 通用更新动作
+// UpdateAction 通用更新動作
 func UpdateAction(control dto.Control) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, err := pkg.GetOrm(c)
@@ -27,18 +27,18 @@ func UpdateAction(control dto.Control) gin.HandlerFunc {
 		//更新操作
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "參數驗證失敗")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失敗")
+			response.Error(c, 500, err, "model生成失敗")
 			return
 		}
 		object.SetUpdateBy(user.GetUserId(c))
 
-		//資料權限检查
+		//資料權限檢查
 		p := GetPermissionFromContext(c)
 
 		db = db.WithContext(c).Scopes(

@@ -17,13 +17,13 @@ func InitMiddleware(r *gin.Engine) {
 	r.Use(DemoEvn())
 	// 資料庫連接
 	r.Use(WithContextDb)
-	// Log处理
+	// Log處理
 	r.Use(LoggerToFile())
-	// 自定義錯误处理
+	// 自定義錯誤處理
 	r.Use(CustomError)
 	// NoCache is a middleware function that appends headers
 	r.Use(NoCache)
-	// 跨域处理
+	// 跨域處理
 	r.Use(Options)
 	// Secure is a middleware function that appends security
 	r.Use(Secure)

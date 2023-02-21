@@ -67,7 +67,7 @@ type SysDeptUpdateReq struct {
 	common.ControlBy
 }
 
-// Generate 結構体資料转化 从 SysDeptControl 至 SysDept 對應的模型
+// Generate 結構体資料转化 从 SysDeptControl 至 SysDept 對應的model
 func (s *SysDeptUpdateReq) Generate(model *models.SysDept) {
 	if s.DeptId != 0 {
 		model.DeptId = s.DeptId

@@ -14,7 +14,7 @@ import (
 	"go-admin/common/models"
 )
 
-// ViewAction 通用详情动作
+// ViewAction 通用詳情動作
 func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, err := pkg.GetOrm(c)
@@ -24,17 +24,17 @@ func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 		}
 
 		msgID := pkg.GenerateMsgIDFromContext(c)
-		//查看详情
+		//查看詳情
 		req := control.Generate()
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "參數驗證失敗")
 			return
 		}
 		var object models.ActiveRecord
 		object, err = req.GenerateM()
 		if err != nil {
-			response.Error(c, 500, err, "模型生成失敗")
+			response.Error(c, 500, err, "model生成失敗")
 			return
 		}
 
@@ -45,7 +45,7 @@ func ViewAction(control dto.Control, f func() interface{}) gin.HandlerFunc {
 			rsp, _ = req.GenerateM()
 		}
 
-		//資料權限检查
+		//資料權限檢查
 		p := GetPermissionFromContext(c)
 
 		err = db.Model(object).WithContext(c).Scopes(

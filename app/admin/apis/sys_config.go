@@ -180,8 +180,8 @@ func (e SysConfig) Delete(c *gin.Context) {
 }
 
 // Get2SysApp 取得系統配置訊息
-// @Summary 取得系統前台配置訊息，主要注意这里不在验证權限
-// @Description 取得系統配置訊息，主要注意这里不在验证權限
+// @Summary 取得系統前台配置訊息，主要注意这里不在驗證權限
+// @Description 取得系統配置訊息，主要注意这里不在驗證權限
 // @Tags 配置管理
 // @Success 200 {object} response.Response{data=map[string]string} "{"code": 200, "data": [...]}"
 // @Router /api/v1/app-config [get]

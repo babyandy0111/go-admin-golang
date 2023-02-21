@@ -27,7 +27,7 @@ func LoggerToFile() gin.HandlerFunc {
 		log := api.GetRequestLogger(c)
 		// 开始時間
 		startTime := time.Now()
-		// 处理請求
+		// 處理請求
 		var body string
 		switch c.Request.Method {
 		case http.MethodPost, http.MethodPut, http.MethodGet, http.MethodDelete:
@@ -126,7 +126,7 @@ func SetDBOperLog(c *gin.Context, clientIP string, statusCode int, reqUri string
 	message, err := sdk.Runtime.GetStreamMessage("", global.OperateLog, l)
 	if err != nil {
 		log.Errorf("GetStreamMessage error, %s", err.Error())
-		//Log报錯錯误，不中断請求
+		//Log报錯錯誤，不中断請求
 	} else {
 		err = q.Append(message)
 		if err != nil {

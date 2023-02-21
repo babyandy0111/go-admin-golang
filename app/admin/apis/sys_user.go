@@ -43,7 +43,7 @@ func (e SysUser) GetPage(c *gin.Context) {
 		return
 	}
 
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 
 	list := make([]models.SysUser, 0)
@@ -80,7 +80,7 @@ func (e SysUser) Get(c *gin.Context) {
 		return
 	}
 	var object models.SysUser
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 	err = s.Get(&req, p, &object)
 	if err != nil {
@@ -151,7 +151,7 @@ func (e SysUser) Update(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Update(&req, p)
@@ -187,7 +187,7 @@ func (e SysUser) Delete(c *gin.Context) {
 	// 設定編輯人
 	req.SetUpdateBy(user.GetUserId(c))
 
-	// 資料權限检查
+	// 資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.Remove(&req, p)
@@ -219,7 +219,7 @@ func (e SysUser) InsetAvatar(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	// 資料權限检查
+	// 資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 	form, _ := c.MultipartForm()
 	files := form.File["upload[]"]
@@ -272,7 +272,7 @@ func (e SysUser) UpdateStatus(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.UpdateStatus(&req, p)
@@ -309,7 +309,7 @@ func (e SysUser) ResetPwd(c *gin.Context) {
 
 	req.SetUpdateBy(user.GetUserId(c))
 
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 
 	err = s.ResetPwd(&req, p)
@@ -344,7 +344,7 @@ func (e SysUser) UpdatePwd(c *gin.Context) {
 		return
 	}
 
-	// 資料權限检查
+	// 資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 	var hash []byte
 	if hash, err = bcrypt.GenerateFromPassword([]byte(req.NewPassword), bcrypt.DefaultCost); err != nil {

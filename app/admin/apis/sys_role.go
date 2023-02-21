@@ -277,7 +277,7 @@ func (e SysRole) Update2DataScope(c *gin.Context) {
 	data.UpdateBy = user.GetUserId(c)
 	err = s.UpdateDataScope(&req).Error
 	if err != nil {
-		e.Error(500, err, fmt.Sprintf("更新角色資料權限失敗！錯误详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf("更新角色資料權限失敗！錯誤詳情：%s", err.Error()))
 		return
 	}
 	e.OK(nil, "操作成功")

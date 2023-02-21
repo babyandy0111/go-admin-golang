@@ -35,7 +35,7 @@ func (u *BaseUser) generateSalt() {
 	u.Salt = pkg.GenerateRandomKey16()
 }
 
-// Verify 验证密碼
+// Verify 驗證密碼
 func (u *BaseUser) Verify(db *gorm.DB, tableName string) bool {
 	db.Table(tableName).Where("username = ?", u.Username).First(u)
 	return u.GetPasswordHash() == u.PasswordHash

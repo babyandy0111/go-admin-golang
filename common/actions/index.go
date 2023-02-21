@@ -14,7 +14,7 @@ import (
 	"go-admin/common/models"
 )
 
-// IndexAction 通用查詢动作
+// IndexAction 通用查詢動作
 func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		db, err := pkg.GetOrm(c)
@@ -32,11 +32,11 @@ func IndexAction(m models.ActiveRecord, d dto.Index, f func() interface{}) gin.H
 		//查詢列表
 		err = req.Bind(c)
 		if err != nil {
-			response.Error(c, http.StatusUnprocessableEntity, err, "參數验证失敗")
+			response.Error(c, http.StatusUnprocessableEntity, err, "參數驗證失敗")
 			return
 		}
 
-		//資料權限检查
+		//資料權限檢查
 		p := GetPermissionFromContext(c)
 
 		err = db.WithContext(c).Model(object).

@@ -109,7 +109,7 @@ func (e SysDictType) Insert(c *gin.Context) {
 	err = s.Insert(&req)
 	if err != nil {
 		e.Logger.Error(err)
-		e.Error(500, err, fmt.Sprintf(" 建立字典類型失敗，详情：%s", err.Error()))
+		e.Error(500, err, fmt.Sprintf(" 建立字典類型失敗，詳情：%s", err.Error()))
 		return
 	}
 	e.OK(req.GetId(), "建立成功")

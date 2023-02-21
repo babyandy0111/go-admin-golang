@@ -8,7 +8,7 @@ import (
 	"go-admin/common/middleware/handler"
 )
 
-// AuthInit jwt验证new
+// AuthInit jwt驗證new
 func AuthInit() (*jwt.GinJWTMiddleware, error) {
 	timeout := time.Hour
 	if config.ApplicationConfig.Mode == "dev" {

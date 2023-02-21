@@ -43,7 +43,7 @@ func (e SysApi) GetPage(c *gin.Context) {
 		e.Error(500, err, err.Error())
 		return
 	}
-	//資料權限检查
+	//資料權限檢查
 	p := actions.GetPermissionFromContext(c)
 	list := make([]models.SysApi, 0)
 	var count int64

@@ -15,7 +15,7 @@ func init() {
 // 需认证的路由代碼
 func registerMonitorRouter(v1 *gin.RouterGroup) {
 	v1.GET("/metrics", transfer.Handler(promhttp.Handler()))
-	//健康检查
+	//健康檢查
 	v1.GET("/health", func(c *gin.Context) {
 		c.Status(http.StatusOK)
 	})

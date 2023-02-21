@@ -114,17 +114,17 @@ func (e *Api) MakeService(c *service.Service) *Api {
 	return e
 }
 
-// Error 通常錯误資料处理
+// Error 通常錯誤資料處理
 func (e Api) Error(code int, err error, msg string) {
 	response.Error(e.Context, code, err, msg)
 }
 
-// OK 通常成功資料处理
+// OK 通常成功資料處理
 func (e Api) OK(data interface{}, msg string) {
 	response.OK(e.Context, data, msg)
 }
 
-// PageOK 分頁資料处理
+// PageOK 分頁資料處理
 func (e Api) PageOK(result interface{}, count int, pageIndex int, pageSize int, msg string) {
 	response.PageOK(e.Context, result, count, pageIndex, pageSize, msg)
 }

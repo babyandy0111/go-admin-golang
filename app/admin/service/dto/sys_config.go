@@ -48,7 +48,7 @@ type SysConfigControl struct {
 	common.ControlBy
 }
 
-// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的模型
+// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的model
 func (s *SysConfigControl) Generate(model *models.SysConfig) {
 	if s.Id == 0 {
 		model.Model = common.Model{Id: s.Id}
@@ -73,7 +73,7 @@ type GetSetSysConfigReq struct {
 	ConfigValue string `json:"configValue" comment:""`
 }
 
-// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的模型
+// Generate 結構体資料转化 从 SysConfigControl 至 system.SysConfig 對應的model
 func (s *GetSetSysConfigReq) Generate(model *models.SysConfig) {
 	model.ConfigValue = s.ConfigValue
 }

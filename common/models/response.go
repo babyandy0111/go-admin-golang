@@ -23,7 +23,7 @@ func (res *Response) ReturnOK() *Response {
 	return res
 }
 
-// ReturnError 錯误返回
+// ReturnError 錯誤返回
 func (res *Response) ReturnError(code int) *Response {
 	res.Code = code
 	return res

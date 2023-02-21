@@ -33,7 +33,7 @@ func PermissionAction() gin.HandlerFunc {
 			p, err = newDataPermission(db, userId)
 			if err != nil {
 				log.Errorf("MsgID[%s] PermissionAction error: %s", msgID, err)
-				response.Error(c, 500, err, "權限范围鉴定錯误")
+				response.Error(c, 500, err, "權限範圍錯誤")
 				c.Abort()
 				return
 			}
@@ -90,7 +90,7 @@ func getPermissionFromContext(c *gin.Context) *DataPermission {
 	return p
 }
 
-// GetPermissionFromContext 提供非action写法資料范围约束
+// GetPermissionFromContext 提供非action写法資料範圍约束
 func GetPermissionFromContext(c *gin.Context) *DataPermission {
 	return getPermissionFromContext(c)
 }

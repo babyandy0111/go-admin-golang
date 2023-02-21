@@ -51,8 +51,8 @@ func (e SysJob) StartJobForService(c *gin.Context) {
 	var v dto.GeneralGetDto
 	err = c.BindUri(&v)
 	if err != nil {
-		log.Warnf("參數验证錯误, error: %s", err)
-		e.Error(http.StatusUnprocessableEntity, err, "參數验证失敗")
+		log.Warnf("參數驗證錯誤, error: %s", err)
+		e.Error(http.StatusUnprocessableEntity, err, "參數驗證失敗")
 		return
 	}
 	s := service.SysJob{}

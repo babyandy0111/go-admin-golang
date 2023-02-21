@@ -45,8 +45,8 @@ func (e SysMenu) GetPage(c *gin.Context) {
 	e.OK(list, "查詢成功")
 }
 
-// Get 取得選單详情
-// @Summary Menu详情資料
+// Get 取得選單詳情
+// @Summary Menu詳情資料
 // @Description 取得JSON
 // @Tags 選單
 // @Param id path string false "id"

@@ -87,7 +87,7 @@ func Authenticator(c *gin.Context) (interface{}, error) {
 	if config.ApplicationConfig.Mode != "dev" {
 		if !captcha.Verify(loginVals.UUID, loginVals.Code, true) {
 			username = loginVals.Username
-			msg = "驗證碼錯误"
+			msg = "驗證碼錯誤"
 			status = "1"
 
 			return nil, jwt.ErrInvalidVerificationode
@@ -131,7 +131,7 @@ func LoginLogToDB(c *gin.Context, status string, msg string, username string) {
 	message, err := sdk.Runtime.GetStreamMessage("", global.LoginLog, l)
 	if err != nil {
 		log.Errorf("GetStreamMessage error, %s", err.Error())
-		//Log报錯錯误，不中断請求
+		//Log报錯錯誤，不中断請求
 	} else {
 		err = q.Append(message)
 		if err != nil {
