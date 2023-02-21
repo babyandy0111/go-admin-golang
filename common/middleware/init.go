@@ -14,7 +14,6 @@ const (
 )
 
 func InitMiddleware(r *gin.Engine) {
-	r.Use(DemoEvn())
 	// 資料庫連接
 	r.Use(WithContextDb)
 	// Log處理

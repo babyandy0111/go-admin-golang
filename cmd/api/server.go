@@ -20,7 +20,6 @@ import (
 
 	"go-admin/app/admin/models"
 	"go-admin/app/admin/router"
-	"go-admin/app/jobs"
 	"go-admin/common/database"
 	"go-admin/common/global"
 	common "go-admin/common/middleware"
@@ -90,11 +89,11 @@ func run() error {
 		Handler: sdk.Runtime.GetEngine(),
 	}
 
-	go func() {
-		jobs.InitJob()
-		jobs.Setup(sdk.Runtime.GetDb())
-
-	}()
+	//go func() {
+	//	jobs.InitJob()
+	//	jobs.Setup(sdk.Runtime.GetDb())
+	//
+	//}()
 
 	if apiCheck {
 		var routers = sdk.Runtime.GetRouter()

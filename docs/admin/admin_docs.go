@@ -18,11 +18,11 @@ const docTemplateadmin = `{
     "paths": {
         "/api/v1/app-config": {
             "get": {
-                "description": "取得系統配置訊息，主要注意这里不在驗證權限",
+                "description": "取得系統配置訊息，主要注意這裡不在驗證權限",
                 "tags": [
                     "配置管理"
                 ],
-                "summary": "取得系統前台配置訊息，主要注意这里不在驗證權限",
+                "summary": "取得系統前台配置訊息，主要注意這裡不在驗證權限",
                 "responses": {
                     "200": {
                         "description": "{\"code\": 200, \"data\": [...]}",

@@ -9,7 +9,6 @@ import (
 	common "go-admin/common/middleware"
 )
 
-// InitRouter 路由初始化，不要怀疑，这里用到了
 func InitRouter() {
 	var r *gin.Engine
 	h := sdk.Runtime.GetEngine()
@@ -31,6 +30,6 @@ func InitRouter() {
 	}
 
 	// 註冊业務路由
-	// TODO: 这里可存放业務路由，里邊并無实际路由只有演示代碼
+	// TODO: 這裡可存放业務路由，里邊并無实际路由只有演示代碼
 	initRouter(r, authMiddleware)
 }
