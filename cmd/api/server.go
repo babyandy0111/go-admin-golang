@@ -89,12 +89,6 @@ func run() error {
 		Handler: sdk.Runtime.GetEngine(),
 	}
 
-	//go func() {
-	//	jobs.InitJob()
-	//	jobs.Setup(sdk.Runtime.GetDb())
-	//
-	//}()
-
 	if apiCheck {
 		var routers = sdk.Runtime.GetRouter()
 		q := sdk.Runtime.GetMemoryQueue("")
