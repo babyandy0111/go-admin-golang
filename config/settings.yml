@@ -17,13 +17,13 @@ settings:
     timeout: 3600
   database:
     driver: mysql
-    source: root:123456@tcp(127.0.0.1:3306)/admin?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+    source: root:123456@tcp(127.0.0.1:3306)/sf?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #    registers:
 #      - sources:
 #          - root:123456@tcp(127.0.0.1:3306)/admin?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 
   gen:
-    dbname: admin
+    dbname: sf
     frontpath: ../go-admin-ui/src
   extend:
     demo:
