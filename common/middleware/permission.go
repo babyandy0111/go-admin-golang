@@ -48,10 +48,10 @@ func AuthCheckRole() gin.HandlerFunc {
 			log.Infof("isTrue: %v role: %s method: %s path: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path)
 			c.Next()
 		} else {
-			log.Warnf("isTrue: %v role: %s method: %s path: %s message: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path, "当前request無權限，請管理員确认！")
+			log.Warnf("isTrue: %v role: %s method: %s path: %s message: %s", res, v["rolekey"], c.Request.Method, c.Request.URL.Path, "當前request無權限，請管理確認！")
 			c.JSON(http.StatusOK, gin.H{
 				"code": 403,
-				"msg":  "对不起，您没有该API訪問權限，請联系管理員",
+				"msg":  "對不起，您没有該API訪問權限，請聯繫管理員",
 			})
 			c.Abort()
 			return
