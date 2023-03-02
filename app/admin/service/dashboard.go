@@ -47,10 +47,10 @@ func (e *Dashboard) GetSalesByM(c *dto.DashboardReq, list *[]models.GetSalesByMR
 func (e *Dashboard) GetSalesTop20(c *dto.DashboardReq, list *[]models.GetSalesTop20) error {
 	var err error
 	sql := fmt.Sprint("select " +
-		"u.`name`," +
+		"u.`nick_name` as name," +
 		"SUM(q.`grand_total`) as sales_sum " +
 		"from `quote` q  left join `currency` c on c.id = q.`currency_id` " +
-		"left join `user` u on u.`id` = q.`create_by` " +
+		"left join `sys_user` u on u.`user_id` = q.`create_by` " +
 		"where " +
 		"q.`status` = 'Approved' and " +
 		"DATE_FORMAT(q.`created_at`,'%Y') = ? and " +
@@ -85,7 +85,7 @@ func (e *Dashboard) GetSalesByMAccount(c *dto.DashboardReq, list *[]models.GetSa
 		"DATE_FORMAT(q.`created_at`,'%Y') = ? and " +
 		"q.`status` = 'Approved' and " +
 		"c.`name` = ? " +
-		"group by account_sf_id, DATE_FORMAT(q.`created_at`,'%Y-%m') " +
+		"group by account_id, DATE_FORMAT(q.`created_at`,'%Y-%m') " +
 		") A group by A.sales_date")
 	rows, err := e.Orm.Raw(sql, userId, c.Year, c.Currency).Rows()
 	defer rows.Close()
