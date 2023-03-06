@@ -24,6 +24,7 @@ func (e *Dashboard) GetSalesByM(c *dto.DashboardReq, list *[]models.GetSalesByMR
 		"q.`status` = 'Approved' AND " +
 		"DATE_FORMAT(q.`created_at`,'%Y') = ? AND " +
 		"c.`name` = ? AND " +
+		"q.`create_by` != 0 and " +
 		"q.`create_by` = ? " +
 		"GROUP BY q.`create_by`, c.`name`, DATE_FORMAT(q.`created_at`,'%Y-%m') " +
 		"ORDER BY q.`create_by`, DATE_FORMAT(q.`created_at`,'%Y-%m')")
@@ -54,6 +55,7 @@ func (e *Dashboard) GetSalesTop20(c *dto.DashboardReq, list *[]models.GetSalesTo
 		"where " +
 		"q.`status` = 'Approved' and " +
 		"DATE_FORMAT(q.`created_at`,'%Y') = ? and " +
+		"q.`create_by` != 0 and " +
 		"c.`name` = ? " +
 		"group by q.`create_by`, c.`name`, DATE_FORMAT(q.`created_at`,'%Y') " +
 		"order by sales_sum DESC limit 15")
@@ -82,6 +84,7 @@ func (e *Dashboard) GetSalesByMAccount(c *dto.DashboardReq, list *[]models.GetSa
 		"from quote q " +
 		"LEFT JOIN `currency` c ON c.`id` = q.`currency_id` " +
 		"where q.`create_by` = ? and " +
+		"q.`create_by` != 0 and " +
 		"DATE_FORMAT(q.`created_at`,'%Y') = ? and " +
 		"q.`status` = 'Approved' and " +
 		"c.`name` = ? " +
@@ -117,6 +120,7 @@ func (e *Dashboard) GetSalesByProduct(c *dto.DashboardReq, list *[]models.GetSal
 		"where " +
 		"c.`name` = ? and " +
 		"date_format(q.`created_at`, '%Y') = ? and " +
+		"q.`create_by` != 0 and " +
 		"q.`create_by` = ? " +
 		"group by pt.`name`, qi.`currency_id` " +
 		"HAVING sales_sum > 0 " +
