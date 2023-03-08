@@ -9,8 +9,8 @@ RUN apk add --no-cache tzdata
 ENV TZ Asia/Shanghai
 
 COPY ./main /main
-COPY ./config/settings.demo.yml /config/settings.yml
-COPY ./go-admin-db.db /go-admin-db.db
+COPY ./config/settings.yml /config/settings.yml
+#COPY ./go-admin-db.db /go-admin-db.db
 EXPOSE 8000
 RUN  chmod +x /main
 CMD ["/main","server","-c", "/config/settings.yml"]
