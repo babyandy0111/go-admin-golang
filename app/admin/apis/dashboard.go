@@ -51,7 +51,7 @@ func (e Dashboard) GetSalesByM(c *gin.Context) {
 	e.PageOK(list, int(count), req.GetPageIndex(), req.GetPageSize(), "查詢成功")
 }
 
-func (e Dashboard) GetSalesTop20(c *gin.Context) {
+func (e Dashboard) GetSalesTop15(c *gin.Context) {
 	req := dto.DashboardReq{}
 	s := service.Dashboard{}
 	err := e.MakeContext(c).
@@ -68,7 +68,7 @@ func (e Dashboard) GetSalesTop20(c *gin.Context) {
 	list := make([]models.GetSalesTop20, 0)
 	var count int64
 
-	err = s.GetSalesTop20(&req, &list)
+	err = s.GetSalesTop15(&req, &list)
 	if err != nil {
 		e.Error(500, err, fmt.Sprintf("查詢內容失敗，\r\n err: %s", err.Error()))
 		return

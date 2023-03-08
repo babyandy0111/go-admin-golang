@@ -18,7 +18,7 @@ func registerDashboardRouter(v1 *gin.RouterGroup, authMiddleware *jwt.GinJWTMidd
 	{
 		r.GET("", api.GetSalesByM)
 		r.GET("GetSalesByM", api.GetSalesByM)
-		r.GET("GetSalesTop20", api.GetSalesTop20)
+		r.GET("GetSalesTop15", api.GetSalesTop15)
 		r.GET("GetSalesByMAccount", api.GetSalesByMAccount)
 		r.GET("GetSalesByProduct", api.GetSalesByProduct)
 	}

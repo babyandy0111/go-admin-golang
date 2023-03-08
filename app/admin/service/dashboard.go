@@ -45,7 +45,7 @@ func (e *Dashboard) GetSalesByM(c *dto.DashboardReq, list *[]models.GetSalesByMR
 	return nil
 }
 
-func (e *Dashboard) GetSalesTop20(c *dto.DashboardReq, list *[]models.GetSalesTop20) error {
+func (e *Dashboard) GetSalesTop15(c *dto.DashboardReq, list *[]models.GetSalesTop20) error {
 	var err error
 	sql := fmt.Sprint("select " +
 		"u.`nick_name` as name," +
