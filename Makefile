@@ -6,7 +6,7 @@ build:
 
 # make build-linux
 build-linux:
-	@docker build -t go-admin:latest .
+	@docker build -t go-admin:latest . --no-cache
 	@echo "build successful"
 
 # make run
