@@ -1,4 +1,164 @@
 definitions:
+  dto.AccountDeleteReq:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.AccountInsertReq:
+    properties:
+      accountNumber:
+        type: string
+      accountSource:
+        type: string
+      createBy:
+        type: integer
+      enName:
+        type: string
+      name:
+        type: string
+      sfId:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.AccountUpdateReq:
+    properties:
+      accountNumber:
+        type: string
+      accountSource:
+        type: string
+      createBy:
+        type: integer
+      enName:
+        type: string
+      id:
+        description: 客戶流水號
+        type: integer
+      name:
+        type: string
+      sfId:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.ArticleDeleteReq:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.ArticleInsertReq:
+    properties:
+      author:
+        type: string
+      content:
+        type: string
+      createBy:
+        type: integer
+      publishAt:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.ArticleUpdateReq:
+    properties:
+      author:
+        type: string
+      content:
+        type: string
+      createBy:
+        type: integer
+      id:
+        description: 流水號
+        type: integer
+      publishAt:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.CompanyTypeDeleteReq:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.CompanyTypeInsertReq:
+    properties:
+      code:
+        type: string
+      createBy:
+        type: integer
+      description:
+        type: string
+      name:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.CompanyTypeUpdateReq:
+    properties:
+      code:
+        type: string
+      createBy:
+        type: integer
+      description:
+        type: string
+      id:
+        description: 本司流水號
+        type: integer
+      name:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.CurrencyDeleteReq:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.CurrencyInsertReq:
+    properties:
+      createBy:
+        type: integer
+      currency:
+        type: string
+      label:
+        type: string
+      name:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.CurrencyUpdateReq:
+    properties:
+      createBy:
+        type: integer
+      currency:
+        type: string
+      id:
+        description: 幣別流水號
+        type: integer
+      label:
+        type: string
+      name:
+        type: string
+      updateBy:
+        type: integer
+    type: object
   dto.GetSetSysConfigReq:
     properties:
       configKey:
@@ -12,6 +172,86 @@ definitions:
         type: string
       oldPassword:
         type: string
+    type: object
+  dto.QuoteDeleteReq:
+    properties:
+      ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.QuoteInsertReq:
+    properties:
+      accountId:
+        type: string
+      companyTypeId:
+        type: string
+      createBy:
+        type: integer
+      currencyId:
+        type: string
+      discount:
+        type: string
+      grandTotal:
+        type: string
+      projectName:
+        type: string
+      quoteName:
+        type: string
+      quoteNote:
+        type: string
+      quoteNumber:
+        type: string
+      sfId:
+        type: string
+      stage:
+        type: string
+      status:
+        type: string
+      tax:
+        type: string
+      total:
+        type: string
+      updateBy:
+        type: integer
+    type: object
+  dto.QuoteUpdateReq:
+    properties:
+      accountId:
+        type: string
+      companyTypeId:
+        type: string
+      createBy:
+        type: integer
+      currencyId:
+        type: string
+      discount:
+        type: string
+      grandTotal:
+        type: string
+      id:
+        description: 代號
+        type: integer
+      projectName:
+        type: string
+      quoteName:
+        type: string
+      quoteNote:
+        type: string
+      quoteNumber:
+        type: string
+      sfId:
+        type: string
+      stage:
+        type: string
+      status:
+        type: string
+      tax:
+        type: string
+      total:
+        type: string
+      updateBy:
+        type: integer
     type: object
   dto.ResetSysUserPwdReq:
     properties:
@@ -170,14 +410,10 @@ definitions:
     type: object
   dto.SysDictDataDeleteReq:
     properties:
-      createBy:
-        type: integer
       ids:
         items:
           type: integer
         type: array
-      updateBy:
-        type: integer
     type: object
   dto.SysDictDataGetAllResp:
     properties:
@@ -357,7 +593,7 @@ definitions:
         type: integer
       sysApi:
         items:
-          $ref: '#/definitions/models.SysApi'
+          $ref: '#/definitions/go-admin_app_admin_models.SysApi'
         type: array
       title:
         description: 顯示名稱
@@ -420,7 +656,7 @@ definitions:
         type: integer
       sysApi:
         items:
-          $ref: '#/definitions/models.SysApi'
+          $ref: '#/definitions/go-admin_app_admin_models.SysApi'
         type: array
       title:
         description: 顯示名稱
@@ -533,11 +769,11 @@ definitions:
         type: string
       sysDept:
         items:
-          $ref: '#/definitions/models.SysDept'
+          $ref: '#/definitions/go-admin_app_admin_models.SysDept'
         type: array
       sysMenu:
         items:
-          $ref: '#/definitions/models.SysMenu'
+          $ref: '#/definitions/go-admin_app_admin_models.SysMenu'
         type: array
       updateBy:
         type: integer
@@ -581,11 +817,11 @@ definitions:
         type: string
       sysDept:
         items:
-          $ref: '#/definitions/models.SysDept'
+          $ref: '#/definitions/go-admin_app_admin_models.SysDept'
         type: array
       sysMenu:
         items:
-          $ref: '#/definitions/models.SysMenu'
+          $ref: '#/definitions/go-admin_app_admin_models.SysMenu'
         type: array
       updateBy:
         type: integer
@@ -683,23 +919,7 @@ definitions:
         description: UserID
         type: integer
     type: object
-  handler.Login:
-    properties:
-      code:
-        type: string
-      password:
-        type: string
-      username:
-        type: string
-      uuid:
-        type: string
-    required:
-    - code
-    - password
-    - username
-    - uuid
-    type: object
-  models.SysApi:
+  go-admin_app_admin_models.SysApi:
     properties:
       action:
         type: string
@@ -722,7 +942,7 @@ definitions:
       updatedAt:
         type: string
     type: object
-  models.SysConfig:
+  go-admin_app_admin_models.SysConfig:
     properties:
       configKey:
         type: string
@@ -747,11 +967,11 @@ definitions:
       updatedAt:
         type: string
     type: object
-  models.SysDept:
+  go-admin_app_admin_models.SysDept:
     properties:
       children:
         items:
-          $ref: '#/definitions/models.SysDept'
+          $ref: '#/definitions/go-admin_app_admin_models.SysDept'
         type: array
       createBy:
         type: integer
@@ -792,7 +1012,7 @@ definitions:
       updatedAt:
         type: string
     type: object
-  models.SysMenu:
+  go-admin_app_admin_models.SysMenu:
     properties:
       action:
         type: string
@@ -804,7 +1024,7 @@ definitions:
         type: string
       children:
         items:
-          $ref: '#/definitions/models.SysMenu'
+          $ref: '#/definitions/go-admin_app_admin_models.SysMenu'
         type: array
       component:
         type: string
@@ -844,7 +1064,7 @@ definitions:
         type: integer
       sysApi:
         items:
-          $ref: '#/definitions/models.SysApi'
+          $ref: '#/definitions/go-admin_app_admin_models.SysApi'
         type: array
       title:
         type: string
@@ -853,6 +1073,158 @@ definitions:
       updatedAt:
         type: string
       visible:
+        type: string
+    type: object
+  handler.Login:
+    properties:
+      code:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+      uuid:
+        type: string
+    required:
+    - code
+    - password
+    - username
+    - uuid
+    type: object
+  models.Account:
+    properties:
+      accountNumber:
+        type: string
+      accountSource:
+        type: string
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      enName:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      sfId:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.Article:
+    properties:
+      author:
+        type: string
+      content:
+        type: string
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      id:
+        type: integer
+      publishAt:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.CompanyType:
+    properties:
+      code:
+        type: string
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.Currency:
+    properties:
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      currency:
+        type: string
+      id:
+        type: integer
+      label:
+        type: string
+      name:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.GetSalesByMRes:
+    properties:
+      name:
+        type: string
+      sales_date:
+        type: string
+      sales_sum:
+        type: string
+      who:
+        type: string
+    type: object
+  models.Quote:
+    properties:
+      accountId:
+        type: string
+      companyTypeId:
+        type: string
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      currencyId:
+        type: string
+      discount:
+        type: string
+      grandTotal:
+        type: string
+      id:
+        type: integer
+      projectName:
+        type: string
+      quoteName:
+        type: string
+      quoteNote:
+        type: string
+      quoteNumber:
+        type: string
+      sfId:
+        type: string
+      stage:
+        type: string
+      status:
+        type: string
+      tax:
+        type: string
+      total:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
         type: string
     type: object
   response.Page:
@@ -876,12 +1248,313 @@ definitions:
       status:
         type: string
     type: object
+  tools.Params:
+    properties:
+      treeCode:
+        type: string
+      treeName:
+        type: string
+      treeParentCode:
+        type: string
+    type: object
+  tools.SysColumns:
+    properties:
+      columnComment:
+        type: string
+      columnId:
+        type: integer
+      columnName:
+        type: string
+      columnType:
+        type: string
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      dictType:
+        type: string
+      edit:
+        type: boolean
+      fkCol:
+        items:
+          $ref: '#/definitions/tools.SysColumns'
+        type: array
+      fkLabelId:
+        type: string
+      fkLabelName:
+        type: string
+      fkTableName:
+        type: string
+      fkTableNameClass:
+        type: string
+      fkTableNamePackage:
+        type: string
+      goField:
+        type: string
+      goType:
+        type: string
+      htmlType:
+        type: string
+      increment:
+        type: boolean
+      insert:
+        type: boolean
+      isEdit:
+        type: string
+      isIncrement:
+        type: string
+      isInsert:
+        type: string
+      isList:
+        type: string
+      isPk:
+        type: string
+      isQuery:
+        type: string
+      isRequired:
+        type: string
+      jsonField:
+        type: string
+      list:
+        type: string
+      pk:
+        type: boolean
+      query:
+        type: boolean
+      queryType:
+        type: string
+      remark:
+        type: string
+      required:
+        type: boolean
+      sort:
+        type: integer
+      superColumn:
+        type: boolean
+      tableId:
+        type: integer
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+      usableColumn:
+        type: boolean
+    type: object
+  tools.SysTables:
+    properties:
+      businessName:
+        type: string
+      className:
+        description: 类名
+        type: string
+      columns:
+        items:
+          $ref: '#/definitions/tools.SysColumns'
+        type: array
+      createBy:
+        type: integer
+      createdAt:
+        type: string
+      crud:
+        type: boolean
+      dataScope:
+        type: string
+      deletedAt:
+        type: string
+      functionAuthor:
+        description: 功能作者
+        type: string
+      functionName:
+        description: 功能名稱
+        type: string
+      isActions:
+        type: integer
+      isAuth:
+        type: integer
+      isDataScope:
+        type: integer
+      isLogicalDelete:
+        type: string
+      logicalDelete:
+        type: boolean
+      logicalDeleteColumn:
+        type: string
+      moduleFrontName:
+        description: 前端文件名
+        type: string
+      moduleName:
+        description: go文件名
+        type: string
+      options:
+        type: string
+      packageName:
+        description: 包名
+        type: string
+      params:
+        $ref: '#/definitions/tools.Params'
+      pkColumn:
+        type: string
+      pkGoField:
+        type: string
+      pkJsonField:
+        type: string
+      remark:
+        type: string
+      tableComment:
+        description: 表備註
+        type: string
+      tableId:
+        description: 表流水號
+        type: integer
+      tableName:
+        description: 表名稱
+        type: string
+      tplCategory:
+        type: string
+      tree:
+        type: boolean
+      treeCode:
+        type: string
+      treeName:
+        type: string
+      treeParentCode:
+        type: string
+      updateBy:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
+  /api/v1/account:
+    delete:
+      description: 刪除Account
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AccountDeleteReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "刪除成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 刪除Account
+      tags:
+      - Account
+    get:
+      description: 查詢Account列表
+      parameters:
+      - description: 每頁幾筆
+        in: query
+        name: pageSize
+        type: integer
+      - description: 頁數
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.Account'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢Account列表
+      tags:
+      - Account
+    post:
+      consumes:
+      - application/json
+      description: 建立Account
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AccountInsertReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "建立成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 建立Account
+      tags:
+      - Account
+  /api/v1/account/{id}:
+    get:
+      description: 查詢Account
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Account'
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢Account
+      tags:
+      - Account
+    put:
+      consumes:
+      - application/json
+      description: 更新Account
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AccountUpdateReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "更新成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 更新Account
+      tags:
+      - Account
   /api/v1/app-config:
     get:
-      description: 取得系統配置訊息，主要注意这里不在验证權限
+      description: 取得系統配置訊息，主要注意這裡不在驗證權限
       responses:
         "200":
           description: '{"code": 200, "data": [...]}'
@@ -894,9 +1567,136 @@ paths:
                     type: string
                   type: object
               type: object
-      summary: 取得系統前台配置訊息，主要注意这里不在验证權限
+      summary: 取得系統前台配置訊息，主要注意這裡不在驗證權限
       tags:
       - 配置管理
+  /api/v1/article:
+    delete:
+      description: 刪除內容
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ArticleDeleteReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "刪除成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 刪除內容
+      tags:
+      - 內容
+    get:
+      description: 查詢內容列表
+      parameters:
+      - description: 狀態
+        in: query
+        name: status
+        type: string
+      - description: 每頁幾筆
+        in: query
+        name: pageSize
+        type: integer
+      - description: 頁數
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.Article'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢內容列表
+      tags:
+      - 內容
+    post:
+      consumes:
+      - application/json
+      description: 建立內容
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ArticleInsertReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "建立成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 建立內容
+      tags:
+      - 內容
+  /api/v1/article/{id}:
+    get:
+      description: 查詢內容
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Article'
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢內容
+      tags:
+      - 內容
+    put:
+      consumes:
+      - application/json
+      description: 更新內容
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ArticleUpdateReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "更新成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 更新內容
+      tags:
+      - 內容
   /api/v1/captcha:
     get:
       description: 取得驗證碼
@@ -917,6 +1717,334 @@ paths:
       summary: 取得驗證碼
       tags:
       - 登入
+  /api/v1/company-type:
+    delete:
+      description: 刪除CompanyType
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CompanyTypeDeleteReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "刪除成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 刪除CompanyType
+      tags:
+      - CompanyType
+    get:
+      description: 查詢CompanyType列表
+      parameters:
+      - description: 每頁幾筆
+        in: query
+        name: pageSize
+        type: integer
+      - description: 頁數
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.CompanyType'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢CompanyType列表
+      tags:
+      - CompanyType
+    post:
+      consumes:
+      - application/json
+      description: 建立CompanyType
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CompanyTypeInsertReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "建立成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 建立CompanyType
+      tags:
+      - CompanyType
+  /api/v1/company-type/{id}:
+    get:
+      description: 查詢CompanyType
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.CompanyType'
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢CompanyType
+      tags:
+      - CompanyType
+    put:
+      consumes:
+      - application/json
+      description: 更新CompanyType
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CompanyTypeUpdateReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "更新成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 更新CompanyType
+      tags:
+      - CompanyType
+  /api/v1/currency:
+    delete:
+      description: 刪除Currency
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CurrencyDeleteReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "刪除成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 刪除Currency
+      tags:
+      - Currency
+    get:
+      description: 查詢Currency列表
+      parameters:
+      - description: 每頁幾筆
+        in: query
+        name: pageSize
+        type: integer
+      - description: 頁數
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.Currency'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢Currency列表
+      tags:
+      - Currency
+    post:
+      consumes:
+      - application/json
+      description: 建立Currency
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CurrencyInsertReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "建立成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 建立Currency
+      tags:
+      - Currency
+  /api/v1/currency/{id}:
+    get:
+      description: 查詢Currency
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Currency'
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢Currency
+      tags:
+      - Currency
+    put:
+      consumes:
+      - application/json
+      description: 更新Currency
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CurrencyUpdateReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "更新成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 更新Currency
+      tags:
+      - Currency
+  /api/v1/dashboard/GetSalesByM:
+    get:
+      description: 查詢內容列表
+      parameters:
+      - description: 年份
+        in: query
+        name: year
+        type: string
+      - description: 幣別
+        in: query
+        name: currency
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.GetSalesByMRes'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢內容列表
+      tags:
+      - 內容
+  /api/v1/db/columns/page:
+    get:
+      description: 資料庫表列分頁列表 / database table column page list
+      parameters:
+      - description: tableName / 資料表名稱
+        in: query
+        name: tableName
+        type: string
+      - description: pageSize / 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: pageIndex / 页碼
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: 分頁列表資料 / page list data
+      tags:
+      - 工具 / 生成工具
+  /api/v1/db/tables/page:
+    get:
+      description: 資料庫表分頁列表 / database table page list
+      parameters:
+      - description: tableName / 資料表名稱
+        in: query
+        name: tableName
+        type: string
+      - description: pageSize / 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: pageIndex / 页碼
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: 分頁列表資料 / page list data
+      tags:
+      - 工具 / 生成工具
   /api/v1/dept:
     delete:
       description: 刪除資料
@@ -1421,7 +2549,7 @@ paths:
             $ref: '#/definitions/response.Response'
       security:
       - Bearer: []
-      summary: Menu详情資料
+      summary: Menu詳情資料
       tags:
       - 選單
     put:
@@ -1595,6 +2723,167 @@ paths:
       summary: 取得職稱訊息
       tags:
       - 職稱
+  /api/v1/public/uploadFile:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 取得JSON
+      parameters:
+      - description: type
+        in: query
+        name: type
+        required: true
+        type: string
+      - description: file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: '{"code": -1, "message": "新增失敗"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 上傳圖片
+      tags:
+      - 公共API
+  /api/v1/quote:
+    delete:
+      description: 刪除報價單管理
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.QuoteDeleteReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "刪除成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 刪除報價單管理
+      tags:
+      - 報價單管理
+    get:
+      description: 查詢報價單管理列表
+      parameters:
+      - description: 報價單號
+        in: query
+        name: quoteNumber
+        type: string
+      - description: 公司流水號
+        in: query
+        name: companyTypeId
+        type: string
+      - description: 客戶
+        in: query
+        name: accountId
+        type: string
+      - description: 每頁幾筆
+        in: query
+        name: pageSize
+        type: integer
+      - description: 頁數
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/response.Page'
+                  - properties:
+                      list:
+                        items:
+                          $ref: '#/definitions/models.Quote'
+                        type: array
+                    type: object
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢報價單管理列表
+      tags:
+      - 報價單管理
+    post:
+      consumes:
+      - application/json
+      description: 建立報價單管理
+      parameters:
+      - description: data
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.QuoteInsertReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "建立成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 建立報價單管理
+      tags:
+      - 報價單管理
+  /api/v1/quote/{id}:
+    get:
+      description: 查詢報價單管理
+      parameters:
+      - description: id
+        in: path
+        name: id
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Quote'
+              type: object
+      security:
+      - Bearer: []
+      summary: 查詢報價單管理
+      tags:
+      - 報價單管理
+    put:
+      consumes:
+      - application/json
+      description: 更新報價單管理
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/dto.QuoteUpdateReq'
+      responses:
+        "200":
+          description: '{"code": 200, "message": "更新成功"}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 更新報價單管理
+      tags:
+      - 報價單管理
   /api/v1/role:
     delete:
       description: 刪除資料
@@ -1730,6 +3019,19 @@ paths:
       summary: 更新User角色
       tags:
       - 角色/Role
+  /api/v1/server-monitor:
+    get:
+      description: 取得JSON
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 系統訊息
+      tags:
+      - 系統訊息
   /api/v1/set-config:
     get:
       consumes:
@@ -1834,7 +3136,7 @@ paths:
                   - properties:
                       list:
                         items:
-                          $ref: '#/definitions/models.SysApi'
+                          $ref: '#/definitions/go-admin_app_admin_models.SysApi'
                         type: array
                     type: object
               type: object
@@ -1859,7 +3161,7 @@ paths:
             - $ref: '#/definitions/response.Response'
             - properties:
                 data:
-                  $ref: '#/definitions/models.SysApi'
+                  $ref: '#/definitions/go-admin_app_admin_models.SysApi'
               type: object
       security:
       - Bearer: []
@@ -1948,7 +3250,7 @@ paths:
                   - properties:
                       list:
                         items:
-                          $ref: '#/definitions/models.SysApi'
+                          $ref: '#/definitions/go-admin_app_admin_models.SysApi'
                         type: array
                     type: object
               type: object
@@ -2277,6 +3579,106 @@ paths:
       summary: 更新User資料
       tags:
       - User
+  /api/v1/sys/tables/info:
+    post:
+      consumes:
+      - application/json
+      description: 新增表結構
+      parameters:
+      - description: tableName / 資料表名稱
+        in: query
+        name: tables
+        type: string
+      responses:
+        "200":
+          description: '{"code": -1, "message": "新增失敗"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 新增表結構
+      tags:
+      - 工具 / 生成工具
+    put:
+      consumes:
+      - application/json
+      description: 更新表結構
+      parameters:
+      - description: body
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/tools.SysTables'
+      responses:
+        "200":
+          description: '{"code": -1, "message": "新增失敗"}'
+          schema:
+            type: string
+      security:
+      - Bearer: []
+      summary: 更新表結構
+      tags:
+      - 工具 / 生成工具
+  /api/v1/sys/tables/info/{tableId}:
+    delete:
+      description: 刪除表結構
+      parameters:
+      - description: tableId
+        in: path
+        name: tableId
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": -1, "message": "刪除失敗"}'
+          schema:
+            type: string
+      summary: 刪除表結構
+      tags:
+      - 工具 / 生成工具
+    get:
+      description: 取得JSON
+      parameters:
+      - description: configKey
+        in: path
+        name: configKey
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - Bearer: []
+      summary: 取得配置
+      tags:
+      - 工具 / 生成工具
+  /api/v1/sys/tables/page:
+    get:
+      description: 生成表分頁列表
+      parameters:
+      - description: tableName / 資料表名稱
+        in: query
+        name: tableName
+        type: string
+      - description: pageSize / 页条数
+        in: query
+        name: pageSize
+        type: integer
+      - description: pageIndex / 页碼
+        in: query
+        name: pageIndex
+        type: integer
+      responses:
+        "200":
+          description: '{"code": 200, "data": [...]}'
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: 分頁列表資料
+      tags:
+      - 工具 / 生成工具
   /api/v1/user/avatar:
     post:
       consumes:
@@ -2390,4 +3792,9 @@ paths:
       security:
       - Bearer: []
       summary: 登出
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

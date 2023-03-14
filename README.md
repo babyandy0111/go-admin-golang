@@ -42,10 +42,9 @@
 ├── common                  # 共用func
 ├── config                  # 該project 所使用的config
 ├── docs                    # api doc 放置位置
-├── scripts                 # 部署時使用著腳本
 ├── static                  # 透過api上傳檔案時所放的靜態目錄
 ├── temp                    # log file
-├── template                
+├── template                # 產生code使用
 ├── docker-compose.yml
 ├── Dockerfile
 ├── Makefile

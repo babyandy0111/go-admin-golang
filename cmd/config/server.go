@@ -15,7 +15,7 @@ var (
 	StartCmd  = &cobra.Command{
 		Use:     "config",
 		Short:   "Get Application config info",
-		Example: "go-admin config -c config/settings.yml",
+		Example: "go-admin config -c config/dev.settings.yml",
 		Run: func(cmd *cobra.Command, args []string) {
 			run()
 		},
@@ -23,7 +23,7 @@ var (
 )
 
 func init() {
-	StartCmd.PersistentFlags().StringVarP(&configYml, "config", "c", "config/settings.yml", "Start server with provided configuration file")
+	StartCmd.PersistentFlags().StringVarP(&configYml, "config", "c", "config/dev.settings.yml", "Start server with provided configuration file")
 }
 
 func run() {

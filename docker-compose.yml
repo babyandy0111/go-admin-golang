@@ -1,19 +1,31 @@
-version: '3.8'
+version: "3"
 services:
+  mysql:
+    image: mariadb:10.7
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf:ro
+      - ./mysql/data/:/var/lib/mysql/:rw
+      - ./mysql/log/:/var/log/dnmp/:rw
+    networks:
+      - net-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
   go-admin-api:
+    build: "./"
     container_name: go-admin
     image: go-admin:latest
-    privileged: true
-    restart: always
+    depends_on:
+      - mysql
     ports:
       - 8000:8000
-    volumes:
-      - ./config/:/go-admin-api/config/
-      - ./static/:/go-admin-api/static/
-      - ./temp/:/go-admin-api/temp/
     networks:
-      - myweb
+      - net-mysql
 networks:
-  myweb:
-    driver: bridge
-
+  net-mysql:

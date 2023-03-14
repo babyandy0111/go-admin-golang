@@ -30,12 +30,12 @@ type File struct {
 	api.Api
 }
 
-// UploadFile 上傳图片
-// @Summary 上傳图片
+// UploadFile 上傳圖片
+// @Summary 上傳圖片
 // @Description 取得JSON
 // @Tags 公共API
 // @Accept multipart/form-data
-// @Param type query string true "type" (1：单图，2：多图, 3：base64图片)
+// @Param type query string true "type" (1：单图，2：多图, 3：base64圖片)
 // @Param file formData file true "file"
 // @Success 200 {string} string	"{"code": 200, "message": "新增成功"}"
 // @Success 200 {string} string	"{"code": -1, "message": "新增失敗"}"
@@ -150,7 +150,7 @@ func (e File) singleFile(c *gin.Context, fileResponse FileResponse, urlPerfix st
 	files, err := c.FormFile("file")
 
 	if err != nil {
-		e.Error(200, errors.New(""), "图片不能為空")
+		e.Error(200, errors.New(""), "圖片不能為空")
 		return FileResponse{}, true
 	}
 	// 上傳文件至指定目录
